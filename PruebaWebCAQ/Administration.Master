@@ -1,0 +1,105 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Administration.master.cs" Inherits="PruebaWebCAQ.Administration1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Admin</title>
+    
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- Header -->
+        <div id="header">
+            <div id="headerContent">
+                <div id="titlePage">
+                    <h1>Administración de Contenido</h1>
+                </div>
+                <div id="welcomeUser">                    
+                </div>
+            </div>
+        </div>
+        <!-- Administration content -->
+        <div id="AdminContent">
+            <div id="leftColumn">
+                <div class="sidemenu_wrap swpLeftPos">
+                    <div class="sidemenu_button sidemenu_button_icon"></div>
+                    <div class="menuTranform">
+                        <div class="sc_scroll scroll-container sidemenu_scroll" id="sidemenu_scroll">
+                            <div class="sc_scroll_wrapper">
+                                <div class="sc_scroll_slide">
+                                    <div class="logo with_text">                                        
+                                            <span class="logo_text">Bienvenido: </span><asp:Label ID="userlogged" class="logo_text" runat="server" Text=" "></asp:Label>
+                                            <a href="Login.aspx" class="logo_slogan">Configuración de la administración</a>                                        
+                                    </div>
+                                    <!-- Menu -->
+                                    <nav class="sidemenu_area">
+                                        <ul id="sidemenu" class="">
+                                            <li class="">
+                                                <a href="AdminEvent.aspx">Eventos o Publicaciones</a>                                                
+                                            </li>
+                                            <li class="">
+                                                <a href="AdminTeam.aspx">Personal</a>                                                
+                                            </li>
+                                            <li class="">
+                                                <a href="AdminChrono.aspx">Cronogramas</a>                                               
+                                            </li>
+                                            <li class="">
+                                                <a href="AdminSchedule.aspx">Horarios</a>                                               
+                                            </li>
+                                            <li class="">
+                                                <a href="AdminRequest.aspx">Solicitudes o Correos</a>
+                                            </li>
+                                            <li class="">
+                                                <a href="AdminSchedule.aspx">Item2</a>
+                                            </li>
+                                            <li class="">
+                                                <a href="Configuration.aspx">Configuración</a>
+                                            </li>
+                                            <li class="" >
+                                                <a href="Login.aspx">Cerrar Sesión</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                    <div class="sidemenu_close">x</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <asp:ContentPlaceHolder ID="leftMenu" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div id="centerColumn">
+                <asp:ContentPlaceHolder ID="centerAdministration" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div id="footer">
+                <span>Colegio Ing. Alejandro Quesada Ramirez</span>
+            </div>
+        </div>
+    </form>
+    <script src="Resources/js/vendor/jquery-1.11.3.min.js"></script>
+    <script src="Resources/js/vendor/bootstrap.min.js"></script>
+    <script src="Resources/js/vendor/jquery.ui.totop.js"></script>
+
+    <!--<script src="custom_tools/js/customizer.js"></script>-->
+
+    <script type="text/javascript" src="Resources/js/main/__packed.js"></script>
+    <script type="text/javascript" src="Resources/js/main/shortcodes_init.min.js"></script>
+    <script type="text/javascript" src="Resources/js/main/_main.js"></script>
+    <script src="Resources/js/vendor/jquery.elevateZoom-3.0.8.min.js"></script>   
+    <link rel="stylesheet" href="Resources/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="Resources/css/fonts.css" />
+    <link rel="stylesheet" href="Resources/css/royalslider.css" />
+    <link rel="stylesheet" id="packed-styles-css" href="Resources/css/__packed.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="Resources/css/main_style.css" />
+    <link rel="stylesheet" id="theme-skin-css" href="Resources/css/kinder.css" type="text/css" media="all" />
+    <style id="theme-skin-inline-css" type="text/css"></style>
+    <link rel="stylesheet" id="responsive-css" href="Resources/css/responsive.css" type="text/css" media="all" />
+</body>
+</html>

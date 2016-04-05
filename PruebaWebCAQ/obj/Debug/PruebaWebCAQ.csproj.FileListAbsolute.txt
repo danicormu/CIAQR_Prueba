@@ -1,0 +1,40 @@
+c:\users\mayron  corrales\documents\visual studio 2015\Projects\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\csc.exe
+c:\users\mayron  corrales\documents\visual studio 2015\Projects\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\mayron  corrales\documents\visual studio 2015\Projects\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\mayron  corrales\documents\visual studio 2015\Projects\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\mayron  corrales\documents\visual studio 2015\Projects\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\mayron  corrales\documents\visual studio 2015\Projects\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\mayron  corrales\documents\visual studio 2015\Projects\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\mayron  corrales\documents\visual studio 2015\Projects\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\System.Collections.Immutable.dll
+c:\users\mayron  corrales\documents\visual studio 2015\Projects\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\mayron  corrales\documents\visual studio 2015\Projects\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\vbc.exe
+c:\users\mayron  corrales\documents\visual studio 2015\Projects\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\VBCSCompiler.exe
+c:\users\mayron  corrales\documents\visual studio 2015\Projects\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\VBCSCompiler.exe.config
+c:\users\mayron  corrales\documents\visual studio 2015\Projects\PruebaWebCAQ\PruebaWebCAQ\bin\PruebaWebCAQ.dll.config
+c:\users\mayron  corrales\documents\visual studio 2015\Projects\PruebaWebCAQ\PruebaWebCAQ\bin\PruebaWebCAQ.dll
+c:\users\mayron  corrales\documents\visual studio 2015\Projects\PruebaWebCAQ\PruebaWebCAQ\bin\PruebaWebCAQ.pdb
+c:\users\mayron  corrales\documents\visual studio 2015\Projects\PruebaWebCAQ\PruebaWebCAQ\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\mayron  corrales\documents\visual studio 2015\Projects\PruebaWebCAQ\PruebaWebCAQ\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\mayron  corrales\documents\visual studio 2015\Projects\PruebaWebCAQ\PruebaWebCAQ\obj\Debug\PruebaWebCAQ.csprojResolveAssemblyReference.cache
+c:\users\mayron  corrales\documents\visual studio 2015\Projects\PruebaWebCAQ\PruebaWebCAQ\obj\Debug\PruebaWebCAQ.dll
+c:\users\mayron  corrales\documents\visual studio 2015\Projects\PruebaWebCAQ\PruebaWebCAQ\obj\Debug\PruebaWebCAQ.pdb
+C:\Users\Daniel\Documents\VersionPrueba\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\csc.exe
+C:\Users\Daniel\Documents\VersionPrueba\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Daniel\Documents\VersionPrueba\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Daniel\Documents\VersionPrueba\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Daniel\Documents\VersionPrueba\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Daniel\Documents\VersionPrueba\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Daniel\Documents\VersionPrueba\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Daniel\Documents\VersionPrueba\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Daniel\Documents\VersionPrueba\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Daniel\Documents\VersionPrueba\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\vbc.exe
+C:\Users\Daniel\Documents\VersionPrueba\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\VBCSCompiler.exe
+C:\Users\Daniel\Documents\VersionPrueba\PruebaWebCAQ\PruebaWebCAQ\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Daniel\Documents\VersionPrueba\PruebaWebCAQ\PruebaWebCAQ\bin\PruebaWebCAQ.dll.config
+C:\Users\Daniel\Documents\VersionPrueba\PruebaWebCAQ\PruebaWebCAQ\bin\PruebaWebCAQ.dll
+C:\Users\Daniel\Documents\VersionPrueba\PruebaWebCAQ\PruebaWebCAQ\bin\PruebaWebCAQ.pdb
+C:\Users\Daniel\Documents\VersionPrueba\PruebaWebCAQ\PruebaWebCAQ\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Daniel\Documents\VersionPrueba\PruebaWebCAQ\PruebaWebCAQ\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Daniel\Documents\VersionPrueba\PruebaWebCAQ\PruebaWebCAQ\obj\Debug\PruebaWebCAQ.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Documents\VersionPrueba\PruebaWebCAQ\PruebaWebCAQ\obj\Debug\PruebaWebCAQ.dll
+C:\Users\Daniel\Documents\VersionPrueba\PruebaWebCAQ\PruebaWebCAQ\obj\Debug\PruebaWebCAQ.pdb
