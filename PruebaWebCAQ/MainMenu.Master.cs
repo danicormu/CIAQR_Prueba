@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using PruebaWebCAQ.Business;
 using PruebaWebCAQ.Domain;
@@ -13,6 +12,11 @@ namespace PruebaWebCAQ
         Groupbusiness group = new Groupbusiness();
         private List<Group> list;
         public string groupName;
+        private int i = 0;
+        private int j = 0;
+        private int c = 0;
+        private int a = 0;
+        private int b = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,7 +25,6 @@ namespace PruebaWebCAQ
             loadNinth();
             loadTenth();
             loadEleventh();
-            
         }
 
         private void loadSeventh()
@@ -30,8 +33,8 @@ namespace PruebaWebCAQ
             List<string> sublist = new List<string>();
             foreach (var element in list)
                 sublist.Add(element.GroupName);
-            listViewforSeventh.DataSource = sublist;
-            listViewforSeventh.DataBind();
+            seventhRepeater.DataSource = sublist;
+            seventhRepeater.DataBind();
         }
 
         private void loadEight()
@@ -40,8 +43,8 @@ namespace PruebaWebCAQ
             List<string> sublist = new List<string>();
             foreach (var element in list)
                 sublist.Add(element.GroupName);
-            listViewforEight.DataSource = sublist;
-            listViewforEight.DataBind();
+            eightRepeater.DataSource = sublist;
+            eightRepeater.DataBind();
         }
 
         private void loadNinth()
@@ -50,8 +53,8 @@ namespace PruebaWebCAQ
             List<string> sublist = new List<string>();
             foreach (var element in list)
                 sublist.Add(element.GroupName);
-            listViewforNinth.DataSource = sublist;
-            listViewforNinth.DataBind();
+            ninthRepeater.DataSource = sublist;
+            ninthRepeater.DataBind();
         }
 
         private void loadTenth()
@@ -60,8 +63,8 @@ namespace PruebaWebCAQ
             List<string> sublist = new List<string>();
             foreach (var element in list)
                 sublist.Add(element.GroupName);
-            listViewforTenth.DataSource = sublist;
-            listViewforTenth.DataBind();
+            tenthRepeater.DataSource = sublist;
+            tenthRepeater.DataBind();
         }
 
         private void loadEleventh()
@@ -70,14 +73,108 @@ namespace PruebaWebCAQ
             List<string> sublist = new List<string>();
             foreach (var element in list)
                 sublist.Add(element.GroupName);
-            listViewforEleventh.DataSource = sublist;
-            listViewforEleventh.DataBind();
+            eleventhRepeater.DataSource = sublist;
+            eleventhRepeater.DataBind();
         }
 
-        protected void linkForEleven_ServerClick(object sender, EventArgs e)
+        protected void eleventhRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            ListViewDataItem item = (ListViewDataItem)listViewforEleventh.Items;
-            groupName = listViewforEleventh.DataKeys[item.DataItemIndex].Value.ToString();
+            if (e.CommandName.Equals("select"))
+            {
+                LinkButton button = (LinkButton)e.Item.FindControl("groupLabel");
+                groupName = button.Text;
+                Response.Redirect("ViewSchedule.aspx?value=" + groupName);
+            }
+        }
+
+        protected void eleventhRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                LinkButton button = (LinkButton)e.Item.FindControl("groupLabel");
+                button.Text = list.ElementAt(i).GroupName;
+                i++;
+            }
+        }
+
+        protected void tenthRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName.Equals("select"))
+            {
+                LinkButton button = (LinkButton)e.Item.FindControl("groupLabel");
+                groupName = button.Text;
+                Response.Redirect("ViewSchedule.aspx?value="+groupName);
+            }
+        }
+
+        protected void tenthRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                LinkButton button = (LinkButton)e.Item.FindControl("groupLabel");
+                button.Text = list.ElementAt(j).GroupName;
+                j++;
+            }
+        }
+
+        protected void ninthRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName.Equals("select"))
+            {
+                LinkButton button = (LinkButton)e.Item.FindControl("groupLabel");
+                groupName = button.Text;
+                Response.Redirect("ViewSchedule.aspx?value=" + groupName);
+            }
+        }
+
+        protected void ninthRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                LinkButton button = (LinkButton)e.Item.FindControl("groupLabel");
+                button.Text = list.ElementAt(c).GroupName;
+                c++;
+            }
+        }
+
+        protected void eightRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName.Equals("select"))
+            {
+                LinkButton button = (LinkButton)e.Item.FindControl("groupLabel");
+                groupName = button.Text;
+                Response.Redirect("ViewSchedule.aspx?value=" + groupName);
+            }
+        }
+
+        protected void eightRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                LinkButton button = (LinkButton)e.Item.FindControl("groupLabel");
+                button.Text = list.ElementAt(a).GroupName;
+                a++;
+            }
+        }
+
+        protected void seventhRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName.Equals("select"))
+            {
+                LinkButton button = (LinkButton)e.Item.FindControl("groupLabel");
+                groupName = button.Text;
+                Response.Redirect("ViewSchedule.aspx?value=" + groupName);
+            }
+        }
+
+        protected void seventhRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                LinkButton button = (LinkButton)e.Item.FindControl("groupLabel");
+                button.Text = list.ElementAt(b).GroupName;
+                b++;
+            }
         }
     }
 }

@@ -18,7 +18,7 @@ namespace PruebaWebCAQ.Data
                 SqlDataReader reader = query.ExecuteReader();
                 while (reader.Read())
                 {
-                    Schedule schedule = new Schedule(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt32(4));
+                    Schedule schedule = new Schedule(reader.GetString(0), reader.GetString(1), reader.GetInt32(4));
                     list.Add(schedule);
                 }
                 reader.Close();
@@ -41,10 +41,8 @@ namespace PruebaWebCAQ.Data
             try
             {
                 connectDB();
-                SqlCommand query = new SqlCommand("Insert into horario values(@day,@start,@end,@groupID,@level);", conn);
+                SqlCommand query = new SqlCommand("Insert into horario values(@day,@groupID,@level);", conn);
                 query.Parameters.AddWithValue("@day", schedule.Day);
-                query.Parameters.AddWithValue("@start", schedule.StartTime);
-                query.Parameters.AddWithValue("@end", schedule.EndTime);
                 query.Parameters.AddWithValue("@groupID", schedule.GroupId);
                 query.Parameters.AddWithValue("@level", schedule.LevelId);
                 conn.Open();
@@ -69,10 +67,8 @@ namespace PruebaWebCAQ.Data
             try
             {
                 connectDB();
-                SqlCommand query = new SqlCommand("update horario set dia = @day, horaInicio= @start, horaFinal=@end where grupo_idGrupo= @groupId and grupo_nivel_idNivel = @level and idHorario = @id;", conn);
+                SqlCommand query = new SqlCommand("update horario set dia = @day where grupo_idGrupo= @groupId and grupo_nivel_idNivel = @level and idHorario = @id;", conn);
                 query.Parameters.AddWithValue("@day", schedule.Day);
-                query.Parameters.AddWithValue("@start", schedule.StartTime);
-                query.Parameters.AddWithValue("@end", schedule.EndTime);
                 query.Parameters.AddWithValue("@groupID", schedule.GroupId);
                 query.Parameters.AddWithValue("@level", schedule.LevelId);
                 query.Parameters.AddWithValue("@id", schedule.ScheduleId);

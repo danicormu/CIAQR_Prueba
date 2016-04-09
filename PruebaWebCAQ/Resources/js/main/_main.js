@@ -43,11 +43,11 @@ var THEMEREX_slider_height = 500;
 
 // Sound Manager
 var THEMEREX_sound_enable = true;
-var THEMEREX_sound_folder = 'sounds/';
-var THEMEREX_sound_mainmenu = 'sounds/l9.mp3';
-var THEMEREX_sound_othermenu = 'sounds/l2.mp3';
-var THEMEREX_sound_buttons = 'sounds/mouseover3.mp3';
-var THEMEREX_sound_links = 'sounds/l6.mp3';
+var THEMEREX_sound_folder = 'Resources/sounds/';
+var THEMEREX_sound_mainmenu = 'Resources/sounds/l9.mp3';
+var THEMEREX_sound_othermenu = 'Resources/sounds/l2.mp3';
+var THEMEREX_sound_buttons = 'Resources/sounds/mouseover3.mp3';
+var THEMEREX_sound_links = 'Resources/sounds/l6.mp3';
 var THEMEREX_sound_state = {
     all: THEMEREX_sound_enable ? 1 : 0,
     mainmenu: 0,

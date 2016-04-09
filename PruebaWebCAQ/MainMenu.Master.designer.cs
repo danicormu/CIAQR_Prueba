@@ -40,13 +40,13 @@ namespace PruebaWebCAQ {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl seventhList;
         
         /// <summary>
-        /// Control listViewforSeventh.
+        /// Control seventhRepeater.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView listViewforSeventh;
+        protected global::System.Web.UI.WebControls.Repeater seventhRepeater;
         
         /// <summary>
         /// Control eightList.
@@ -58,13 +58,13 @@ namespace PruebaWebCAQ {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl eightList;
         
         /// <summary>
-        /// Control listViewforEight.
+        /// Control eightRepeater.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView listViewforEight;
+        protected global::System.Web.UI.WebControls.Repeater eightRepeater;
         
         /// <summary>
         /// Control ninthList.
@@ -76,13 +76,13 @@ namespace PruebaWebCAQ {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ninthList;
         
         /// <summary>
-        /// Control listViewforNinth.
+        /// Control ninthRepeater.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView listViewforNinth;
+        protected global::System.Web.UI.WebControls.Repeater ninthRepeater;
         
         /// <summary>
         /// Control tenthList.
@@ -94,13 +94,13 @@ namespace PruebaWebCAQ {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tenthList;
         
         /// <summary>
-        /// Control listViewforTenth.
+        /// Control tenthRepeater.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView listViewforTenth;
+        protected global::System.Web.UI.WebControls.Repeater tenthRepeater;
         
         /// <summary>
         /// Control eleventhList.
@@ -112,13 +112,13 @@ namespace PruebaWebCAQ {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl eleventhList;
         
         /// <summary>
-        /// Control listViewforEleventh.
+        /// Control eleventhRepeater.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView listViewforEleventh;
+        protected global::System.Web.UI.WebControls.Repeater eleventhRepeater;
         
         /// <summary>
         /// Control ContentPlaceHolder1.

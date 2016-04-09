@@ -10,8 +10,10 @@ namespace PruebaWebCAQ.Domain
         private string professor;
         private string grupoId;
         private int levelId;
+        private string startTime;
+        private string endTime;
 
-        public Signature(int signatureId, string name, string day, string professor, string grupoId, int levelId)
+        public Signature(int signatureId, string name, string day, string professor, string grupoId, int levelId, string startTime, string endTime)
         {
             this.signatureId = signatureId;
             this.name = name;
@@ -19,15 +21,19 @@ namespace PruebaWebCAQ.Domain
             this.professor = professor;
             this.grupoId = grupoId;
             this.levelId = levelId;
+            this.startTime = startTime;
+            this.endTime = endTime;
         }
 
-        public Signature(string name, string day, string professor, string grupoId, int levelId)
+        public Signature(string name, string day, string professor, string grupoId, int levelId, string startTime, string endTime)
         {
             this.name = name;
             this.day = day;
             this.professor = professor;
             this.grupoId = grupoId;
             this.levelId = levelId;
+            this.startTime = startTime;
+            this.endTime = endTime;
         }
 
         public int SignatureId
@@ -105,6 +111,32 @@ namespace PruebaWebCAQ.Domain
             set
             {
                 day = value;
+            }
+        }
+
+        public string StartTime
+        {
+            get
+            {
+                return startTime;
+            }
+
+            set
+            {
+                startTime = value;
+            }
+        }
+
+        public string EndTime
+        {
+            get
+            {
+                return endTime;
+            }
+
+            set
+            {
+                endTime = value;
             }
         }
     }

@@ -13,6 +13,11 @@ namespace PruebaWebCAQ.Business
             return data.getSignatures();
         }
 
+        public List<Signature> getSignatureByGrupoIDService(string name, string day)
+        {
+            return data.getSignaturesByGroupId(name, day);
+        }
+
         public string createSignatureService(Signature signature)
         {
             string success = "";

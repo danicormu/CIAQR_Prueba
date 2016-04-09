@@ -165,51 +165,51 @@
                                                     <li class="menu-item menu-item-has-children">
                                                         <a href="#" class="sf-with-ul">Séptimo</a>
                                                         <ul runat="server" id="seventhList" class="sub-menu">
-                                                            <asp:ListView ID="listViewforSeventh" runat="server">
+                                                            <asp:Repeater runat="server" ID="seventhRepeater" OnItemCommand="seventhRepeater_ItemCommand" OnItemDataBound="seventhRepeater_ItemDataBound">
                                                                 <ItemTemplate>
-                                                                    <a href="ViewSchedule.aspx"> <asp:Label ID="SeventGroupLabel" runat="server" Text="<%#Container.DataItem %>"></asp:Label> </a>
+                                                                    <asp:LinkButton runat="server" ID="groupLabel" CommandName="select"></asp:LinkButton>
                                                                 </ItemTemplate>
-                                                            </asp:ListView>
+                                                            </asp:Repeater>
                                                         </ul>
                                                     </li>
                                                     <li class="menu-item menu-item-has-children">
                                                         <a href="#" class="sf-with-ul">Octavo</a>
                                                         <ul runat="server" id="eightList" class="sub-menu">
-                                                            <asp:ListView ID="listViewforEight" runat="server">
+                                                            <asp:Repeater runat="server" ID="eightRepeater" OnItemCommand="eightRepeater_ItemCommand" OnItemDataBound="eightRepeater_ItemDataBound">
                                                                 <ItemTemplate>
-                                                                    <a href="ViewSchedule.aspx"> <asp:Label ID="EightGroupLabel" runat="server" Text="<%#Container.DataItem %>"></asp:Label> </a>
+                                                                    <asp:LinkButton runat="server" ID="groupLabel" CommandName="select"></asp:LinkButton>
                                                                 </ItemTemplate>
-                                                            </asp:ListView>
+                                                            </asp:Repeater>
                                                         </ul>
                                                     </li>
                                                     <li class="menu-item menu-item-has-children">
                                                         <a href="#" class="sf-with-ul">Noveno</a>
                                                         <ul runat="server" id="ninthList" class="sub-menu">
-                                                            <asp:ListView ID="listViewforNinth" runat="server">
+                                                            <asp:Repeater runat="server" ID="ninthRepeater" OnItemCommand="ninthRepeater_ItemCommand" OnItemDataBound="ninthRepeater_ItemDataBound">
                                                                 <ItemTemplate>
-                                                                    <a href="ViewSchedule.aspx"> <asp:Label ID="NinthGroupLabel" runat="server" Text="<%#Container.DataItem %>"></asp:Label> </a>
+                                                                    <asp:LinkButton runat="server" ID="groupLabel" CommandName="select"></asp:LinkButton>
                                                                 </ItemTemplate>
-                                                            </asp:ListView>
+                                                            </asp:Repeater>
                                                         </ul>
                                                     </li>
                                                     <li class="menu-item menu-item-has-children">
                                                         <a href="#" class="sf-with-ul">Decimo</a>
                                                         <ul runat="server" id="tenthList" class="sub-menu">
-                                                            <asp:ListView ID="listViewforTenth" runat="server">
+                                                           <asp:Repeater runat="server" ID="tenthRepeater" OnItemCommand="tenthRepeater_ItemCommand" OnItemDataBound="tenthRepeater_ItemDataBound">
                                                                 <ItemTemplate>
-                                                                    <a href="ViewSchedule.aspx"> <asp:Label ID="tenthGroupLabel" runat="server" Text="<%#Container.DataItem %>"></asp:Label> </a>
+                                                                    <asp:LinkButton runat="server" ID="groupLabel" CommandName="select"></asp:LinkButton>
                                                                 </ItemTemplate>
-                                                            </asp:ListView>
+                                                            </asp:Repeater>
                                                         </ul>
                                                     </li>
                                                     <li class="menu-item menu-item-has-children">
                                                         <a href="#" class="sf-with-ul">Undécimo</a>
                                                         <ul runat="server" id="eleventhList" class="sub-menu">
-                                                            <asp:ListView ID="listViewforEleventh" runat="server">
+                                                            <asp:Repeater runat="server" ID="eleventhRepeater" OnItemCommand="eleventhRepeater_ItemCommand" OnItemDataBound="eleventhRepeater_ItemDataBound">
                                                                 <ItemTemplate>
-                                                                    <a onserverclick="linkForEleven_ServerClick" runat="server" id="linkForEleven" href="ViewSchedule.aspx"> <asp:Label ID="eleventhGroupLabel" runat="server" Text="<%#Container.DataItem %>"></asp:Label> </a>
+                                                                    <asp:LinkButton runat="server" ID="groupLabel" CommandName="select"></asp:LinkButton>
                                                                 </ItemTemplate>
-                                                            </asp:ListView>
+                                                            </asp:Repeater>
                                                         </ul>
                                                     </li>
                                                 </ul>
