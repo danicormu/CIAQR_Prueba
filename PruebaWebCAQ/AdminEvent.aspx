@@ -19,38 +19,39 @@
                                         <div class="col-sm-12">
                                             <div class="sc_contact_form sc_contact_form_contact">
                                                 <div class="columnsWrap">
-                                                      <div class="col-sm-7">
-                                                        <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">
-                                                    <a href="#" class="">Crear</a>
-                                                </div>
-                                                <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">
-                                                    <a href="#" class="">Cancelar</a>
-                                                </div>
-                                                <div class="sc_button sc_button_style_dark sc_button_size_medium squareButton dark medium">
-                                                    <a href="#" class="">Cargar Imagen..</a>
-                                                </div>
-                                                    </div>
                                                     <div class="col-sm-7">
-                                                        <input required="required" runat="server" id="eventName" width="70%" type="text" placeholder="Nombre del Evento" />
+                                                        <asp:TextBox ID="eventName_txt" runat="server" placeholder="Nombre del Evento" Width="70%"></asp:TextBox>
                                                         <br />
                                                         <br />
-                                                        <input required="required" runat="server" id="eventDate" width="70%" type="text" placeholder="Fecha" />
+                                                        <asp:TextBox ID="eventDate_txt" runat="server" placeholder="Fecha" Width="50%"></asp:TextBox>
                                                         <br />
                                                         <br />
-                                                        <input required="required" runat="server" id="typeEvent" width="70%" type="text" placeholder="Tipo de Evento" />
+                                                        <asp:TextBox ID="eventType_txt" runat="server" placeholder="Tipo de Evento" Width="50%"></asp:TextBox>
                                                         <br />
                                                         <br />
-                                                        <textarea required="required" runat="server" id="descEvent" width="70%" rows="10" class="textAreaSize" placeholder="Descripción del Evento"></textarea>
+                                                        <asp:TextBox ID="eventDesc_txt" runat="server" placeholder="Descripción..." TextMode="MultiLine" Rows="10" Height="75px" Width="90%" />
                                                     </div>
-                                                  
-                                                </div></div>
+                                                   
+                                                    <div class="col-sm-7">
+                                                        <div class="sc_button sc_button_style_light sc_button_size_huge squareButton light huge">
+                                                            <!-- <a href="#" class="">Crear</a> -->
+                                                            <asp:Button runat="server" ID="createEvent" Text="Crear" />
+                                                        </div>
+                                                        <div class="sc_button sc_button_style_light sc_button_size_huge squareButton light huge">
+                                                            <!-- <a href="#" class="">Cancelar</a> -->
+                                                            <asp:Button runat="server" ID="cancelCrEvent" Text="Cancelar" />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
                                         </div>
 
                                     </div>
                                 </article>
                                 <article class="hrShadow post">
                                     <h2 class="margin_top_small">Eventos</h2>
-                                    <div class="sc_section sc_alignleft col-sm-6 margin_bottom_small">
+                                    <div class="sc_section sc_alignleft col-sm-table margin_bottom_small">
                                         <div class="sc_table sc_table_style_1 sc_table_size_big">
                                             <table>
                                                 <tbody>
@@ -60,28 +61,22 @@
                                                         <th>Fecha</th>
                                                         <th>Tipo</th>
                                                         <th>Descripción</th>
-                                                        <th>Conf.</th>
+                                                        <th>Edición</th>
                                                     </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Carrera de Sacos</td>
-                                                        <td>22 Feb.</td>
-                                                        <td>Evento dep.</td>
-                                                        <td>Participan solo estudiantes de la institucion</td>
-                                                        <td>
-                                                            <button>Editar</button>
-                                                            <button>Eliminar</button></td>
-                                                    </tr>
-                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>Deletreo</td>
-                                                        <td>13 Nov.</td>
-                                                        <td>Educativo</td>
-                                                        <td>Estudiantes de otras instituciones</td>
-                                                        <td>
-                                                            <button>Editar</button>
-                                                            <button>Eliminar</button></td>
-                                                    </tr>
+                                                    <asp:Repeater ID="makeEventRepeater" runat="server">
+                                                        <ItemTemplate>                                                           
+                                                                <tr runat="server" id="tableRow" class="sc_table_grey">
+                                                                    <td><asp:Label runat="server" ID="asIdEvent" Text="1" /></td>
+                                                                    <td><asp:Label runat="server" ID="asNameEvent" Text="Feria" /></td>
+                                                                    <td><asp:Label runat="server" ID="asDateEvent" Text="Martes 23 de Marzo" /></td>
+                                                                    <td><asp:Label runat="server" ID="asTypeEvent" Text="Evento deportivo" /></td>
+                                                                    <td><asp:Label runat="server" ID="asDescEvent" Text="ksksksksssk" /></td>
+                                                                    <td><asp:Button runat="server" ID="Button1" Text="Editar" />
+                                                                        <asp:Button runat="server" ID="Button2" Text="Eliminar" />
+                                                                    </td>
+                                                                </tr>                                                         
+                                                        </itemtemplate>
+                                                    </asp:Repeater>
                                                 </tbody>
                                             </table>
                                         </div>

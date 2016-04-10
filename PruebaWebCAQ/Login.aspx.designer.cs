@@ -58,21 +58,21 @@ namespace PruebaWebCAQ {
         protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
-        /// Control lblmessage.
+        /// Control lbl_message.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmessage;
+        protected global::System.Web.UI.WebControls.Label lbl_message;
         
         /// <summary>
-        /// Control lblwrite.
+        /// Control lbl_fillspace.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblwrite;
+        protected global::System.Web.UI.WebControls.Label lbl_fillspace;
     }
 }

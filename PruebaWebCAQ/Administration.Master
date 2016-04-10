@@ -14,15 +14,13 @@
 <body>
     <form id="form1" runat="server">
         <!-- Header -->
-        <div id="header">
-            <div id="headerContent">
-                <div id="titlePage">
-                    <h1>Administración de Contenido</h1>
-                </div>
-                <div id="welcomeUser">                    
+      <div id="topOfPage" class="topTabsWrap color_section">
+            <div class="container">
+                <div class="tabsButton">
+                    <h1>Administración de Contenido</h1>                    
                 </div>
             </div>
-        </div>
+        </div> 
         <!-- Administration content -->
         <div id="AdminContent">
             <div id="leftColumn">
@@ -34,11 +32,14 @@
                                 <div class="sc_scroll_slide">
                                     <div class="logo with_text">                                        
                                             <span class="logo_text">Bienvenido: </span><asp:Label ID="userlogged" class="logo_text" runat="server" Text=" "></asp:Label>
-                                            <a href="Login.aspx" class="logo_slogan">Configuración de la administración</a>                                        
+                                            <a href="Configuration.aspx" class="logo_slogan">Configuración de la administración</a>                                        
                                     </div>
                                     <!-- Menu -->
                                     <nav class="sidemenu_area">
                                         <ul id="sidemenu" class="">
+                                            <li class="">
+                                                <a href="Administration.aspx">Principal</a>                                                
+                                            </li>
                                             <li class="">
                                                 <a href="AdminEvent.aspx">Eventos o Publicaciones</a>                                                
                                             </li>
@@ -50,12 +51,6 @@
                                             </li>
                                             <li class="">
                                                 <a href="AdminSchedule.aspx">Horarios</a>                                               
-                                            </li>
-                                            <li class="">
-                                                <a href="AdminRequest.aspx">Solicitudes o Correos</a>
-                                            </li>
-                                            <li class="">
-                                                <a href="AdminSchedule.aspx">Item2</a>
                                             </li>
                                             <li class="">
                                                 <a href="Configuration.aspx">Configuración</a>
@@ -78,9 +73,17 @@
                 <asp:ContentPlaceHolder ID="centerAdministration" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
-            <div id="footer">
-                <span>Colegio Ing. Alejandro Quesada Ramirez</span>
+        </div>
+        
+        <div class="copyWrap">
+            <div class="container copy">
+                <div class="copyright">
+                    <span>Colegio Ing. Alejandro Quesada Ramirez</span>                               
+                </div>
             </div>
+        </div>
+        <div id="footer">
+            
         </div>
     </form>
     <script src="Resources/js/vendor/jquery-1.11.3.min.js"></script>
@@ -97,8 +100,7 @@
     <link rel="stylesheet" href="Resources/css/fonts.css" />
     <link rel="stylesheet" href="Resources/css/royalslider.css" />
     <link rel="stylesheet" id="packed-styles-css" href="Resources/css/__packed.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="Resources/css/main_style.css" />
-    <link rel="stylesheet" id="theme-skin-css" href="Resources/css/kinder.css" type="text/css" media="all" />
+    <link rel="stylesheet" id="theme-skin-css" href="Resources/css/admin_style.css" type="text/css" media="all"/>
     <style id="theme-skin-inline-css" type="text/css"></style>
     <link rel="stylesheet" id="responsive-css" href="Resources/css/responsive.css" type="text/css" media="all" />
 </body>

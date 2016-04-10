@@ -13,39 +13,66 @@ namespace PruebaWebCAQ {
     public partial class AdminEvent {
         
         /// <summary>
-        /// Control eventName.
+        /// Control eventName_txt.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText eventName;
+        protected global::System.Web.UI.WebControls.TextBox eventName_txt;
         
         /// <summary>
-        /// Control eventDate.
+        /// Control eventDate_txt.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText eventDate;
+        protected global::System.Web.UI.WebControls.TextBox eventDate_txt;
         
         /// <summary>
-        /// Control typeEvent.
+        /// Control eventType_txt.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText typeEvent;
+        protected global::System.Web.UI.WebControls.TextBox eventType_txt;
         
         /// <summary>
-        /// Control descEvent.
+        /// Control eventDesc_txt.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea descEvent;
+        protected global::System.Web.UI.WebControls.TextBox eventDesc_txt;
+        
+        /// <summary>
+        /// Control createEvent.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button createEvent;
+        
+        /// <summary>
+        /// Control cancelCrEvent.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cancelCrEvent;
+        
+        /// <summary>
+        /// Control makeEventRepeater.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater makeEventRepeater;
     }
 }

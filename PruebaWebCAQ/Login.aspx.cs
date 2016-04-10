@@ -22,7 +22,7 @@ namespace PruebaWebCAQ
 
                 if(ans != true)
                 {
-                    lblmessage.Visible = true;
+                    lbl_message.Visible = true;
                 }
                 else
                 {
@@ -31,7 +31,7 @@ namespace PruebaWebCAQ
             }
             else
             {
-                lblmessage.Visible = true;
+                lbl_fillspace.Visible = true;
             }
             
         }

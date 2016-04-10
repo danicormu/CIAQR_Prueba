@@ -13,5 +13,21 @@ namespace PruebaWebCAQ
         {
 
         }
+
+        protected void btnCreateEvent(object sender, EventArgs e)
+        {
+            if(eventName_txt.Text != "" && eventDate_txt.Text != "" &&
+                eventType_txt.Text != "" && eventDesc_txt.Text != "")
+            {
+
+            }
+        }
+        protected void btnClear(object sender, EventArgs e)
+        {
+            eventName_txt.Text = "";
+            eventDate_txt.Text = "";
+            eventType_txt.Text = "";
+            eventDesc_txt.Text = "";
+        }
     }
 }

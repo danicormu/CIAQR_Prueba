@@ -13,39 +13,66 @@ namespace PruebaWebCAQ {
     public partial class AdminTeam {
         
         /// <summary>
-        /// Control personalName.
+        /// Control personName.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText personalName;
+        protected global::System.Web.UI.WebControls.TextBox personName;
         
         /// <summary>
-        /// Control personalSubj.
+        /// Control personSubj.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText personalSubj;
+        protected global::System.Web.UI.WebControls.TextBox personSubj;
         
         /// <summary>
-        /// Control personalRol.
+        /// Control personRol.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText personalRol;
+        protected global::System.Web.UI.WebControls.TextBox personRol;
         
         /// <summary>
-        /// Control personalDescription.
+        /// Control personDescription.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea personalDescription;
+        protected global::System.Web.UI.WebControls.TextBox personDescription;
+        
+        /// <summary>
+        /// Control createPerson.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button createPerson;
+        
+        /// <summary>
+        /// Control cancelPerson.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cancelPerson;
+        
+        /// <summary>
+        /// Control makePersonRepeater.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater makePersonRepeater;
     }
 }

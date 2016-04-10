@@ -13,111 +13,66 @@ namespace PruebaWebCAQ {
     public partial class AdminChrono {
         
         /// <summary>
-        /// Control chronoActivity.
+        /// Control chronActivity.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText chronoActivity;
+        protected global::System.Web.UI.WebControls.TextBox chronActivity;
         
         /// <summary>
-        /// Control ActivityDate.
+        /// Control chronoDate.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText ActivityDate;
+        protected global::System.Web.UI.WebControls.TextBox chronoDate;
         
         /// <summary>
-        /// Control typeActivity.
+        /// Control chTypeActivity.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText typeActivity;
+        protected global::System.Web.UI.WebControls.TextBox chTypeActivity;
         
         /// <summary>
-        /// Control staHour.
+        /// Control chActivityDescription.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText staHour;
+        protected global::System.Web.UI.WebControls.TextBox chActivityDescription;
         
         /// <summary>
-        /// Control endHour.
+        /// Control createEvent.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText endHour;
+        protected global::System.Web.UI.WebControls.Button createEvent;
         
         /// <summary>
-        /// Control activityDescription.
+        /// Control cancelCrEvent.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea activityDescription;
+        protected global::System.Web.UI.WebControls.Button cancelCrEvent;
         
         /// <summary>
-        /// Control Text1.
+        /// Control makeChronogram.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
-        
-        /// <summary>
-        /// Control Text2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text2;
-        
-        /// <summary>
-        /// Control Text3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text3;
-        
-        /// <summary>
-        /// Control Text4.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text4;
-        
-        /// <summary>
-        /// Control Text5.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text5;
-        
-        /// <summary>
-        /// Control Textarea1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea Textarea1;
+        protected global::System.Web.UI.WebControls.Repeater makeChronogram;
     }
 }

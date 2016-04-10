@@ -6,58 +6,50 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="centerAdministration" runat="server">
     <section class="widgetTabs">
-            <div class="mainWrap without_sidebar">
-                <div class="container">
-                    <div class="row content">
-                        <div class="col-sm-12">
-                            <div class="tab-content">
-                                <div class="tab-pane fade in active blogContent" id="tabBlog">
-                                    <article class="hrShadow post">
-                                        <h2 class="margin_top_small">Administrar Personal</h2>
-                                        <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <div class="sc_contact_form sc_contact_form_contact">                                                              
-                                                                <div class="columnsWrap">
-                                                                    <div class="col-sm-7">
-                                                                        <input required="required" runat="server" id="personalName" width="70%" type="text" placeholder="Nombre Completo" />
-                                                                        <br />
-                                                                        <br />
-                                                                        <input required="required" runat="server" id="personalSubj" width="70%" type="text" placeholder="Asignatura" />
-                                                                        <br />
-                                                                        <br />
-                                                                        <input required="required" runat="server" id="personalRol" width="70%" type="text" placeholder="Rol" />
-                                                                        <br />
-                                                                        <br />
-                                                                        <textarea required="required" runat="server" id="personalDescription" width="70%" rows="10" class="textAreaSize" placeholder="Descripción de la persona"></textarea>                                                                   
-                                                                   </div>
-                                                                </div>
+        <div class="mainWrap without_sidebar">
+            <div class="container">
+                <div class="row content">
+                    <div class="col-sm-12">
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active blogContent" id="tabBlog">
+                                <article class="hrShadow post">
+                                    <h2 class="margin_top_small">Administrar Personal</h2>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="sc_contact_form sc_contact_form_contact">
+                                                <div class="columnsWrap">
+                                                    <div class="col-sm-7">
+                                                        <asp:TextBox ID="personName" runat="server" placeholder="Nombre Completo" Width="70%"></asp:TextBox>
+                                                        <br />
+                                                        <br />
+                                                        <asp:TextBox ID="personSubj" runat="server" placeholder="Asignatura" Width="70%"></asp:TextBox>
+                                                        <br />
+                                                        <br />
+                                                        <asp:TextBox ID="personRol" runat="server" placeholder="Rol (Profesor, Director, Otro..)" Width="70%"></asp:TextBox>
+                                                        <br />
+                                                        <br />
+                                                        <asp:TextBox ID="personDescription" runat="server" placeholder="Descripción de la persona..." TextMode="MultiLine" Rows="10" Height="75px" Width="90%" />
+                                                    </div>
 
-                                                            </div>
+                                                    <div class="col-sm-7">
+                                                        <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">
+                                                            <!-- <a href="#" class="">Crear</a> -->
+                                                            <asp:Button runat="server" ID="createPerson" Text="Crear" />
                                                         </div>
-                                                    </div>                                     
-                                        <div class="postSharing">
-                                            <ul>
-                                                
-                                                <li class="squareButton light ico">
-                                                    <a class="fa-eye" title="Views - 308" href="features_shortcodes_zoom.html">308</a>
-                                                </li>
-                                                <li class="squareButton light ico">
-                                                    <a class="fa-comment" title="Comments - 1" href="features_shortcodes_zoom.html">1</a>
-                                                </li>
-                                                <li class="squareButton light ico">
-                                                    <a class="fa-star" title="Rating - 79.3" href="features_shortcodes_zoom.html">79.3</a>
-                                                </li>
-                                                <li class="squareButton light ico likeButton like" data-postid="109" data-likes="10" data-title-like="Like" data-title-dislike="Dislike">
-                                                    <a class="fa-heart" title="Like - 10" href="#">
-                                                        <span class="likePost">10</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
+                                                        <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">
+                                                            <!-- <a href="#" class="">Cancelar</a> -->
+                                                            <asp:Button runat="server" ID="cancelPerson" Text="Cancelar" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
                                         </div>
-                                    </article>
-                                    <article class="hrShadow post">
-                                        <h2 class="margin_top_small">Personal de la Institución</h2>
-                                         <div class="sc_section sc_alignleft col-sm-6 margin_bottom_small">
+                                    </div>
+                                </article>
+                                <article class="hrShadow post">
+                                    <h2 class="margin_top_small">Personal de la Institución</h2>
+                                    <div class="sc_section sc_alignleft col-sm-table margin_bottom_small">
                                         <div class="sc_table sc_table_style_1 sc_table_size_big">
                                             <table>
                                                 <tbody>
@@ -67,31 +59,34 @@
                                                         <th>Asignatura</th>
                                                         <th>Rol</th>
                                                         <th>Descripción</th>
-                                                        <th>Conf.</th>
+                                                        <th>Edición</th>
                                                     </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Juan Perez</td>
-                                                        <td>Biologia.</td>
-                                                        <td>Profesor</td>
-                                                        <td>Profesor altamente capacitado</td>
-                                                        <td>
-                                                            <button>Editar</button>
-                                                            <button>Eliminar</button>
+                                                    <asp:Repeater ID="makePersonRepeater" runat="server">
+                                                        <ItemTemplate>
+                                                            <tr runat="server" id="tableRow" class="sc_table_grey">
+                                                                <td><asp:Label runat="server" ID="asIdPerson" /></td>
+                                                                <td><asp:Label runat="server" ID="asNamePerson" /></td>
+                                                                <td><asp:Label runat="server" ID="asSubjPerson" /></td>
+                                                                <td><asp:Label runat="server" ID="asRolePerson" /></td>
+                                                                <td><asp:Label runat="server" ID="asDescPerson" /></td>
+                                                                <td>
+                                                                    <asp:Button runat="server" ID="Button1" Text="Editar" />
+                                                                    <asp:Button runat="server" ID="Button2" Text="Eliminar" />
+                                                                </td>
+                                                            </tr>
+                                                        </ItemTemplate>
 
-                                                        </td>
-                                                    </tr>                                                    
+                                                    </asp:Repeater>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
-                                    </article>
-                                </div>
+                                </article>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-   
+        </div>
+    </section>
 </asp:Content>

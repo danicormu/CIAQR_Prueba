@@ -28,24 +28,26 @@
                                 <input type="hidden" name="redirect_to" value="#"/>
                                 <ul class="formList">
                                     <li class="icon formLogin">
-                                        <asp:TextBox ID="txt_user" runat="server"  placeholder="Usuario" required title="Ingrese Usuario" ></asp:TextBox>
+                                        <asp:TextBox ID="txt_user" runat="server"  placeholder="Usuario"></asp:TextBox>
                                        <!-- <input type="text" id="login" name="log" value="" placeholder="Login"/>-->
                                     </li> 
                                     <li class="icon formPass">
-                                        <asp:TextBox ID="txt_password" runat="server" TextMode="Password" placeholder="Contraseña" required title="Ingrese Contraseña" ></asp:TextBox>
+                                        <asp:TextBox ID="txt_password" runat="server" TextMode="Password" placeholder="Contraseña"></asp:TextBox>
                                        <!-- <input type="password" id="password" name="pwd" value="" placeholder="Password"/> -->
                                     </li>   
-                                    <li class="box1">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <li class="boxEnter">
                                         <asp:Button class="sendEnter enter" ID="Button1" runat="server" Text="Ingresar" OnClick="btnlogin_Click" />            
-                                    </li>                                    
-                                    <li class="box2">
+                                    </li>   
+                                    <li class="boxCancel">
                                         <asp:Button class="cancelEnter enter" ID="Button2" runat="server" Text="Cancelar" OnClick="btnCancel_Click" />
                                     </li>
                                     <li>
                                         <br />
-                                        <asp:Label ID="lblmessage" runat="server" ForeColor="Red" Text="Credenciales Incorrectas*" Visible="false"></asp:Label>
-                                        <br />
-                                        <asp:Label ID="lblwrite" runat="server" ForeColor="Red" Text="Ingrese credenciales*" Visible="false"></asp:Label>   
+                                        <asp:Label ID="lbl_message" runat="server" ForeColor="Red" Text="Error en usuario o contraseña*" Visible="false"></asp:Label>
+                                        <asp:Label ID="lbl_fillspace" runat="server" ForeColor="Red" Text="Los espacios no pueden estar vacíos*" Visible="false"></asp:Label>
+                                        <br />                                          
                                     </li>
                                 </ul>
                             </form>
@@ -67,7 +69,7 @@
    
         -->
     <link rel="stylesheet" href="Resources/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="Resources/css/main_style.css"/>
+    <link rel="stylesheet" href="Resources/css/login_style.css"/> 
     <link rel="stylesheet" id="responsive-css" href="Resources/css/responsive.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="Resources/css/fonts.css"/>
     <style id="theme-skin-inline-css" type="text/css"></style>
