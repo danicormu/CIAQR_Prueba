@@ -5,6 +5,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using PruebaWebCAQ.Business;
 using PruebaWebCAQ.Domain;
+using AjaxControlToolkit;
 
 namespace PruebaWebCAQ
 {
@@ -69,17 +70,17 @@ namespace PruebaWebCAQ
 
             if (service.sendMail(contactName.Value, contactMail.Value, contactSubject.Value, contactMessage.Value))
             {
-                Response.Write("<script language=javascript>alert('Tu mensaje ha sido enviado. Gracias por comunicarte con nosotros!!');</script>");
-                contactMail.Value = "";
+                message.InnerText = "Su mensaje ha sido enviado con éxito. Pronto lo contactaremos!";
                 contactName.Value = "";
+                contactMail.Value = "";
                 contactSubject.Value = "";
                 contactMessage.Value = "";
-                Response.Redirect("HomePage.aspx#ContactUs");
+                ModalPopupExtender1.Show();
             }
             else
             {
-                Response.Write("<script language=javascript>alert('Tu mensaje no ha sido enviado. Intentalo más tarde.');</script>");
-                Response.Redirect("HomePage.aspx#ContactUs");
+                message.InnerText = "Su mensaje no ha sido enviado con éxito. Vuelva a intentarlo más tarde.";
+                ModalPopupExtender1.Show();
             }
                 
             
@@ -103,6 +104,11 @@ namespace PruebaWebCAQ
                 description.Text = profList.ElementAt(j).Description;
                 j++;
             }       
+        }
+
+        protected void processbtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

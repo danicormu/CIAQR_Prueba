@@ -36,6 +36,15 @@ namespace PruebaWebCAQ.Domain
             this.endTime = endTime;
         }
 
+        public Signature(string name, string day, string professor, string startTime, string endTime)
+        {
+            this.name = name;
+            this.day = day;
+            this.professor = professor;
+            this.startTime = startTime;
+            this.endTime = endTime;
+        }
+
         public int SignatureId
         {
             get

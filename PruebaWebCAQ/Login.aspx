@@ -10,6 +10,21 @@
     <title>Login</title>    
 </head>
 <body>
+    <section id="topOfPage" class="topTabsWrap color_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="speedBar">
+                        <a class="home" href="HomePage.aspx">Inicio</a>
+                        <span class="breadcrumbs_delimiter" style="color:lightgray">/</span>
+                        <a class="current" href="Login.aspx">Login</a>
+                    </div>
+                    <a href="Login.aspx"><h3 class="pageTitle h3">Login</h3></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <form id="form1" runat="server">
         <div align="center">
             <br />

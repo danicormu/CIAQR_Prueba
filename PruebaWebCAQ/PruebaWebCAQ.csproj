@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=16.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.16.1.0.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -101,7 +105,6 @@
     <Content Include="AdminChrono.aspx" />
     <Content Include="AdminEvent.aspx" />
     <Content Include="Administration.aspx" />
-    <Content Include="AdminRequest.aspx" />
     <Content Include="AdminSchedule.aspx" />
     <Content Include="AdminTeam.aspx" />
     <Content Include="Configuration.aspx" />
@@ -659,6 +662,7 @@
     <Content Include="Resources\sounds\mouseover3.mp3" />
     <Content Include="Resources\video\MVI_5540.mp4" />
     <Content Include="Resources\video\MVI_5540.png" />
+    <Content Include="TermsAndPrivacy.aspx" />
     <Content Include="ViewChronogram.aspx" />
     <Content Include="ViewSchedule.aspx" />
     <Content Include="Web.config" />
@@ -691,13 +695,6 @@
     </Compile>
     <Compile Include="Administration.Master.designer.cs">
       <DependentUpon>Administration.Master</DependentUpon>
-    </Compile>
-    <Compile Include="AdminRequest.aspx.cs">
-      <DependentUpon>AdminRequest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminRequest.aspx.designer.cs">
-      <DependentUpon>AdminRequest.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminSchedule.aspx.cs">
       <DependentUpon>AdminSchedule.aspx</DependentUpon>
@@ -782,6 +779,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Data\ScheduleData.cs" />
     <Compile Include="Data\SignatureData.cs" />
+    <Compile Include="TermsAndPrivacy.aspx.cs">
+      <DependentUpon>TermsAndPrivacy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TermsAndPrivacy.aspx.designer.cs">
+      <DependentUpon>TermsAndPrivacy.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewChronogram.aspx.cs">
       <DependentUpon>ViewChronogram.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -3,17 +3,17 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Colegio Ing. Alejandro Quesada R.</title>
     <link rel="stylesheet" href="Resources/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="Resources/css/fonts.css"/>
     <link rel="stylesheet" href="Resources/css/royalslider.css"/>
-    <link rel="stylesheet" id="packed-styles-css" href="Resources/css/__packed.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="Resources/css/__packed.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="Resources/css/main_style.css"/>
-    <link rel="stylesheet" id="theme-skin-css" href="Resources/css/kinder.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="Resources/css/kinder.css" type="text/css" media="all"/>
     <style id="theme-skin-inline-css" type="text/css"></style>
-    <link rel="stylesheet" id="responsive-css" href="Resources/css/responsive.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="Resources/css/responsive.css" type="text/css" media="all"/>
      <!--[if lt IE 9]>
         <script src="js/vendor/html5shiv.min.js"></script>
         <script src="js/vendor/respond.min.js"></script>
@@ -24,6 +24,7 @@
 </head>
     
 <body class="theme_skin_kinder">
+    
     <form runat="server" id="form1">
     <div id="box_wrapper">
         
@@ -375,9 +376,9 @@
                     <div class="copyright">
                         <a href="HomePage.aspx">Colegio Ing. Alejandro Quesada R.</a>
                         © 2016 Todos los derechos Reservados
-                        <a href="TermsAndPrivacy.aspx">Terminos de Uso</a>
+                        <a href="TermsAndPrivacy.aspx">Términos de Uso</a>
                         y
-                        <a href="TermsAndPrivacy.aspx">Politica de Privacidad</a>
+                        <a href="TermsAndPrivacy.aspx">Política de Privacidad</a>
                     </div>
                     <div class="copy_socials socPage">
                         <ul>

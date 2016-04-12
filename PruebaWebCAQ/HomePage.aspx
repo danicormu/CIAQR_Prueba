@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainMenu.Master" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="PruebaWebCAQ.PruebaDeMenu" EnableEventValidation="false" validateRequest="false" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
@@ -109,6 +110,7 @@
 
      <!--End of Personal section-->
     <!--Contact us -->
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <section id="ContactUs" class="topTabsWrap color_section">
         <div class="container">
             <div class="row">
@@ -164,20 +166,30 @@
                                     <div class="sc_contact_form_button">
                                 <div class="squareButton ico">
                                     <asp:Button runat="server" ID="senMail" Text="Enviar" OnClick="senMail_Click" />
+                                    <asp:Button runat="server" ID="processbtn" OnClick="processbtn_Click" Style="visibility:hidden;" />
+                                    <asp:ModalPopupExtender id="ModalPopupExtender1" runat="server" 
+	                                    cancelcontrolid="btnCancel" 
+                                        TargetControlID="processbtn"
+	                                    PopupControlID="Panel1"
+	                                    drag="true" 
+	                                    backgroundcssclass="modalBackground">
+                                     </asp:ModalPopupExtender>
                                 </div>
-                                        <div class="result sc_infobox"> 
-                                <asp:Label runat="server" ID="message" Visible="false" Text="Su mensaje ha sido enviado, gracias por comunicarse con nosotros!"></asp:Label>
-                                <br />
-                                <asp:Label runat="server" ID="error" Visible="false" Text="su mensaje no ha sido enviado. Intentelo más tarde"></asp:Label>
-                            </div>
+                               
                             </div>
                                     </div>
                             </div>
                             
                     </div>
+                    
                 </div>
             </div>
         </div>   
+        <asp:panel id="Panel1" style="display: none" CssClass="modalPopup" align="center" runat="server">
+                                   <p runat="server" id="message"></p>
+                                   <hr />
+                                   <input id="btnCancel" type="button" value="Aceptar" />
+                               </asp:panel>
     </section>
     <!--end of Contact us -->
 
@@ -673,5 +685,25 @@
         </div>   
     </section>
     <!--end ofabout us section -->
+
+    <style type="text/css">
+    .modalBackground
+    {
+        background-color: Black;
+        filter: alpha(opacity=90);
+        opacity: 0.8;
+    }
+    .modalPopup
+    {
+        background-color: #FFFFFF;
+        border-width: 3px;
+        border-style: solid;
+        border-color: black;
+        padding-top: 10px;
+        padding-left: 10px;
+        width: 300px;
+        height: 160px;
+    }
+</style>
    
 </asp:Content>
