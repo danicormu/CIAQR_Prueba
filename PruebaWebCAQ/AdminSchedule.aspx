@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="leftMenu" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="centerAdministration" runat="server">
-    <section class="widgetTabs">
+      <section class="widgetTabs">
         <div class="mainWrap without_sidebar">
             <div class="container">
                 <div class="row content">
@@ -19,13 +19,42 @@
                                             <div class="sc_contact_form sc_contact_form_contact">
                                                 <div class="columnsWrap">
                                                     <div class="col-sm-7">
+                                                        <form class="woocommerce-ordering" method="get">
+                                                            <select name="orderby" class="orderby">
+                                                                <option value="menu_order" selected="selected">Default sorting</option>
+                                                             <!--   <option value="popularity">Sort by popularity</option>
+                                                                <option value="rating">Sort by average rating</option>
+                                                                <option value="date">Sort by newness</option>
+                                                                <option value="price">Sort by price: low to high</option>
+                                                                <option value="price-desc">Sort by price: high to low</option> -->
+                                                            </select>
+                                                        </form> <!--
                                                         <input required="required" runat="server" id="schDay" width="70%" type="text" placeholder="Día" />
+                                                      -->  <br />
                                                         <br />
-                                                        <br />
+                                                        <form class="woocommerce-ordering" method="get">
+                                                            <select name="orderby" class="orderby">
+                                                                <option value="menu_order" selected="selected">Default sorting</option>
+                                                               <!-- <option value="popularity">Sort by popularity</option>
+                                                                <option value="rating">Sort by average rating</option>
+                                                                <option value="date">Sort by newness</option>
+                                                                <option value="price">Sort by price: low to high</option>
+                                                                <option value="price-desc">Sort by price: high to low</option> -->
+                                                            </select>
+                                                        </form> <!--
                                                         <input required="required" runat="server" id="schLevel" width="70%" type="text" placeholder="Nivel" />
+                                                       --> <br />
                                                         <br />
-                                                        <br />
-                                                        <input required="required" runat="server" id="schGroup" width="70%" type="text" placeholder="Grupo" />
+                                                        <form class="woocommerce-ordering" method="get">
+                                                            <select name="orderby" class="orderby">
+                                                                <option value="menu_order" selected="selected">Default sorting</option>
+                                                              <!--  <option value="popularity">Sort by popularity</option>
+                                                                <option value="rating">Sort by average rating</option>
+                                                                <option value="date">Sort by newness</option>
+                                                                <option value="price">Sort by price: low to high</option>
+                                                                <option value="price-desc">Sort by price: high to low</option> -->
+                                                            </select>
+                                                        </form>                                                        
                                                         <br />
                                                         <br />
 
@@ -34,7 +63,7 @@
                                                         <div class="sc_button sc_button_style_light sc_button_size_huge squareButton light huge">
                                                             <!-- <a href="#" class="">Crear</a> -->
                                                             <asp:Button runat="server" ID="loadSchedule" Text="Mostrar Cronograma" />
-                                                        </div>                                                        
+                                                        </div>
                                                     </div>
                                                 </div>
 
@@ -67,10 +96,10 @@
                                                         <td><asp:TextBox ID="secLecTeacher" runat="server"></asp:TextBox></td>
                                                     </tr>
                                                     <tr class="rowColor">
-                                                        <td> - </td>   
-                                                        <td> - </td> 
-                                                        <td>RECESO</td> 
-                                                        <td> - </td>                                                       
+                                                        <td><asp:Label ID="lblFBreakHI" runat="server" Text="8:20 am"></asp:Label></td>   
+                                                        <td><asp:Label ID="lblFBreakHF" runat="server" Text="8:35 am"></asp:Label></td> 
+                                                        <td><asp:Label ID="lblFBreak" runat="server" Text="RECESO"></asp:Label></td>
+                                                        <td> - - - - </td>                                                       
                                                     </tr>
                                                     <tr>
                                                         <td><asp:Label ID="lblThiHI" runat="server" Text="8:35 am"></asp:Label></td>
@@ -85,10 +114,10 @@
                                                         <td><asp:TextBox ID="fouthLecTeacher" runat="server"></asp:TextBox></td>
                                                     </tr>
                                                     <tr class="rowColor">
-                                                        <td> - </td>   
-                                                        <td> - </td> 
-                                                        <td>RECESO</td> 
-                                                        <td> - </td>                                                      
+                                                        <td><asp:Label ID="lblSBreakHI" runat="server" Text="9:55 am"></asp:Label></td>   
+                                                        <td><asp:Label ID="lblSBreakHF" runat="server" Text="10:00 am"></asp:Label></td> 
+                                                        <td><asp:Label ID="lblSBreak" runat="server" Text="RECESO"></asp:Label></td>
+                                                        <td> - - - - </td>                                                        
                                                     </tr>
                                                     <tr>
                                                         <td><asp:Label ID="lblFifHI" runat="server" Text="10:00 am"></asp:Label></td>
@@ -103,10 +132,10 @@
                                                         <td><asp:TextBox ID="sixthLecTeacher" runat="server"></asp:TextBox></td>
                                                     </tr>
                                                     <tr class="rowColor">
-                                                        <td> - </td>   
-                                                        <td> - </td> 
-                                                        <td>ALMUERZO</td> 
-                                                        <td> - </td>                                                      
+                                                        <td><asp:Label ID="lblLunchHI" runat="server" Text="11:20 am"></asp:Label></td>   
+                                                        <td><asp:Label ID="lblLunchHF" runat="server" Text="12:00 md"></asp:Label></td> 
+                                                        <td><asp:Label ID="lblLunch" runat="server" Text="ALMUERZO"></asp:Label></td> 
+                                                        <td> - - - - </td>                                                      
                                                     </tr>
                                                     <tr>
                                                         <td><asp:Label ID="lblSevHI" runat="server" Text="12:00 md"></asp:Label></td>
@@ -121,10 +150,10 @@
                                                         <td><asp:TextBox ID="eigthLecTeacher" runat="server"></asp:TextBox></td>
                                                     </tr>
                                                     <tr class="rowColor">
-                                                        <td> - </td>   
-                                                        <td> - </td> 
-                                                        <td>RECESO</td> 
-                                                        <td> - </td>                                                        
+                                                        <td><asp:Label ID="lblTBreakHI" runat="server" Text="1:20 pm"></asp:Label></td>   
+                                                        <td><asp:Label ID="lblTBreakHF" runat="server" Text="1:25 pm"></asp:Label></td> 
+                                                        <td><asp:Label ID="lblTBreak" runat="server" Text="RECESO"></asp:Label></td>
+                                                        <td> - - - - </td>                                                         
                                                     </tr>
                                                     <tr>
                                                         <td><asp:Label ID="lblNinHI" runat="server" Text="1:25 pm"></asp:Label></td>
@@ -139,10 +168,10 @@
                                                         <td><asp:TextBox ID="tenthLecTeacher" runat="server"></asp:TextBox></td>
                                                     </tr>
                                                     <tr class="rowColor">
-                                                        <td> - </td>   
-                                                        <td> - </td> 
-                                                        <td>RECESO</td> 
-                                                        <td> - </td>                                                      
+                                                        <td><asp:Label ID="lblFoBreakHI" runat="server" Text="2:45 pm"></asp:Label></td>   
+                                                        <td><asp:Label ID="lblFoBreakHF" runat="server" Text="3:00 pm"></asp:Label></td> 
+                                                        <td><asp:Label ID="lblFoBreak" runat="server" Text="RECESO"></asp:Label></td>
+                                                        <td> - - - - </td>                                                      
                                                     </tr>
                                                     <tr>
                                                         <td><asp:Label ID="lblEleHI" runat="server" Text="3:00 pm"></asp:Label></td>

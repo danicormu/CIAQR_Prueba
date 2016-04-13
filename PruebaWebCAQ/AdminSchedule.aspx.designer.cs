@@ -31,15 +31,6 @@ namespace PruebaWebCAQ {
         protected global::System.Web.UI.HtmlControls.HtmlInputText schLevel;
         
         /// <summary>
-        /// Control schGroup.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText schGroup;
-        
-        /// <summary>
         /// Control loadSchedule.
         /// </summary>
         /// <remarks>
@@ -121,6 +112,33 @@ namespace PruebaWebCAQ {
         protected global::System.Web.UI.WebControls.TextBox secLecTeacher;
         
         /// <summary>
+        /// Control lblFBreakHI.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFBreakHI;
+        
+        /// <summary>
+        /// Control lblFBreakHF.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFBreakHF;
+        
+        /// <summary>
+        /// Control lblFBreak.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFBreak;
+        
+        /// <summary>
         /// Control lblThiHI.
         /// </summary>
         /// <remarks>
@@ -191,6 +209,33 @@ namespace PruebaWebCAQ {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox fouthLecTeacher;
+        
+        /// <summary>
+        /// Control lblSBreakHI.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSBreakHI;
+        
+        /// <summary>
+        /// Control lblSBreakHF.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSBreakHF;
+        
+        /// <summary>
+        /// Control lblSBreak.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSBreak;
         
         /// <summary>
         /// Control lblFifHI.
@@ -265,6 +310,33 @@ namespace PruebaWebCAQ {
         protected global::System.Web.UI.WebControls.TextBox sixthLecTeacher;
         
         /// <summary>
+        /// Control lblLunchHI.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLunchHI;
+        
+        /// <summary>
+        /// Control lblLunchHF.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLunchHF;
+        
+        /// <summary>
+        /// Control lblLunch.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLunch;
+        
+        /// <summary>
         /// Control lblSevHI.
         /// </summary>
         /// <remarks>
@@ -337,6 +409,33 @@ namespace PruebaWebCAQ {
         protected global::System.Web.UI.WebControls.TextBox eigthLecTeacher;
         
         /// <summary>
+        /// Control lblTBreakHI.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTBreakHI;
+        
+        /// <summary>
+        /// Control lblTBreakHF.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTBreakHF;
+        
+        /// <summary>
+        /// Control lblTBreak.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTBreak;
+        
+        /// <summary>
         /// Control lblNinHI.
         /// </summary>
         /// <remarks>
@@ -407,6 +506,33 @@ namespace PruebaWebCAQ {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tenthLecTeacher;
+        
+        /// <summary>
+        /// Control lblFoBreakHI.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFoBreakHI;
+        
+        /// <summary>
+        /// Control lblFoBreakHF.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFoBreakHF;
+        
+        /// <summary>
+        /// Control lblFoBreak.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFoBreak;
         
         /// <summary>
         /// Control lblEleHI.
