@@ -166,7 +166,7 @@
                                                     <li class="menu-item menu-item-has-children">
                                                         <a href="#" class="sf-with-ul">Séptimo</a>
                                                         <ul runat="server" id="seventhList" class="sub-menu">
-                                                            <asp:Repeater runat="server" ID="seventhRepeater" OnItemCommand="seventhRepeater_ItemCommand" OnItemDataBound="seventhRepeater_ItemDataBound">
+                                                            <asp:Repeater runat="server" ID="seventhRepeater" OnItemCommand="seventhRepeater_ItemCommand1" OnItemDataBound="seventhRepeater_ItemDataBound">
                                                                 <ItemTemplate>
                                                                     <asp:LinkButton runat="server" ID="groupLabel" CommandName="select"></asp:LinkButton>
                                                                 </ItemTemplate>

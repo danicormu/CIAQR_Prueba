@@ -157,16 +157,6 @@ namespace PruebaWebCAQ
             }
         }
 
-        protected void seventhRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-            if (e.CommandName.Equals("select"))
-            {
-                LinkButton button = (LinkButton)e.Item.FindControl("groupLabel");
-                groupName = button.Text;
-                Response.Redirect("ViewSchedule.aspx?value=" + groupName);
-            }
-        }
-
         protected void seventhRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
@@ -174,6 +164,16 @@ namespace PruebaWebCAQ
                 LinkButton button = (LinkButton)e.Item.FindControl("groupLabel");
                 button.Text = list.ElementAt(b).GroupName;
                 b++;
+            }
+        }
+
+        protected void seventhRepeater_ItemCommand1(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName.Equals("select"))
+            {
+                LinkButton button = (LinkButton)e.Item.FindControl("groupLabel");
+                groupName = button.Text;
+                Response.Redirect("ViewSchedule.aspx?value=" + groupName);
             }
         }
     }
