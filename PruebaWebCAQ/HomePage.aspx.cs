@@ -5,7 +5,6 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using PruebaWebCAQ.Business;
 using PruebaWebCAQ.Domain;
-using AjaxControlToolkit;
 
 namespace PruebaWebCAQ
 {
@@ -79,11 +78,9 @@ namespace PruebaWebCAQ
             }
             else
             {
-                message.InnerText = "Su mensaje no ha sido enviado con éxito. Vuelva a intentarlo más tarde.";
+                message.InnerText = "Su mensaje no ha sido enviado. Vuelva a intentarlo más tarde.";
                 ModalPopupExtender1.Show();
-            }
-                
-            
+            }  
         }
 
         protected void teacherRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
