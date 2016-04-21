@@ -14,6 +14,12 @@ namespace PruebaWebCAQ.Domain
             this.password = pass;
         }
 
+        public Administrator(string user, string pass)
+        {
+            this.username = user;
+            this.password = pass;
+        }
+
         public int IdAdmin
         {
             get

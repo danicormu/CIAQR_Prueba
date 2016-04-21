@@ -13,33 +13,6 @@ namespace PruebaWebCAQ {
     public partial class AdminSchedule {
         
         /// <summary>
-        /// Control schDay.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText schDay;
-        
-        /// <summary>
-        /// Control schLevel.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText schLevel;
-        
-        /// <summary>
-        /// Control loadSchedule.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button loadSchedule;
-        
-        /// <summary>
         /// Control lblFirHI.
         /// </summary>
         /// <remarks>

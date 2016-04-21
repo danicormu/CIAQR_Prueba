@@ -8,11 +8,13 @@ namespace PruebaWebCAQ.Business
     {
         EventData data = new EventData();
 
+        // Obtiene todos los eventos
         public List<Event> getAllEventsService()
         {
             return data.getAllEvents();
         }
 
+        // Crea evento
         public string createEventService(Event eve)
         {
             string success = "";
@@ -23,16 +25,18 @@ namespace PruebaWebCAQ.Business
             return success;
         }
 
+        // Actualiza un Evento
         public string updateEventService(Event eve)
         {
             string success = "";
             if (data.updateEvent(eve))
                 success = "Evento actualizado";
             else
-                success= "El evento no ha sido actializado. Revise su conexión a la red o contacte a su proveedor de servicios";
+                success= "El evento no ha sido actualizado. Revise su conexión a la red o contacte a su proveedor de servicios";
             return success;
         }
 
+        // Elimina los eventos
         public string deleteEventService(int id)
         {
             string success = "";

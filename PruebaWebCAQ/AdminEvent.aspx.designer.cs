@@ -49,30 +49,39 @@ namespace PruebaWebCAQ {
         protected global::System.Web.UI.WebControls.TextBox eventDesc_txt;
         
         /// <summary>
-        /// Control createEvent.
+        /// Control btn_create.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button createEvent;
+        protected global::System.Web.UI.WebControls.Button btn_create;
         
         /// <summary>
-        /// Control cancelCrEvent.
+        /// Control btn_clear.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button cancelCrEvent;
+        protected global::System.Web.UI.WebControls.Button btn_clear;
         
         /// <summary>
-        /// Control makeEventRepeater.
+        /// Control lblWarning.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater makeEventRepeater;
+        protected global::System.Web.UI.WebControls.Label lblWarning;
+        
+        /// <summary>
+        /// Control EventRepeater.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater EventRepeater;
     }
 }

@@ -19784,6 +19784,30 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
      .col-sm-table {
         width: 100%;
     }
+
+     .idStyle{
+         width:7%;
+     }
+
+     .nameStyle{
+         width:20%;
+     }
+
+     .dateStyle{
+         width:14%;
+     }
+
+     .typeStyle{
+         width:14%;
+     }
+
+     .descStyle{
+         width:30%;
+     }
+
+     .editionStyle{
+         width:15%;
+     }
 }
 
 .col-sm-7{

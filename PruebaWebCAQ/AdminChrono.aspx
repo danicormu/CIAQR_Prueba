@@ -33,11 +33,11 @@
                                                     <div class="col-sm-7">
                                                         <div class="sc_button sc_button_style_light sc_button_size_huge squareButton light huge">
                                                             <!-- <a href="#" class="">Crear</a> -->
-                                                            <asp:Button runat="server" ID="createEvent" Text="Crear Actividad" />
+                                                            <asp:Button runat="server" ID="createEvent" Text="Crear Actividad" OnClick="createEvent_Click" />
                                                         </div>
                                                         <div class="sc_button sc_button_style_light sc_button_size_huge squareButton light huge">
                                                             <!-- <a href="#" class="">Cancelar</a> -->
-                                                            <asp:Button runat="server" ID="cancelCrEvent" Text="Cancelar" />
+                                                            <asp:Button runat="server" ID="cancelCrEvent" Text="Cancelar" OnClick="cancelCrEvent_Click" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -59,7 +59,7 @@
                                                         <th>Descripción</th>
                                                         <th>Edición</th>
                                                     </tr>
-                                                    <asp:Repeater ID="makeChronogram" runat="server">
+                                                    <asp:Repeater ID="makeChronogram" runat="server" OnItemDataBound="makeChronogram_ItemDataBound" OnItemCommand="makeChronogram_ItemCommand">
                                                         <ItemTemplate>
                                                             <tr runat="server" id="tableRow">
                                                                 <td>

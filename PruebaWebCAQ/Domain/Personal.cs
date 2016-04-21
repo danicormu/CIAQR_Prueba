@@ -36,6 +36,13 @@ namespace PruebaWebCAQ.Domain
             this.rol = rol;
         }
 
+        public Personal(string name, string description, string rol)
+        {
+            this.name = name;
+            this.description = description;
+            this.rol = rol;
+        }
+
         public int Id
         {
             get

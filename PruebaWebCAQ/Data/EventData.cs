@@ -8,6 +8,7 @@ namespace PruebaWebCAQ.Data
 {
     class EventData:DBConnection
     {
+        // Metodo que muestra todos los eventos
         public List<Event> getAllEvents()
         {
             List<Event> list = new List<Event>();
@@ -36,6 +37,7 @@ namespace PruebaWebCAQ.Data
             return list;
         }
 
+        // Metodo agregar evento
         public bool addEvent(Event eve)
         {
             bool flag = false;
@@ -64,6 +66,7 @@ namespace PruebaWebCAQ.Data
             return flag;
         }
 
+        // Metodo que edita el evento
         public bool updateEvent(Event eve)
         {
             bool flag = false;
@@ -93,6 +96,7 @@ namespace PruebaWebCAQ.Data
             return flag;
         }
 
+        // Metodo para eliminar el evento 
         public bool deleteEvent(int id)
         {
             bool flag = false;
@@ -116,5 +120,7 @@ namespace PruebaWebCAQ.Data
             }
             return flag;
         }
+
+
     }
 }

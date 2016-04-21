@@ -20,29 +20,41 @@
                                             <div class="sc_contact_form sc_contact_form_contact">
                                                 <div class="columnsWrap">
                                                     <div class="col-sm-7">
-                                                        <asp:TextBox ID="eventName_txt" runat="server" placeholder="Nombre del Evento" Width="70%"></asp:TextBox>
+                                                        <asp:TextBox ID="eventName_txt" runat="server" required="true" placeholder="Nombre del Evento" Width="70%"></asp:TextBox>
                                                         <br />
                                                         <br />
-                                                        <asp:TextBox ID="eventDate_txt" runat="server" placeholder="Fecha" Width="50%"></asp:TextBox>
+                                                        <asp:TextBox ID="eventDate_txt" runat="server" required="true" placeholder="Fecha" Width="50%"></asp:TextBox>
+
                                                         <br />
                                                         <br />
-                                                        <asp:TextBox ID="eventType_txt" runat="server" placeholder="Tipo de Evento" Width="50%"></asp:TextBox>
+                                                        <!--<form class="woocommerce-ordering" method="get">
+                                                            <select name="orderby" class="orderby">
+                                                                <option value="menu_order" selected="selected">Default sorting</option>
+                                                                <option value="popularity">Sort by popularity</option>
+                                                                <option value="rating">Sort by average rating</option>
+                                                                <option value="date">Sort by newness</option>
+                                                                <option value="price">Sort by price: low to high</option>
+                                                                <option value="price-desc">Sort by price: high to low</option>
+                                                            </select>
+                                                        </form> -->
+                                                        <asp:TextBox ID="eventType_txt" runat="server" required="true" placeholder="Tipo de Evento" Width="50%"></asp:TextBox>
                                                         <br />
                                                         <br />
-                                                        <asp:TextBox ID="eventDesc_txt" runat="server" placeholder="Descripción..." TextMode="MultiLine" Rows="10" Height="75px" Width="90%" />
+                                                        <asp:TextBox ID="eventDesc_txt" runat="server" required="true" placeholder="Descripción..." TextMode="MultiLine" Rows="10" Height="75px" Width="90%" />
                                                     </div>
-                                                   
                                                     <div class="col-sm-7">
                                                         <div class="sc_button sc_button_style_light sc_button_size_huge squareButton light huge">
                                                             <!-- <a href="#" class="">Crear</a> -->
-                                                            <asp:Button runat="server" ID="createEvent" Text="Crear" />
+                                                            <asp:Button runat="server" ID="btn_create" value="Reload Page" Text="Crear" OnClick="btnCreateEvent_Click" />
                                                         </div>
                                                         <div class="sc_button sc_button_style_light sc_button_size_huge squareButton light huge">
                                                             <!-- <a href="#" class="">Cancelar</a> -->
-                                                            <asp:Button runat="server" ID="cancelCrEvent" Text="Cancelar" />
+                                                            <asp:Button runat="server" ID="btn_clear" Text="Cancelar" OnClick="btnCancel_Click" />
                                                         </div>
+                                                        <br />
+                                                        <asp:Label ID="lblWarning" runat="server" Text="" ForeColor="Red" Visible="true"></asp:Label>
                                                     </div>
-
+                                                    <br />                                          
                                                 </div>
                                             </div>
                                         </div>
@@ -56,23 +68,39 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <th>Id</th>
-                                                        <th>Nombre del Evento</th>
-                                                        <th>Fecha</th>
-                                                        <th>Tipo</th>
-                                                        <th>Descripción</th>
-                                                        <th>Edición</th>
+                                                        <th class="idStyle">Id</th>
+                                                        <th class="nameStyle">Nombre del Evento</th>
+                                                        <th class="dateStyle">Fecha</th>
+                                                        <th class="typeStyle">Tipo</th>
+                                                        <th class="descStyle">Descripción</th>
+                                                        <th class="editionStyle">Edición</th>
                                                     </tr>
-                                                    <asp:Repeater ID="makeEventRepeater" runat="server">
+                                                    <asp:Repeater ID="EventRepeater" runat="server" OnItemDataBound="EventRepeater_ItemDataBound" OnItemCommand="EventRepeater_ItemCommand">
                                                         <ItemTemplate>                                                           
                                                                 <tr runat="server" id="tableRow" class="sc_table_grey">
-                                                                    <td><asp:Label runat="server" ID="asIdEvent" Text="1" /></td>
-                                                                    <td><asp:Label runat="server" ID="asNameEvent" Text="Feria" /></td>
-                                                                    <td><asp:Label runat="server" ID="asDateEvent" Text="Martes 23 de Marzo" /></td>
-                                                                    <td><asp:Label runat="server" ID="asTypeEvent" Text="Evento deportivo" /></td>
-                                                                    <td><asp:Label runat="server" ID="asDescEvent" Text="ksksksksssk" /></td>
-                                                                    <td><asp:Button runat="server" ID="Button1" Text="Editar" />
-                                                                        <asp:Button runat="server" ID="Button2" Text="Eliminar" />
+                                                                    <td><asp:Label runat="server" ID="eventIdAd"/></td>
+                                                                    <td>
+                                                                        <asp:Label runat="server" ID="eventNameAd"/>
+                                                                        <asp:TextBox runat="server" ID="txtNameEdit" Visible="false"></asp:TextBox>
+
+                                                                    </td>
+                                                                    <td>
+                                                                        <asp:Label runat="server" ID="eventDateAd"/>
+                                                                        <asp:TextBox runat="server" ID="txtDateEdit" Visible="false"></asp:TextBox>                                                                        
+                                                                    </td>
+                                                                    <td>
+                                                                        <asp:Label runat="server" ID="eventTypeAd"/>
+                                                                        <asp:TextBox runat="server" ID="txtTypeEdit" Visible="false"></asp:TextBox>
+                                                                    </td>
+                                                                    <td>
+                                                                        <asp:Label runat="server" ID="eventDescAd"/>
+                                                                        <asp:TextBox runat="server" ID="txtDescEdit" Visible="false" TextMode="MultiLine" Rows="2"></asp:TextBox>
+                                                                    </td>
+                                                                    <td>
+                                                                        <asp:LinkButton visible="true" runat="server" ID="btn_Edit" Text="Editar" CommandName="editItem" />
+                                                                        <asp:LinkButton visible="false" runat="server" ID="btn_Update" Text="Actualizar" CommandName="updateItem" />
+                                                                        <asp:LinkButton visible="false" runat="server" ID="btn_CancelUpdate" Text="Cancelar" CommandName="cancelUpdate" />
+                                                                        <asp:LinkButton visible="true" runat="server" ID="btn_Delete" CommandName="deleteItem" OnClientClick='javascript:return confirm("Esta seguro que desea eliminar el evento?")'>Eliminar</asp:LinkButton>
                                                                     </td>
                                                                 </tr>                                                         
                                                         </itemtemplate>

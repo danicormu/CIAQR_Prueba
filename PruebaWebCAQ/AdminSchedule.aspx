@@ -13,66 +13,7 @@
                         <div class="tab-content">
                             <div class="tab-pane fade in active blogContent" id="tabBlog">
                                 <article class="hrShadow post">
-                                    <h2 class="margin_top_small">Administrar Horario</h2>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="sc_contact_form sc_contact_form_contact">
-                                                <div class="columnsWrap">
-                                                    <div class="col-sm-7">
-                                                        <form class="woocommerce-ordering" method="get">
-                                                            <select name="orderby" class="orderby">
-                                                                <option value="menu_order" selected="selected">Default sorting</option>
-                                                             <!--   <option value="popularity">Sort by popularity</option>
-                                                                <option value="rating">Sort by average rating</option>
-                                                                <option value="date">Sort by newness</option>
-                                                                <option value="price">Sort by price: low to high</option>
-                                                                <option value="price-desc">Sort by price: high to low</option> -->
-                                                            </select>
-                                                        </form> <!--
-                                                        <input required="required" runat="server" id="schDay" width="70%" type="text" placeholder="Día" />
-                                                      -->  <br />
-                                                        <br />
-                                                        <form class="woocommerce-ordering" method="get">
-                                                            <select name="orderby" class="orderby">
-                                                                <option value="menu_order" selected="selected">Default sorting</option>
-                                                               <!-- <option value="popularity">Sort by popularity</option>
-                                                                <option value="rating">Sort by average rating</option>
-                                                                <option value="date">Sort by newness</option>
-                                                                <option value="price">Sort by price: low to high</option>
-                                                                <option value="price-desc">Sort by price: high to low</option> -->
-                                                            </select>
-                                                        </form> <!--
-                                                        <input required="required" runat="server" id="schLevel" width="70%" type="text" placeholder="Nivel" />
-                                                       --> <br />
-                                                        <br />
-                                                        <form class="woocommerce-ordering" method="get">
-                                                            <select name="orderby" class="orderby">
-                                                                <option value="menu_order" selected="selected">Default sorting</option>
-                                                              <!--  <option value="popularity">Sort by popularity</option>
-                                                                <option value="rating">Sort by average rating</option>
-                                                                <option value="date">Sort by newness</option>
-                                                                <option value="price">Sort by price: low to high</option>
-                                                                <option value="price-desc">Sort by price: high to low</option> -->
-                                                            </select>
-                                                        </form>                                                        
-                                                        <br />
-                                                        <br />
-
-                                                    </div>
-                                                    <div class="col-sm-7">
-                                                        <div class="sc_button sc_button_style_light sc_button_size_huge squareButton light huge">
-                                                            <!-- <a href="#" class="">Crear</a> -->
-                                                            <asp:Button runat="server" ID="loadSchedule" Text="Mostrar Cronograma" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </article>
-                                <article class="hrShadow post">
-                                    <h2 class="margin_top_small">Horarios</h2>
+                                    <h2 class="margin_top_small">Administrar Horarios</h2>
                                     <div class="sc_section sc_alignleft col-sm-table margin_bottom_small">
                                         <div class="sc_table sc_table_style_1 sc_table_size_big">
                                             <table>
