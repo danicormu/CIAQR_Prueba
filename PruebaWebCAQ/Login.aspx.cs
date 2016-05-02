@@ -1,6 +1,8 @@
 ﻿using System;
 using PruebaWebCAQ.Business;
 using System.Security.Cryptography;
+using System.Web.Security;
+using System.Web;
 
 namespace PruebaWebCAQ
 {
@@ -14,18 +16,18 @@ namespace PruebaWebCAQ
 
         protected void btnlogin_Click(object sender, EventArgs e)
         {
-          
-            bool ans;
-            if(txt_user.Text != " " && txt_password.Text != " ")
+            string username = txt_user.Text;
+            string password = txt_password.Text;
+            if(username.Length < 0 && password.Length < 0)
             {
-                ans = admBusiness.loginService(txt_user.Text, txt_password.Text);
-
-                if(ans != true)
+                string pass = admBusiness.encryption(password);
+                if(!ValidateUser(username, pass))             
                 {
                     lbl_message.Visible = true;
                 }
                 else
                 {
+                    Session["USER_ID"] = txt_user.Text;
                     Response.Redirect("Administration.aspx");
                 }                
             }
@@ -33,7 +35,14 @@ namespace PruebaWebCAQ
             {
                 lbl_fillspace.Visible = true;
             }
-            
+        }
+
+        private bool ValidateUser(string strUsername, string strPassword)
+        {
+            bool ans;
+            ans = admBusiness.loginService(strUsername, strPassword);
+            Session["usuario"] = strUsername;
+            return ans;
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)

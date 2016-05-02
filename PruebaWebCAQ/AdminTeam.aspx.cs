@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using PruebaWebCAQ.Business;
 using PruebaWebCAQ.Domain;
+using System.IO;
 
 namespace PruebaWebCAQ
 {
@@ -13,12 +14,42 @@ namespace PruebaWebCAQ
     {
         PersonalBusiness PBusiness = new PersonalBusiness();
         private List<Personal> list_Personal;
+        private List<Personal> profList;
         private int i = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["USER_ID"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+
+
             list_Personal = PBusiness.returnAllProfessors();
             makePersonRepeater.DataSource = list_Personal;
             makePersonRepeater.DataBind();
+        }
+
+        protected void uploadPImage_Click(object sender, EventArgs e)
+        {
+            byte[] byteArray = null;
+            if (imgUpload.PostedFile != null)
+            {
+                // Get Client site full Image path need to be convert into HttpPostedFile
+                HttpPostedFile file = (HttpPostedFile)imgUpload.PostedFile;
+
+                //Use FileStream to convert the image into byte.
+                using (FileStream fs = new FileStream(file.FileName, FileMode.Open, FileAccess.Read))
+                {
+                    byteArray = new byte[fs.Length];
+                    int iBytesRead = fs.Read(byteArray, 0, (int)fs.Length);
+                    if (byteArray != null && byteArray.Length > 0)
+                    {
+                        // Convert the byte into image
+                        string base64String = Convert.ToBase64String(byteArray, 0, byteArray.Length);
+                        imgProfile.Src = "data:image/png;base64," + base64String;
+                    }
+                }
+            }
         }
 
         protected void createPerson_Click(object sender, EventArgs e)
@@ -28,24 +59,24 @@ namespace PruebaWebCAQ
                 if (personName_txt.Text != "" || personRol_txt.Text != ""
                     || personDescription_txt.Text != "")
                 {
-                    if (!fileUpload.HasFile)
+                   /* if (!fileUpload.HasFile)
                     {
                         lblImage.Text = "Debe seleccionar una imagen*";
                     }
                     else
                     {
-                        int picLength = fileUpload.PostedFile.ContentLength;
-                        byte[] pict = new byte[picLength];
+                        int picLength = fileUpload.;
+                        photo pict = new byte[picLength];
                         lblImage.Text = "Imagen cargado exitosamente*";
                         Personal pe = new Personal(personName_txt.Text, personDescription_txt.Text, personRol_txt.Text, pict);
                         PBusiness.addService(pe);
                         Response.Redirect("AdminTeam.aspx");
-                    }                                       
+                    }*/
                 }
                 else
                 {
                     lblWarning.Text = "Complete todos los campos*";
-                }               
+                }
             }
             catch (Exception ex)
             {
@@ -64,11 +95,27 @@ namespace PruebaWebCAQ
             personName_txt.Text = string.Empty;
             personDescription_txt.Text = string.Empty;
             personRol_txt.Text = string.Empty;
-        }  
+        }
+
+    /*    private string saveImage(System.Drawing.Image image)
+        {
+            string savePath = Server.MapPath(@"images\" + list_Personal.ElementAt(i).Name + ".jpg");
+            System.Drawing.Graphics graphics = System.Drawing.Graphics.FromImage(image);
+            image.Save(savePath);
+            return "images/" + list_Personal.ElementAt(i).Name + ".jpg";
+        }
+
+        private string saveProfImage(System.Drawing.Image image)
+        {
+            string savePath = Server.MapPath(@"images\" + profList.ElementAt(j).Name + ".jpg");
+            System.Drawing.Graphics graphics = System.Drawing.Graphics.FromImage(image);
+            image.Save(savePath);
+            return "images/" + profList.ElementAt(j).Name + ".jpg";
+        } */
 
         protected void makePersonRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-            if(e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 Label id = (Label)e.Item.FindControl("asIdPerson");
                 id.Text = Convert.ToString(list_Personal.ElementAt(i).Id);
@@ -84,7 +131,7 @@ namespace PruebaWebCAQ
 
         protected void makePersonRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            if(e.CommandName == "personEdit")
+            if (e.CommandName == "personEdit")
             {
                 ((Label)e.Item.FindControl("asIdPerson")).Visible = true;
                 ((Label)e.Item.FindControl("asNamePerson")).Visible = false;
@@ -99,12 +146,12 @@ namespace PruebaWebCAQ
                 ((LinkButton)e.Item.FindControl("btn_Delete")).Visible = false;
             }
 
-            if(e.CommandName == "personUpdate")
+            if (e.CommandName == "personUpdate")
             {
 
             }
 
-            if(e.CommandName == "perCancelUpdate")
+            if (e.CommandName == "perCancelUpdate")
             {
                 ((Label)e.Item.FindControl("asIdPerson")).Visible = true;
                 ((Label)e.Item.FindControl("asNamePerson")).Visible = true;
@@ -119,13 +166,13 @@ namespace PruebaWebCAQ
                 ((LinkButton)e.Item.FindControl("btn_Delete")).Visible = true;
             }
 
-            if(e.CommandName == "personDelete")
+            if (e.CommandName == "personDelete")
             {
                 Label lbl = e.Item.FindControl("asIdPerson") as Label;
                 int idItem = Convert.ToInt32(lbl.Text);
                 PBusiness.deleteService(idItem);
                 Response.Redirect("AdminTeam.aspx");
             }
-        }
+        }        
     }
 }

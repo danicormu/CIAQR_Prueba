@@ -19,16 +19,16 @@
                                             <div class="sc_contact_form sc_contact_form_contact">
                                                 <div class="columnsWrap">
                                                     <div class="col-sm-7">
-                                                        <asp:TextBox ID="chronActivity" runat="server" placeholder="Actividad" Width="70%"></asp:TextBox>
+                                                        <asp:TextBox ID="chronActivity_txt" runat="server" placeholder="Actividad" Width="70%"></asp:TextBox>
                                                         <br />
                                                         <br />
-                                                        <asp:TextBox ID="chronoDate" runat="server" placeholder="Fecha" Width="70%"></asp:TextBox>
+                                                        <asp:TextBox ID="chronoDate_txt" runat="server" placeholder="Fecha" Width="70%"></asp:TextBox>
                                                         <br />
                                                         <br />
-                                                        <asp:TextBox ID="chTypeActivity" runat="server" placeholder="Tipo de Actividad" Width="70%"></asp:TextBox>
+                                                        <asp:TextBox ID="chTypeActivity_txt" runat="server" placeholder="Tipo de Actividad" Width="70%"></asp:TextBox>
                                                         <br />
                                                         <br />
-                                                        <asp:TextBox ID="chActivityDescription" runat="server" placeholder="Descripción..." TextMode="MultiLine" Rows="10" Height="75px" Width="90%" />
+                                                        <asp:TextBox ID="chActivityDescription_txt" runat="server" placeholder="Descripción..." TextMode="MultiLine" Rows="10" Height="75px" Width="90%" />
                                                     </div>
                                                     <div class="col-sm-7">
                                                         <div class="sc_button sc_button_style_light sc_button_size_huge squareButton light huge">
@@ -39,6 +39,9 @@
                                                             <!-- <a href="#" class="">Cancelar</a> -->
                                                             <asp:Button runat="server" ID="cancelCrEvent" Text="Cancelar" OnClick="cancelCrEvent_Click" />
                                                         </div>
+                                                        <br />
+                                                        <asp:Label ID="lblWarning" runat="server" Text="" ForeColor="Red" Visible="true"></asp:Label>
+                                                    
                                                     </div>
                                                 </div>
                                             </div>

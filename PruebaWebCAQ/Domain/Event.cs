@@ -29,6 +29,14 @@ namespace PruebaWebCAQ.Domain
             this.chronogramId = chronogramId;
         }
 
+        public Event(string eventName, string description, string date, string eventType)
+        {
+            this.eventName = eventName;
+            this.description = description;
+            this.date = date;
+            this.eventType = eventType;
+        }
+
         public int EventId
         {
             get

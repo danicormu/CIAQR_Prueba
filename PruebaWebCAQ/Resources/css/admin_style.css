@@ -19817,3 +19817,8 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
 .rowColor{
     background-color: #888;
 }
+
+.dimensPicture {
+    max-width: 550px;
+    max-height: 450px;
+}

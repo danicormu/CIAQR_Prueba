@@ -12,13 +12,28 @@ namespace PruebaWebCAQ
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Abandon();
-            FormsAuthentication.SignOut();
+            if(Session["USER_ID"] != null)
+            {
+                userlogged.Text = Session["USER_ID"].ToString();
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+                userlogged.Text = "Usuario Nulo";
+            }
         }
 
-        public void logOut()
+                       
+        protected void logOut_Click(object sender, EventArgs e)
         {
-            
+            Logout();
+        }
+
+        public void Logout()
+        {
+            Session.Remove("USER_ID");
+            Session.RemoveAll();
+            Response.Redirect("Login.aspx");
         }
     }
 

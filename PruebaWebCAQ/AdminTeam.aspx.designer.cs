@@ -13,6 +13,15 @@ namespace PruebaWebCAQ {
     public partial class AdminTeam {
         
         /// <summary>
+        /// Control imgProfile.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage imgProfile;
+        
+        /// <summary>
         /// Control personName_txt.
         /// </summary>
         /// <remarks>
@@ -49,22 +58,22 @@ namespace PruebaWebCAQ {
         protected global::System.Web.UI.WebControls.TextBox personDescription_txt;
         
         /// <summary>
-        /// Control fileUpload.
+        /// Control imgUpload.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileUpload;
+        protected global::System.Web.UI.WebControls.FileUpload imgUpload;
         
         /// <summary>
-        /// Control lblImage.
+        /// Control uploadPImage.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblImage;
+        protected global::System.Web.UI.WebControls.Button uploadPImage;
         
         /// <summary>
         /// Control createPerson.
@@ -83,6 +92,15 @@ namespace PruebaWebCAQ {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button cancelPerson;
+        
+        /// <summary>
+        /// Control lblImage.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblImage;
         
         /// <summary>
         /// Control lblWarning.

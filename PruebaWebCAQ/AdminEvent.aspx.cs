@@ -12,14 +12,21 @@ namespace PruebaWebCAQ
     public partial class AdminEvent : System.Web.UI.Page
     {
         EventBusiness EBusiness = new EventBusiness();
+        CronogramBusiness CBusiness = new CronogramBusiness();
         private List<Event> list_event;
         private int i = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["USER_ID"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            
             list_event = EBusiness.getAllEventsService();
             EventRepeater.DataSource = list_event;
             EventRepeater.DataBind();
+            
         }
 
         // Evento que inserta un evento 
@@ -28,6 +35,7 @@ namespace PruebaWebCAQ
             try
             {
                 Event ev = null;
+                Chronogram ch = null;
 
                 if (eventName_txt.Text == "" || eventDesc_txt.Text == " "
                     || eventDate_txt.Text == " " || eventType_txt.Text == " ")
@@ -36,8 +44,10 @@ namespace PruebaWebCAQ
                 }
                 else
                 { 
-                    ev = new Event(eventName_txt.Text, eventDesc_txt.Text, eventDate_txt.Text, eventType_txt.Text, 0);
+                    ev = new Event(eventName_txt.Text, eventDesc_txt.Text, eventDate_txt.Text, eventType_txt.Text, ch.IdChronogram);
+                    ch = new Chronogram(DateTime.Now.ToShortDateString(), DateTime.Today.ToShortDateString());
                     EBusiness.createEventService(ev);
+                    CBusiness.addChronogramService(ch);
                     Response.Redirect("AdminEvent.aspx");                
                 }
             }
@@ -113,11 +123,11 @@ namespace PruebaWebCAQ
             if(e.CommandName == "updateItem")
             {
                 Event ev = null;
-                string nameEdited = ((TextBox)e.Item.FindControl("txtNameEdit")).Text;
-                string dateEdited = ((TextBox)e.Item.FindControl("txtDateEdit")).Text;
-                string typeEdited = ((TextBox)e.Item.FindControl("txtTypeEdit")).Text;
-                string descEdited = ((TextBox)e.Item.FindControl("txtDescEdit")).Text;
-                ev = new Event(nameEdited, descEdited, dateEdited, typeEdited, 6);
+                string nameEdited = ((TextBox)e.Item.FindControl("txtNameEdit")).Text.Trim();
+                string descEdited = ((TextBox)e.Item.FindControl("txtDescEdit")).Text.Trim();
+                string dateEdited = ((TextBox)e.Item.FindControl("txtDateEdit")).Text.Trim();
+                string typeEdited = ((TextBox)e.Item.FindControl("txtTypeEdit")).Text.Trim();
+                ev = new Event(nameEdited, descEdited, dateEdited, typeEdited);
                 EBusiness.updateEventService(ev);
                 Response.Redirect("AdminEvent.aspx");
             }

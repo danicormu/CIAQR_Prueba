@@ -80,21 +80,21 @@
                                                                 <tr runat="server" id="tableRow" class="sc_table_grey">
                                                                     <td><asp:Label runat="server" ID="eventIdAd"/></td>
                                                                     <td>
-                                                                        <asp:Label runat="server" ID="eventNameAd"/>
-                                                                        <asp:TextBox runat="server" ID="txtNameEdit" Visible="false"></asp:TextBox>
+                                                                        <asp:Label runat="server" ID="eventNameAd" Width="180px"/>
+                                                                        <asp:TextBox runat="server" ID="txtNameEdit" Visible="false" Width="180px"></asp:TextBox>
 
                                                                     </td>
                                                                     <td>
                                                                         <asp:Label runat="server" ID="eventDateAd"/>
-                                                                        <asp:TextBox runat="server" ID="txtDateEdit" Visible="false"></asp:TextBox>                                                                        
+                                                                        <asp:TextBox runat="server" ID="txtDateEdit" Visible="false" Width="100px"></asp:TextBox>                                                                        
                                                                     </td>
                                                                     <td>
                                                                         <asp:Label runat="server" ID="eventTypeAd"/>
-                                                                        <asp:TextBox runat="server" ID="txtTypeEdit" Visible="false"></asp:TextBox>
+                                                                        <asp:TextBox runat="server" ID="txtTypeEdit" Visible="false" Width="150px"></asp:TextBox>
                                                                     </td>
                                                                     <td>
-                                                                        <asp:Label runat="server" ID="eventDescAd"/>
-                                                                        <asp:TextBox runat="server" ID="txtDescEdit" Visible="false" TextMode="MultiLine" Rows="2"></asp:TextBox>
+                                                                        <asp:Label runat="server" ID="eventDescAd" Width="250px"/>
+                                                                        <asp:TextBox runat="server" ID="txtDescEdit" Visible="false" TextMode="MultiLine" Rows="2" Width="250px"></asp:TextBox>
                                                                     </td>
                                                                     <td>
                                                                         <asp:LinkButton visible="true" runat="server" ID="btn_Edit" Text="Editar" CommandName="editItem" />

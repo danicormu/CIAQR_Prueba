@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using PruebaWebCAQ.Data;
 using PruebaWebCAQ.Domain;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace PruebaWebCAQ.Business
 {
@@ -45,7 +47,20 @@ namespace PruebaWebCAQ.Business
             return data.deleteAdministrator(id);
         }
 
-
+        //Servicio de encriptacion
+        public string encryption(string pass)
+        {
+            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+            byte[] encrypt;
+            UTF8Encoding encode = new UTF8Encoding();
+            encrypt = md5.ComputeHash(encode.GetBytes(pass));
+            StringBuilder encryptdata = new StringBuilder();
+            for (int i = 0; i < encrypt.Length; i++)
+            {
+                encryptdata.Append(encrypt[i].ToString());
+            }
+            return encryptdata.ToString();
+        }
 
     }
 }

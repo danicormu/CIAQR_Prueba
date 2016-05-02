@@ -13,40 +13,40 @@ namespace PruebaWebCAQ {
     public partial class AdminChrono {
         
         /// <summary>
-        /// Control chronActivity.
+        /// Control chronActivity_txt.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox chronActivity;
+        protected global::System.Web.UI.WebControls.TextBox chronActivity_txt;
         
         /// <summary>
-        /// Control chronoDate.
+        /// Control chronoDate_txt.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox chronoDate;
+        protected global::System.Web.UI.WebControls.TextBox chronoDate_txt;
         
         /// <summary>
-        /// Control chTypeActivity.
+        /// Control chTypeActivity_txt.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox chTypeActivity;
+        protected global::System.Web.UI.WebControls.TextBox chTypeActivity_txt;
         
         /// <summary>
-        /// Control chActivityDescription.
+        /// Control chActivityDescription_txt.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox chActivityDescription;
+        protected global::System.Web.UI.WebControls.TextBox chActivityDescription_txt;
         
         /// <summary>
         /// Control createEvent.
@@ -65,6 +65,15 @@ namespace PruebaWebCAQ {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button cancelCrEvent;
+        
+        /// <summary>
+        /// Control lblWarning.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblWarning;
         
         /// <summary>
         /// Control makeChronogram.

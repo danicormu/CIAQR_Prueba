@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using PruebaWebCAQ.Domain;
+using System.Web.SessionState;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using PruebaWebCAQ.Business;
 
 namespace PruebaWebCAQ.Data
 {
@@ -51,7 +57,10 @@ namespace PruebaWebCAQ.Data
                 SqlDataReader reader = query.ExecuteReader();
                 reader.Read();
                 if ((username == reader.GetString(0)) && (password == reader.GetString(1)))
+                {
+                    s
                     flag = true;
+                }                   
             }
             catch (Exception e)
             {

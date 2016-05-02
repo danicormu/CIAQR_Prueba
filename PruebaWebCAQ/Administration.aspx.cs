@@ -9,7 +9,10 @@ namespace PruebaWebCAQ
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["USER_ID"] != null)
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
 
         protected void senMail_Click(object sender, EventArgs e)
