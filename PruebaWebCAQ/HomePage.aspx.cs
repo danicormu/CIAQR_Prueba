@@ -90,9 +90,9 @@ namespace PruebaWebCAQ
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 Image personalImage = (Image)e.Item.FindControl("professorImage");
-                //photo = System.Drawing.Image.FromStream(profList.ElementAt(j).Photo);
-                //path = saveProfImage(photo);
-                //personalImage.ImageUrl = path;
+                photo = System.Drawing.Image.FromStream(profList.ElementAt(j).Photo);
+                path = saveProfImage(photo);
+                personalImage.ImageUrl = path;
                 HtmlGenericControl name = (HtmlGenericControl)e.Item.FindControl("profName");
                 name.InnerText = profList.ElementAt(j).Name;
                 HtmlGenericControl rol = (HtmlGenericControl)e.Item.FindControl("profRol");
