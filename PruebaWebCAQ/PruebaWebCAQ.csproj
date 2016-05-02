@@ -70,6 +70,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminGallery.aspx" />
     <Content Include="packages.config" />
     <Content Include="Administration.Master" />
     <Content Include="MainMenu.Master" />
@@ -681,6 +682,13 @@
     </Compile>
     <Compile Include="AdminEvent.aspx.designer.cs">
       <DependentUpon>AdminEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminGallery.aspx.cs">
+      <DependentUpon>AdminGallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminGallery.aspx.designer.cs">
+      <DependentUpon>AdminGallery.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administration.aspx.cs">
       <DependentUpon>Administration.aspx</DependentUpon>

@@ -58,7 +58,6 @@ namespace PruebaWebCAQ.Data
                 reader.Read();
                 if ((username == reader.GetString(0)) && (password == reader.GetString(1)))
                 {
-                    s
                     flag = true;
                 }                   
             }

@@ -13,5 +13,15 @@ namespace PruebaWebCAQ
         {
 
         }
+
+        protected void createPerson_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void cancelPerson_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
