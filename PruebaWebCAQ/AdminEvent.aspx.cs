@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using PruebaWebCAQ.Business;
 using PruebaWebCAQ.Domain;
 using System.Web.UI.HtmlControls;
+using AjaxControlToolkit;
 
 namespace PruebaWebCAQ
 {
@@ -105,52 +106,32 @@ namespace PruebaWebCAQ
 
             if(e.CommandName == "editItem")
             {
-                ((Label)e.Item.FindControl("eventIdAd")).Visible = true;
-                ((Label)e.Item.FindControl("eventNameAd")).Visible = false;
-                ((Label)e.Item.FindControl("eventDateAd")).Visible = false;
-                ((Label)e.Item.FindControl("eventTypeAd")).Visible = false;
-                ((Label)e.Item.FindControl("eventDescAd")).Visible = false;
-                ((TextBox)e.Item.FindControl("txtNameEdit")).Visible = true;
-                ((TextBox)e.Item.FindControl("txtDateEdit")).Visible = true;
-                ((TextBox)e.Item.FindControl("txtTypeEdit")).Visible = true;
-                ((TextBox)e.Item.FindControl("txtDescEdit")).Visible = true;
-                ((LinkButton)e.Item.FindControl("btn_Edit")).Visible = false;
-                ((LinkButton)e.Item.FindControl("btn_Update")).Visible = true;
-                ((LinkButton)e.Item.FindControl("btn_CancelUpdate")).Visible = true;
-                ((LinkButton)e.Item.FindControl("btn_Delete")).Visible = false;
-            }
-            
-            if(e.CommandName == "updateItem")
-            {   
+                ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender1");
+                Label name = (Label)e.Item.FindControl("eventNameAd");
+                nameLabel.Text = "Nombre del Evento" + " (" + name.Text + ")";
+                Label date = (Label)e.Item.FindControl("eventDateAd");
+                Label type = (Label)e.Item.FindControl("eventTypeAd");
+                Label description = (Label)e.Item.FindControl("eventDescAd");
+                dateLabel.Text = "Fecha (" + date.Text + ")";
+                typeLabel.Text = "Tipo ("+type.Text + ")";
+                descLabel.Text = "Descripcion (" + description.Text + ")";
                 Label id = (Label)e.Item.FindControl("eventIdAd");
-                int idForUpdate = Convert.ToInt32(id.Text);
-                string nameEdited=((TextBox)e.Item.FindControl("txtNameEdit")).Text;
-                string descEdited = ((TextBox)e.Item.FindControl("txtDescEdit")).Text.Trim();
-                string dateEdited = ((TextBox)e.Item.FindControl("txtDateEdit")).Text.Trim();
-                string typeEdited = ((TextBox)e.Item.FindControl("txtTypeEdit")).Text.Trim();
-                Event ev = new Event(idForUpdate,nameEdited, descEdited, dateEdited, typeEdited);
-                EBusiness.updateEventService(ev);
-                Response.Redirect("AdminEvent.aspx");
+                int eventIdToUpdate = Convert.ToInt32(id.Text);
+                eventID.Text = eventIdToUpdate.ToString();
+                popup.Show();
             }
+        }
 
-            if(e.CommandName == "cancelUpdate")
-            {
-                ((Label)e.Item.FindControl("eventIdAd")).Visible = true;
-                ((Label)e.Item.FindControl("eventNameAd")).Visible = true;
-                ((Label)e.Item.FindControl("eventDateAd")).Visible = true;
-                ((Label)e.Item.FindControl("eventTypeAd")).Visible = true;
-                ((Label)e.Item.FindControl("eventDescAd")).Visible = true;
-                ((TextBox)e.Item.FindControl("txtNameEdit")).Visible = false;
-                ((TextBox)e.Item.FindControl("txtDateEdit")).Visible = false;
-                ((TextBox)e.Item.FindControl("txtTypeEdit")).Visible = false;
-                ((TextBox)e.Item.FindControl("txtDescEdit")).Visible = false;
-                ((LinkButton)e.Item.FindControl("btn_Edit")).Visible = true;
-                ((LinkButton)e.Item.FindControl("btn_Update")).Visible = false;
-                ((LinkButton)e.Item.FindControl("btn_CancelUpdate")).Visible = false;
-                ((LinkButton)e.Item.FindControl("btn_Delete")).Visible = true;
-                Response.Redirect("AdminEvent.aspx");
-            }
+        protected void processbtn_Click(object sender, EventArgs e)
+        {
 
-        }       
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            Event ev = new Event(Convert.ToInt32(eventID.Text), nameToEdit.Value, descriptionToEdit.Value, dateToEdit.Value, typeToEdit.Value);
+            EBusiness.updateEventService(ev);
+            Response.Redirect("AdminEvent.aspx");
+        }
     }
 }
