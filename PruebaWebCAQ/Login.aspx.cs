@@ -16,20 +16,17 @@ namespace PruebaWebCAQ
 
         protected void btnlogin_Click(object sender, EventArgs e)
         {
-            string username = txt_user.Text;
-            string password = txt_password.Text;
-            if(txt_user.Text != "" && txt_password.Text != "")
+            if(txt_user.Text != "" || txt_password.Text != "")
             {
-                //string pass = admBusiness.encryption(password);
-                if(!ValidateUser(username, password))             
-                {
-                    lbl_message.Visible = true;
+                if(!ValidateUser(txt_user.Text, txt_password.Text))             
+                {                    
+                   lbl_message.Visible = true;
                 }
                 else
                 {
                     Session["USER_ID"] = txt_user.Text;
                     Response.Redirect("Administration.aspx");
-                }                
+                }             
             }
             else
             {
@@ -41,7 +38,6 @@ namespace PruebaWebCAQ
         {
             bool ans;
             ans = admBusiness.loginService(strUsername, strPassword);
-            Session["usuario"] = strUsername;
             return ans;
         }
 
