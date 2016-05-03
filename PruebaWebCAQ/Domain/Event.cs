@@ -20,6 +20,16 @@ namespace PruebaWebCAQ.Domain
             this.eventType = eventType;
             this.chronogramId = chronogramId;
         }
+
+        public Event(int eventId, string eventName, string description, string date, string eventType)
+        {
+            this.eventId = eventId;
+            this.eventName = eventName;
+            this.description = description;
+            this.date = date;
+            this.eventType = eventType;
+        }
+
         public Event(string eventName, string description, string date, string eventType, int chronogramId)
         {
             this.eventName = eventName;

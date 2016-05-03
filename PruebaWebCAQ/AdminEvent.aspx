@@ -58,7 +58,7 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        
                                     </div>
                                 </article>
                                 <article class="hrShadow post">
@@ -75,14 +75,14 @@
                                                         <th class="descStyle">Descripción</th>
                                                         <th class="editionStyle">Edición</th>
                                                     </tr>
+
                                                     <asp:Repeater ID="EventRepeater" runat="server" OnItemDataBound="EventRepeater_ItemDataBound" OnItemCommand="EventRepeater_ItemCommand">
                                                         <ItemTemplate>                                                           
                                                                 <tr runat="server" id="tableRow" class="sc_table_grey">
                                                                     <td><asp:Label runat="server" ID="eventIdAd"/></td>
                                                                     <td>
                                                                         <asp:Label runat="server" ID="eventNameAd" Width="180px"/>
-                                                                        <asp:TextBox runat="server" ID="txtNameEdit" Visible="false" Width="180px"></asp:TextBox>
-
+                                                                        <asp:TextBox runat="server" ID="txtNameEdit" Visible="false" Width="180px"></asp:TextBox> 
                                                                     </td>
                                                                     <td>
                                                                         <asp:Label runat="server" ID="eventDateAd"/>

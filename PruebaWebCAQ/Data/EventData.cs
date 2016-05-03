@@ -73,12 +73,11 @@ namespace PruebaWebCAQ.Data
             try
             {
                 connectDB();
-                SqlCommand query = new SqlCommand("update evento set nombreevento = @name,descripcion=@description,fecha = @date, tipoEvento= @type, cronograma_idCronograma = @chronogramID where idEvento = @id", conn);
+                SqlCommand query = new SqlCommand("update evento set nombreevento = @name,descripcion=@description,fecha = @date, tipoEvento= @type where idEvento = @id", conn);
                 query.Parameters.AddWithValue("@name", eve.EventName);
                 query.Parameters.AddWithValue("@description", eve.Description);
                 query.Parameters.AddWithValue("@date", eve.Date);
                 query.Parameters.AddWithValue("@type", eve.EventType);
-                query.Parameters.AddWithValue("@chronogramID", eve.ChronogramId);
                 query.Parameters.AddWithValue("@id", eve.EventId);
                 conn.Open();
                 query.ExecuteNonQuery();
