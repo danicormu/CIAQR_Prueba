@@ -29,7 +29,7 @@ namespace PruebaWebCAQ
             makePersonRepeater.DataBind();
         }
 
-        protected void uploadPImage_Click(object sender, EventArgs e)
+        /*protected void uploadPImage_Click(object sender, EventArgs e)
         {
             byte[] byteArray = null;
             if (imgUpload.PostedFile != null)
@@ -50,7 +50,7 @@ namespace PruebaWebCAQ
                     }
                 }
             }
-        }
+        } */
 
         protected void createPerson_Click(object sender, EventArgs e)
         {
@@ -59,19 +59,32 @@ namespace PruebaWebCAQ
                 if (personName_txt.Text != "" || personRol_txt.Text != ""
                     || personDescription_txt.Text != "")
                 {
-                   /* if (!fileUpload.HasFile)
+                    if (!imgUpload.HasFile)
                     {
                         lblImage.Text = "Debe seleccionar una imagen*";
                     }
                     else
                     {
-                        int picLength = fileUpload.;
-                        photo pict = new byte[picLength];
-                        lblImage.Text = "Imagen cargado exitosamente*";
-                        Personal pe = new Personal(personName_txt.Text, personDescription_txt.Text, personRol_txt.Text, pict);
-                        PBusiness.addService(pe);
-                        Response.Redirect("AdminTeam.aspx");
-                    }*/
+                        HttpPostedFile postFile = imgUpload.PostedFile;
+                        string file = Path.GetFileName(postFile.FileName);
+                        string fileExtension = Path.GetExtension(file);
+
+                        if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".bmp" ||
+                            fileExtension.ToLower() == ".gif" || fileExtension.ToLower() == ".png" ||)
+                        {
+                            Stream stream = postFile.InputStream;
+                            BinaryReader binaryReader = new BinaryReader(stream);
+                            byte[] bytes = binaryReader.ReadBytes((int)stream.Length);
+                            lblImage.Text = "Imagen cargada exitosamente*";
+                            Personal pe = new Personal(personName_txt.Text, personDescription_txt.Text, personRol_txt.Text, bytes);
+                            PBusiness.addService(pe);
+                            Response.Redirect("AdminTeam.aspx");
+                        }
+                        else
+                        {
+                            lblImage.Text = "Solo imágenes (.jpg, .bmp, .gif, .png)";
+                        }            
+                    }
                 }
                 else
                 {
@@ -97,7 +110,7 @@ namespace PruebaWebCAQ
             personRol_txt.Text = string.Empty;
         }
 
-    /*    private string saveImage(System.Drawing.Image image)
+        private string saveImage(System.Drawing.Image image)
         {
             string savePath = Server.MapPath(@"images\" + list_Personal.ElementAt(i).Name + ".jpg");
             System.Drawing.Graphics graphics = System.Drawing.Graphics.FromImage(image);
@@ -111,7 +124,7 @@ namespace PruebaWebCAQ
             System.Drawing.Graphics graphics = System.Drawing.Graphics.FromImage(image);
             image.Save(savePath);
             return "images/" + profList.ElementAt(j).Name + ".jpg";
-        } */
+        } 
 
         protected void makePersonRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {

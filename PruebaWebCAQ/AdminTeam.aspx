@@ -19,7 +19,7 @@
                                             <article class="sc_post_format_gallery postDefault hrShadow post margin_bottom_small">
                                                 <div class="sc_section col-sm-6 post_thumb thumb">
                                                     <div class="dimensPicture">
-                                                        <img id="imgProfile" runat="server" alt=""  class="img-thumbnail"/>
+                                                        <img id="imgProfile" src="Resources/default_img/default.png" runat="server" alt=""  class="img-thumbnail"/>
                                                     </div>
                                                 </div>
                                                 <div class="columnsWrap">
