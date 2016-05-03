@@ -17,39 +17,11 @@
                                         <h2 class="margin_top_small">Galería</h2>
                                         <article class="sc_post_format_gallery postDefault hrShadow post margin_bottom_small">
                                             <div class="sc_section col-sm-6 post_thumb thumb">
-                                                <img class="imageDimens" src="Resources/default_img/default.png" alt="" />
-                                            </div>
-					                         <div class="columnsWrap">
-                                                    <div class="col-sm-7">
-                                                        <asp:TextBox ID="personName_txt" runat="server" required="true" placeholder="Nombre Completo" Width="70%"></asp:TextBox>
-                                                       <!-- <br />
-                                                        <br />
-                                                        <asp:TextBox ID="personSubj_txt" runat="server" placeholder="Asignatura" Width="70%"></asp:TextBox> -->
-                                                        <br />
-                                                        <br />
-                                                        <asp:TextBox ID="personRol_txt" runat="server" required="true" placeholder="Rol (Profesor, Director, Otro..)" Width="70%"></asp:TextBox>
-                                                        <br />
-                                                        <br />
-                                                        <asp:TextBox ID="personDescription_txt" runat="server" required="true" placeholder="Descripción de la persona..." TextMode="MultiLine" Rows="10" Height="75px" Width="90%" />
-                                                    </div>
-                                                    <div class="col-sm-7">
-                                                        <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">
-                                                            <asp:FileUpload ID="fileUpload" runat="server"/>
-                                                        </div>                                                        
-                                                        <br />
-                                                        <asp:Label ID="lblImage" runat="server" Text="" ForeColor="Red" Visible="true"></asp:Label>
-                                                        <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">
-                                                            <!-- <a href="#" class="">Crear</a> -->
-                                                            <asp:Button runat="server" ID="createPerson" Text="Crear" OnClick="createPerson_Click" />
-                                                        </div>
-                                                        <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">
-                                                            <!-- <a href="#" class="">Cancelar</a> -->
-                                                            <asp:Button runat="server" ID="cancelPerson" Text="Cancelar" OnClick="cancelPerson_Click" />
-                                                        </div                                                        
-                                                    </div>
-                                                    <br />
-                                                    <asp:Label ID="lblWarning" runat="server" Text="" ForeColor="Red" Visible="true"></asp:Label> 
+                                                <div class="dimensPicture">
+                                                    <img src="Resources/default_img/default.png" alt="" class="img-thumbnail" />
                                                 </div>
+                                            </div>
+					                         
                                             <div class="post_title">
                                                 <asp:TextBox ID="imgTitle" runat="server" placeholder="Título" Width="40%"></asp:TextBox>
                                             </div>

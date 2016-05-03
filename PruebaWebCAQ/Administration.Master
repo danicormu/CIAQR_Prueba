@@ -43,8 +43,9 @@
                             <div class="sc_scroll_wrapper">
                                 <div class="sc_scroll_slide">
                                     <div class="logo with_text">                                        
-                                            <span class="logo_text">Bienvenido: </span><asp:Label ID="userlogged" class="logo_text" runat="server" Text=" "></asp:Label>
-                                            <a href="Configuration.aspx" class="logo_slogan">Configuración de la administración</a>                                        
+                                            <span class="logo_text">Bienvenido: </span>
+                                            <br />
+                                            <asp:Label ID="userlogged" class="logo_text" runat="server" Text=" "></asp:Label>                                      
                                     </div>
                                     <!-- Menu -->
                                     <nav class="sidemenu_area">

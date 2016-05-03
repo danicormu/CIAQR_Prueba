@@ -40,7 +40,7 @@
                                                             <asp:FileUpload ID="imgUpload" runat="server" />                                                            
                                                         </div>
                                                         <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">                                                            
-                                                            <asp:Button runat="server" ID="uploadPImage" Text="Cancelar" OnClick="uploadPImage_Click"/>
+                                                            <asp:Button runat="server" ID="uploadPImage" Text="Cargar" OnClick="uploadPImage_Click"/>
                                                         </div>
                                                         <br />
                                                         <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">                                                            
