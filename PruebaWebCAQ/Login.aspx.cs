@@ -18,10 +18,10 @@ namespace PruebaWebCAQ
         {
             string username = txt_user.Text;
             string password = txt_password.Text;
-            if(username.Length > 0 && password.Length > 0)
+            if(txt_user.Text != "" && txt_password.Text != "")
             {
-                string pass = admBusiness.encryption(password);
-                if(!ValidateUser(username, pass))             
+                //string pass = admBusiness.encryption(password);
+                if(!ValidateUser(username, password))             
                 {
                     lbl_message.Visible = true;
                 }
