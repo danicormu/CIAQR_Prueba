@@ -16,6 +16,7 @@ namespace PruebaWebCAQ
         private List<Personal> list_Personal;
         private List<Personal> profList;
         private int i = 0;
+        private int j = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["USER_ID"] == null)
@@ -69,8 +70,7 @@ namespace PruebaWebCAQ
                         string file = Path.GetFileName(postFile.FileName);
                         string fileExtension = Path.GetExtension(file);
 
-                        if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".bmp" ||
-                            fileExtension.ToLower() == ".gif" || fileExtension.ToLower() == ".png" ||)
+                        if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".bmp" || fileExtension.ToLower() == ".gif" || fileExtension.ToLower() == ".png")
                         {
                             Stream stream = postFile.InputStream;
                             BinaryReader binaryReader = new BinaryReader(stream);

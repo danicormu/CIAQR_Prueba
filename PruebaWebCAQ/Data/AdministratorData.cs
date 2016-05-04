@@ -43,6 +43,31 @@ namespace PruebaWebCAQ.Data
             return list;
         }
 
+        public int getAdminID(string username, string pass)
+        {
+            int id = 0;
+            try
+            {
+                SqlCommand query = new SqlCommand("select idAdmin from administrador where usuario=@user and password=@pass;", conn);
+                query.Parameters.AddWithValue("@user", username);
+                query.Parameters.AddWithValue("@pass", pass);
+                conn.Open();
+                SqlDataReader reader = query.ExecuteReader();
+                reader.Read();
+                id = reader.GetInt32(0);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                disconnectDB();
+                conn.Close();
+            }
+            return id;
+        }
+
         //login recibe usuario y password
         public bool login(string username, string password)
         {

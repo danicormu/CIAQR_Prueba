@@ -138,7 +138,6 @@
         <hr />
         <asp:Button runat="server" ID="btnSave" OnClick="btnSave_Click" Text="Actualizar" />
          <input id="btnCancel" type="button" value="Cancelar" />
-        
     </asp:panel>
 
     <style type="text/css">

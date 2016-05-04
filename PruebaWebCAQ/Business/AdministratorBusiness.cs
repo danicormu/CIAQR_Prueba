@@ -16,6 +16,11 @@ namespace PruebaWebCAQ.Business
             return data.getAllAdministrators();
         }
 
+        public int selectId(string username, string password)
+        {
+            return data.getAdminID(username,password);
+        }
+
         //servicio que indica si el login es exitoso o fracasó
         public bool loginService(string username, string password)
         {
