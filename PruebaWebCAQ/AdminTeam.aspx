@@ -1,10 +1,12 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Administration.Master" AutoEventWireup="true" CodeBehind="AdminTeam.aspx.cs" Inherits="PruebaWebCAQ.AdminTeam" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="leftMenu" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="centerAdministration" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <section class="widgetTabs">
         <div class="mainWrap without_sidebar">
             <div class="container">
@@ -24,20 +26,17 @@
                                                 </div>
                                                 <div class="columnsWrap">
                                                     <div class="col-sm-7">
-                                                        <asp:TextBox ID="personName_txt" runat="server" required="true" placeholder="Nombre Completo" Width="100%"></asp:TextBox>
-                                                        <!-- <br />
-                                                        <br />
-                                                        <asp:TextBox ID="personSubj_txt" runat="server" placeholder="Asignatura" Width="70%"></asp:TextBox> -->
+                                                        <asp:TextBox ID="personName_txt" runat="server" placeholder="Nombre Completo" Width="100%"></asp:TextBox>
                                                         <br />
                                                         <br />
-                                                        <asp:TextBox ID="personRol_txt" runat="server" required="true" placeholder="Rol (Profesor, Director, Otro..)" Width="100%"></asp:TextBox>
+                                                        <asp:TextBox ID="personRol_txt" runat="server" placeholder="Rol (Profesor, Director, Otro..)" Width="100%"></asp:TextBox>
                                                         <br />
                                                         <br />
-                                                        <asp:TextBox ID="personDescription_txt" runat="server" required="true" placeholder="Descripción de la persona..." TextMode="MultiLine" Rows="10" Height="75px" Width="100%" />
+                                                        <asp:TextBox ID="personDescription_txt" runat="server" placeholder="Descripción de la persona..." TextMode="MultiLine" Rows="10" Height="75px" Width="100%" />
                                                     </div>
                                                     <div class="col-sm-7">
                                                         <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">
-                                                            <asp:FileUpload ID="imgUpload" runat="server" />                                                            
+                                                            <asp:FileUpload ID="imgUpload" runat="server"/>                                                            
                                                         </div>
                                                         <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">                                                            
                                                             <asp:Button runat="server" ID="uploadPImage" Text="Cargar" OnClick="uploadPImage_Click"/>
@@ -45,6 +44,14 @@
                                                         <br />
                                                         <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">                                                            
                                                             <asp:Button runat="server" ID="createPerson" Text="Crear" OnClick="createPerson_Click" />
+                                                            <asp:Button runat="server" ID="processbtn" OnClick="processbtn_Click" Style="visibility:hidden;" />
+                                                            <asp:ModalPopupExtender id="ModalPopupExtender1" runat="server" 
+                                                                 TargetControlID="processbtn"
+                                                                 cancelcontrolid="btnCancel" 
+	                                                             PopupControlID="Panel1"
+	                                                             drag="true" 
+	                                                             backgroundcssclass="modalBackground">
+                                                            </asp:ModalPopupExtender>
                                                         </div>
                                                         <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">                                                            
                                                             <asp:Button runat="server" ID="cancelPerson" Text="Cancelar" OnClick="cancelPerson_Click" />
@@ -58,7 +65,11 @@
                                             </article>
                                         </div>
                                     </div>
-
+                                    <asp:panel id="Panel1" style="display: none" CssClass="modalPopup" align="center" runat="server">
+                                        <p runat="server" id="messsage"></p>
+                                        <hr />
+                                        <input id="btnCancel" type="button" value="Aceptar" />
+                                    </asp:panel>
 
                                 </article>
                                 <article class="hrShadow post">
@@ -81,21 +92,24 @@
                                                                     <asp:Label runat="server" ID="asIdPerson" /></td>
                                                                 <td>
                                                                     <asp:Label runat="server" ID="asNamePerson" Width="190px" />
-                                                                    <asp:TextBox runat="server" ID="txtNamePer" Visible="false"></asp:TextBox>
                                                                 </td>
                                                                 <td>
                                                                     <asp:Label runat="server" ID="asRolePerson" />
-                                                                    <asp:TextBox runat="server" ID="txtRolePer" Visible="false"></asp:TextBox>
                                                                 </td>
                                                                 <td>
                                                                     <asp:Label runat="server" ID="asDescPerson" Width="280px" />
-                                                                    <asp:TextBox runat="server" ID="txtDescPer" Visible="false"></asp:TextBox>
                                                                 </td>
                                                                 <td>
                                                                     <asp:LinkButton runat="server" ID="btn_Edit" Text="Editar" CommandName="personEdit" />
-                                                                    <asp:LinkButton runat="server" ID="btn_Update" Text="Actualizar" CommandName="personUpdate" Visible="false"></asp:LinkButton>
-                                                                    <asp:LinkButton runat="server" ID="btn_CancelUpdate" Text="Cancelar" CommandName="perCancelUpdate" Visible="false"></asp:LinkButton>
+                                                                    <asp:Button runat="server" ID="processbtn2" OnClick="processbtn_Click" Style="visibility:hidden;" />
                                                                     <asp:LinkButton runat="server" ID="btn_Delete" CommandName="personDelete" OnClientClick='javascript:return confirm("Está seguro que desea eliminar la persona?")'>Eliminar</asp:LinkButton>
+                                                                    <asp:ModalPopupExtender id="ModalPopupExtender2" runat="server" 
+                                                                            TargetControlID="processbtn2"
+                                                                            cancelcontrolid="btnToStop" 
+	                                                                        PopupControlID="Panel2"
+	                                                                        drag="true" 
+	                                                                        backgroundcssclass="modalBackground1">
+                                                                     </asp:ModalPopupExtender>
                                                                 </td>
                                                             </tr>
                                                         </ItemTemplate>
@@ -111,5 +125,58 @@
                 </div>
             </div>
         </div>
+        <asp:panel id="Panel2" style="display: none" CssClass="modalPopup1" align="center" runat="server">
+        <a>Id de Personal: </a><asp:Label runat="server" ID="personID"></asp:Label> 
+        <br />
+        <asp:Label runat="server" ID="nameLabel"></asp:Label>
+        <input runat="server" id ="nameToEdit" />
+        <br />
+        <asp:Label runat="server" ID="descriptionLabel"></asp:Label>
+        <input runat="server" id="descToEdit" />
+        <br />
+        <asp:Label runat="server" ID="rolLabel"></asp:Label>
+        <input runat="server" id="rolToEdit" />
+        <hr />
+        <asp:Button runat="server" ID="btnSave" OnClick="btnSave_Click" Text="Actualizar" />
+         <input id="btnToStop" type="button" value="Cancelar" />
+    </asp:panel>
     </section>
+     <style type="text/css">
+    .modalBackground
+    {
+        background-color: Black;
+        filter: alpha(opacity=90);
+        opacity: 0.8;
+    }
+    .modalPopup
+    {
+        background-color: #FFFFFF;
+        border-width: 3px;
+        border-style: solid;
+        border-color: black;
+        padding-top: 10px;
+        padding-left: 10px;
+        width: 300px;
+        height: 160px;
+    }
+</style>
+     <style type="text/css">
+    .modalBackground1
+    {
+        background-color: Black;
+        filter: alpha(opacity=90);
+        opacity: 0.8;
+    }
+    .modalPopup1
+    {
+        background-color: #FFFFFF;
+        border-width: 3px;
+        border-style: solid;
+        border-color: black;
+        padding-top: 10px;
+        padding-left: 10px;
+        width: 50%;
+        height: 50%;
+    }
+</style>
 </asp:Content>

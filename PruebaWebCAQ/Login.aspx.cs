@@ -1,8 +1,6 @@
 ﻿using System;
 using PruebaWebCAQ.Business;
-using System.Security.Cryptography;
-using System.Web.Security;
-using System.Web;
+
 
 namespace PruebaWebCAQ
 {
