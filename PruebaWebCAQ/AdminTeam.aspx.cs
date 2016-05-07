@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -103,9 +103,9 @@ namespace PruebaWebCAQ
                 id.Text = Convert.ToString(list_Personal.ElementAt(i).Id);
                 Label name = (Label)e.Item.FindControl("asNamePerson");
                 name.Text = list_Personal.ElementAt(i).Name;
-                Label description = (Label)e.Item.FindControl("asRolePerson");
+                Label description = (Label)e.Item.FindControl("asDescPerson");
                 description.Text = list_Personal.ElementAt(i).Description;
-                Label role = (Label)e.Item.FindControl("asDescPerson");
+                Label role = (Label)e.Item.FindControl("asRolePerson");
                 role.Text = list_Personal.ElementAt(i).Rol;
                 i++;
             }
