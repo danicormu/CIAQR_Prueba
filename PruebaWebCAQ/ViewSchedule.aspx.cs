@@ -120,7 +120,7 @@ namespace PruebaWebCAQ
 
         private void loadWendsday()
         {
-            signatureList = signature.getSignatureByGrupoIDService(groupName, "Miercoles");
+            signatureList = signature.getSignatureByGrupoIDService(groupName, "Miércoles");
             List<string> subList = new List<string>();
             foreach (var element in signatureList)
                 subList.Add(element.Name);
@@ -130,7 +130,7 @@ namespace PruebaWebCAQ
 
         protected void wendsdayList_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
-            signatureList = signature.getSignatureByGrupoIDService(groupName, "Miercoles");
+            signatureList = signature.getSignatureByGrupoIDService(groupName, "Miércoles");
             LinkButton button = (LinkButton)e.Item.FindControl("wendsday");
             string name = button.Text;
             foreach (var element in signatureList)

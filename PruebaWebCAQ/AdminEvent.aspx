@@ -28,16 +28,6 @@
 
                                                         <br />
                                                         <br />
-                                                        <!--<form class="woocommerce-ordering" method="get">
-                                                            <select name="orderby" class="orderby">
-                                                                <option value="menu_order" selected="selected">Default sorting</option>
-                                                                <option value="popularity">Sort by popularity</option>
-                                                                <option value="rating">Sort by average rating</option>
-                                                                <option value="date">Sort by newness</option>
-                                                                <option value="price">Sort by price: low to high</option>
-                                                                <option value="price-desc">Sort by price: high to low</option>
-                                                            </select>
-                                                        </form> -->
                                                         <asp:TextBox ID="eventType_txt" runat="server" placeholder="Tipo de Evento" Width="50%"></asp:TextBox>
                                                         <br />
                                                         <br />

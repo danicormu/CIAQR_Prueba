@@ -12,6 +12,11 @@ namespace PruebaWebCAQ.Business
             return data.getAllSchedule();
         }
 
+        public bool getSchedule(string day, string group)
+        {
+            return data.getScheduleByDayAndGroup(day, group);
+        }
+
         public string createScheduleService(Schedule schedule)
         {
             string success = "";

@@ -13,12 +13,12 @@ namespace PruebaWebCAQ.Data
             try
             {
                 connectDB();
-                SqlCommand query = new SqlCommand("select * from horario", conn);
+                SqlCommand query = new SqlCommand("select * from horario order by grupo_nivel_idNivel", conn);
                 conn.Open();
                 SqlDataReader reader = query.ExecuteReader();
                 while (reader.Read())
                 {
-                    Schedule schedule = new Schedule(reader.GetString(0), reader.GetString(1), reader.GetInt32(4));
+                    Schedule schedule = new Schedule(reader.GetString(0), reader.GetString(1), reader.GetInt32(2),reader.GetInt32(3));
                     list.Add(schedule);
                 }
                 reader.Close();
@@ -35,6 +35,33 @@ namespace PruebaWebCAQ.Data
             return list;
         }
 
+        public bool getScheduleByDayAndGroup(string day, string group)
+        {
+            bool flag = false;
+            try
+            {
+                connectDB();
+                SqlCommand query = new SqlCommand("select * from horario where dia = @day and grupo_idGrupo= @group;", conn);
+                query.Parameters.AddWithValue("@day", day);
+                query.Parameters.AddWithValue("@group", group);
+                conn.Open();
+                SqlDataReader reader = query.ExecuteReader();
+                reader.Read();
+                if (reader.GetString(0) != null && reader.GetString(1) != null)
+                    flag = true;
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                disconnectDB();
+                conn.Close();
+            }
+            return flag;
+        }
         public bool addSchedule(Schedule schedule)
         {
             bool flag = false;

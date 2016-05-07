@@ -38,13 +38,11 @@ namespace PruebaWebCAQ.Business
             return success;
         }
 
-        public string deleteSignatureService(int id)
+        public bool deleteSignatureService(string day,string group)
         {
-            string success = "";
-            if (data.deleteSignature(id))
-                success = "Materia borrada con éxito";
-            else
-                success = "la materia no ha sido borrada. Revise su conexión a la red o contacte a su proveedor de servicios";
+            bool success = false;
+            if (data.deleteSignature(day, group))
+                success = true;
             return success;
         }
     }

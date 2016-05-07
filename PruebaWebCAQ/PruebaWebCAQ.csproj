@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminGallery.aspx" />
+    <Content Include="EditSchedule.aspx" />
     <Content Include="packages.config" />
     <Content Include="Administration.Master" />
     <Content Include="MainMenu.Master" />
@@ -749,6 +750,13 @@
     <Compile Include="Domain\Personal.cs" />
     <Compile Include="Domain\Schedule.cs" />
     <Compile Include="Domain\signature.cs" />
+    <Compile Include="EditSchedule.aspx.cs">
+      <DependentUpon>EditSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditSchedule.aspx.designer.cs">
+      <DependentUpon>EditSchedule.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Events.aspx.cs">
       <DependentUpon>Events.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

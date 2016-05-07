@@ -126,14 +126,15 @@ namespace PruebaWebCAQ.Data
             return flag;
         }
 
-        public bool deleteSignature(int id)
+        public bool deleteSignature(string day, string group)
         {
             bool flag = false;
             try
             {
                 connectDB();
-                SqlCommand query = new SqlCommand("delete from materia where idMateria = @id", conn);
-                query.Parameters.AddWithValue("@Id", id);
+                SqlCommand query = new SqlCommand("delete from materia where horario_dia = @day and horario_grupo_idGrupo=@group", conn);
+                query.Parameters.AddWithValue("@day", day);
+                query.Parameters.AddWithValue("group", group);
                 conn.Open();
                 query.ExecuteNonQuery();
                 flag = true;
