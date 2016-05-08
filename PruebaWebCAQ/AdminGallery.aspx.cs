@@ -58,6 +58,7 @@ namespace PruebaWebCAQ
                                 Session["image"] = null;
                                 clearSpaces();
                                 ModalPopupExtender1.Show();
+                                Response.Redirect("AdminGallery.aspx");
                             }
                         else
                                 lblWarning.Text = "Solo imágenes (.jpg, .bmp, .gif, .png)";          
