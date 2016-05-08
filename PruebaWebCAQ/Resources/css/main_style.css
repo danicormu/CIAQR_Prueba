@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Bree+Serif);
+﻿@import url(https://fonts.googleapis.com/css?family=Bree+Serif);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700,100);
 
 /*
@@ -15288,6 +15288,14 @@ form .sc_contact_form_button .icon-comment:before{content: "\f075"; font-family:
     min-height: 1px
 }
 
+.sc_column_item_ser {
+    align-content: center;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-sizing: border-box;
+    min-height: 1px
+}
+
 /* Content
 ------------ */
 .sc_content {
@@ -15892,6 +15900,17 @@ ul.sc_list_style_disk li:before {
     display: block;
     clear: both;
     width: 100%;
+    margin: 0 0 30px 0;
+    height: 0;
+    border-top-width: 1px;
+    border-style: solid;
+    border-color: #ddd
+}
+
+.sc_line_ser {
+    display: block;
+    clear: both;
+    width: 70%;
     margin: 0 0 30px 0;
     height: 0;
     border-top-width: 1px;

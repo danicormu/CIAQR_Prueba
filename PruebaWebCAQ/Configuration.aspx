@@ -34,14 +34,15 @@
                                                                     </div>
                                                                     <div class="col-sm-7">
                                                                         <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">
-                                                                            <!-- <a href="#" class="">Crear</a> -->
+                                                                            
                                                                             <asp:Button runat="server" ID="SaveUsername" OnClick="SaveUsername_Click" Text="Guardar Cambios"/>
                                                                             <asp:Button runat="server" ID="processbtn" OnClick="processbtn_Click" Style="visibility:hidden;" />
                                                                         </div>
                                                                         <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">
-                                                                            <!-- <a href="#" class="">Cancelar</a> -->
+                                                                            
                                                                             <asp:Button runat="server" ID="Button2" Text="Cancelar" />
                                                                         </div>
+                                                                        
                                                                         <asp:ModalPopupExtender id="ModalPopupExtender1" runat="server" 
                                                                             TargetControlID="processbtn"
                                                                             cancelcontrolid="btnCancel" 
@@ -49,9 +50,12 @@
 	                                                                        drag="true" 
 	                                                                        backgroundcssclass="modalBackground">
                                                                         </asp:ModalPopupExtender>
+                                                                        
                                                                     </div>
-                                                                    <br />
-                                                                    <asp:Label ID="Label1" runat="server" Text="" ForeColor="Red" Visible="true"></asp:Label>
+                                                                    <div class="col-sm-7">
+                                                                        <asp:Label ID="Label1" runat="server" Text="" ForeColor="Red" Visible="true"></asp:Label>
+                                                                    </div>
+                                                                    <br />                                                                    
                                                                 </div>
 
                                                             </div>
@@ -92,8 +96,10 @@
                                                                             <asp:Button runat="server" ID="Button4" Text="Cancelar"  />
                                                                         </div>
                                                                     </div>
-                                                                    <br />
-                                                                    <asp:Label ID="errorMessage" runat="server" Text="" ForeColor="Red" Visible="true"></asp:Label>
+                                                                    <div class="col-sm-7">
+                                                                        <asp:Label ID="errorMessage" runat="server" Text="" ForeColor="Red" Visible="true"></asp:Label>
+                                                                    </div>
+                                                                    <br />                                                                    
                                                                 </div>
 
                                                             </div>

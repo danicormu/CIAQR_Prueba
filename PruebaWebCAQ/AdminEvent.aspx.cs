@@ -33,8 +33,8 @@ namespace PruebaWebCAQ
         {
             try
             {
-                if (eventName_txt.Text == "" || eventDesc_txt.Text == " "
-                    || eventDate_txt.Text == " " || eventType_txt.Text == " ")
+                if (eventName_txt.Text == "" && eventDesc_txt.Text == " "
+                    && eventDate_txt.Text == " " && eventType_txt.Text == " ")
                 {
                     lblWarning.Text = "Complete los espacios*";
                 }

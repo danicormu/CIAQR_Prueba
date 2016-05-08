@@ -2,39 +2,41 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using PruebaWebCAQ.Business;
 using PruebaWebCAQ.Domain;
+using System.IO;
+using AjaxControlToolkit;
 
 namespace PruebaWebCAQ
 {
     public partial class AdminGallery : System.Web.UI.Page
     {
-        GalleryBusiness GBusiness = new GalleryBusiness();
+        GaleryBusiness GBusiness = new GaleryBusiness();
         private List<Galery> list_Gallery;
         private int i = 0;
         
         protected void Page_Load(object sender, EventArgs e)
         {
-             if (Session["USER_ID"] == null)
+            if (Session["USER_ID"] == null)
             {
                 Response.Redirect("Login.aspx");
             }
-            
+
+
             list_Gallery = GBusiness.galeryService();
             makeGalleryRepeater.DataSource = list_Gallery;
             makeGalleryRepeater.DataBind();
         }
         
-              protected void publishImg_Click(object sender, EventArgs e)
+        protected void publishImg_Click(object sender, EventArgs e)
         {
             try
             {
-                if(imgTitle_txt.Text != "" && imgDescription_txt.Text != "")
+                if(txtImgTitle.Text != "" && txtImgDesc.Text != "")
                 {
                     if(Session["image"] == null)
-                        lblImage.Text = "Debe seleccionar una imagen*";
+                        lblWarning.Text = "Debe seleccionar una imagen*";
                     else
                     {
                         HttpPostedFile postFile = (HttpPostedFile)Session["image"];
@@ -45,30 +47,30 @@ namespace PruebaWebCAQ
                             { 
                                 BinaryReader binaryReader = new BinaryReader(fs);
                                 byte[] bytes = binaryReader.ReadBytes((int)fs.Length);
-                                Galery ga = new Galery(imgTitle_txt.Text, imgDescription_txt.Text, bytes, DateTime.Today.ToShortDateString());
+                                Galery ga = new Galery(txtImgTitle.Text, txtImgDesc.Text, bytes, DateTime.Today.ToShortDateString());
                                 messsage.InnerText = GBusiness.insertImageToGaleryService(ga);
                                 i = 0;
                                 list_Gallery = GBusiness.galeryService();
                                 makeGalleryRepeater.DataSource = list_Gallery;
                                 makeGalleryRepeater.DataBind();
                                 file = null;
-                                imgUploadGal.Src = "";
+                                imgShow.Src = "Resources/default_img/default.png";
                                 Session["image"] = null;
                                 clearSpaces();
                                 ModalPopupExtender1.Show();
                             }
                         else
-                                lblImage.Text = "Solo imágenes (.jpg, .bmp, .gif, .png)";          
+                                lblWarning.Text = "Solo imágenes (.jpg, .bmp, .gif, .png)";          
                     }
                 }
                 else
                 {
-                    lblWarning.Text = "Debe completar los campos*"
+                    lblWarning.Text = "Debe completar los campos*";
                 }
             }
-            catch(Exception e)
+            catch(Exception ex)
             {
-                Console.WriteLine(e);
+                Console.WriteLine(ex);
                 lblWarning.Text = "Error al publicar la imagen";
             }
         }
@@ -80,23 +82,22 @@ namespace PruebaWebCAQ
         
         private void clearSpaces()
         {
-            imgTitle_txt.Text = string.Empty;
-            imgDescription_txt.Text = string.Empty;
-            //personRol_txt.Text = string.Empty;
-            imageUploadGallery.Clear();
-        }
+            txtImgTitle.Text = string.Empty;
+            txtImgDesc.Text = string.Empty;
+            imgUploadGallery.Attributes.Clear();            
+        }        
         
-        private string saveImage(System.Drawing.Image image)
+        private string savePostedImage(System.Drawing.Image image)
         {
             string savePath = Server.MapPath(@"images\" + list_Gallery.ElementAt(i).Name + ".jpg");
             System.Drawing.Graphics graphics = System.Drawing.Graphics.FromImage(image);
             image.Save(savePath);
             return "images/" + list_Gallery.ElementAt(i).Name + ".jpg";
-        } 
-        
-        
+        }
+
+
         //Metodo para cargar la imagen 
-        
+
         protected void uploadImgGallery_Click(object sender, EventArgs e)
         {
             byte[] byteArray = null;
@@ -113,20 +114,34 @@ namespace PruebaWebCAQ
                     {
                         // Convert the byte into image
                         string base64String = Convert.ToBase64String(byteArray, 0, byteArray.Length);
-                        imgUploadGal.Src = "data:image/png;base64," + base64String;
+                        imgShow.Src = "data:image/png;base64," + base64String;
                         Session["image"] = imgUploadGallery.PostedFile;
                     }
                 }
             }                
         }
-        
-                
+
+
+        public void loadFromDB(object sender, EventArgs e)
+        {
+            
+        }
+
+
         protected void makeGalleryRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
+            System.Drawing.Image photo;
+            string path;
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
+                Image imgPosted = (Image)e.Item.FindControl("imagePosted");
+                photo = System.Drawing.Image.FromStream(list_Gallery.ElementAt(i).Photo);
+                path = savePostedImage(photo);
+                imgPosted.ImageUrl = path;
+                Label idImage = (Label)e.Item.FindControl("asIdGallery");
+                idImage.Text = Convert.ToString(list_Gallery.ElementAt(i).Id);
                 Label title = (Label)e.Item.FindControl("asTitleGallery");
-                title.Text = list_Gallery.ElementAt(i).Title;
+                title.Text = list_Gallery.ElementAt(i).Name;
                 Label description = (Label)e.Item.FindControl("asDescGallery");
                 description.Text = list_Gallery.ElementAt(i).Description;
                 i++;
@@ -141,35 +156,39 @@ namespace PruebaWebCAQ
                 Label gID = (Label)e.Item.FindControl("asIdGallery");
                 Label name = (Label)e.Item.FindControl("asTitleGallery");
                 Label desc = (Label)e.Item.FindControl("asDescGallery");
-               // personID.Text = pID.Text;
-               // nameLabel.Text = "Título (" + name.Text + ")";
-               // descriptionLabel.Text = "Descripción (" + desc.Text + ")";
+                galID.Text = gID.Text; 
+                titleLabel.Text = "Título (" + name.Text + ")";
+                descriptionLabel.Text = "Descripción (" + desc.Text + ")";
                 popup.Show();
             }
 
             if (e.CommandName == "photoDelete")
             {
-                Label lbl = e.Item.FindControl("asId") as Label;
+                Label lbl = e.Item.FindControl("asIdGallery") as Label;
                 int idItem = Convert.ToInt32(lbl.Text);
                 GBusiness.deleteImageService(idItem);
                 Response.Redirect("AdminGallery.aspx");
             }
         }
-        
-        //Metodo que actualiza la imagen de galeria
-        protected void updateGalleryItem(object sender, EventArgs e)
+                  
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
         {
-            Galery gal = new Galery(Convert.ToInt32(personID.Text),titleToEdit.Value,descToEdit.Value);
-            messsage.InnerText= GBusiness.updateImageService(gal);
+            Galery gal = new Galery(Convert.ToInt32(galID.Text), titleToEdit.Value, descToEdit.Value, DateTime.Today.ToShortDateString());
+            messsage.InnerText = GBusiness.updateImageService(gal);
             ModalPopupExtender1.Show();
-            galleryID.Text = "";
+            galID.Text = "";
             titleLabel.Text = "";
-            descriptionLabel.Text = "";            
+            descriptionLabel.Text = "";
             i = 0;
             list_Gallery = GBusiness.galeryService();
             makeGalleryRepeater.DataSource = list_Gallery;
             makeGalleryRepeater.DataBind();
         }
 
+        protected void processbtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

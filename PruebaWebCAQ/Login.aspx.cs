@@ -16,7 +16,8 @@ namespace PruebaWebCAQ
         {
             if(txt_user.Text != "" || txt_password.Text != "")
             {
-                if(!ValidateUser(txt_user.Text, txt_password.Text))             
+                
+                if(ValidateUser(txt_user.Text, txt_password.Text) == false)             
                 {                    
                    lbl_message.Visible = true;
                 }
@@ -37,7 +38,7 @@ namespace PruebaWebCAQ
         private bool ValidateUser(string strUsername, string strPassword)
         {
             bool ans;
-            ans = admBusiness.loginService(strUsername, strPassword);
+            ans = admBusiness.loginService(strUsername, strPassword);            
             return ans;
         }
 

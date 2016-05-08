@@ -14,7 +14,7 @@
                     <div class="col-sm-12">
                         <div class="tab-content">
                             <div class="tab-pane fade in active blogContent" id="tabBlog">
-                                <article class="hrShadow post">
+                                
                                     <h2 class="margin_top_small">Administrar Personal</h2>
                                     <div class="row">
                                         <div class="col-sm-12">                                           
@@ -36,14 +36,21 @@
                                                     </div>
                                                     <div class="col-sm-7">
                                                         <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">
-                                                            <asp:FileUpload ID="imgUpload" runat="server"/>                                                            
+                                                            <asp:FileUpload ID="imgUpload" runat="server" CssClass="sc_button"/>                                                            
                                                         </div>
                                                         <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">                                                            
-                                                            <asp:Button runat="server" ID="uploadPImage" Text="Cargar" OnClick="uploadPImage_Click"/>
+                                                            <asp:Button runat="server" ID="uploadPImage" Text="Mostrar Imagen.." OnClick="uploadPImage_Click"/>
                                                         </div>
-                                                        <br />
-                                                        <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">                                                            
-                                                            <asp:Button runat="server" ID="createPerson" Text="Crear" OnClick="createPerson_Click" />
+                                                        <br />                                                        
+                                                    </div>
+                                                    <div class="col-sm-7">
+                                                        <asp:Label ID="lblWarning" runat="server" Text="" ForeColor="Red" Visible="true"></asp:Label>
+                                                    </div>
+                                                    <br />                                                                                                                      
+                                                </div>     
+                                                <div class="col-sm-7">
+                                                    <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">                                                            
+                                                            <asp:Button runat="server" ID="createPerson" Text="Agregar" OnClick="createPerson_Click" />
                                                             <asp:Button runat="server" ID="processbtn" OnClick="processbtn_Click" Style="visibility:hidden;" />
                                                             <asp:ModalPopupExtender id="ModalPopupExtender1" runat="server" 
                                                                  TargetControlID="processbtn"
@@ -52,16 +59,11 @@
 	                                                             drag="true" 
 	                                                             backgroundcssclass="modalBackground">
                                                             </asp:ModalPopupExtender>
-                                                        </div>
-                                                        <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">                                                            
-                                                            <asp:Button runat="server" ID="cancelPerson" Text="Cancelar" OnClick="cancelPerson_Click" />
-                                                        </div>
                                                     </div>
-                                                    <br />                                                    
-                                                    <asp:Label ID="lblImage" runat="server" Text="" ForeColor="Red" Visible="true"></asp:Label>
-                                                    <asp:Label ID="lblWarning" runat="server" Text="" ForeColor="Red" Visible="true"></asp:Label>
-                                                </div>                                                
-                                            
+                                                    <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">                                                            
+                                                       <asp:Button runat="server" ID="cancelPerson" Text="Cancelar" OnClick="cancelPerson_Click" />
+                                                    </div>     
+                                                </div>                                                                                       
                                             </article>
                                         </div>
                                     </div>
@@ -71,7 +73,7 @@
                                         <input id="btnCancel" type="button" value="Aceptar" />
                                     </asp:panel>
 
-                                </article>
+                                
                                 <article class="hrShadow post">
                                     <h2 class="margin_top_small">Personal de la Institución</h2>
                                     <div class="sc_section sc_alignleft col-sm-table margin_bottom_small">
@@ -89,7 +91,7 @@
                                                         <ItemTemplate>
                                                             <tr runat="server" id="tableRow" class="sc_table_grey">
                                                                 <td>
-                                                                    <asp:Label runat="server" ID="asIdPerson" /></td>
+                                                                    <asp:Label runat="server" ID="asIdPerson" Width="50px" /></td>
                                                                 <td>
                                                                     <asp:Label runat="server" ID="asNamePerson" Width="190px" />
                                                                 </td>

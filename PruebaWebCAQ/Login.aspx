@@ -44,11 +44,9 @@
                                 <ul class="formList">
                                     <li class="icon formLogin">
                                         <asp:TextBox ID="txt_user" runat="server"  placeholder="Usuario"></asp:TextBox>
-                                       <!-- <input type="text" id="login" name="log" value="" placeholder="Login"/>-->
                                     </li> 
                                     <li class="icon formPass">
                                         <asp:TextBox ID="txt_password" runat="server" TextMode="Password" placeholder="Contraseña"></asp:TextBox>
-                                       <!-- <input type="password" id="password" name="pwd" value="" placeholder="Password"/> -->
                                     </li>   
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -38,7 +38,7 @@ namespace PruebaWebCAQ
                     || personDescription_txt.Text != "")
                 {
                     if (Session["image"] == null)
-                        lblImage.Text = "Debe seleccionar una imagen*";
+                        lblWarning.Text = "Debe seleccionar una imagen*";
                     else
                     {
                             HttpPostedFile postFile = (HttpPostedFile)Session["image"];
@@ -56,13 +56,13 @@ namespace PruebaWebCAQ
                                 makePersonRepeater.DataSource = list_Personal;
                                 makePersonRepeater.DataBind();
                                 file = null;
-                                imgProfile.Src = "";
+                                imgProfile.Src = "Resources/default_img/default.png";
                                 Session["image"] = null;
                                 clearSpaces();
                                 ModalPopupExtender1.Show();
                             }
                         else
-                                lblImage.Text = "Solo imágenes (.jpg, .bmp, .gif, .png)";          
+                                lblWarning.Text = "Solo imágenes (.jpg, .bmp, .gif, .png)";          
                     }
                 }
                 else
@@ -157,6 +157,9 @@ namespace PruebaWebCAQ
                         Session["image"] = imgUpload.PostedFile;
                     }
                 }
+            }else
+            {
+                lblWarning.Text = "Debe seleccionar una imagen antes de mostrarla*";
             }
         }
 

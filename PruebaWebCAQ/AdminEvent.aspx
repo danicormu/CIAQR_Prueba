@@ -21,17 +21,20 @@
                                             <div class="sc_contact_form sc_contact_form_contact">
                                                 <div class="columnsWrap">
                                                     <div class="col-sm-7">
-                                                        <asp:TextBox ID="eventName_txt" runat="server" placeholder="Nombre del Evento" Width="70%"></asp:TextBox>
+                                                        <asp:TextBox ID="eventName_txt" runat="server" placeholder="Nombre del Evento" Width="70%" required="true" ></asp:TextBox>
                                                         <br />
                                                         <br />
-                                                        <asp:TextBox ID="eventDate_txt" runat="server" placeholder="Fecha" Width="50%"></asp:TextBox>
+                                                        <asp:TextBox ID="eventDate_txt" runat="server" placeholder="Fecha" Width="50%"  required="true"></asp:TextBox>
 
                                                         <br />
                                                         <br />
-                                                        <asp:TextBox ID="eventType_txt" runat="server" placeholder="Tipo de Evento" Width="50%"></asp:TextBox>
+                                                        <asp:TextBox ID="eventType_txt" runat="server" placeholder="Tipo de Evento" Width="50%" required="true">
+
+                                                        </asp:TextBox>
+                                                       
                                                         <br />
                                                         <br />
-                                                        <asp:TextBox ID="eventDesc_txt" runat="server" placeholder="Descripción..." TextMode="MultiLine" Rows="10" Height="75px" Width="90%" />
+                                                        <asp:TextBox ID="eventDesc_txt" runat="server" placeholder="Descripción..." TextMode="MultiLine" Rows="10" Height="75px" Width="90%" required="true" />
                                                     </div>
                                                     <div class="col-sm-7">
                                                         <div class="sc_button sc_button_style_light sc_button_size_huge squareButton light huge">
