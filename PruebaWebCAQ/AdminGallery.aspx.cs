@@ -15,7 +15,6 @@ namespace PruebaWebCAQ
         GaleryBusiness GBusiness = new GaleryBusiness();
         private List<Galery> list_Gallery;
         private int i = 0;
-        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["USER_ID"] == null)
@@ -23,12 +22,13 @@ namespace PruebaWebCAQ
                 Response.Redirect("Login.aspx");
             }
 
-
+            //Al cargar la imagen rellena el repeater con datos en caso que los hubiera.
             list_Gallery = GBusiness.galeryService();
             makeGalleryRepeater.DataSource = list_Gallery;
             makeGalleryRepeater.DataBind();
         }
         
+        // Metodo que hace el posteo
         protected void publishImg_Click(object sender, EventArgs e)
         {
             try
@@ -75,12 +75,14 @@ namespace PruebaWebCAQ
                 lblWarning.Text = "Error al publicar la imagen";
             }
         }
-
+        
+        //Evento de cancelacion del post
         protected void cancelImg_Click(object sender, EventArgs e)
         {
             clearSpaces();   
         }
         
+        //Metodo que limpia los campos.
         private void clearSpaces()
         {
             txtImgTitle.Text = string.Empty;
@@ -88,6 +90,7 @@ namespace PruebaWebCAQ
             imgUploadGallery.Attributes.Clear();            
         }        
         
+        //Metodo que mapea para guardar las imagenes
         private string savePostedImage(System.Drawing.Image image)
         {
             string savePath = Server.MapPath(@"images\" + list_Gallery.ElementAt(i).Name + ".jpg");
@@ -97,8 +100,7 @@ namespace PruebaWebCAQ
         }
 
 
-        //Metodo para cargar la imagen 
-
+        //Metodo para Muestra la imagen en un marco
         protected void uploadImgGallery_Click(object sender, EventArgs e)
         {
             byte[] byteArray = null;
@@ -106,14 +108,12 @@ namespace PruebaWebCAQ
             {
                 HttpPostedFile file = imgUploadGallery.PostedFile;
                 file.SaveAs(Server.MapPath(@"images\" + file.FileName));
-                //Use FileStream to convert the image into byte.
                 using (FileStream fs = new FileStream(Server.MapPath(@"images\" + file.FileName).ToString(), FileMode.Open, FileAccess.Read))
                 {
                     byteArray = new byte[fs.Length];
                     int iBytesRead = fs.Read(byteArray, 0, (int)fs.Length);
                     if (byteArray != null && byteArray.Length > 0)
                     {
-                        // Convert the byte into image
                         string base64String = Convert.ToBase64String(byteArray, 0, byteArray.Length);
                         imgShow.Src = "data:image/png;base64," + base64String;
                         Session["image"] = imgUploadGallery.PostedFile;
@@ -122,13 +122,7 @@ namespace PruebaWebCAQ
             }                
         }
 
-
-        public void loadFromDB(object sender, EventArgs e)
-        {
-            
-        }
-
-
+        //Metodo que manipula los controles del repeater desplegando los datos que se encuentren en la DB
         protected void makeGalleryRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             System.Drawing.Image photo;
@@ -149,6 +143,7 @@ namespace PruebaWebCAQ
             }
         }
 
+        //Metodo que permite manejar el repeater con comandos
         protected void makeGalleryRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "photoEdit")
@@ -165,14 +160,15 @@ namespace PruebaWebCAQ
 
             if (e.CommandName == "photoDelete")
             {
-                Label lbl = e.Item.FindControl("asIdGallery") as Label;
-                int idItem = Convert.ToInt32(lbl.Text);
-                GBusiness.deleteImageService(idItem);
-                Response.Redirect("AdminGallery.aspx");
+                ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender3");
+                Label lblId = (Label)e.Item.FindControl("asIdGallery");
+                Label lblMessage = (Label)e.Item.FindControl("lblMsg");
+                lblIdToDelete.Text = lblId.Text;
+                popup.Show();
             }
         }
-                  
 
+        //Evento que actualiza las caracteristicas de la imagen recibiendo por parametro el objeto galeria con sus atributos
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             Galery gal = new Galery(Convert.ToInt32(galID.Text), titleToEdit.Value, descToEdit.Value, DateTime.Today.ToShortDateString());
@@ -185,11 +181,15 @@ namespace PruebaWebCAQ
             list_Gallery = GBusiness.galeryService();
             makeGalleryRepeater.DataSource = list_Gallery;
             makeGalleryRepeater.DataBind();
-        }
+        }      
 
-        protected void processbtn_Click(object sender, EventArgs e)
+        protected void processbtn_Click(object sender, EventArgs e) {}
+
+        //Evento que eliminar la imagen recibiendo por parametro el id que se encuentra en el label
+        protected void btnDeleteImage_Click(object sender, EventArgs e)
         {
-
+            GBusiness.deleteImageService(Convert.ToInt32(lblIdToDelete.Text));
+            Response.Redirect("AdminGallery.aspx");
         }
     }
 }

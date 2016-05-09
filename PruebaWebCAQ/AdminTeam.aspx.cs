@@ -129,10 +129,12 @@ namespace PruebaWebCAQ
 
             if (e.CommandName == "personDelete")
             {
+                ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender3");
                 Label lbl = e.Item.FindControl("asIdPerson") as Label;
-                int idItem = Convert.ToInt32(lbl.Text);
-                PBusiness.deleteService(idItem);
-                Response.Redirect("AdminTeam.aspx");
+                Label lblMessage = (Label)e.Item.FindControl("lblMsg");
+                lblIdToDelete.Text = lbl.Text;
+                popup.Show();
+                
             }
         }
 
@@ -157,7 +159,8 @@ namespace PruebaWebCAQ
                         Session["image"] = imgUpload.PostedFile;
                     }
                 }
-            }else
+            }
+            else
             {
                 lblWarning.Text = "Debe seleccionar una imagen antes de mostrarla*";
             }
@@ -181,6 +184,12 @@ namespace PruebaWebCAQ
             list_Personal = PBusiness.returnAllEmployesService();
             makePersonRepeater.DataSource = list_Personal;
             makePersonRepeater.DataBind();
+        }
+
+        protected void btnDeletePerson_Click(object sender, EventArgs e)
+        {
+            PBusiness.deleteService(Convert.ToInt32(lblIdToDelete.Text));
+            Response.Redirect("AdminTeam.aspx");
         }
     }
 }

@@ -11,7 +11,6 @@
             <div class="container">
                 <div class="row content">
                     <div class="col-sm-12">
-
                         <div class="tab-content">
                             <div class="tab-pane fade in active blogContent" id="tabBlog">
                                 <article class="hrShadow post">
@@ -21,20 +20,20 @@
                                             <div class="sc_contact_form sc_contact_form_contact">
                                                 <div class="columnsWrap">
                                                     <div class="col-sm-7">
-                                                        <asp:TextBox ID="eventName_txt" runat="server" placeholder="Nombre del Evento" Width="70%" required="true" ></asp:TextBox>
+                                                        <asp:TextBox ID="eventName_txt" runat="server" placeholder="Nombre del Evento" Width="70%"></asp:TextBox>
                                                         <br />
                                                         <br />
-                                                        <asp:TextBox ID="eventDate_txt" runat="server" placeholder="Fecha" Width="50%"  required="true"></asp:TextBox>
+                                                        <asp:TextBox ID="eventDate_txt" runat="server" placeholder="Fecha" Width="50%"></asp:TextBox>
 
                                                         <br />
                                                         <br />
-                                                        <asp:TextBox ID="eventType_txt" runat="server" placeholder="Tipo de Evento" Width="50%" required="true">
+                                                        <asp:TextBox ID="eventType_txt" runat="server" placeholder="Tipo de Evento" Width="50%" >
 
                                                         </asp:TextBox>
                                                        
                                                         <br />
                                                         <br />
-                                                        <asp:TextBox ID="eventDesc_txt" runat="server" placeholder="Descripción..." TextMode="MultiLine" Rows="10" Height="75px" Width="90%" required="true" />
+                                                        <asp:TextBox ID="eventDesc_txt" runat="server" placeholder="Descripción..." TextMode="MultiLine" Rows="10" Height="75px" Width="90%"/>
                                                     </div>
                                                     <div class="col-sm-7">
                                                         <div class="sc_button sc_button_style_light sc_button_size_huge squareButton light huge">
@@ -90,7 +89,8 @@
                                                                     <td>
                                                                         <asp:LinkButton visible="true" runat="server" ID="btn_Edit" Text="Editar" CommandName="editItem" />
                                                                         <asp:Button runat="server" ID="processbtn" OnClick="processbtn_Click" Style="visibility:hidden;" />
-                                                                        <asp:LinkButton visible="true" runat="server" ID="btn_Delete" CommandName="deleteItem" OnClientClick='javascript:return confirm("Esta seguro que desea eliminar el evento?")'>Eliminar</asp:LinkButton>
+                                                                        <asp:LinkButton visible="true" runat="server" ID="btn_Delete" CommandName="deleteItem">Eliminar</asp:LinkButton>
+                                                                        <asp:Button runat="server" ID="processbtn3" OnClick="processbtn_Click" Style="visibility:hidden;" />
                                                                         <asp:ModalPopupExtender id="ModalPopupExtender1" runat="server" 
                                                                             TargetControlID="processbtn"
                                                                             cancelcontrolid="btnCancel" 
@@ -98,6 +98,13 @@
 	                                                                        drag="true" 
 	                                                                        backgroundcssclass="modalBackground">
                                                                         </asp:ModalPopupExtender>
+                                                                        <asp:ModalPopupExtender id="ModalPopupExtender3" runat="server" 
+                                                                            TargetControlID="processbtn3"
+                                                                            cancelcontrolid="btnToStop1" 
+	                                                                        PopupControlID="Panel3"
+	                                                                        drag="true" 
+	                                                                        backgroundcssclass="modalBackground1">
+                                                                    </asp:ModalPopupExtender>
                                                                     </td>
                                                                 </tr>                                                         
                                                         </itemtemplate>
@@ -132,7 +139,16 @@
         <asp:Button runat="server" ID="btnSave" OnClick="btnSave_Click" Text="Actualizar" />
          <input id="btnCancel" type="button" value="Cancelar" />
     </asp:panel>
-
+    <asp:Panel ID="Panel3" Style="display: none" CssClass="modalPopupMsg" align="center" runat="server">
+            <a>Id: </a>
+            <asp:Label runat="server" ID="lblIdToDelete"></asp:Label>
+            <br />
+            <asp:Label runat="server" ID="lblMsg" Text="Desea eliminar este evento?"></asp:Label>            
+            <br />            
+            <hr />
+            <asp:Button runat="server" ID="btnDeleteEvent" OnClick="btnDeleteEvent_Click" Text="Eliminar" />
+            <input id="btnToStop1" type="button" value="Cancelar" />
+     </asp:Panel>
     <style type="text/css">
     .modalBackground
     {
@@ -151,5 +167,23 @@
         width: 50%;
         height: 50%;
     }
+</style>
+<style type="text/css">
+        .modalBackground1 {
+            background-color: Black;
+            filter: alpha(opacity=90);
+            opacity: 0.8;
+        }
+
+        .modalPopupMsg {
+            background-color: #FFFFFF;
+            border-width: 3px;
+            border-style: solid;
+            border-color: black;
+            padding-top: 10px;
+            padding-left: 10px;
+            width: 30%;
+            height: 30%;
+        }
 </style>
 </asp:Content>

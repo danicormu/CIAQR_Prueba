@@ -13,8 +13,7 @@
                 <div class="row content">
                     <div class="col-sm-12">
                         <div class="tab-content">
-                            <div class="tab-pane fade in active blogContent" id="tabBlog">
-                                
+                            <div class="tab-pane fade in active blogContent" id="tabBlog">                                
                                     <h2 class="margin_top_small">Administrar Personal</h2>
                                     <div class="row">
                                         <div class="col-sm-12">                                           
@@ -104,7 +103,8 @@
                                                                 <td>
                                                                     <asp:LinkButton runat="server" ID="btn_Edit" Text="Editar" CommandName="personEdit" />
                                                                     <asp:Button runat="server" ID="processbtn2" OnClick="processbtn_Click" Style="visibility:hidden;" />
-                                                                    <asp:LinkButton runat="server" ID="btn_Delete" CommandName="personDelete" OnClientClick='javascript:return confirm("Está seguro que desea eliminar la persona?")'>Eliminar</asp:LinkButton>
+                                                                    <asp:LinkButton runat="server" ID="btn_Delete" CommandName="personDelete">Eliminar</asp:LinkButton>
+                                                                    <asp:Button runat="server" ID="processbtn3" OnClick="processbtn_Click" Style="visibility:hidden;" />
                                                                     <asp:ModalPopupExtender id="ModalPopupExtender2" runat="server" 
                                                                             TargetControlID="processbtn2"
                                                                             cancelcontrolid="btnToStop" 
@@ -112,6 +112,13 @@
 	                                                                        drag="true" 
 	                                                                        backgroundcssclass="modalBackground1">
                                                                      </asp:ModalPopupExtender>
+                                                                    <asp:ModalPopupExtender id="ModalPopupExtender3" runat="server" 
+                                                                        TargetControlID="processbtn3"
+                                                                        cancelcontrolid="btnToStop1" 
+	                                                                    PopupControlID="Panel3"
+	                                                                    drag="true" 
+	                                                                    backgroundcssclass="modalBackground1">
+                                                                    </asp:ModalPopupExtender>
                                                                 </td>
                                                             </tr>
                                                         </ItemTemplate>
@@ -142,6 +149,16 @@
         <asp:Button runat="server" ID="btnSave" OnClick="btnSave_Click" Text="Actualizar" />
          <input id="btnToStop" type="button" value="Cancelar" />
     </asp:panel>
+    <asp:Panel ID="Panel3" Style="display: none" CssClass="modalPopupMsg" align="center" runat="server">
+            <a>Id: </a>
+            <asp:Label runat="server" ID="lblIdToDelete"></asp:Label>
+            <br />
+            <asp:Label runat="server" ID="lblMsg" Text="Desea eliminar esta persona?"></asp:Label>            
+            <br />            
+            <hr />
+            <asp:Button runat="server" ID="btnDeletePerson" OnClick="btnDeletePerson_Click" Text="Eliminar" />
+            <input id="btnToStop1" type="button" value="Cancelar" />
+     </asp:Panel>
     </section>
      <style type="text/css">
     .modalBackground
@@ -162,7 +179,7 @@
         height: 160px;
     }
 </style>
-     <style type="text/css">
+<style type="text/css">
     .modalBackground1
     {
         background-color: Black;
@@ -181,4 +198,22 @@
         height: 50%;
     }
 </style>
+<style type="text/css">
+        .modalBackground1 {
+            background-color: Black;
+            filter: alpha(opacity=90);
+            opacity: 0.8;
+        }
+
+        .modalPopupMsg {
+            background-color: #FFFFFF;
+            border-width: 3px;
+            border-style: solid;
+            border-color: black;
+            padding-top: 10px;
+            padding-left: 10px;
+            width: 30%;
+            height: 30%;
+        }
+    </style>
 </asp:Content>

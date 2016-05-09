@@ -7928,12 +7928,38 @@ footer .widget_inner .logo .logo_text {
     height: 100%
 }
 
+/*Modificaciones galeria*/
 .ih-item.circle {
     position: relative;
     width: 240px;
     height: 240px;
     border-radius: 50%;
     margin: 0 auto
+}
+
+.btn_gallery {
+    position: center;
+    width: 240px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 auto
+}
+
+.left_linkbtn{
+    width:75px;
+    height:30px;
+    float:left;
+    margin-left:45px;
+    margin-top:12px;
+    margin-bottom:15px;
+}
+.right_linkbtn{
+    width:80px;
+    height:30px;
+    float:right;
+    margin-right:33px;
+    margin-top:12px;
+    margin-bottom:15px;
 }
 
 .ih-item.circle .img {

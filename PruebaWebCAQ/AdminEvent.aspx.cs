@@ -95,10 +95,12 @@ namespace PruebaWebCAQ
         {
             if (e.CommandName == "deleteItem")
             {
+                ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender3");
                 Label lbl = e.Item.FindControl("eventIdAd") as Label;
-                int idItem = Convert.ToInt32(lbl.Text);
-                EBusiness.deleteEventService(idItem);
-                Response.Redirect("AdminEvent.aspx");
+                Label lblMessage = (Label)e.Item.FindControl("lblMsg");
+                lblIdToDelete.Text = lbl.Text;
+                popup.Show();
+
             }
 
             if(e.CommandName == "editItem")
@@ -128,6 +130,12 @@ namespace PruebaWebCAQ
         {
             Event ev = new Event(Convert.ToInt32(eventID.Text), nameToEdit.Value, descriptionToEdit.Value, dateToEdit.Value, typeToEdit.Value);
             EBusiness.updateEventService(ev);
+            Response.Redirect("AdminEvent.aspx");
+        }
+
+        protected void btnDeleteEvent_Click(object sender, EventArgs e)
+        {
+            EBusiness.deleteEventService(Convert.ToInt32(lblIdToDelete.Text));
             Response.Redirect("AdminEvent.aspx");
         }
     }

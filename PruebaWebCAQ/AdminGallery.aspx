@@ -35,7 +35,7 @@
                                             </div>                                            
                                             <br />
                                             <div class="btnUpload">
-                                                <asp:Button ID="uploadImgGallery" runat="server" Text="Mostrar" OnClick="uploadImgGallery_Click" />
+                                                <asp:Button ID="uploadImgGallery" runat="server" Text="Mostrar Imagen.." OnClick="uploadImgGallery_Click" />
                                             </div>
                                             <br />
                                                 <asp:Label ID="lblWarning" runat="server" Text="" ForeColor="Red" Visible="true"></asp:Label>
@@ -67,7 +67,6 @@
                                 </div>
                                 <article class="hrShadow post">
                                     <h2 class="margin_top_small">Administrar</h2>
-
                                     <div class="sc_blogger sc_blogger_horizontal style_portfolio4 portfolioWrap">
                                         <section class="portfolio isotopeNOanim folio4col" data-columns="4">
                                             <asp:Repeater ID="makeGalleryRepeater" runat="server" OnItemDataBound="makeGalleryRepeater_ItemDataBound" OnItemCommand="makeGalleryRepeater_ItemCommand">
@@ -78,35 +77,39 @@
                                                                 <div class="img">
                                                                     <asp:Image ID="imagePosted" runat="server" />
                                                                 </div>
-                                                                <div class="info">
-                                                                    <div class="info-back">      
+                                                                <div class="info" runat="server">
+                                                                    <div class="info-back" runat="server">      
                                                                         <asp:Label runat="server" ID="asIdGallery" Visible="false" />                                                                  
-                                                                        <h4><asp:Label runat="server" ID="asTitleGallery" /></h4>
-                                                                        <asp:Label runat="server" ID="asDescGallery" Visible="false" />
-                                                                        <p><asp:LinkButton ID="btnEditPhoto" Text="Editar" CommandName="photoEdit" >Editar</asp:LinkButton></p>
-                                                                        <asp:Button runat="server" ID="processbtn2" OnClick="processbtn_Click" Style="visibility:hidden;" />
-                                                                        <p><asp:LinkButton ID="btnDeletePhoto" CommandName="photoDelete" OnClientClick='javascript:return confirm("Está seguro que desea eliminar la imagen?")' >Eliminar</asp:LinkButton></p>
-                                                                       <!-- <p>
-                                                                            <asp:LinkButton runat="server" ID="btnEditPhoto" Text="Editar" CommandName="photoEdit" />
-                                                                            
-                                                                            <asp:ModalPopupExtender ID="ModalPopupExtender2" runat="server"
-                                                                            TargetControlID="processbtn2"
-                                                                            CancelControlID="btnToStop"
-                                                                            PopupControlID="Panel2"
-                                                                            Drag="true"
-                                                                            BackgroundCssClass="modalBackground1">
-                                                                        </asp:ModalPopupExtender>
-                                                                        </p>
-                                                                        <p><asp:LinkButton runat="server" ID="btnDeletePhoto" CommandName="photoDelete" OnClientClick='javascript:return confirm("Está seguro que desea eliminar la imagen?")'>Eliminar</asp:LinkButton></p>                                                                        
-                                                                   --> </div>                                                                    
+                                                                        <h4><asp:Label runat="server" ID="asTitleGallery" /></h4>                                                                        
+                                                                        <asp:Label runat="server" ID="asDescGallery"  />                                                                                                 
+                                                                    </div>                                                                                                                                   
                                                                 </div>
-                                                                <div class="col-sm-7">
-                                                                        
-                                                                        
-                                                                        
-                                                               </div>
                                                             </a>
                                                         </div>
+                                                        <div class="btn_gallery">
+                                                            <div class="left_linkbtn">
+                                                                <asp:LinkButton Visible="true" ID="btnEditPhoto" runat="server" CommandName="photoEdit" Text="Editar" />                                                                
+                                                                <asp:Button runat="server" ID="processbtn2" OnClick="processbtn_Click" Style="visibility:hidden;" />
+                                                            </div>  
+                                                            <div class="right_linkbtn">
+                                                                <asp:LinkButton Visible="true" ID="btnDeletePhoto" runat="server" CommandName="photoDelete" Text="Eliminar" />                                                                
+                                                                <asp:Button runat="server" ID="processbtn3" OnClick="processbtn_Click" Style="visibility:hidden;" />
+                                                            </div>                                                          
+                                                        </div>
+                                                        <asp:ModalPopupExtender id="ModalPopupExtender2" runat="server" 
+                                                                    TargetControlID="processbtn2"
+                                                                    cancelcontrolid="btnToStop" 
+	                                                                PopupControlID="Panel2"
+	                                                                drag="true" 
+	                                                                backgroundcssclass="modalBackground1">
+                                                        </asp:ModalPopupExtender>
+                                                        <asp:ModalPopupExtender id="ModalPopupExtender3" runat="server" 
+                                                                    TargetControlID="processbtn3"
+                                                                    cancelcontrolid="btnToStop1" 
+	                                                                PopupControlID="Panel3"
+	                                                                drag="true" 
+	                                                                backgroundcssclass="modalBackground1">
+                                                        </asp:ModalPopupExtender>
                                                     </article>
                                                 </ItemTemplate>
                                             </asp:Repeater>
@@ -131,6 +134,16 @@
             <hr />
             <asp:Button runat="server" ID="btnUpdate" OnClick="btnUpdate_Click" Text="Actualizar" />
             <input id="btnToStop" type="button" value="Cancelar" />
+        </asp:Panel>
+        <asp:Panel ID="Panel3" Style="display: none" CssClass="modalPopupMsg" align="center" runat="server">
+            <a>Id de la Imagen: </a>
+            <asp:Label runat="server" ID="lblIdToDelete"></asp:Label>
+            <br />
+            <asp:Label runat="server" ID="lblMsg" Text="Desea eliminar la imagen?"></asp:Label>            
+            <br />            
+            <hr />
+            <asp:Button runat="server" ID="btnDeleteImage" OnClick="btnDeleteImage_Click" Text="Eliminar" />
+            <input id="btnToStop1" type="button" value="Cancelar" />
         </asp:Panel>
     </section>
     <style type="text/css">
@@ -158,15 +171,15 @@
             opacity: 0.8;
         }
 
-        .modalPopup1 {
+        .modalPopupMsg {
             background-color: #FFFFFF;
             border-width: 3px;
             border-style: solid;
             border-color: black;
             padding-top: 10px;
             padding-left: 10px;
-            width: 50%;
-            height: 50%;
+            width: 30%;
+            height: 30%;
         }
     </style>
 </asp:Content>
