@@ -58,7 +58,7 @@
                                                 <br />                                                                                     
                                             </div>
                                         </article>
-                                        <asp:Panel ID="Panel1" Style="display: none" CssClass="modalPopup" align="center" runat="server">
+                                        <asp:Panel ID="Panel1" Style="display: none" CssClass="modalPopup1" align="center" runat="server">
                                             <p runat="server" id="messsage"></p>
                                             <hr />
                                             <input id="btnCancel" type="button" value="Aceptar" />
@@ -122,7 +122,7 @@
                 </div>
             </div>
         </div>
-        <asp:Panel ID="Panel2" Style="display: none" CssClass="modalPopup1" align="center" runat="server">
+        <asp:Panel ID="Panel2" Style="display: none" CssClass="modalPopup" align="center" runat="server">
             <a>Id de la Imagen: </a>
             <asp:Label runat="server" ID="galID"></asp:Label>
             <br />
@@ -154,6 +154,24 @@
         }
 
         .modalPopup {
+            background-color: #FFFFFF;
+            border-width: 3px;
+            border-style: solid;
+            border-color: black;
+            padding-top: 10px;
+            padding-left: 10px;
+            width: 40%;
+            height: 40%;
+        }
+    </style>
+    <style type="text/css">
+        .modalBackground {
+            background-color: Black;
+            filter: alpha(opacity=90);
+            opacity: 0.8;
+        }
+
+        .modalPopup1 {
             background-color: #FFFFFF;
             border-width: 3px;
             border-style: solid;
