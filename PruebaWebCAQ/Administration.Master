@@ -59,9 +59,9 @@
                                             <li class="">
                                                 <a href="AdminTeam.aspx">Personal</a>                                                
                                             </li>
-                                          <!--  <li class="">
-                                                <a href="AdminChrono.aspx">Cronogramas</a>                                               
-                                            </li> -->
+                                            <li class="">
+                                                <a href="AdminGroup.aspx">Grupos</a>                                               
+                                            </li> 
                                             <li class="">
                                                 <a href="AdminSchedule.aspx">Horarios</a>                                               
                                             </li>

@@ -5,7 +5,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <!--Presentation Section-->
     <section class="text-center color_section">
         <div class="container">
@@ -18,16 +17,16 @@
                         <div class="sc_section">
                             <a href="HomePage.aspx#KnowUS">Profesores bien capacitados</a>
                         </div>
-                        <div class="sc_section">Aliquam erat volutpat</div>
+                        <div class="sc_section">La calidad primero</div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <a href="#">
                             <span class="sc_icon rt-icon-heart4 "></span>
                         </a>
                         <div class="sc_section">
-                            <a href="#">Horarios</a>
+                            <a href="ViewSchedule.aspx">Horarios</a>
                         </div>
-                        <div class="sc_section">Dipisicing elit</div>
+                        <div class="sc_section">Busca tu horario</div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <a href="#">
@@ -36,7 +35,7 @@
                         <div class="sc_section">
                             <a href="ViewChronogram.aspx">Cronogramas</a>
                         </div>
-                        <div class="sc_section">Dolor sit amet</div>
+                        <div class="sc_section">Mira los eventos</div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <a href="#">
@@ -45,7 +44,7 @@
                         <div class="sc_section">
                             <a href="Events.aspx">Ultimos acontecimientos</a>
                         </div>
-                        <div class="sc_section">Cras id convallis</div>
+                        <div class="sc_section">Entérate de lo más reciente</div>
                     </div>
                 </div>
             </div>
@@ -303,8 +302,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <div id="style_portfolio2" class="portfolioWrap">
-                        <div class="isotopeFiltr"></div>
+                    <div id="style_portfolio2" class="portfolioWrap">                        
                         <section class="masonry isotope" data-columns="4">
                             <article class="isotopeElement flt_65 flt_66 flt_7 isotopeElementShow">
                                 <div class="isotopePadding">

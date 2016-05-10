@@ -12,6 +12,11 @@ namespace PruebaWebCAQ.Domain
             this.levelId = levelId;
         }
 
+        public Group(string group)
+        {
+            this.groupName = group;
+        }
+
         public string GroupName
         {
             get
