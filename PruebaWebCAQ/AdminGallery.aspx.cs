@@ -185,7 +185,6 @@ namespace PruebaWebCAQ
 
         protected void processbtn_Click(object sender, EventArgs e) {}
 
-        //Evento que eliminar la imagen recibiendo por parametro el id que se encuentra en el label
         protected void btnDeleteImage_Click(object sender, EventArgs e)
         {
             GBusiness.deleteImageService(Convert.ToInt32(lblIdToDelete.Text));

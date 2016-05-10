@@ -23,7 +23,7 @@ namespace PruebaWebCAQ.Business
         {
             string success = "";
             if (data.insertPerson(person))
-                success = "Se ha agregado un miembro con exitó";
+                success = "Se ha agregado un miembro con éxito";
             else
                 success = "No ha sido agregado. Revise su conexión a la red o contacte a su proveedor de servicios";
             return success;
