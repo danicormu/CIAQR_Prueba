@@ -111,7 +111,7 @@
         <asp:Label runat="server" ID="lblLevel"></asp:Label>
         <br />
         <br />
-        <asp:Label runat="server" ID="lblGroup"></asp:Label>
+        <p> Grupo Actual (<asp:Label runat="server" ID="lblGroup"></asp:Label>)</p>
         <input runat="server" id ="groupToEdit" />
         <br />
         <hr />

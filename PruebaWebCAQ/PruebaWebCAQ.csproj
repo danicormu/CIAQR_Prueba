@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminGallery.aspx" />
+    <Content Include="AdminGroup.aspx" />
     <Content Include="EditSchedule.aspx" />
     <Content Include="packages.config" />
     <Content Include="Administration.Master" />
@@ -690,6 +691,13 @@
     </Compile>
     <Compile Include="AdminGallery.aspx.designer.cs">
       <DependentUpon>AdminGallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminGroup.aspx.cs">
+      <DependentUpon>AdminGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminGroup.aspx.designer.cs">
+      <DependentUpon>AdminGroup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administration.aspx.cs">
       <DependentUpon>Administration.aspx</DependentUpon>

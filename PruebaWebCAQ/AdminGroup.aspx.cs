@@ -82,7 +82,7 @@ namespace PruebaWebCAQ
                 Label lbl = e.Item.FindControl("lblGroupName") as Label;
                 Label level = e.Item.FindControl("lblGroupLevel") as Label;
                 lblLevel.Text = "Nivel " + level.Text;
-                lblGroup.Text = "Grupo Actual( "+lbl.Text+" )";
+                lblGroup.Text = lbl.Text;
                 popup.Show();
             }
 
@@ -112,7 +112,7 @@ namespace PruebaWebCAQ
         //Evento que me actualiza lo se edita
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            Group gr = new Group(lblGroup.Text);
+            Group gr = new Group(groupToEdit.Value);
             groupBusiness.updateGroupService(gr, lblGroup.Text);
             Response.Redirect("AdminGroup.aspx");
         }

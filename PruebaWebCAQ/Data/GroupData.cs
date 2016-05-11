@@ -14,7 +14,7 @@ namespace PruebaWebCAQ.Data
             try
             {
                 connectDB();
-                SqlCommand query = new SqlCommand("select * from grupo;", conn);
+                SqlCommand query = new SqlCommand("select * from grupo order by nivel_idNivel;", conn);
                 conn.Open();
                 SqlDataReader reader = query.ExecuteReader();
                 while (reader.Read())
