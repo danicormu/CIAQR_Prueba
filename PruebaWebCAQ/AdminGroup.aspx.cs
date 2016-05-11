@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using PruebaWebCAQ.Domain;
 using PruebaWebCAQ.Business;
@@ -31,27 +29,22 @@ namespace PruebaWebCAQ
 
         //Evento que me crea el grupo
         protected void saveGroup_Click(object sender, EventArgs e)
-        {            
-            if(selectLevel.SelectedItem != null && txtGroupName.Text != "") 
+        {
+            if (selectLevel.SelectedItem != null && txtGroupName.Text != "")
             {
                 string level = selectLevel.SelectedItem.Text;
-                string group = txtGroupName.Text; 
-                try
-                {                    
-                    int idLevel = Convert.ToInt32(level.ToString());
-                    Group gr = new Group(group, idLevel);
-                    groupBusiness.addGroupservice(gr);
-                    Response.Redirect("AdminGroup.aspx");                              
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error al crear un grupo" + ex);
-                }
+                string group = txtGroupName.Text;
+                int idLevel = Convert.ToInt32(level.ToString());
+                Group gr = new Group(group, idLevel);
+                mesgP.InnerText = groupBusiness.addGroupservice(gr);
+                ModalPopupExtenderForMessage.Show();
             }
             else
-            {
-                Console.WriteLine("Error debe seleccionar un nivel y haber ingresado el nombre del grupo");
-            }
+                mesgP.InnerText = "Debe seleccionar un nivel y haber escrito en nombre del grupo correctamente.";
+            i = 0;
+            list_group = groupBusiness.allGroupsService();
+            groupRepeater.DataSource = list_group;
+            groupRepeater.DataBind();
         }
 
         //Evento que cancela la creacion de un grupo
@@ -105,16 +98,29 @@ namespace PruebaWebCAQ
         //Evento que me elimina un Item de la tabla 
         protected void btnDeleteGroup_Click(object sender, EventArgs e)
         {
-            groupBusiness.deleteGroup(lblNameToDelete.Text);
-            Response.Redirect("AdminGroup.aspx");
+            mesgP.InnerText= groupBusiness.deleteGroup(lblNameToDelete.Text);
+            ModalPopupExtenderForMessage.Show();
+            i = 0;
+            list_group = groupBusiness.allGroupsService();
+            groupRepeater.DataSource = list_group;
+            groupRepeater.DataBind();
         }
 
         //Evento que me actualiza lo se edita
         protected void btnSave_Click(object sender, EventArgs e)
         {
             Group gr = new Group(groupToEdit.Value);
-            groupBusiness.updateGroupService(gr, lblGroup.Text);
-            Response.Redirect("AdminGroup.aspx");
+            mesgP.InnerText= groupBusiness.updateGroupService(gr, lblGroup.Text);
+            ModalPopupExtenderForMessage.Show();
+            i = 0;
+            list_group = groupBusiness.allGroupsService();
+            groupRepeater.DataSource = list_group;
+            groupRepeater.DataBind();
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

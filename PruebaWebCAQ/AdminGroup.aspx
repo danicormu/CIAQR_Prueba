@@ -51,7 +51,20 @@
                                         </asp:ModalPopupExtender>
                                         <asp:Panel ID="Panel1" Style="display: none" CssClass="modalPopup" align="center" runat="server">
                                             <p runat="server" id="message"></p>
-                                            <input id="btnCancel" type="button" value="Aceptar" />
+                                            <hr />
+                                            <asp:Button runat="server" ID="btnCancel" OnClick="btnCancel_Click" Text="Aceptar" />
+                                            <asp:Button runat="server" ID="procssBtn" OnClick="processbtn_Click" Style="visibility: hidden;" />
+                                        </asp:Panel>
+                                        <asp:ModalPopupExtender ID="ModalPopupExtenderForMessage" runat="server"
+                                            CancelControlID="cancelBtn"
+                                            TargetControlID="procssBtn"
+                                            PopupControlID="Panel4"
+                                            Drag="true"
+                                            BackgroundCssClass="modalBackground">
+                                        </asp:ModalPopupExtender>
+                                        <asp:Panel ID="Panel4" Style="display: none" CssClass="modalPopup" align="center" runat="server">
+                                            <p runat="server" id="mesgP"></p>
+                                            <asp:Button runat="server" ID="cancelBtn" Text="Aceptar" />
                                         </asp:Panel>
                                     </div>
                                 </article>
