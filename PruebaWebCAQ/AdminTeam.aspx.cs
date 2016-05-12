@@ -56,7 +56,7 @@ namespace PruebaWebCAQ
                             {
                                 BinaryReader binaryReader = new BinaryReader(fs);
                                 byte[] bytes = binaryReader.ReadBytes((int)fs.Length);
-                                Personal pe = new Personal(name, role, description, bytes);
+                                Personal pe = new Personal(name, description, role, bytes);
                                 messsage.InnerText = PBusiness.addService(pe);
                                 i = 0;
                                 list_Personal = PBusiness.returnAllEmployesService();
@@ -93,6 +93,7 @@ namespace PruebaWebCAQ
         {
             personName_txt.Text = string.Empty;
             personDescription_txt.Text = string.Empty;
+            selectRole.SelectedValue = "1";
         }
 
         private string saveImage(System.Drawing.Image image)
