@@ -372,32 +372,394 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                  <div id="style_portfolio_mc" class="masonryWrap">
+                    <div id="style_portfolio_mc" class="masonryWrap">
                         <section class="masonry isotope" data-columns="3">
-                            <asp:Repeater runat="server" ID="gallOnHomePage" OnItemDataBound="gallOnHomePage_ItemDataBound">
-                                <ItemTemplate>
-                                    <article class="isotopeElement isotopeElementShow">
-                                        <div class="isotopePadding">
-                                            <div  runat="server" id="imagePopupDiv" class="thumb hoverIncrease">
-                                                <asp:Image runat="server" ID="galleryImageHP" />
-                                            </div>
-                                            <h4>
-                                                <asp:Label runat="server" ID="galleryTitleHP"></asp:Label>
-                                            </h4>
-                                            <asp:Label runat="server" ID="galleryDescriptionHP"></asp:Label>
-                                            <div class="masonryInfo">
-                                                Publicado:
-                                                <asp:Label runat="server" ID="galleryDateHP" CssClass="post_date"></asp:Label>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </ItemTemplate>
-                            </asp:Repeater>
+                            <article class="isotopeElement isotopeElementShow">
+                                <div class="isotopePadding">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/portfolio/masonry2.jpg" data-title="Donec lacinia elementum nunc">
+                                        <img alt="Donec lacinia elementum nunc" src="Resources/img/portfolio/masonry2-714x488.jpg"/>
+                                    </div>
+                                    <h4>
+                                        <a href="#">Donec lacinia elementum nunc</a>
+                                    </h4>
+                                    <p>Donec lacinia elementum nunc, sed condimentum eros dictum ut. Sed pretium lacinia tortor, ac porta sapien congue sed. Morbi quis nisl dolor... </p>
+                                    <div class="masonryInfo">
+                                        Posted
+                                        <a href="#" class="post_date">February 17, 2014</a>
+                                    </div>
+                                    <div class="masonryMore">
+                                        <ul>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-link" title="More" href="#">More</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-eye" title="Views - 1064" href="#">1064</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-comment" title="Comments - 0" href="#comments">0</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="isotopeElement isotopeElementShow">
+                                <div class="isotopePadding">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/portfolio/masonry6.jpg" data-title="Maecenas tristique sem ante">
+                                        <img alt="Maecenas tristique sem ante" src="Resources/img/portfolio/masonry6-714x476.jpg">
+                                    </div>
+                                    <h4>
+                                        <a href="#">Maecenas tristique sem ante</a>
+                                    </h4>
+                                    <p>Maecenas tristique sem ante. Donec imperdiet pretium sodales. Sed in eros fermentum, facilisis magna eu, tempus mauris. Curabitur mollis lacus ac... </p>
+                                    <div class="masonryInfo">
+                                        Posted
+                                        <a href="#" class="post_date">February 16, 2014</a>
+                                    </div>
+                                    <div class="masonryMore">
+                                        <ul>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-link" title="More" href="#">More</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-eye" title="Views - 230" href="#">230</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-comment" title="Comments - 0" href="#comments">0</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="isotopeElement isotopeElementShow">
+                                <div class="isotopePadding">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/portfolio/portfolio_item.jpg" data-title="Vivamus pharetra justo">
+                                        <img alt="Vivamus pharetra justo" src="Resources/img/portfolio/portfolio_item-714x460.jpg">
+                                    </div>
+                                    <h4>
+                                        <a href="#">Vivamus pharetra justo</a>
+                                    </h4>
+                                    <p>Vivamus pharetra justo eget placerat commodo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque... </p>
+                                    <div class="masonryInfo">
+                                        Posted
+                                        <a href="#" class="post_date">February 15, 2014</a>
+                                    </div>
+                                    <div class="masonryMore">
+                                        <ul>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-link" title="More" href="#">More</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-eye" title="Views - 82" href="#">82</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-comment" title="Comments - 0" href="#comments">0</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="isotopeElement isotopeElementShow">
+                                <div class="isotopePadding">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/portfolio/Depositphotos_23153020_original.jpg" data-title="Sed orci odio, adipiscing vel libero eget">
+                                        <img alt="Sed orci odio, adipiscing vel libero eget" src="Resources/img/portfolio/Depositphotos_23153020_original-714x476.jpg">
+                                    </div>
+                                    <h4>
+                                        <a href="#">Sed orci odio, adipiscing vel libero eget</a>
+                                    </h4>
+                                    <p>Sed orci odio, adipiscing vel libero eget, volutpat dictum orci. Donec eu euismod dui, nec ullamcorper urna. Cras vel sapien eu diam imperdiet... </p>
+                                    <div class="masonryInfo">
+                                        Posted
+                                        <a href="#" class="post_date">February 14, 2014</a>
+                                    </div>
+                                    <div class="masonryMore">
+                                        <ul>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-link" title="More" href="#">More</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-eye" title="Views - 44" href="#">44</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-comment" title="Comments - 0" href="#comments">0</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="isotopeElement isotopeElementShow">
+                                <div class="isotopePadding">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/portfolio/portfolio16x9_2.jpg" data-title="Ut vitae lacus pretium">
+                                        <img alt="Ut vitae lacus pretium" src="Resources/img/portfolio/portfolio16x9_2-714x535.jpg">
+                                    </div>
+                                    <h4>
+                                        <a href="#">Ut vitae lacus pretium</a>
+                                    </h4>
+                                    <p>Ut vitae lacus pretium, molestie massa a, placerat urna. Donec viverra nisl id nisl accumsan, ac cursus est dictum. Pellentesque habitant morbi... </p>
+                                    <div class="masonryInfo">
+                                        Posted
+                                        <a href="#" class="post_date">February 13, 2014</a>
+                                    </div>
+                                    <div class="masonryMore">
+                                        <ul>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-link" title="More" href="#">More</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-eye" title="Views - 27" href="#">27</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-comment" title="Comments - 0" href="#comments">0</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="isotopeElement isotopeElementShow">
+                                <div class="isotopePadding">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/portfolio/masonry4.jpg" data-title="Duis consequat arcu et lacus">
+                                        <img alt="Duis consequat arcu et lacus" src="Resources/img/portfolio/masonry4-714x535.jpg">
+                                    </div>
+                                    <h4>
+                                        <a href="#">Duis consequat arcu et lacus</a>
+                                    </h4>
+                                    <p>Duis consequat arcu et lacus interdum lobortis at ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae... </p>
+                                    <div class="masonryInfo">
+                                        Posted
+                                        <a href="#" class="post_date">February 12, 2014</a>
+                                    </div>
+                                    <div class="masonryMore">
+                                        <ul>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-link" title="More" href="#">More</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-eye" title="Views - 33" href="#">33</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-comment" title="Comments - 0" href="#comments">0</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="isotopeElement isotopeElementShow">
+                                <div class="isotopePadding">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/portfolio/Depositphotos_7132665_original.jpg" data-title="Curabitur auctor adipiscing risus sed ornare">
+                                        <img alt="Curabitur auctor adipiscing risus sed ornare" src="Resources/img/portfolio/Depositphotos_7132665_original-714x488.jpg">
+                                    </div>
+                                    <h4>
+                                        <a href="#">Curabitur auctor adipiscing risus sed ornare</a>
+                                    </h4>
+                                    <p>Curabitur auctor adipiscing risus sed ornare. Aliquam a auctor augue. Nullam nisl lorem, sodales sed odio ac, auctor accumsan libero. Ut convallis... </p>
+                                    <div class="masonryInfo">
+                                        Posted
+                                        <a href="#" class="post_date">February 12, 2014</a>
+                                    </div>
+                                    <div class="masonryMore">
+                                        <ul>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-link" title="More" href="#">More</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-eye" title="Views - 24" href="#">24</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-comment" title="Comments - 0" href="#comments">0</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="isotopeElement isotopeElementShow">
+                                <div class="isotopePadding">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/portfolio/masonry3.jpg" data-title="Proin vel odio eu velit">
+                                        <img alt="Proin vel odio eu velit" src="Resources/img/portfolio/masonry3-714x476.jpg">
+                                    </div>
+                                    <h4>
+                                        <a href="#">Proin vel odio eu velit</a>
+                                    </h4>
+                                    <p>Proin vel odio eu velit pellentesque rhoncus sed nec lectus. Curabitur in vulputate felis. Fusce id tellus dui. Maecenas a dictum odio, id... </p>
+                                    <div class="masonryInfo">
+                                        Posted
+                                        <a href="#" class="post_date">February 11, 2014</a>
+                                    </div>
+                                    <div class="masonryMore">
+                                        <ul>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-link" title="More" href="#">More</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-eye" title="Views - 13" href="#">13</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-comment" title="Comments - 0" href="#comments">0</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="isotopeElement isotopeElementShow">
+                                <div class="isotopePadding">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/portfolio/masonry12.jpg" data-title="Phasellus nunc velit">
+                                        <img alt="Phasellus nunc velit" src="Resources/img/portfolio/masonry12-714x476.jpg">
+                                    </div>
+                                    <h4>
+                                        <a href="#">Phasellus nunc velit</a>
+                                    </h4>
+                                    <p>Ut a neque tellus. Duis facilisis enim quis tortor pharetra dapibus. Phasellus nunc velit, feugiat sed lobortis in, accumsan facilisis turpis... </p>
+                                    <div class="masonryInfo">
+                                        Posted
+                                        <a href="#" class="post_date">February 10, 2014</a>
+                                    </div>
+                                    <div class="masonryMore">
+                                        <ul>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-link" title="More" href="#">More</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-eye" title="Views - 22" href="#">22</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-comment" title="Comments - 0" href="#comments">0</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="isotopeElement isotopeElementShow">
+                                <div class="isotopePadding">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/portfolio/masonry1.jpg" data-title="Lorem ipsum dolor sit amet">
+                                        <img alt="Lorem ipsum dolor sit amet" src="Resources/img/portfolio/masonry1-714x476.jpg">
+                                    </div>
+                                    <h4>
+                                        <a href="#">Lorem ipsum dolor sit amet</a>
+                                    </h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur augue tortor, faucibus quis velit vitae, mattis ornare metus. Ut erat justo... </p>
+                                    <div class="masonryInfo">
+                                        Posted
+                                        <a href="#" class="post_date">February 9, 2014</a>
+                                    </div>
+                                    <div class="masonryMore">
+                                        <ul>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-link" title="More" href="#">More</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-eye" title="Views - 19" href="#">19</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-comment" title="Comments - 0" href="#comments">0</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="isotopeElement isotopeElementShow">
+                                <div class="isotopePadding">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/portfolio/masonry10.jpg" data-title="Maecenas tristique sem ante">
+                                        <img alt="Maecenas tristique sem ante" src="Resources/img/portfolio/masonry10-714x476.jpg">
+                                    </div>
+                                    <h4>
+                                        <a href="#">Maecenas tristique sem ante</a>
+                                    </h4>
+                                    <p>Maecenas tristique sem ante. Donec imperdiet pretium sodales. Sed in eros fermentum, facilisis magna eu, tempus mauris. Curabitur mollis lacus ac... </p>
+                                    <div class="masonryInfo">
+                                        Posted
+                                        <a href="#" class="post_date">February 8, 2014</a>
+                                    </div>
+                                    <div class="masonryMore">
+                                        <ul>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-link" title="More" href="#">More</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-eye" title="Views - 11" href="#">11</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-comment" title="Comments - 0" href="#comments">0</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="isotopeElement isotopeElementShow">
+                                <div class="isotopePadding">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/portfolio/portfolio16x9_8.jpg" data-title="Vestibulum ut lacus et">
+                                        <img alt="Vestibulum ut lacus et" src="Resources/img/portfolio/portfolio16x9_8-714x502.jpg">
+                                    </div>
+                                    <h4>
+                                        <a href="#">Vestibulum ut lacus et</a>
+                                    </h4>
+                                    <p>Vestibulum ut lacus et magna consectetur interdum non eget justo. Nam lorem tortor, viverra ut nibh a, feugiat varius mi. Duis eleifend, nisi... </p>
+                                    <div class="masonryInfo">
+                                        Posted
+                                        <a href="#" class="post_date">February 7, 2014</a>
+                                    </div>
+                                    <div class="masonryMore">
+                                        <ul>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-link" title="More" href="#">More</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-eye" title="Views - 18" href="#">18</a>
+                                            </li>
+                                            <li class="squareButton light ico">
+                                                <a class="fa-comment" title="Comments - 0" href="#comments">0</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </article>
                         </section>
                     </div>
+                    <div id="pagination" class="pagination no_padding_bottom">
+                        <ul class="pageLibrary">
+                            <li class="pager_pages libPage">
+                                Page 
+                                <input class="navInput" readonly="readonly" type="text" size="1" value="1">
+                                of 2
+                                <div id="pageNavSlider" class="boxShadow pageFocusBlock navPadding" style="">
+                                    <div class="sc_slider sc_slider_swiper sc_slider_controls sc_slider_controls_top sc_slider_nopagination sc_slider_noautoplay">
+                                        <ul>
+                                            <li>
+                                                <div class="pageNumber">
+                                                    <table>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="#" class="active">1</a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="#">2</a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <ul class="flex-direction-nav">
+                                        <li>
+                                            <a class="flex-prev" href="#"></a>
+                                        </li>
+                                        <li>
+                                            <a class="flex-next" href="#"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="pager_next ico right squareButton light">
+                                <a href="#">Next </a>
+                            </li>
+                            <li class="pager_last ico right squareButton light">
+                                <a href="#">Last </a>
+                            </li>
+                        </ul>
+                    </div>                    
                 </div>
-            </div>
-        </div>
+            </div>  
+        </div>   
     </section>
     <!--end of Gallery section-->
     <!--about us section -->
