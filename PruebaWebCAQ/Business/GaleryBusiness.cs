@@ -30,7 +30,7 @@ namespace PruebaWebCAQ.Business
         {
             string success = "";
             if (data.updateImages(galery))
-                success = "La imagen se ha actualizado con exitó";
+                success = "La imagen se ha actualizado con éxito";
             else
                 success = "La imagen no ha sido actualizada. Revise su conexión a la red o contecte a su proveedor de servicios";
             return success;

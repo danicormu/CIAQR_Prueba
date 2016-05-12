@@ -36,7 +36,10 @@ namespace PruebaWebCAQ
                 if(txtImgTitle.Text != "" && txtImgDesc.Text != "")
                 {
                     if(Session["image"] == null)
-                        lblWarning.Text = "Debe seleccionar una imagen*";
+                    {
+                        messsage.InnerText = "Debe seleccionar una imagen";
+                        ModalPopupExtender1.Show();
+                    }                        
                     else
                     {
                         HttpPostedFile postFile = (HttpPostedFile)Session["image"];
@@ -184,10 +187,10 @@ namespace PruebaWebCAQ
             Galery gal = new Galery(Convert.ToInt32(galID.Text), titleToEdit.Value, descToEdit.Value, DateTime.Today.ToShortDateString());
             messsage.InnerText = GBusiness.updateImageService(gal);
             ModalPopupExtender1.Show();
+            i = 0;
             galID.Text = "";
             titleLabel.Text = "";
-            descriptionLabel.Text = "";
-            i = 0;
+            descriptionLabel.Text = "";            
             list_Gallery = GBusiness.galeryService();
             makeGalleryRepeater.DataSource = list_Gallery;
             makeGalleryRepeater.DataBind();

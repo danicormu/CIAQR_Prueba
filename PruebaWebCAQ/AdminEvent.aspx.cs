@@ -38,7 +38,7 @@ namespace PruebaWebCAQ
             try
             {
                 if (nameEvent == "" || descEvent == ""
-                    || dateEvent == " " || typeEvent == "")
+                    || dateEvent == "" || typeEvent == "")
                 {
                     messageError.InnerText = "Complete los espacios";
                     ModalPopupExtender5.Show();
