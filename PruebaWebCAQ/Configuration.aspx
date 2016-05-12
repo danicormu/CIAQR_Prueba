@@ -12,7 +12,6 @@
             <div class="container">
                 <div class="row content">
                     <div class="col-sm-12">
-
                         <div class="tab-content">
                             <div class="tab-pane fade in active blogContent" id="tabBlog">
                                 <article class="hrShadow post">
@@ -50,6 +49,13 @@
 	                                                                        drag="true" 
 	                                                                        backgroundcssclass="modalBackground">
                                                                         </asp:ModalPopupExtender>
+                                                                        <asp:ModalPopupExtender id="ModalPopupExtender6" runat="server" 
+                                                                            TargetControlID="processbtn"
+                                                                            cancelcontrolid="btnCancel" 
+	                                                                        PopupControlID="Panel6"
+	                                                                        drag="true" 
+	                                                                        backgroundcssclass="modalBackground">
+                                                                        </asp:ModalPopupExtender>
                                                                         
                                                                     </div>
                                                                     <div class="col-sm-7">
@@ -57,7 +63,6 @@
                                                                     </div>
                                                                     <br />                                                                    
                                                                 </div>
-
                                                             </div>
                                                         </div>
                                                     </div>
@@ -67,6 +72,11 @@
                                                 <p runat="server" id="message"></p>
                                                 <hr />
                                                 <input id="btnCancel" type="button" value="Aceptar" />
+                                            </asp:panel>
+                                            <asp:panel id="Panel6" style="display: none" CssClass="modalPopup" align="center" runat="server">
+                                                <p runat="server" id="messageAcept"></p>
+                                                <hr />
+                                                <asp:Button runat="server" ID="btnAccept" OnClick="btnAccept_Click" Text ="Aceptar"/>
                                             </asp:panel>
                                             <div class="sc_toggles_item">
                                                 <h4 class="sc_toggles_title">Contraseña</h4>
@@ -128,7 +138,9 @@
                                                                         <asp:TextBox ID="AdminPass_txt" runat="server" TextMode="Password" placeholder="Contraseña" Width="70%"></asp:TextBox>
                                                                         <br />
                                                                         <br />
-                                                                        <asp:CheckBox Style="float: left" runat="server" Checked="false" ID="chkShowPass" Text="Mostrar Contraseña"      />
+                                                                         <asp:TextBox ID="AdminPassRepeat_txt" runat="server" TextMode="Password" placeholder="Repita Contraseña" Width="70%"></asp:TextBox>
+                                                                        <br />
+                                                                        <br />
                                                                     </div>
 
                                                                     <div class="col-sm-7">
@@ -190,8 +202,7 @@
                                                                         </ItemTemplate>
                                                                     </asp:Repeater>
                                                                 </tbody>
-                                                            </table>
-                                                            
+                                                            </table>                                                            
                                                             <asp:panel id="Panel2" style="display: none" CssClass="modalPopup1" align="center" runat="server">
                                                                 <p>ID de Administrador: <asp:Label runat="server" ID="adminInfo"></asp:Label></p>
                                                                 <br />
@@ -217,22 +228,6 @@
             </div>
         </div>
     </section>
-    <script type="text/javascript">
-    $(function () {
-        $("#chkShowPass").bind("click", function () {
-            var AdminPass_txt = $("[id*=AdminPass_txt]");
-            if ($(this).is(":checked")) {
-                AdminPass_txt.after('<input id = "txt_' + AdminPass_txt.attr("id") + '" type = "text" value = "' + AdminPass_txt.val() + '" />');
-                AdminPass_txt.hide();
-            } else {
-                AdminPass_txt.val(AdminPass_txt.next().val());
-                AdminPass_txt.next().remove();
-                AdminPass_txt.show();
-            }
-        });
-    });
-</script>
-
     <style type="text/css">
     .modalBackground
     {

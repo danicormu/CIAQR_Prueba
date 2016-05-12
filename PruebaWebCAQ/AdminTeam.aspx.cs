@@ -28,28 +28,35 @@ namespace PruebaWebCAQ
             list_Personal = PBusiness.returnAllEmployesService();
             makePersonRepeater.DataSource = list_Personal;
             makePersonRepeater.DataBind();
+            
+            
         }
+        
 
         protected void createPerson_Click(object sender, EventArgs e)
         {
             try
             {
-                if (personName_txt.Text != "" || personRol_txt.Text != ""
-                    || personDescription_txt.Text != "")
-                {
-                    if (Session["image"] == null)
-                        lblWarning.Text = "Debe seleccionar una imagen*";
+                string name = personName_txt.Text;
+                string role = selectRole.SelectedItem.Text;
+                string description = personDescription_txt.Text;
+                if (name != "" || role != "" || description != "")
+                {                    
+                    if (Session["image"] == null) {
+                        messsage.InnerText = "Debe seleccionar una imagen";
+                        ModalPopupExtender1.Show();
+                    }                                     
                     else
                     {
-                            HttpPostedFile postFile = (HttpPostedFile)Session["image"];
-                            string file = Path.GetFileName(postFile.FileName);
-                            string fileExtension = Path.GetExtension(file);
-                            using (FileStream fs = new FileStream(Server.MapPath(@"images\" + postFile.FileName).ToString(), FileMode.Open, FileAccess.Read))
+                        HttpPostedFile postFile = (HttpPostedFile)Session["image"];
+                        string file = Path.GetFileName(postFile.FileName);
+                        string fileExtension = Path.GetExtension(file);
+                        using (FileStream fs = new FileStream(Server.MapPath(@"images\" + postFile.FileName).ToString(), FileMode.Open, FileAccess.Read))
                             if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".bmp" || fileExtension.ToLower() == ".gif" || fileExtension.ToLower() == ".png")
-                            { 
+                            {
                                 BinaryReader binaryReader = new BinaryReader(fs);
                                 byte[] bytes = binaryReader.ReadBytes((int)fs.Length);
-                                Personal pe = new Personal(personName_txt.Text, personDescription_txt.Text, personRol_txt.Text, bytes);
+                                Personal pe = new Personal(name, role, description, bytes);
                                 messsage.InnerText = PBusiness.addService(pe);
                                 i = 0;
                                 list_Personal = PBusiness.returnAllEmployesService();
@@ -61,12 +68,14 @@ namespace PruebaWebCAQ
                                 clearSpaces();
                                 ModalPopupExtender1.Show();
                             }
-                        else
-                                lblWarning.Text = "Solo imágenes (.jpg, .bmp, .gif, .png)";          
+                            else
+                                messsage.InnerText = "Solo imágenes (.jpg, .bmp, .gif, .png)";
+                                ModalPopupExtender1.Show();
                     }
                 }
                 else
-                    lblWarning.Text = "Complete todos los campos*";
+                    messsage.InnerText = "Complete todos los campos";
+                    ModalPopupExtender1.Show();
             }
             catch (Exception ex)
             {
@@ -84,7 +93,6 @@ namespace PruebaWebCAQ
         {
             personName_txt.Text = string.Empty;
             personDescription_txt.Text = string.Empty;
-            personRol_txt.Text = string.Empty;
         }
 
         private string saveImage(System.Drawing.Image image)
@@ -140,30 +148,38 @@ namespace PruebaWebCAQ
 
         protected void uploadPImage_Click(object sender, EventArgs e)
         {
-            byte[] byteArray = null;
-            if (imgUpload.PostedFile != null)
+            if(imgUpload.HasFile == false)
             {
-                // Get Client site full Image path need to be convert into HttpPostedFile
-                HttpPostedFile file = imgUpload.PostedFile;
-                file.SaveAs(Server.MapPath(@"images\" + file.FileName));
-                //Use FileStream to convert the image into byte.
-                using (FileStream fs = new FileStream(Server.MapPath(@"images\" + file.FileName).ToString(), FileMode.Open, FileAccess.Read))
-                {
-                    byteArray = new byte[fs.Length];
-                    int iBytesRead = fs.Read(byteArray, 0, (int)fs.Length);
-                    if (byteArray != null && byteArray.Length > 0)
-                    {
-                        // Convert the byte into image
-                        string base64String = Convert.ToBase64String(byteArray, 0, byteArray.Length);
-                        imgProfile.Src = "data:image/png;base64," + base64String;
-                        Session["image"] = imgUpload.PostedFile;
-                    }
-                }
+                messsage.InnerText = "Debe seleccionar antes la imagen";
+                ModalPopupExtender1.Show();
             }
             else
             {
-                lblWarning.Text = "Debe seleccionar una imagen antes de mostrarla*";
-            }
+                byte[] byteArray = null;
+                if (imgUpload.PostedFile != null)
+                {
+                    // Get Client site full Image path need to be convert into HttpPostedFile
+                    HttpPostedFile file = imgUpload.PostedFile;
+                    file.SaveAs(Server.MapPath(@"images\" + file.FileName));
+                    //Use FileStream to convert the image into byte.
+                    using (FileStream fs = new FileStream(Server.MapPath(@"images\" + file.FileName).ToString(), FileMode.Open, FileAccess.Read))
+                    {
+                        byteArray = new byte[fs.Length];
+                        int iBytesRead = fs.Read(byteArray, 0, (int)fs.Length);
+                        if (byteArray != null && byteArray.Length > 0)
+                        {
+                            // Convert the byte into image
+                            string base64String = Convert.ToBase64String(byteArray, 0, byteArray.Length);
+                            imgProfile.Src = "data:image/png;base64," + base64String;
+                            Session["image"] = imgUpload.PostedFile;
+                        }
+                    }
+                }
+                else
+                {
+                    lblWarning.Text = "Debe seleccionar una imagen antes de mostrarla*";
+                }
+            }            
         }
 
         protected void processbtn_Click(object sender, EventArgs e)

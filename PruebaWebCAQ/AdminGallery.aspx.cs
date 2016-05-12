@@ -66,7 +66,9 @@ namespace PruebaWebCAQ
                 }
                 else
                 {
-                    lblWarning.Text = "Debe completar los campos*";
+                    messsage.InnerText = "Debe completar los campos";
+                    ModalPopupExtender1.Show();
+                    //lblWarning.Text = "Debe completar los campos*";
                 }
             }
             catch(Exception ex)
@@ -103,23 +105,31 @@ namespace PruebaWebCAQ
         //Metodo para Muestra la imagen en un marco
         protected void uploadImgGallery_Click(object sender, EventArgs e)
         {
-            byte[] byteArray = null;
-            if(imgUploadGallery.PostedFile != null)
+            if(imgUploadGallery.HasFile == false)
             {
-                HttpPostedFile file = imgUploadGallery.PostedFile;
-                file.SaveAs(Server.MapPath(@"images\" + file.FileName));
-                using (FileStream fs = new FileStream(Server.MapPath(@"images\" + file.FileName).ToString(), FileMode.Open, FileAccess.Read))
+                messsage.InnerText = "Debe seleccionar la imagen antes";
+                ModalPopupExtender1.Show();
+            }
+            else
+            {
+                byte[] byteArray = null;
+                if (imgUploadGallery.PostedFile != null)
                 {
-                    byteArray = new byte[fs.Length];
-                    int iBytesRead = fs.Read(byteArray, 0, (int)fs.Length);
-                    if (byteArray != null && byteArray.Length > 0)
+                    HttpPostedFile file = imgUploadGallery.PostedFile;
+                    file.SaveAs(Server.MapPath(@"images\" + file.FileName));
+                    using (FileStream fs = new FileStream(Server.MapPath(@"images\" + file.FileName).ToString(), FileMode.Open, FileAccess.Read))
                     {
-                        string base64String = Convert.ToBase64String(byteArray, 0, byteArray.Length);
-                        imgShow.Src = "data:image/png;base64," + base64String;
-                        Session["image"] = imgUploadGallery.PostedFile;
+                        byteArray = new byte[fs.Length];
+                        int iBytesRead = fs.Read(byteArray, 0, (int)fs.Length);
+                        if (byteArray != null && byteArray.Length > 0)
+                        {
+                            string base64String = Convert.ToBase64String(byteArray, 0, byteArray.Length);
+                            imgShow.Src = "data:image/png;base64," + base64String;
+                            Session["image"] = imgUploadGallery.PostedFile;
+                        }
                     }
                 }
-            }                
+            }                          
         }
 
         //Metodo que manipula los controles del repeater desplegando los datos que se encuentren en la DB

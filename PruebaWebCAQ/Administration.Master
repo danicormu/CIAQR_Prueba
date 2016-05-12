@@ -37,7 +37,8 @@
         <div id="AdminContent">
             <div id="leftColumn">
                 <div class="sidemenu_wrap swpLeftPos">
-                    <div class="sidemenu_button sidemenu_button_icon"></div>
+                    <div class="sidemenu_button sidemenu_button_icon">
+                    </div>
                     <div class="menuTranform">
                         <div class="sc_scroll scroll-container sidemenu_scroll" id="sidemenu_scroll">
                             <div class="sc_scroll_wrapper">

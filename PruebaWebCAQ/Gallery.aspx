@@ -17,7 +17,6 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div id="style_portfolio2" class="portfolioWrap">
-                        <div class="isotopeFiltr"></div>
                         <section class="masonry isotope" data-columns="4">
                              <asp:Repeater runat="server" ID="galleryRepeater" OnItemDataBound="galleryRepeater_ItemDataBound">
                                  <ItemTemplate>

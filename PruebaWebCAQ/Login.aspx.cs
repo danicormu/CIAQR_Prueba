@@ -1,5 +1,6 @@
 ﻿using System;
 using PruebaWebCAQ.Business;
+using AjaxControlToolkit;
 
 
 namespace PruebaWebCAQ
@@ -18,8 +19,9 @@ namespace PruebaWebCAQ
             {
                 
                 if(ValidateUser(txt_user.Text, txt_password.Text) == false)             
-                {                    
-                   lbl_message.Visible = true;
+                {
+                    messageLogin.InnerText = "Credenciales Incorrectas";
+                    ModalPopupExtender.Show();      
                 }
                 else
                 {
@@ -31,7 +33,8 @@ namespace PruebaWebCAQ
             }
             else
             {
-                lbl_fillspace.Visible = true;
+                messageLogin.InnerText = "Debe llenar todos los espacios";
+                ModalPopupExtender.Show();
             }
         }
 
@@ -45,6 +48,11 @@ namespace PruebaWebCAQ
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("HomePage.aspx");
+        }
+
+        protected void processbtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

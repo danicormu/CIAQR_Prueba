@@ -15,17 +15,24 @@ namespace PruebaWebCAQ
         private List<Personal> profList;
         SendMailService service = new SendMailService();
         private int i =0;
-        private int j=0; 
+        private int j=0;
+
+        GaleryBusiness galleryBusiness = new GaleryBusiness();
+        private List<Galery> list_gallery;
+        private int z = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 list = personal.returnAllEmployesService();
                 profList = personal.returnAllProfessors();
+                list_gallery = galleryBusiness.galeryService();
                 personalRepeater.DataSource = list;
                 personalRepeater.DataBind();
                 teacherRepeater.DataSource = profList;
-                teacherRepeater.DataBind();
+                teacherRepeater.DataBind();                
+                gallOnHomePage.DataSource = list_gallery;
+                gallOnHomePage.DataBind();
             }
         }
 
@@ -62,6 +69,14 @@ namespace PruebaWebCAQ
             System.Drawing.Graphics graphics = System.Drawing.Graphics.FromImage(image);
             image.Save(savePath);
             return "images/" + profList.ElementAt(j).Name + ".jpg";
+        }
+
+        private string saveGalleryImage(System.Drawing.Image image)
+        {
+            string savePath = Server.MapPath(@"images\" + list_gallery.ElementAt(z).Name + ".jpg");
+            System.Drawing.Graphics graphics = System.Drawing.Graphics.FromImage(image);
+            image.Save(savePath);
+            return "images/" + list_gallery.ElementAt(z).Name + ".jpg";
         }
 
         protected void senMail_Click(object sender, EventArgs e)
@@ -106,6 +121,29 @@ namespace PruebaWebCAQ
         protected void processbtn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void gallOnHomePage_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            System.Drawing.Image photo;
+            string path;
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Image galleryImage = (Image)e.Item.FindControl("galleryImageHP");
+                photo = System.Drawing.Image.FromStream(list_gallery.ElementAt(z).Photo);
+                path = saveGalleryImage(photo);
+                galleryImage.ImageUrl = path;
+                Label tittle = (Label)e.Item.FindControl("galleryTitleHP");
+                tittle.Text = list_gallery.ElementAt(z).Name;
+                Label description = (Label)e.Item.FindControl("galleryDescriptionHP");
+                description.Text = list_gallery.ElementAt(z).Description;
+                Label date = (Label)e.Item.FindControl("galleryDateHP");
+                date.Text = list_gallery.ElementAt(z).Date;
+                HtmlGenericControl div = (HtmlGenericControl)e.Item.FindControl("imagePopupDiv");
+                div.Attributes.Add("data-image", path);
+                div.Attributes.Add("data-title", list_gallery.ElementAt(z).Name);
+                z++;
+            }
         }
     }
 }

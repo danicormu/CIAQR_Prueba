@@ -6,7 +6,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="leftMenu" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="centerAdministration" runat="server">
-    <section class="widgetTabs">
+    <section class="widgetTabs">        
+      <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="mainWrap without_sidebar">
             <div class="container">
                 <div class="row content">
@@ -24,21 +25,42 @@
                                                         <br />
                                                         <br />
                                                         <asp:TextBox ID="eventDate_txt" runat="server" placeholder="Fecha" Width="50%"></asp:TextBox>
-
+                                                        <asp:ImageButton Height="25px" Width="25px" runat="server" ImageUrl="~/Resources/img/ico/calendar-lt.png" OnClick="imgDate_Click" />
+                                                        <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px" OnSelectionChanged="Calendar1_SelectionChanged" Visible="False">
+                                                            <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+                                                            <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
+                                                            <OtherMonthDayStyle ForeColor="#999999" />
+                                                            <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                                                            <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
+                                                            <TodayDayStyle BackColor="#CCCCCC" />
+                                                        </asp:Calendar>                                                      
+                                                        <br />                                                        
                                                         <br />
+                                                        <asp:Label Text="Tipo de Evento" ID="lblType" runat="server"></asp:Label>
                                                         <br />
-                                                        <asp:TextBox ID="eventType_txt" runat="server" placeholder="Tipo de Evento" Width="50%" >
-
-                                                        </asp:TextBox>
-                                                       
+                                                        <asp:DropDownList Width="320px" runat="server" ID="selectType">
+                                                            <asp:ListItem Text="" Value="1"></asp:ListItem>
+                                                            <asp:ListItem Text="Deportivo" Value="2"></asp:ListItem>
+                                                            <asp:ListItem Text="Educativo" Value="3"></asp:ListItem>
+                                                            <asp:ListItem Text="Estudiantil" Value="4"></asp:ListItem>
+                                                            <asp:ListItem Text="Familiar" Value="5"></asp:ListItem>
+                                                             <asp:ListItem Text="Cívico" Value="6"></asp:ListItem>
+                                                        </asp:DropDownList>
                                                         <br />
+                                                       <!-- <asp:TextBox ID="eventType_txt" runat="server" placeholder="Tipo de Evento" Width="50%" ></asp:TextBox>                                                       
+                                                        <br />
+                                                        <br />-->
                                                         <br />
                                                         <asp:TextBox ID="eventDesc_txt" runat="server" placeholder="Descripción..." TextMode="MultiLine" Rows="10" Height="75px" Width="90%"/>
+                                                        <br />
+                                                        <br />
+                                                        
                                                     </div>
                                                     <div class="col-sm-7">
                                                         <div class="sc_button sc_button_style_light sc_button_size_huge squareButton light huge">
                                                             <!-- <a href="#" class="">Crear</a> -->
                                                             <asp:Button runat="server" ID="btn_create" value="Reload Page" Text="Crear" OnClick="btnCreateEvent_Click" />
+                                                            <asp:Button runat="server" ID="processbtn" OnClick="processbtn_Click1" Style="visibility:hidden;" />
                                                         </div>
                                                         <div class="sc_button sc_button_style_light sc_button_size_huge squareButton light huge">
                                                             <!-- <a href="#" class="">Cancelar</a> -->
@@ -46,15 +68,25 @@
                                                         </div>
                                                         <br />
                                                         <asp:Label ID="lblWarning" runat="server" Text="" ForeColor="Red" Visible="true"></asp:Label>
+                                                        <asp:ModalPopupExtender ID="ModalPopupExtender5" runat="server"
+                                                            TargetControlID="processbtn"
+                                                            CancelControlID="btnCancelar"
+                                                            PopupControlID="Panel5"
+                                                            Drag="true"
+                                                            BackgroundCssClass="modalBackground">
+                                                        </asp:ModalPopupExtender>
                                                     </div>
-                                                    <br />                                          
+                                                    <br />
                                                 </div>
                                             </div>
                                         </div>
-                                        
+                                        <asp:Panel ID="Panel5" Style="display: none" CssClass="modalPopupErr" align="center" runat="server">
+                                            <p runat="server" id="messageError"></p>
+                                            <hr />
+                                            <input id="btnCancelar" type="button" value="Aceptar" />
+                                        </asp:Panel>
                                     </div>
                                 </article>
-                                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                                 <article class="hrShadow post">
                                     <h2 class="margin_top_small">Eventos</h2>
                                     <div class="sc_section sc_alignleft col-sm-table margin_bottom_small">
@@ -186,4 +218,22 @@
             height: 30%;
         }
 </style>
+    <style type="text/css">
+            .modalBackground {
+                background-color: Black;
+                filter: alpha(opacity=90);
+                opacity: 0.8;
+            }
+
+            .modalPopupErr {
+                background-color: #FFFFFF;
+                border-width: 3px;
+                border-style: solid;
+                border-color: black;
+                padding-top: 10px;
+                padding-left: 10px;
+                width: 300px;
+                height: 160px;
+            }
+        </style>
 </asp:Content>

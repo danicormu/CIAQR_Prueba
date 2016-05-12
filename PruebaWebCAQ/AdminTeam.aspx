@@ -28,8 +28,17 @@
                                                         <asp:TextBox ID="personName_txt" runat="server" placeholder="Nombre Completo" Width="100%"></asp:TextBox>
                                                         <br />
                                                         <br />
-                                                        <asp:TextBox ID="personRol_txt" runat="server" placeholder="Rol (Profesor, Director, Otro..)" Width="100%"></asp:TextBox>
+                                                        <asp:Label Text="Rol" ID="lblType" runat="server"></asp:Label>
                                                         <br />
+                                                        <asp:DropDownList Width="300px" runat="server" ID="selectRole">
+                                                            <asp:ListItem Text="" Value="1"></asp:ListItem>
+                                                            <asp:ListItem Text="Director" Value="2"></asp:ListItem>
+                                                            <asp:ListItem Text="Directora" Value="3"></asp:ListItem>
+                                                            <asp:ListItem Text="Profesor" Value="4"></asp:ListItem>
+                                                            <asp:ListItem Text="Profesora" Value="5"></asp:ListItem>
+                                                            <asp:ListItem Text="Empleado" Value="6"></asp:ListItem>
+                                                        </asp:DropDownList>
+                                                        <br />                                                        
                                                         <br />
                                                         <asp:TextBox ID="personDescription_txt" runat="server" placeholder="Descripción de la persona..." TextMode="MultiLine" Rows="10" Height="75px" Width="100%" />
                                                     </div>

@@ -30,23 +30,27 @@ namespace PruebaWebCAQ
 
         // Evento que inserta un evento 
         protected void btnCreateEvent_Click(object sender, EventArgs e)
-        {
+        {                        
+            string typeEvent = selectType.SelectedItem.Text;
+            string nameEvent = eventName_txt.Text;
+            string dateEvent = eventDate_txt.Text;
+            string descEvent = eventDesc_txt.Text;            
             try
             {
-                if (eventName_txt.Text == "" && eventDesc_txt.Text == " "
-                    && eventDate_txt.Text == " " && eventType_txt.Text == " ")
+                if (nameEvent == "" || descEvent == ""
+                    || dateEvent == " " || typeEvent == "")
                 {
-                    lblWarning.Text = "Complete los espacios*";
+                    messageError.InnerText = "Complete los espacios";
+                    ModalPopupExtender5.Show();
                 }
                 else
-                { 
-                    
+                {
                     Chronogram ch = new Chronogram(DateTime.Now.ToShortDateString(), DateTime.Today.ToShortDateString());
                     CBusiness.addChronogramService(ch);
                     int id = CBusiness.getAllChronogramsService().ElementAt(0).IdChronogram;
-                    Event ev = new Event(eventName_txt.Text, eventDesc_txt.Text, eventDate_txt.Text, eventType_txt.Text, id);
+                    Event ev = new Event(nameEvent, descEvent, dateEvent, typeEvent, id);
                     EBusiness.createEventService(ev);
-                    Response.Redirect("AdminEvent.aspx");                
+                    Response.Redirect("AdminEvent.aspx");
                 }
             }
             catch (Exception ex)
@@ -137,6 +141,22 @@ namespace PruebaWebCAQ
         {
             EBusiness.deleteEventService(Convert.ToInt32(lblIdToDelete.Text));
             Response.Redirect("AdminEvent.aspx");
+        }
+
+        protected void processbtn_Click1(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void imgDate_Click(object sender, System.Web.UI.ImageClickEventArgs e)
+        {
+            Calendar1.Visible = true;
+        }
+
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+            eventDate_txt.Text = Calendar1.SelectedDate.ToString("dd/MM/yyyy");
+            Calendar1.Visible = false;
         }
     }
 }

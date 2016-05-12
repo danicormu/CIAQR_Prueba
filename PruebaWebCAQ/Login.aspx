@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="PruebaWebCAQ.Login"  EnableEventValidation="false" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
 
 <!DOCTYPE html>
@@ -39,6 +40,7 @@
                     </ul>
                     <div id="loginForm" class="formItems registerFormBody">
                         <div class="itemformLeft">
+                            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                             <form action="#" method="post" name="login_form" class="formValid">
                                 <input type="hidden" name="redirect_to" value="#"/>
                                 <ul class="formList">
@@ -51,25 +53,57 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <li class="boxEnter">
-                                        <asp:Button class="sendEnter enter" ID="Button1" runat="server" Text="Ingresar" OnClick="btnlogin_Click" />            
-                                    </li>   
+                                        <asp:Button class="sendEnter enter" ID="Button1" runat="server" Text="Ingresar" OnClick="btnlogin_Click" />        
+                                    </li>
                                     <li class="boxCancel">
                                         <asp:Button class="cancelEnter enter" ID="Button2" runat="server" Text="Cancelar" OnClick="btnCancel_Click" />
-                                    </li>
-                                    <li>
+                                    </li>                                                                           
+                                        <asp:Button runat="server" ID="processbtn" OnClick="processbtn_Click" Style="visibility:hidden;" />    
+                                <!--    <li>
                                         <br />
                                         <asp:Label ID="lbl_message" runat="server" ForeColor="Red" Text="Error en usuario o contraseña*" Visible="false"></asp:Label>
                                         <asp:Label ID="lbl_fillspace" runat="server" ForeColor="Red" Text="Los espacios no pueden estar vacíos*" Visible="false"></asp:Label>
-                                        <br />                                          
-                                    </li>
+                                        <br />
+                                    </li> -->
+                                    <asp:ModalPopupExtender ID="ModalPopupExtender" runat="server"
+                                        TargetControlID="processbtn"
+                                        CancelControlID="btnCancel"
+                                        PopupControlID="Panel1"
+                                        Drag="true"
+                                        BackgroundCssClass="modalBackground">
+                                    </asp:ModalPopupExtender>
+
                                 </ul>
+                                <asp:Panel ID="Panel1" Style="display: none" CssClass="modalPopup" align="center" runat="server">
+                                    <p runat="server" id="messageLogin"></p>
+                                    <hr />
+                                    <input id="btnCancel" type="button" value="Aceptar" />
+                                </asp:Panel>
                             </form>
-                        </div>                     
+                        </div>
                     </div>
                 </div>
                 <button title="Close (Esc)" type="button" class="mfp-close">×</button>
             </div>
         </div>
+        <style type="text/css">
+            .modalBackground {
+                background-color: Black;
+                filter: alpha(opacity=90);
+                opacity: 0.8;
+            }
+
+            .modalPopup {
+                background-color: #FFFFFF;
+                border-width: 3px;
+                border-style: solid;
+                border-color: black;
+                padding-top: 10px;
+                padding-left: 10px;
+                width: 300px;
+                height: 160px;
+            }
+        </style>
     </form>
 
      <!-- CSS links 

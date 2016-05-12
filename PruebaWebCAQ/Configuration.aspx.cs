@@ -38,28 +38,38 @@ namespace PruebaWebCAQ
             {
                 string admin = AdminUser_txt.Text;
                 string pass = AdminPass_txt.Text;
-                Administrator adm = new Administrator(admin, pass);
-                if (admBusiness.insertService(adm))
-                {
-                    i = 0;
-                    adminList = admBusiness.administratorListService();
-                    administratorTable.DataSource = adminList;
-                    administratorTable.DataBind();
-                    message.InnerText = "Nuevo Administrador: " + AdminUser_txt.Text + ", con contraseña: " + AdminPass_txt.Text + ", ha sido creado.";
-                    AdminUser_txt.Text = "";
-                    AdminPass_txt.Text = "";
-                    ModalPopupExtender1.Show();
+                string passRep = AdminPassRepeat_txt.Text;
+
+                if(pass.ToString() == passRep.ToString())                {
+                    Administrator adm = new Administrator(admin, pass);
+                    if (admBusiness.insertService(adm))
+                    {
+                        i = 0;
+                        adminList = admBusiness.administratorListService();
+                        administratorTable.DataSource = adminList;
+                        administratorTable.DataBind();
+                        message.InnerText = "Nuevo Administrador: " + AdminUser_txt.Text + ", con contraseña: " + AdminPass_txt.Text + ", ha sido creado.";
+                        AdminUser_txt.Text = "";
+                        AdminPass_txt.Text = "";
+                        ModalPopupExtender1.Show();
+                    }
+                    else
+                    {
+                        message.InnerText = "El intento de creación de nuevo usuario ha sido fallido. Intentelo de nuevo más tarde.";
+                        ModalPopupExtender1.Show();
+                    }
                 }
                 else
                 {
-                    message.InnerText = "El intento de creación de nuevo usuario ha sido fallido. Intentelo de nuevo más tarde.";
+                    message.InnerText = "Contraseñas no coinciden";
                     ModalPopupExtender1.Show();
-                }
-                
+                }              
             }
             else
             {
-                lblWarning.Text = "Complete los espacios*";
+                message.InnerText = "Complete los espacios";
+                ModalPopupExtender1.Show();
+                //lblWarning.Text = "Complete los espacios*";
             }
         }
 
@@ -132,8 +142,9 @@ namespace PruebaWebCAQ
                 administratorTable.DataSource = adminList;
                 administratorTable.DataBind();
                 newUserName.Text = "";
-                message.InnerText = "El nombre de usuario ha sido actualizado con éxito.";
-                ModalPopupExtender1.Show();
+                messageAcept.InnerText = "El nombre de usuario ha sido actualizado con éxito.";
+                ModalPopupExtender6.Show();
+                
             }
             else
             {
@@ -141,6 +152,7 @@ namespace PruebaWebCAQ
                 message.InnerText = "El nombre de usuario no ha sido actualizado. Intentelo más tarde.";
                 ModalPopupExtender1.Show();
             }
+            //Response.Redirect("Configuration.aspx");
         }
 
         protected void processbtn_Click(object sender, EventArgs e)
@@ -175,20 +187,12 @@ namespace PruebaWebCAQ
                 usernameToConfirm.Text = "";
                 passToConfirm.Text = "";
                 ModalPopupExtender1.Show();
-            }
-            
+            }            
         }
 
-        /*  protected void chkShowPass_CheckedChanged(object sender, EventArgs e)
-          {
-              if (chkShowPass.Checked)
-              {
-                  AdminPass_txt.UseSystemPasswordChar = true; 
-              }
-              else
-              {
-                  AdminPass_txt.UseSystemPasswordChar = false;
-              }
-          }*/
+        protected void btnAccept_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Configuration.aspx");
+        }
     }
 }

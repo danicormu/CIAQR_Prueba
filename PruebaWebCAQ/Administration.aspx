@@ -259,50 +259,52 @@
                                </asp:panel>
                             </div>
                         </div>
-
                 </div>
-
                 <div class="col-sm-12 col-md-4 fixedTopMenu">
-                    <div class="widgetWrap widget widget_categories sc_column_item"> 
-                        <div class ="fixedTopMenu">
-                        <h3 class="sc_title sc_title_regular margin_bottom_mini">Secciones</h3> 
-                        <ul class="sc_list sc_list_style_arrows"> 
-                            <li class="sc_list_item arrow-icon-right-open-big">
-                                <a href="Administration.aspx#useQuestions">Preguntas de Uso</a>
-                            </li> 
-                            <li class="sc_list_item arrow-icon-right-open-big">
-                                <a href="Administration.aspx#adminQuestions">Preguntas de contenido</a>
-                            </li> 
-                            <li class="sc_list_item arrow-icon-right-open-big">
-                                <a href="Administration.aspx#frequentQuestions">Preguntas frecuentes</a>
-                            </li> 
-                            <li class="sc_list_item arrow-icon-right-open-big">
-                                <a href="Administration.aspx#contactMaster">Contacte al Web Master</a>
-                            </li> 
-                        </ul> 
-                        <div class="sc_line sc_line_style_shadow margin_top_small"></div> 
+                    <div class="widgetWrap widget widget_categories sc_column_item">
+                        <div id="sidebar_main" class="widget_area sidebar_main sidebar" role="complementary">
+                            <div id="timeline_slider" class="sc_section">
+                                <div class="fixedTopMenu">
+                                    <h3 class="sc_title sc_title_regular margin_bottom_mini">Secciones</h3>
+                                    <ul class="sc_list sc_list_style_arrows">
+                                        <li class="sc_list_item arrow-icon-right-open-big">
+                                            <a href="Administration.aspx#useQuestions">Preguntas de Uso</a>
+                                        </li>
+                                        <li class="sc_list_item arrow-icon-right-open-big">
+                                            <a href="Administration.aspx#adminQuestions">Preguntas de contenido</a>
+                                        </li>
+                                        <li class="sc_list_item arrow-icon-right-open-big">
+                                            <a href="Administration.aspx#frequentQuestions">Preguntas frecuentes</a>
+                                        </li>
+                                        <li class="sc_list_item arrow-icon-right-open-big">
+                                            <a href="Administration.aspx#contactMaster">Contacte al Web Master</a>
+                                        </li>
+                                    </ul>
+                                    <div class="sc_line sc_line_style_shadow margin_top_small"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            </div>  
+        </div>
     </section>
     <style type="text/css">
-    .modalBackground
-    {
-        background-color: Black;
-        filter: alpha(opacity=90);
-        opacity: 0.8;
-    }
-    .modalPopup
-    {
-        background-color: #FFFFFF;
-        border-width: 3px;
-        border-style: solid;
-        border-color: black;
-        padding-top: 10px;
-        padding-left: 10px;
-        width: 300px;
-        height: 160px;
-    }
-</style>
+        .modalBackground {
+            background-color: Black;
+            filter: alpha(opacity=90);
+            opacity: 0.8;
+        }
+
+        .modalPopup {
+            background-color: #FFFFFF;
+            border-width: 3px;
+            border-style: solid;
+            border-color: black;
+            padding-top: 10px;
+            padding-left: 10px;
+            width: 300px;
+            height: 160px;
+        }
+    </style>
 </asp:Content>

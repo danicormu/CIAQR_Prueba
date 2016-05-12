@@ -40,13 +40,22 @@ namespace PruebaWebCAQ {
         protected global::System.Web.UI.WebControls.TextBox personName_txt;
         
         /// <summary>
-        /// Control personRol_txt.
+        /// Control lblType.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox personRol_txt;
+        protected global::System.Web.UI.WebControls.Label lblType;
+        
+        /// <summary>
+        /// Control selectRole.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList selectRole;
         
         /// <summary>
         /// Control personDescription_txt.

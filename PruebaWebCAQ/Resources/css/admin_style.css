@@ -2886,7 +2886,7 @@ body:not(.boxed) .sidemenu_left #box_wrapper {
     -ms-filter: "alpha(opacity=20)"
 }
 
-.sidemenu_button_icon {background-image: url(../img/menu/logo_mini-white.png);}
+.sidemenu_button_icon {background-image: url(../img/ico/arrows-lit.png);}
 
 .sidemenu_wrap .sidemenu_button {
     width: 50px;
@@ -2896,7 +2896,7 @@ body:not(.boxed) .sidemenu_left #box_wrapper {
     left: 0;
     height: 100%;
     cursor: pointer;
-    /*background-image: url(images/logo-icon.png);*/
+   /*background-image: url(images/ico/arrows-lit.png);*/
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: 25px;
@@ -6310,7 +6310,7 @@ form textarea.error_fields_class:focus {
 }
 
 .sideBarRight .sidebar {
-    float: right
+    float:right;
 }
 
 .fullwide .with_sidebar .content,
