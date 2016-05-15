@@ -67,11 +67,16 @@ namespace PruebaWebCAQ
                 Label start = (Label)e.Item.FindControl("signatureStartTime");
                 Label end = (Label)e.Item.FindControl("signatureEndTime");
                 idToUpdate.Text = id.Text;
-                nameToEdit.Text = "Nombre (" + name.Text + ")";
-                dayToEdit.Text = "Día (" + day.Text + ")";
-                profToEdit.Text = "Profesor (" + prof.Text + ")";
-                startToEdit.Text = "Hora de Inicio ("+start.Text +")";
-                endToEdit.Text = "Hora Final (" + end.Text + ")";
+                nameToEdit.Text = "Nombre";
+                updateName.Text = name.Text;
+                dayToEdit.Text = "Día";
+                updateDay.Text = day.Text;
+                profToEdit.Text = "Profesor";
+                updateProf.Text = prof.Text;
+                startToEdit.Text = "Hora de Inicio";
+                updateStart.Text = start.Text;
+                endToEdit.Text = "Hora Final";
+                updateEnd.Text = end.Text;
                 ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender1");
                 popup.Show(); 
             }

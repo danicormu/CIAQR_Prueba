@@ -220,13 +220,13 @@ namespace PruebaWebCAQ {
         protected global::System.Web.UI.WebControls.Label rolLabel;
         
         /// <summary>
-        /// Control rolToEdit.
+        /// Control rolToEdit2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText rolToEdit;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect rolToEdit2;
         
         /// <summary>
         /// Control btnSave.

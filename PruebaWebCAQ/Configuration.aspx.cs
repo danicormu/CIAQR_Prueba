@@ -137,6 +137,7 @@ namespace PruebaWebCAQ
             Administrator admin = new Administrator(id,newUserName.Text, pass);
             if (admBusiness.updateService(admin))
             {
+                Session["USER_ID"] = newUserName.Text;
                 i = 0;
                 adminList = admBusiness.administratorListService();
                 administratorTable.DataSource = adminList;

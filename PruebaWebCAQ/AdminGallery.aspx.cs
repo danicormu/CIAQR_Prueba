@@ -166,8 +166,10 @@ namespace PruebaWebCAQ
                 Label name = (Label)e.Item.FindControl("asTitleGallery");
                 Label desc = (Label)e.Item.FindControl("asDescGallery");
                 galID.Text = gID.Text; 
-                titleLabel.Text = "Título (" + name.Text + ")";
-                descriptionLabel.Text = "Descripción (" + desc.Text + ")";
+                titleLabel.Text = "Título";
+                titleToEdit.Value = name.Text;
+                descriptionLabel.Text = "Descripción";
+                descToEdit.Value = desc.Text;
                 popup.Show();
             }
 

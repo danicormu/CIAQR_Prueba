@@ -161,9 +161,17 @@
         <br />
         <asp:Label runat="server" ID="dateLabel"></asp:Label>
         <input runat="server" id="dateToEdit" />
-        <br />
+        <br/>
+        <p>* Ponga la fecha como aparece en el formato DD/MM/AAAA</p>     
         <asp:Label runat="server" ID="typeLabel"></asp:Label>
-        <input runat="server" id="typeToEdit" />
+        <select runat="server" id="typeToEdit2" style="width:270px">
+            <option value=""></option>
+            <option value="Deportivo"></option>
+            <option value="Educativo"></option>
+            <option value="Familiar"></option>
+            <option value="Cívico"></option>
+        </select>
+
         <br />
         <asp:Label runat="server" ID="descLabel"></asp:Label>
         <input runat="server" id="descriptionToEdit"/>
@@ -197,7 +205,7 @@
         padding-top: 10px;
         padding-left: 10px;
         width: 50%;
-        height: 50%;
+        height: 55%;
     }
 </style>
 <style type="text/css">

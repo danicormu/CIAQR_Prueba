@@ -130,9 +130,12 @@ namespace PruebaWebCAQ
                 Label role = (Label)e.Item.FindControl("asRolePerson");
                 Label desc = (Label)e.Item.FindControl("asDescPerson");
                 personID.Text = pID.Text;
-                nameLabel.Text = "Nombre (" + name.Text + ")";
-                descriptionLabel.Text = "Descripción (" + desc.Text + ")";
-                rolLabel.Text = "Rol (" + role.Text + ")";
+                nameLabel.Text = "Nombre";
+                nameToEdit.Value = name.Text;
+                descriptionLabel.Text = "Descripción";
+                descToEdit.Value = desc.Text;
+                rolLabel.Text = "Rol";
+                rolToEdit2.Value = role.Text;
                 popup.Show();
             }
 
@@ -190,7 +193,7 @@ namespace PruebaWebCAQ
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            Personal person = new Personal(Convert.ToInt32(personID.Text),nameToEdit.Value,descToEdit.Value,rolToEdit.Value);
+            Personal person = new Personal(Convert.ToInt32(personID.Text),nameToEdit.Value,descToEdit.Value,rolToEdit2.Value);
             messsage.InnerText= PBusiness.updateService(person);
             ModalPopupExtender1.Show();
             personID.Text = "";

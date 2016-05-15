@@ -146,26 +146,7 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li class="menu-item current-menu-ancestor menu-item-has-children columns custom_view_item">
-                                                <a href="#" class="sf-with-ul">Acontecimientos</a>
-                                                <ul class="menu-panel columns">
-                                                    <li>
-                                                        <ul class="custom-menu-style columns sub-menu">
-                                                            <li class="menu-item current-menu-ancestor current-menu-parent menu-item-has-children">
-                                                                <a href="Events.aspx" class="sf-with-ul">Eventos</a>
-                                                                <ul class="sub-menu">
-                                                                    <li class="menu-item">
-                                                                        <a href="Events.aspx">
-                                                                            <span class="menu_icon fa-facebook"></span>
-                                                                            Eventos Recientes
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
+                                      
                                             <li class="menu-item menu-item-has-children">
                                                 <a href="ViewChronogram.aspx" class="sf-with-ul">Cronograma</a>
                                             </li>

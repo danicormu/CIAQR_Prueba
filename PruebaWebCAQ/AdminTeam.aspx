@@ -33,7 +33,8 @@
                                                         <asp:DropDownList Width="300px" runat="server" ID="selectRole">
                                                             <asp:ListItem Text="" Value="1"></asp:ListItem>
                                                             <asp:ListItem Text="Director" Value="2"></asp:ListItem>                                                            
-                                                            <asp:ListItem Text="Profesor(a)" Value="3"></asp:ListItem>
+                                                            <asp:ListItem Text="Profesor" Value="3"></asp:ListItem>
+                                                            <asp:ListItem Text="Profesora" Value="11"></asp:ListItem>
                                                             <asp:ListItem Text="Oficinista" Value="4"></asp:ListItem>
                                                             <asp:ListItem Text="Asistente" Value="5"></asp:ListItem>
                                                             <asp:ListItem Text="Conserje" Value="6"></asp:ListItem>
@@ -157,7 +158,18 @@
         <input runat="server" id="descToEdit" />
         <br />
         <asp:Label runat="server" ID="rolLabel"></asp:Label>
-        <input runat="server" id="rolToEdit" />
+        <select runat="server" id="rolToEdit2" style="width:270px" >
+            <option value="Director"></option>
+            <option value="Profesor"></option>
+            <option value="Profesora"></option>
+            <option value="Oficinista"></option>
+            <option value="Asistente"></option>
+            <option value="Conserje"></option>
+            <option value="Agente de Seguridad"></option>
+            <option value="Miembro de Junta Admininistrativa"></option>
+            <option value="Coordinador Académico"></option>
+            <option value="Administrativo"></option>
+        </select>
         <hr />
         <asp:Button runat="server" ID="btnSave" OnClick="btnSave_Click" Text="Actualizar" />
          <input id="btnToStop" type="button" value="Cancelar" />

@@ -111,13 +111,17 @@ namespace PruebaWebCAQ
             {
                 ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender1");
                 Label name = (Label)e.Item.FindControl("eventNameAd");
-                nameLabel.Text = "Nombre del Evento" + " (" + name.Text + ")";
+                nameLabel.Text = "Nombre del Evento";
+                nameToEdit.Value = name.Text;
                 Label date = (Label)e.Item.FindControl("eventDateAd");
                 Label type = (Label)e.Item.FindControl("eventTypeAd");
                 Label description = (Label)e.Item.FindControl("eventDescAd");
-                dateLabel.Text = "Fecha (" + date.Text + ")";
-                typeLabel.Text = "Tipo ("+type.Text + ")";
-                descLabel.Text = "Descripcion (" + description.Text + ")";
+                dateLabel.Text = "Fecha";
+                dateToEdit.Value = date.Text;
+                typeLabel.Text = "Tipo";
+                typeToEdit2.Value = type.Text;
+                descLabel.Text = "Descripcion";
+                descriptionToEdit.Value = description.Text;
                 Label id = (Label)e.Item.FindControl("eventIdAd");
                 int eventIdToUpdate = Convert.ToInt32(id.Text);
                 eventID.Text = eventIdToUpdate.ToString();
@@ -132,7 +136,7 @@ namespace PruebaWebCAQ
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            Event ev = new Event(Convert.ToInt32(eventID.Text), nameToEdit.Value, descriptionToEdit.Value, dateToEdit.Value, typeToEdit.Value);
+            Event ev = new Event(Convert.ToInt32(eventID.Text), nameToEdit.Value, descriptionToEdit.Value, dateToEdit.Value, typeToEdit2.Value);
             EBusiness.updateEventService(ev);
             Response.Redirect("AdminEvent.aspx");
         }

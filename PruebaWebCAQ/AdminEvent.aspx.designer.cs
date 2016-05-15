@@ -220,13 +220,13 @@ namespace PruebaWebCAQ {
         protected global::System.Web.UI.WebControls.Label typeLabel;
         
         /// <summary>
-        /// Control typeToEdit.
+        /// Control typeToEdit2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText typeToEdit;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect typeToEdit2;
         
         /// <summary>
         /// Control descLabel.

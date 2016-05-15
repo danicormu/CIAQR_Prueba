@@ -42,7 +42,7 @@ namespace PruebaWebCAQ.Data
             try
             {
                 connectDB();
-                SqlCommand query = new SqlCommand("select * from personal where rol = 'profesor';", conn);
+                SqlCommand query = new SqlCommand("select * from personal where rol = 'profesor' or rol ='profesora';", conn);
                 conn.Open();
                 SqlDataReader reader = query.ExecuteReader();
                 while (reader.Read())

@@ -307,7 +307,7 @@
                             <article class="isotopeElement isotopeElementShow">
                                 <div class="isotopePadding">
                                     <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/2.jpg" data-title="Maecenas tristique sem ante">
-                                        <img alt="Maecenas tristique sem ante" src="Resources/img/Gallery/2.jpg">
+                                        <img alt="Maecenas tristique sem ante" src="Resources/img/Gallery/2.jpg"/>
                                     </div>
                                     <h4>
                                         <a href="#">Maecenas tristique sem ante</a>
