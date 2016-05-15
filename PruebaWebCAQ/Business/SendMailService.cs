@@ -14,15 +14,15 @@ namespace PruebaWebCAQ.Business
                 {
                     MailMessage mail = new MailMessage();
                     SmtpClient client = new SmtpClient();
-                    mail.From = new MailAddress("maironrulez@hotmail.com");
-                    mail.To.Add(new MailAddress("maironcorrales@gmail.com"));
+                    mail.From = new MailAddress("colegioalejandroquesada@hotmail.com");
+                    mail.To.Add(new MailAddress("danicormu@gmail.com"));
                     mail.Subject = subject;
                     mail.Body = name + "<" + email + ">" + "\n" + message;
                     client.Port = 587;
                     client.Host = "smtp.live.com";
                     client.EnableSsl = true;
                     client.UseDefaultCredentials = false;
-                    client.Credentials = new NetworkCredential("maironrulez@hotmail.com", "LinkinPark");
+                    client.Credentials = new NetworkCredential("colegioalejandroquesada@hotmail.com", "ingeniero20160005");
                     client.DeliveryMethod = SmtpDeliveryMethod.Network;
                     client.Send(mail);
                     return true;
@@ -41,7 +41,7 @@ namespace PruebaWebCAQ.Business
                 {
                     MailMessage mail = new MailMessage();
                     SmtpClient client = new SmtpClient();
-                    mail.From = new MailAddress("maironrulez@hotmail.com");
+                    mail.From = new MailAddress("colegioalejandroquesada@hotmail.com");
                     mail.To.Add(new MailAddress("maironcorrales@gmail.com"));
                     mail.CC.Add(new MailAddress("danicormu@gmail.com"));
                     mail.Subject = subject;
@@ -50,7 +50,7 @@ namespace PruebaWebCAQ.Business
                     client.Host = "smtp.live.com";
                     client.EnableSsl = true;
                     client.UseDefaultCredentials = false;
-                    client.Credentials = new NetworkCredential("maironrulez@hotmail.com", "LinkinPark");
+                    client.Credentials = new NetworkCredential("colegioalejandroquesada@hotmail.com", "ingeniero20160005");
                     client.DeliveryMethod = SmtpDeliveryMethod.Network;
                     client.Send(mail);
                     return true;

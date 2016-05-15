@@ -742,7 +742,7 @@ footer > .container > .row > [class*="col-"] {
 
 .color_section{
     color: #ffffff;
-    background-color: #f4c119;
+    background-color: #04B404;
 }
 
 .color_section > .container {padding-top: 0; padding-bottom: 0;}
@@ -17925,6 +17925,8 @@ ul.sc_list_style_disk li:before {
     margin: 0 0 -400px 0;
     color: #fff
 }
+
+
 
 .sc_team .sc_team_item .sc_team_item_info {
     padding: 30px 0 0

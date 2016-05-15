@@ -230,7 +230,7 @@
                                     </div>
                                     <div class="col-sm-4">
                                         
-                                        <input runat="server" id="mail" type="text" placeholder="Email" name="email"/>
+                                        <input runat="server" id="mail" type="email" placeholder="Email" name="email"/>
                                     </div>
                                     <div class="col-sm-4">
                                         

@@ -32,11 +32,15 @@
                                                         <br />
                                                         <asp:DropDownList Width="300px" runat="server" ID="selectRole">
                                                             <asp:ListItem Text="" Value="1"></asp:ListItem>
-                                                            <asp:ListItem Text="Director" Value="2"></asp:ListItem>
-                                                            <asp:ListItem Text="Directora" Value="3"></asp:ListItem>
-                                                            <asp:ListItem Text="Profesor" Value="4"></asp:ListItem>
-                                                            <asp:ListItem Text="Profesora" Value="5"></asp:ListItem>
-                                                            <asp:ListItem Text="Empleado" Value="6"></asp:ListItem>
+                                                            <asp:ListItem Text="Director" Value="2"></asp:ListItem>                                                            
+                                                            <asp:ListItem Text="Profesor(a)" Value="3"></asp:ListItem>
+                                                            <asp:ListItem Text="Oficinista" Value="4"></asp:ListItem>
+                                                            <asp:ListItem Text="Asistente" Value="5"></asp:ListItem>
+                                                            <asp:ListItem Text="Conserje" Value="6"></asp:ListItem>
+                                                            <asp:ListItem Text="Agente de Seguridad" Value="7"></asp:ListItem>
+                                                            <asp:ListItem Text="Miembro de Junta Administrativa" Value="8"></asp:ListItem>
+                                                            <asp:ListItem Text="Coordinador Académico" Value="9"></asp:ListItem>
+                                                            <asp:ListItem Text="Administrativo" Value="10"></asp:ListItem>
                                                         </asp:DropDownList>
                                                         <br />                                                        
                                                         <br />

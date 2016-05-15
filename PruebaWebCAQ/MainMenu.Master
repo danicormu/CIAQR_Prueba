@@ -23,11 +23,9 @@
     </asp:ContentPlaceHolder>
 </head>
     
-<body class="theme_skin_kinder">
-    
+<body class="theme_skin_kinder">    
     <form runat="server" id="form1">
-    <div id="box_wrapper">
-        
+    <div id="box_wrapper">        
         <!-- Seccion Header -->
         <header id="header" class="menu_right with_user_menu noFixMenu">
             <div class="container-fluid">
@@ -133,6 +131,14 @@
                                                                 <ul class="sub-menu">
                                                                     <li class="menu-item">
                                                                         <a href="HomePage.aspx#FollowUs">Siguenos en Facebook</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="menu-item menu-item-has-children">
+                                                                <a href="#" class="sf-with-ul">Junta</a>
+                                                                <ul class="sub-menu">
+                                                                    <li class="menu-item">
+                                                                        <a href="Administrative.aspx">Junta Administrativa</a>
                                                                     </li>
                                                                 </ul>
                                                             </li>
@@ -315,19 +321,19 @@
                 <div class="royalSlider">
                     <div class="slideContent sliderBGanima slide-1" data-rsdelay="5000">
                         <div class="container">
-                            <img alt="" class="rsABlock image" data-fade-effect="none" data-move-effect="left" data-opposite="true" data-move-offset="900" data-delay="500" data-speed="900" data-easing="easeOutBack" src="Resources/slider/slideimg1.png" data-rsw="1020" data-rsh="500"/>
+                            <img alt="" class="rsABlock image" data-fade-effect="none" data-move-effect="left" data-opposite="true" data-move-offset="900" data-delay="500" data-speed="900" data-easing="easeOutBack" src="Resources/img/slider/cole2.jpg" data-rsw="1020" data-rsh="500"/>
                             <div class="rsABlock textBlock theme_accent" data-fade-effect="none" data-move-effect="left" data-opposite="true" data-move-offset="1200" data-delay="700" data-speed="1200" data-easing="" data-rsw="707" data-rsh="471">
-                                <div class="title">Bienvenidos</div>
-                                <p>Nos encargamos de una educación de calidad!</p>
+                                <div class="title" style="color: #848484">Bienvenidos</div>
+                                <p style="color:#848484">Nos encargamos de una educación de calidad!</p>
                             </div>                        
                         </div>
                     </div>
                     <div class="slideContent slide-2" data-rsdelay="3000">
                         <div class="container">
-                            <img alt="" class="rsABlock image" data-fade-effect="none" data-move-effect="left" data-opposite="true" data-move-offset="900" data-delay="300" data-speed="900" data-easing="easeOutBack" src="Resources/img/slider/slideimg2.png" data-rsw="1020" data-rsh="500"/>
+                            <img alt="" class="rsABlock image" data-fade-effect="none" data-move-effect="left" data-opposite="true" data-move-offset="900" data-delay="300" data-speed="900" data-easing="easeOutBack" src="Resources/img/slider/cole3.jpg" data-rsw="1020" data-rsh="500"/>
                             <div class="rsABlock textBlock" data-fade-effect="none" data-move-effect="right" data-opposite="true" data-move-offset="900" data-delay="700" data-speed="1200" data-easing="" data-rsw="707" data-rsh="471">
-                                <div class="title">Les ofrecemos a nuestros estudiantes</div>
-                                <p>Diferentes tipos de servicios!</p>
+                                <div class="title" style="color: #585858">Les ofrecemos a nuestros estudiantes</div>
+                                <p style="color:#585858">Diferentes tipos de servicios!</p>
                             </div>
                         </div>
                     </div>

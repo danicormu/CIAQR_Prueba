@@ -43,6 +43,7 @@ namespace PruebaWebCAQ.Data
             return list;
         }
 
+        //Obtiene el id de un administrador
         public int getAdminID(string username, string pass)
         {
             int id = 0;
