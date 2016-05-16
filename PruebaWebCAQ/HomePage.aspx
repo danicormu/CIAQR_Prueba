@@ -59,7 +59,6 @@
         </div>
     </section>
     <!-- End of Presentation Section-->
-
     <!-- Personal section-->
     <section id="KnowUs">
         <div class="container">
@@ -209,9 +208,7 @@
                         se realiza íntegramente en nuestra instalaciones, donde disponemos de dos amplias cocinas totalmente
                          equipadas y con los máximos certificados de sanidad para alimentar diariamente a todos los alumnos 
                         cuyos padres han confiado en nosotros para su alimentación. Fieles a nuestro objetivo habitual, 
-                        nos gusta coordinarnos con los padres para ofrecer una gestión integral de la alimentación, por lo 
-                        que proponemos un menú para las cenas en la que los padres puedan tener una sugerencia de cara a que la 
-                        alimentación de los niños quede lo más equilibrada, sana y nutritiva posible.               
+                        nos gusta coordinarnos con los padres para ofrecer una gestión integral de la alimentación.
                     </div>
                 </div>
             </div>
@@ -228,9 +225,9 @@
                 <div class="col-sm-12 col-md-8 col-lg-9 col-md-push-4 col-lg-push-ser">
                     <div class="sc_section sc_alignright col-sm-6 margin_bottom_small">
                         <a href="#" class="sc_banner">
-                            <img src="Resources/img/Becas.jpg" class="sc_banner_image" alt="" />
+                            <img src="Resources/img/becas.jpg" class="sc_banner_image" alt="" />
                             <span class="sc_banner_title">Programa de Becas</span>
-                            <span class="sc_banner_content">Becamos a los estudiantes que escasez de recursos</span>
+                            <span class="sc_banner_content">Becamos a los estudiantes de escazos recursos</span>
                         </a>
                     </div>
                     <h1 class="post_title entry-title">Becas</h1>
@@ -238,9 +235,7 @@
                         Aunque lo más frecuente es que se concedan a familias con escasos recursos económicos, todos 
                         los alumnos que cursan enseñanzas oficiales pueden optar a becas, estudien en centros públicos 
                         o privados. Como norma general, estas ayudas se destinan a la financiación de matrícula, cuotas mensuales,
-                         gasto de transporte, material escolar o gasto de comedor. Pero también se conceden becas a los mejores 
-                        expedientes académicos, becas para alumnos con necesidades especiales, para aprender idiomas y realizar intercambios 
-                        con centros extranjeros.               
+                         gasto de transporte, material escolar o gasto de comedor. 
                     </div>
                 </div>
             </div>
@@ -273,9 +268,7 @@
             </div>
         </div>
     </section>
-
     <!-- End Services Section -->
-
     <!--Gallery section-->
     <section id="Gallery" class="topTabsWrap color_section">
         <div class="container">
@@ -294,145 +287,109 @@
                         <section class="masonry isotope" data-columns="3">
                             <article class="isotopeElement isotopeElementShow">
                                 <div class="isotopePadding">
-                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/1.jpg" data-title="Donec lacinia elementum nunc">
-                                        <img alt="Donec lacinia elementum nunc" src="Resources/img/Gallery/1.jpg"/>
-                                    </div>
-                                    <h4>
-                                        <a href="#">Donec lacinia elementum nunc</a>
-                                    </h4>
-                                    <p>Donec lacinia elementum nunc, sed condimentum eros dictum ut. Sed pretium lacinia tortor, ac porta sapien congue sed. Morbi quis nisl dolor... </p>
-                                    
-                                </div>
-                            </article>
-                            <article class="isotopeElement isotopeElementShow">
-                                <div class="isotopePadding">
-                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/2.jpg" data-title="Maecenas tristique sem ante">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/2.jpg" data-title="Banda de Garage">
                                         <img alt="Maecenas tristique sem ante" src="Resources/img/Gallery/2.jpg"/>
                                     </div>
                                     <h4>
-                                        <a href="#">Maecenas tristique sem ante</a>
+                                        <a>Banda de Garage</a>
                                     </h4>
-                                    <p>Maecenas tristique sem ante. Donec imperdiet pretium sodales. Sed in eros fermentum, facilisis magna eu, tempus mauris. Curabitur mollis lacus ac... </p>
+                                    <p>La banda de garage del colegio compuesta por varios estudiantes que han hecho muy buenas presentaciones encantando al público...</p>
                                     
                                 </div>
                             </article>
                             <article class="isotopeElement isotopeElementShow">
                                 <div class="isotopePadding">
-                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/12.jpg" data-title="Vivamus pharetra justo">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/12.jpg" data-title="Paseo del Colegio">
                                         <img alt="Vivamus pharetra justo" src="Resources/img/Gallery/12.jpg"/>
                                     </div>
                                     <h4>
-                                        <a href="#">Vivamus pharetra justo</a>
+                                        <a href="#">Paseo del Colegio</a>
                                     </h4>
-                                    <p>Vivamus pharetra justo eget placerat commodo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque... </p>
+                                    <p>Se logra apreciar a los estudiantes junto a su profesor guía donde se refleja lo contentos que están de haber realizado el paseo... </p>
                                     
                                 </div>
                             </article>
                             <article class="isotopeElement isotopeElementShow">
                                 <div class="isotopePadding">
-                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/3.jpg" data-title="Sed orci odio, adipiscing vel libero eget">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/3.jpg" data-title="Día del Deporte">
                                         <img alt="Sed orci odio, adipiscing vel libero eget" src="Resources/img/Gallery/3.jpg"/>
                                     </div>
                                     <h4>
-                                        <a href="#">Sed orci odio, adipiscing vel libero eget</a>
+                                        <a>Día del Deporte</a>
                                     </h4>
-                                    <p>Sed orci odio, adipiscing vel libero eget, volutpat dictum orci. Donec eu euismod dui, nec ullamcorper urna. Cras vel sapien eu diam imperdiet... </p>
+                                    <p>Varios estudiantes de la institución en el día del deporte compartiendo con el Director académico de dicha institución... </p>
                                     
                                 </div>
                             </article>
                             <article class="isotopeElement isotopeElementShow">
                                 <div class="isotopePadding">
-                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/4.jpg" data-title="Ut vitae lacus pretium">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/4.jpg" data-title="Actividad en el día del deporte">
                                         <img alt="Ut vitae lacus pretium" src="Resources/img/Gallery/4.jpg"/>
                                     </div>
                                     <h4>
-                                        <a href="#">Ut vitae lacus pretium</a>
+                                        <a>Actividad en el día del deporte</a>
                                     </h4>
-                                    <p>Ut vitae lacus pretium, molestie massa a, placerat urna. Donec viverra nisl id nisl accumsan, ac cursus est dictum. Pellentesque habitant morbi... </p>
+                                    <p>En el día del deporte los estudiantes del Colegio se divirtieron haciendo gran cantidad de actividades, donde la pasaron de maravilla... </p>
                                     
                                 </div>
                             </article>
                             <article class="isotopeElement isotopeElementShow">
                                 <div class="isotopePadding">
-                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/5.jpg" data-title="Duis consequat arcu et lacus">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/5.jpg" data-title="El equipo de fútbol">
                                         <img alt="Duis consequat arcu et lacus" src="Resources/img/Gallery/5.jpg"/>
                                     </div>
                                     <h4>
-                                        <a href="#">Duis consequat arcu et lacus</a>
+                                        <a href="#">El equipo de fútbol</a>
                                     </h4>
-                                    <p>Duis consequat arcu et lacus interdum lobortis at ac nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae... </p>
+                                    <p>El Colegio cuenta con su equipo de fútbol para torneos en los que se enfrentan a equipos de otros colegios de la región...</p>
                                     
                                 </div>
                             </article>
                             <article class="isotopeElement isotopeElementShow">
                                 <div class="isotopePadding">
-                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/6.jpg" data-title="Curabitur auctor adipiscing risus sed ornare">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/6.jpg" data-title="La bonita imagen del Colegio">
                                         <img alt="Curabitur auctor adipiscing risus sed ornare" src="Resources/img/Gallery/6.jpg"/>
                                     </div>
                                     <h4>
-                                        <a href="#">Curabitur auctor adipiscing risus sed ornare</a>
+                                        <a>La bonita imagen del Colegio</a>
                                     </h4>
-                                    <p>Curabitur auctor adipiscing risus sed ornare. Aliquam a auctor augue. Nullam nisl lorem, sodales sed odio ac, auctor accumsan libero. Ut convallis... </p>
+                                    <p>En esta imagen se logra apreciar a un colegio al cuál se le ha dado un buen mantenimiento en su infraestructura recientemente... </p>
                                     
                                 </div>
                             </article>
                             <article class="isotopeElement isotopeElementShow">
                                 <div class="isotopePadding">
-                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/7.jpg" data-title="Proin vel odio eu velit">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/7.jpg" data-title="Una manera sana de divertirse">
                                         <img alt="Proin vel odio eu velit" src="Resources/img/Gallery/7.jpg"/>
                                     </div>
                                     <h4>
-                                        <a href="#">Proin vel odio eu velit</a>
+                                        <a>Una manera sana de divertirse</a>
                                     </h4>
-                                    <p>Proin vel odio eu velit pellentesque rhoncus sed nec lectus. Curabitur in vulputate felis. Fusce id tellus dui. Maecenas a dictum odio, id... </p>
+                                    <p>En este día donde se disfruta sanamente, se logra apreciar donde los estudiantes juegan al Volleyball de una forma diferente... </p>
                                     
                                 </div>
                             </article>
                             <article class="isotopeElement isotopeElementShow">
                                 <div class="isotopePadding">
-                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/13.jpg" data-title="Phasellus nunc velit">
-                                        <img alt="Phasellus nunc velit" src="Resources/img/Gallery/13.jpg"/>
-                                    </div>
-                                    <h4>
-                                        <a href="#">Phasellus nunc velit</a>
-                                    </h4>
-                                    <p>Ut a neque tellus. Duis facilisis enim quis tortor pharetra dapibus. Phasellus nunc velit, feugiat sed lobortis in, accumsan facilisis turpis... </p>
-                                   
-                                </div>
-                            </article>
-                            <article class="isotopeElement isotopeElementShow">
-                                <div class="isotopePadding">
-                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/9.jpg" data-title="Lorem ipsum dolor sit amet">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/9.jpg" data-title="Feria Científica">
                                         <img alt="Lorem ipsum dolor sit amet" src="Resources/img/Gallery/9.jpg"/>
                                     </div>
                                     <h4>
-                                        <a href="#">Lorem ipsum dolor sit amet</a>
+                                        <a href="#">Feria Científica</a>
                                     </h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur augue tortor, faucibus quis velit vitae, mattis ornare metus. Ut erat justo... </p>
+                                    <p>Estos fueron nuestros estudiantes que participaron en la feria científica en el 2014, acá junto al profesor guía... </p>
                                     
                                 </div>
                             </article>
                             <article class="isotopeElement isotopeElementShow">
                                 <div class="isotopePadding">
-                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/10.jpg" data-title="Maecenas tristique sem ante">
-                                        <img alt="Maecenas tristique sem ante" src="Resources/img/Gallery/10.jpg">
-                                    </div>
-                                    <h4>
-                                        <a href="#">Maecenas tristique sem ante</a>
-                                    </h4>
-                                    <p>Maecenas tristique sem ante. Donec imperdiet pretium sodales. Sed in eros fermentum, facilisis magna eu, tempus mauris. Curabitur mollis lacus ac... </p>
-                                    
-                                </div>
-                            </article>
-                            <article class="isotopeElement isotopeElementShow">
-                                <div class="isotopePadding">
-                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/11.jpg" data-title="Vestibulum ut lacus et">
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/11.jpg" data-title="Nuestras Instalaciones">
                                         <img alt="Vestibulum ut lacus et" src="Resources/img/Gallery/11.jpg"/>
                                     </div>
                                     <h4>
-                                        <a href="#">Vestibulum ut lacus et</a>
+                                        <a>Nuestras Instalaciones</a>
                                     </h4>
-                                    <p>Vestibulum ut lacus et magna consectetur interdum non eget justo. Nam lorem tortor, viverra ut nibh a, feugiat varius mi. Duis eleifend, nisi... </p>
+                                    <p>En este colegio nos preocupamos por mantener nuestras áreas verdes bien cuidadas para nuestros estudiantes...</p>
                                     
                                 </div>
                             </article>
@@ -463,8 +420,8 @@
                         </figure>
                     </div>
                     <h1>Acerca de la Institución</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                    <p>El Colegio Ing. Alejandro Quesada Ramirez, fundado en el año 1996 durante la administración de Figueres Olsen, localizado en Concepción, distrito del cantón de la Unión, en la provincia de Cartago. Colegio público que se ubica en una zona urbana, el cuál cuenta con más de ochocientos estudiantes y docentes bien capacitados.</p>
+                    <p>Nuestro colegio cuenta con servicios de comedor, becas, biblioteca, de transporte entre otros. Siempre nos hemos preocupado por el bienestar de nuestros estudiantes y de la comunidad.</p>
                 </div>
             </div>
             <div class="row">
@@ -484,23 +441,13 @@
                                         </div>
                                         <div class="sc_team_item_info">
                                             <h3 runat="server" id="profName" class="sc_team_item_title"></h3>
-                                            <div runat="server" id="profRol" class="sc_team_item_position theme_accent2"></div>
+                                            <div runat="server" id="profRol" style="color:#585858" class="sc_team_item_position theme_accent2"></div>
                                             <ul class="sc_team_item_socials">
                                                 <li>
                                                     <a class="social_icons social_facebook" target="_blank" href="http://facebook.com">
                                                         <span></span>
                                                     </a>
-                                                </li>
-                                                <li>
-                                                    <a class="social_icons social_twitter" target="_blank" href="http://twitter.com">
-                                                        <span></span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="social_icons social_rss" target="_blank" href="http://rss.com">
-                                                        <span></span>
-                                                    </a>
-                                                </li>
+                                                </li>                                               
                                             </ul>
                                         </div>
                                     </div>

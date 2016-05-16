@@ -6,6 +6,7 @@ using System.Web.UI.WebControls;
 using PruebaWebCAQ.Business;
 using PruebaWebCAQ.Domain;
 
+
 namespace PruebaWebCAQ
 {
     public partial class Gallery : System.Web.UI.Page
@@ -14,11 +15,20 @@ namespace PruebaWebCAQ
         private List<Galery> list;
         private int i = 0;
 
+      
         protected void Page_Load(object sender, EventArgs e)
         {
             list = galery.galeryService();
             galleryRepeater.DataSource = list;
             galleryRepeater.DataBind();
+        }
+
+        private string saveImage(System.Drawing.Image image)
+        {
+            string savePath = Server.MapPath(@"images\" + list.ElementAt(i).Name + ".jpg");
+            System.Drawing.Graphics graphics = System.Drawing.Graphics.FromImage(image);
+            image.Save(savePath);
+            return "images/" + list.ElementAt(i).Name + ".jpg";
         }
 
         protected void galleryRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
@@ -42,14 +52,6 @@ namespace PruebaWebCAQ
                 div.Attributes.Add("data-title", list.ElementAt(i).Name);
                 i++;
             }
-        }
-
-        private string saveImage(System.Drawing.Image image)
-        {
-            string savePath = Server.MapPath(@"images\" + list.ElementAt(i).Name + ".jpg");
-            System.Drawing.Graphics graphics = System.Drawing.Graphics.FromImage(image);
-            image.Save(savePath);
-            return "images/"+ list.ElementAt(i).Name + ".jpg";
-        }
+        }        
     }
 }

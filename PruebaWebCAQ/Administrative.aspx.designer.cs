@@ -10,15 +10,15 @@
 namespace PruebaWebCAQ {
     
     
-    public partial class administrative {
+    public partial class Administrative {
         
         /// <summary>
-        /// Control form1.
+        /// Control administrativeRepeater.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Repeater administrativeRepeater;
     }
 }

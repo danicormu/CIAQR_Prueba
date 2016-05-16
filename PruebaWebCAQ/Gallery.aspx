@@ -30,7 +30,7 @@
                                     </h4>
                                     <asp:label runat="server" id="galleryDescription"></asp:label>
                                     <div class="masonryInfo">
-                                        Posteado
+                                        Publicado
                                         <asp:label runat="server" id="galleryDate" CssClass="post_date"></asp:label>
                                     </div>
                                     <span class="inlineShadow"></span>

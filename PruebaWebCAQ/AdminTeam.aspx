@@ -39,7 +39,7 @@
                                                             <asp:ListItem Text="Asistente" Value="5"></asp:ListItem>
                                                             <asp:ListItem Text="Conserje" Value="6"></asp:ListItem>
                                                             <asp:ListItem Text="Agente de Seguridad" Value="7"></asp:ListItem>
-                                                            <asp:ListItem Text="Miembro de Junta Administrativa" Value="8"></asp:ListItem>
+                                                            <asp:ListItem Text="Miembro de Junta" Value="8"></asp:ListItem>
                                                             <asp:ListItem Text="Coordinador Académico" Value="9"></asp:ListItem>
                                                             <asp:ListItem Text="Administrativo" Value="10"></asp:ListItem>
                                                         </asp:DropDownList>

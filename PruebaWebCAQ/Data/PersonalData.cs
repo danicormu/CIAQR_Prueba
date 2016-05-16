@@ -64,6 +64,34 @@ namespace PruebaWebCAQ.Data
             return list;
         }
 
+        public List<Personal> getAdministrative()
+        {
+            List<Personal> list = new List<Personal>();
+            try
+            {
+                connectDB();
+                SqlCommand query = new SqlCommand("select * from personal where rol = 'Miembro de Junta';", conn);
+                conn.Open();
+                SqlDataReader reader = query.ExecuteReader();
+                while (reader.Read())
+                {
+                    Personal person = new Personal(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetStream(4));
+                    list.Add(person);
+                }
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                disconnectDB();
+                conn.Close();
+            }
+            return list;
+        }
+
         //agrega un nuevo miembro al personal
         public bool insertPerson(Personal person)
         {

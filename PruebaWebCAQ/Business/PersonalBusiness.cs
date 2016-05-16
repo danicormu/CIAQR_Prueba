@@ -18,6 +18,11 @@ namespace PruebaWebCAQ.Business
         {
             return data.getProfessors();
         }
+
+        public List<Personal> returnAllAdministrative()
+        {
+            return data.getAdministrative();
+        }
         //servicio de agregado de personal
         public string addService(Personal person)
         {
