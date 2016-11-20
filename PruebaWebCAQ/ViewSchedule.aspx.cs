@@ -17,6 +17,11 @@ namespace PruebaWebCAQ
         private string groupName = "";
         private List<Signature> listToShow = new List<Signature>();
         private int i = 0;
+        private int j = 0;
+        private int t = 0;
+        private int w = 0;
+        private int f = 0;
+        private int th = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,11 +33,21 @@ namespace PruebaWebCAQ
             loadEndTime();
             endList.DataSource = endTimeList;
             endList.DataBind();
-            loadMonday();
-            loadTuesday();
-            loadWendsday();
-            loadThursday();
-            loadFriday();
+            signatureList = signature.getSignatureByGrupoIDService(groupName, "Lunes");
+            mondayList.DataSource = signatureList;
+            mondayList.DataBind();
+            signatureList = signature.getSignatureByGrupoIDService(groupName, "Martes");
+            tuesdayList.DataSource = signatureList;
+            tuesdayList.DataBind();
+            signatureList = signature.getSignatureByGrupoIDService(groupName, "Miércoles");
+            wendsdayList.DataSource = signatureList;
+            wendsdayList.DataBind();
+            signatureList = signature.getSignatureByGrupoIDService(groupName, "Jueves");
+            thursdarList.DataSource = signatureList;
+            thursdarList.DataBind();
+            signatureList = signature.getSignatureByGrupoIDService(groupName, "Viernes");
+            fridayList.DataSource = signatureList;
+            fridayList.DataBind();
         }
 
         protected void loadstartTime()
@@ -77,168 +92,68 @@ namespace PruebaWebCAQ
             endTimeList.Add("4:20");
         }
 
-        protected void loadMonday()
-        {
-            signatureList = signature.getSignatureByGrupoIDService(groupName, "Lunes");
-            List<string> subList = new List<string>();
-            foreach (var element in signatureList)
-                subList.Add(element.Name);
-            mondayList.DataSource = subList;
-            mondayList.DataBind();
-        }
-
-        private void loadTuesday()
-        {
-            signatureList = signature.getSignatureByGrupoIDService(groupName, "Martes");
-            List<string> subList = new List<string>();
-            foreach (var element in signatureList)
-                subList.Add(element.Name);
-            tuesdayList.DataSource = subList;
-            tuesdayList.DataBind();
-        }
-
         protected void tuesdayList_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
-            signatureList = signature.getSignatureByGrupoIDService(groupName, "Martes");
-            LinkButton button = (LinkButton)e.Item.FindControl("tuesday");
-            string name = button.Text;
-            foreach (var element in signatureList)
-            {
-                if (element.Name.Equals(name))
-                {
-                    Signature signature = new Signature(element.Name, element.Day, element.Professor, element.StartTime, element.EndTime);
-                    listToShow.Add(signature);
-                }
-            }
-            panelRepeater.DataSource = listToShow;
-            panelRepeater.DataBind();
-            i = 0;
+            
+            HiddenField button = (HiddenField)e.Item.FindControl("hiddenId");
+            int id = Convert.ToInt32(button.Value);
+            Signature sig = signature.getsignatureByIdService(id);
+            signatureText.Text = sig.Name;
+            prof.Text = sig.Professor;
+            start.Text = sig.StartTime;
+            end.Text = sig.EndTime;  
             ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender1");
             popup.Show();
-        }
-
-
-        private void loadWendsday()
-        {
-            signatureList = signature.getSignatureByGrupoIDService(groupName, "Miércoles");
-            List<string> subList = new List<string>();
-            foreach (var element in signatureList)
-                subList.Add(element.Name);
-            wendsdayList.DataSource = subList;
-            wendsdayList.DataBind();
         }
 
         protected void wendsdayList_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
-            signatureList = signature.getSignatureByGrupoIDService(groupName, "Miércoles");
-            LinkButton button = (LinkButton)e.Item.FindControl("wendsday");
-            string name = button.Text;
-            foreach (var element in signatureList)
-            {
-                if (element.Name.Equals(name))
-                {
-                    Signature signature = new Signature(element.Name, element.Day, element.Professor, element.StartTime, element.EndTime);
-                    listToShow.Add(signature);
-                }
-            }
-            panelRepeater.DataSource = listToShow;
-            panelRepeater.DataBind();
-            i = 0;
+            HiddenField button = (HiddenField)e.Item.FindControl("hiddenId");
+            int id = Convert.ToInt32(button.Value);
+            Signature sig = signature.getsignatureByIdService(id);
+            signatureText.Text = sig.Name;
+            prof.Text = sig.Professor;
+            start.Text = sig.StartTime;
+            end.Text = sig.EndTime;
             ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender1");
             popup.Show();
-        }
-
-        private void loadThursday()
-        {
-            signatureList = signature.getSignatureByGrupoIDService(groupName, "Jueves");
-            List<string> subList = new List<string>();
-            foreach (var element in signatureList)
-                subList.Add(element.Name);
-            thursdarList.DataSource = subList;
-            thursdarList.DataBind();
         }
 
         protected void thursdarList_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
-            signatureList = signature.getSignatureByGrupoIDService(groupName, "Jueves");
-            LinkButton button = (LinkButton)e.Item.FindControl("thursday");
-            string name = button.Text;
-            foreach (var element in signatureList)
-            {
-                if (element.Name.Equals(name))
-                {
-                    Signature signature = new Signature(element.Name, element.Day, element.Professor, element.StartTime, element.EndTime);
-                    listToShow.Add(signature);
-                }
-            }
-            panelRepeater.DataSource = listToShow;
-            panelRepeater.DataBind();
-            i = 0;
+            HiddenField button = (HiddenField)e.Item.FindControl("hiddenId");
+            int id = Convert.ToInt32(button.Value);
+            Signature sig = signature.getsignatureByIdService(id);
+            signatureText.Text = sig.Name;
+            prof.Text = sig.Professor;
+            start.Text = sig.StartTime;
+            end.Text = sig.EndTime;
             ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender1");
             popup.Show();
-        }
-
-        private void loadFriday()
-        {
-            signatureList = signature.getSignatureByGrupoIDService(groupName, "Viernes");
-            List<string> subList = new List<string>();
-            foreach (var element in signatureList)
-                subList.Add(element.Name);
-            fridayList.DataSource = subList;
-            fridayList.DataBind();
         }
 
         protected void fridayList_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
-            signatureList = signature.getSignatureByGrupoIDService(groupName, "Viernes");
-            LinkButton button = (LinkButton)e.Item.FindControl("friday");
-            string name = button.Text;
-            foreach (var element in signatureList)
-            {
-                if (element.Name.Equals(name))
-                {
-                    Signature signature = new Signature(element.Name, element.Day, element.Professor, element.StartTime, element.EndTime);
-                    listToShow.Add(signature);
-                }
-            }
-            panelRepeater.DataSource = listToShow;
-            panelRepeater.DataBind();
-            i = 0;
+            HiddenField button = (HiddenField)e.Item.FindControl("hiddenId");
+            int id = Convert.ToInt32(button.Value);
+            Signature sig = signature.getsignatureByIdService(id);
+            signatureText.Text = sig.Name;
+            prof.Text = sig.Professor;
+            start.Text = sig.StartTime;
+            end.Text = sig.EndTime;
             ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender1");
             popup.Show();
-        }
-        protected void panelRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-            {
-                Label signature = (Label)e.Item.FindControl("signature");
-                signature.Text = "Materia: "+listToShow.ElementAt(i).Name;
-                Label prof = (Label)e.Item.FindControl("prof");
-                prof.Text= "Profesor: "+listToShow.ElementAt(i).Professor;
-                Label start = (Label)e.Item.FindControl("start");
-                start.Text = "Hora de inicio: "+listToShow.ElementAt(i).StartTime + "\n";
-                Label end = (Label)e.Item.FindControl("end");
-                end.Text = "Hora final: "+listToShow.ElementAt(i).EndTime + "\n";
-            }
-            i++;
         }
 
         protected void mondayList_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
-            signatureList = signature.getSignatureByGrupoIDService(groupName, "Lunes");
-            LinkButton button = (LinkButton)e.Item.FindControl("monday");
-            string name = button.Text;
-            foreach (var element in signatureList)
-            {
-                if (element.Name.Equals(name))
-                {
-                    Signature signature = new Signature(element.Name, element.Day, element.Professor, element.StartTime, element.EndTime);
-                    listToShow.Add(signature);
-                }
-            }
-            panelRepeater.DataSource = listToShow;
-            panelRepeater.DataBind();
-            i = 0;
+            HiddenField button = (HiddenField)e.Item.FindControl("hiddenId");
+            int id = Convert.ToInt32(button.Value);
+            Signature sig = signature.getsignatureByIdService(id);
+            signatureText.Text = sig.Name;
+            prof.Text = sig.Professor;
+            start.Text = sig.StartTime;
+            end.Text = sig.EndTime;
             ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender1");
             popup.Show();
         }
@@ -252,6 +167,51 @@ namespace PruebaWebCAQ
         {
             int index = 0;
             index++;
+        }
+
+        protected void mondayList_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            LinkButton sign=  (LinkButton)e.Item.FindControl("Monday");
+            sign.Text = signatureList.ElementAt(j).Name;
+            HiddenField id = (HiddenField)e.Item.FindControl("hiddenId");
+            id.Value = signatureList.ElementAt(j).SignatureId.ToString();
+            j++;
+        }
+
+        protected void tuesdayList_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            LinkButton sign = (LinkButton)e.Item.FindControl("tuesday");
+            sign.Text = signatureList.ElementAt(t).Name;
+            HiddenField id = (HiddenField)e.Item.FindControl("hiddenId");
+            id.Value = signatureList.ElementAt(t).SignatureId.ToString();
+            t++;
+        }
+
+        protected void wendsdayList_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            LinkButton sign = (LinkButton)e.Item.FindControl("wendsday");
+            sign.Text = signatureList.ElementAt(w).Name;
+            HiddenField id = (HiddenField)e.Item.FindControl("hiddenId");
+            id.Value = signatureList.ElementAt(w).SignatureId.ToString();
+            w++;
+        }
+
+        protected void thursdarList_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            LinkButton sign = (LinkButton)e.Item.FindControl("thursday");
+            sign.Text = signatureList.ElementAt(th).Name;
+            HiddenField id = (HiddenField)e.Item.FindControl("hiddenId");
+            id.Value = signatureList.ElementAt(th).SignatureId.ToString();
+            th++;
+        }
+
+        protected void fridayList_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            LinkButton sign = (LinkButton)e.Item.FindControl("friday");
+            sign.Text = signatureList.ElementAt(f).Name;
+            HiddenField id = (HiddenField)e.Item.FindControl("hiddenId");
+            id.Value = signatureList.ElementAt(f).SignatureId.ToString();
+            f++;
         }
     }
 }

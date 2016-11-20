@@ -18,7 +18,7 @@ namespace PruebaWebCAQ
             if(txt_user.Text != "" || txt_password.Text != "")
             {
                 
-                if(ValidateUser(txt_user.Text, txt_password.Text) == false)             
+                if(ValidateUser(txt_user.Text, admBusiness.encryption(txt_password.Text)) == false)             
                 {
                     messageLogin.InnerText = "Credenciales Incorrectas";
                     ModalPopupExtender.Show();      

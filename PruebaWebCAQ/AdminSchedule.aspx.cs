@@ -88,7 +88,7 @@ namespace PruebaWebCAQ
                 {
                     signatureBusiness.createSignatureService(element);
                 }
-                message.InnerText = "Horario para el día" + day + ", del grupo " + group + ", ha sido creado con éxito";
+                message.InnerText = "Horario para el día " + day + ", del grupo " + group + ", ha sido creado con éxito";
                 ModalPopupExtender1.Show();
                 clearSpaces();
                 i = 0;

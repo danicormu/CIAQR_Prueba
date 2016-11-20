@@ -59,3 +59,66 @@ C:\Users\Mayron  Corrales\Desktop\git\CIAQR_Prueba\PruebaWebCAQ\bin\Microsoft.Co
 C:\Users\Mayron  Corrales\Desktop\git\CIAQR_Prueba\PruebaWebCAQ\obj\Debug\PruebaWebCAQ.csprojResolveAssemblyReference.cache
 C:\Users\Mayron  Corrales\Desktop\git\CIAQR_Prueba\PruebaWebCAQ\obj\Debug\PruebaWebCAQ.dll
 C:\Users\Mayron  Corrales\Desktop\git\CIAQR_Prueba\PruebaWebCAQ\obj\Debug\PruebaWebCAQ.pdb
+C:\Users\Daniel\Documents\GitHub\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\csc.exe
+C:\Users\Daniel\Documents\GitHub\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Daniel\Documents\GitHub\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Daniel\Documents\GitHub\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Daniel\Documents\GitHub\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Daniel\Documents\GitHub\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Daniel\Documents\GitHub\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Daniel\Documents\GitHub\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Daniel\Documents\GitHub\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Daniel\Documents\GitHub\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\vbc.exe
+C:\Users\Daniel\Documents\GitHub\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\VBCSCompiler.exe
+C:\Users\Daniel\Documents\GitHub\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Daniel\Documents\GitHub\CIAQR_Prueba\PruebaWebCAQ\bin\PruebaWebCAQ.dll.config
+C:\Users\Daniel\Documents\GitHub\CIAQR_Prueba\PruebaWebCAQ\bin\PruebaWebCAQ.dll
+C:\Users\Daniel\Documents\GitHub\CIAQR_Prueba\PruebaWebCAQ\bin\PruebaWebCAQ.pdb
+C:\Users\Daniel\Documents\GitHub\CIAQR_Prueba\PruebaWebCAQ\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Daniel\Documents\GitHub\CIAQR_Prueba\PruebaWebCAQ\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Daniel\Documents\GitHub\CIAQR_Prueba\PruebaWebCAQ\obj\Debug\PruebaWebCAQ.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Documents\GitHub\CIAQR_Prueba\PruebaWebCAQ\obj\Debug\PruebaWebCAQ.dll
+C:\Users\Daniel\Documents\GitHub\CIAQR_Prueba\PruebaWebCAQ\obj\Debug\PruebaWebCAQ.pdb
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\csc.exe
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\vbc.exe
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\VBCSCompiler.exe
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\bin\PruebaWebCAQ.dll.config
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\bin\PruebaWebCAQ.dll
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\bin\PruebaWebCAQ.pdb
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\obj\Debug\PruebaWebCAQ.csprojResolveAssemblyReference.cache
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\obj\Debug\PruebaWebCAQ.dll
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\obj\Debug\PruebaWebCAQ.pdb
+C:\Users\Daniel\Downloads\Proyecto Final\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\csc.exe
+C:\Users\Daniel\Downloads\Proyecto Final\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Daniel\Downloads\Proyecto Final\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Daniel\Downloads\Proyecto Final\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Daniel\Downloads\Proyecto Final\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Daniel\Downloads\Proyecto Final\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Daniel\Downloads\Proyecto Final\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Daniel\Downloads\Proyecto Final\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Daniel\Downloads\Proyecto Final\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Daniel\Downloads\Proyecto Final\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\vbc.exe
+C:\Users\Daniel\Downloads\Proyecto Final\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\VBCSCompiler.exe
+C:\Users\Daniel\Downloads\Proyecto Final\CIAQR_Prueba\PruebaWebCAQ\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Daniel\Downloads\Proyecto Final\CIAQR_Prueba\PruebaWebCAQ\bin\PruebaWebCAQ.dll.config
+C:\Users\Daniel\Downloads\Proyecto Final\CIAQR_Prueba\PruebaWebCAQ\bin\PruebaWebCAQ.dll
+C:\Users\Daniel\Downloads\Proyecto Final\CIAQR_Prueba\PruebaWebCAQ\bin\PruebaWebCAQ.pdb
+C:\Users\Daniel\Downloads\Proyecto Final\CIAQR_Prueba\PruebaWebCAQ\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Daniel\Downloads\Proyecto Final\CIAQR_Prueba\PruebaWebCAQ\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Daniel\Downloads\Proyecto Final\CIAQR_Prueba\PruebaWebCAQ\obj\Debug\PruebaWebCAQ.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Downloads\Proyecto Final\CIAQR_Prueba\PruebaWebCAQ\obj\Debug\PruebaWebCAQ.dll
+C:\Users\Daniel\Downloads\Proyecto Final\CIAQR_Prueba\PruebaWebCAQ\obj\Debug\PruebaWebCAQ.pdb
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\bin\Microsoft.Web.Delegation.dll
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\bin\Microsoft.Web.Deployment.dll
+C:\Users\Mayron  Corrales\Desktop\CIAQR_Prueba\PruebaWebCAQ\bin\Microsoft.Web.Deployment.Tracing.dll

@@ -66,6 +66,5 @@ namespace PruebaWebCAQ.Business
             }
             return encryptdata.ToString();
         }
-
     }
 }

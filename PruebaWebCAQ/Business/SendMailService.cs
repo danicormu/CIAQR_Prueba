@@ -15,7 +15,7 @@ namespace PruebaWebCAQ.Business
                     MailMessage mail = new MailMessage();
                     SmtpClient client = new SmtpClient();
                     mail.From = new MailAddress("colegioalejandroquesada@hotmail.com");
-                    mail.To.Add(new MailAddress(email));
+                    mail.To.Add(new MailAddress("colegioalejandroquesada@gmail.com"));
                     mail.Subject = subject;
                     mail.Body = name + "<" + email + ">" + "\n" + message;
                     client.Port = 587;

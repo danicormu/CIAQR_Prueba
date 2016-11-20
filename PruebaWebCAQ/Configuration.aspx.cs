@@ -40,8 +40,9 @@ namespace PruebaWebCAQ
                 string pass = AdminPass_txt.Text;
                 string passRep = AdminPassRepeat_txt.Text;
 
-                if(pass.ToString() == passRep.ToString())                {
-                    Administrator adm = new Administrator(admin, pass);
+                if(pass.ToString() == passRep.ToString())
+                {
+                    Administrator adm = new Administrator(admin, admBusiness.encryption(pass));
                     if (admBusiness.insertService(adm))
                     {
                         i = 0;
@@ -103,7 +104,7 @@ namespace PruebaWebCAQ
             if (txt_ActPass.Text.Equals(pass))
                 if (txt_NewPass.Text.Equals(txt_RepPass.Text))
                 {
-                    Administrator admin = new Administrator(id, user, txt_NewPass.Text);
+                    Administrator admin = new Administrator(id, user, admBusiness.encryption(txt_NewPass.Text));
                     if (admBusiness.updateService(admin))
                     {
                         i = 0;
@@ -134,7 +135,7 @@ namespace PruebaWebCAQ
 
         protected void SaveUsername_Click(object sender, EventArgs e)
         {
-            Administrator admin = new Administrator(id,newUserName.Text, pass);
+            Administrator admin = new Administrator(id,newUserName.Text, admBusiness.encryption(pass));
             if (admBusiness.updateService(admin))
             {
                 Session["USER_ID"] = newUserName.Text;

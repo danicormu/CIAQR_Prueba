@@ -65,6 +65,32 @@ namespace PruebaWebCAQ.Data
             return list;
         }
 
+        public Signature getSignatureById(int id)
+        {
+            Signature signature = null;
+            try
+            {
+                connectDB();
+                SqlCommand query = new SqlCommand("select * from materia where idMateria = @id;", conn);
+                query.Parameters.AddWithValue("@id", id);
+                conn.Open();
+                SqlDataReader reader = query.ExecuteReader();
+                reader.Read();
+                signature = new Signature(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(5), reader.GetString(6), reader.GetString(7));
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                disconnectDB();
+                conn.Close();
+            }
+            return signature;
+        }
+
         public bool addSignature(Signature signature)
         {
             bool flag = false;

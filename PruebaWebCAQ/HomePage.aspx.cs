@@ -26,7 +26,7 @@ namespace PruebaWebCAQ
                 personalRepeater.DataSource = list;
                 personalRepeater.DataBind();
                 teacherRepeater.DataSource = profList;
-                teacherRepeater.DataBind();                
+                teacherRepeater.DataBind();               
             }
         }
 

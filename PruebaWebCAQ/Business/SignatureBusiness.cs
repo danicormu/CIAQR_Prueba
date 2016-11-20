@@ -18,6 +18,10 @@ namespace PruebaWebCAQ.Business
             return data.getSignaturesByGroupId(name, day);
         }
 
+        public Signature getsignatureByIdService(int id)
+        {
+            return data.getSignatureById(id);
+        } 
         public string createSignatureService(Signature signature)
         {
             string success = "";

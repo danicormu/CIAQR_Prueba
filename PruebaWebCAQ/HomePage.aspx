@@ -96,6 +96,7 @@
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
+                    <asp:Image runat="server" ID="test" />
                 </div>
             </div>
         </div>
@@ -291,9 +292,9 @@
                                         <img alt="Maecenas tristique sem ante" src="Resources/img/Gallery/2.jpg"/>
                                     </div>
                                     <h4>
-                                        <a>Banda de Garage</a>
+                                        <a>Grupo Experimental</a>
                                     </h4>
-                                    <p>La banda de garage del colegio compuesta por varios estudiantes que han hecho muy buenas presentaciones encantando al público...</p>
+                                    <p>El grupo experimental del colegio compuesta por varios estudiantes que han hecho muy buenas presentaciones encantando al público...</p>
                                     
                                 </div>
                             </article>
@@ -303,7 +304,7 @@
                                         <img alt="Vivamus pharetra justo" src="Resources/img/Gallery/12.jpg"/>
                                     </div>
                                     <h4>
-                                        <a href="#">Paseo del Colegio</a>
+                                        <a>Paseo del Colegio</a>
                                     </h4>
                                     <p>Se logra apreciar a los estudiantes junto a su profesor guía donde se refleja lo contentos que están de haber realizado el paseo... </p>
                                     
@@ -339,7 +340,7 @@
                                         <img alt="Duis consequat arcu et lacus" src="Resources/img/Gallery/5.jpg"/>
                                     </div>
                                     <h4>
-                                        <a href="#">El equipo de fútbol</a>
+                                        <a>El equipo de fútbol</a>
                                     </h4>
                                     <p>El Colegio cuenta con su equipo de fútbol para torneos en los que se enfrentan a equipos de otros colegios de la región...</p>
                                     
@@ -371,13 +372,13 @@
                             </article>
                             <article class="isotopeElement isotopeElementShow">
                                 <div class="isotopePadding">
-                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/9.jpg" data-title="Feria Científica">
-                                        <img alt="Lorem ipsum dolor sit amet" src="Resources/img/Gallery/9.jpg"/>
+                                    <div class="thumb hoverIncrease" data-image="Resources/img/Gallery/bg/14.jpg" data-title="Los jardines del Colegio">
+                                        <img alt="Lorem ipsum dolor sit amet" src="Resources/img/Gallery/14.jpg"/>
                                     </div>
                                     <h4>
-                                        <a href="#">Feria Científica</a>
+                                        <a>Los jardines del Colegio</a>
                                     </h4>
-                                    <p>Estos fueron nuestros estudiantes que participaron en la feria científica en el 2014, acá junto al profesor guía... </p>
+                                    <p>Todos los jardines y otras zonas verdes las tratamos de mantener cuidadas dando una buena imagen del Colegio... </p>
                                     
                                 </div>
                             </article>

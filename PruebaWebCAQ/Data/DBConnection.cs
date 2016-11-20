@@ -9,8 +9,8 @@ namespace PruebaWebCAQ.Data
         public DBConnection() { } // constructor publico de la clase
 
         // path de conexion a base de datos // Daniel conecta con Server=*su server path *;User ID=sa;Password=*supassword*
-        //private string connectionString = "Server=localhost;Database=DBcolegio;User ID=sa;Password=LinkinPark01";
-        private string connectionString = "Server=localhost;Database=DBcolegio;User ID=sa;Password=corrales";
+        private string connectionString = "Server=SQL5004.Smarterasp.net;Database=DB_9FFEE1_dbcolegio;User ID=DB_9FFEE1_dbcolegio_admin;;Password=LinkinPark01";
+        //private string connectionString = "Server=localhost;Database=DBcolegio;User ID=sa;Password=corrales";
         protected SqlConnection conn = null;
 
 
