@@ -51,6 +51,14 @@
       <HintPath>..\packages\AjaxControlToolkit.16.1.0.0\lib\net40\AjaxControlToolkit.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -68,6 +76,8 @@
       <HintPath>..\packages\Microsoft.Web.Deployment.3.6.0\lib\Net40\Microsoft.Web.Deployment.Tracing.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -89,6 +99,16 @@
     <Content Include="AdminGallery.aspx" />
     <Content Include="AdminGroup.aspx" />
     <Content Include="administrative.aspx" />
+    <Content Include="DDColegioModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DDColegioModel.edmx</DependentUpon>
+      <LastGenOutput>DDColegioModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DDColegioModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DDColegioModel.edmx</DependentUpon>
+      <LastGenOutput>DDColegioModel.cs</LastGenOutput>
+    </Content>
     <Content Include="EditSchedule.aspx" />
     <Content Include="packages.config" />
     <Content Include="Administration.Master" />
@@ -118,6 +138,13 @@
     <Content Include="Resources\fonts\WooCommerce.woff" />
     <Content Include="Resources\img\Gallery\bg\Thumbs.db" />
     <Content Include="Resources\img\Gallery\imgs\Thumbs.db" />
+    <EntityDeploy Include="DDColegioModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DDColegioModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DDColegioModel.edmx.diagram">
+      <DependentUpon>DDColegioModel.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\publicar.pubxml" />
     <None Include="Properties\PublishProfiles\smartasp.pubxml" />
     <None Include="Web.Debug.config">
@@ -481,6 +508,9 @@
     <Compile Include="AdminGroup.aspx.designer.cs">
       <DependentUpon>AdminGroup.aspx</DependentUpon>
     </Compile>
+    <Compile Include="administrador.cs">
+      <DependentUpon>DDColegioModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Administration.aspx.cs">
       <DependentUpon>Administration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -532,6 +562,9 @@
     <Compile Include="Configuration.aspx.designer.cs">
       <DependentUpon>Configuration.aspx</DependentUpon>
     </Compile>
+    <Compile Include="cronograma.cs">
+      <DependentUpon>DDColegioModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\AdministratorData.cs" />
     <Compile Include="Data\ChronogramData.cs" />
     <Compile Include="Data\DBConnection.cs" />
@@ -539,6 +572,21 @@
     <Compile Include="Data\GaleryData.cs" />
     <Compile Include="Data\GroupData.cs" />
     <Compile Include="Data\PersonalData.cs" />
+    <Compile Include="DDColegioModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DDColegioModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DDColegioModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DDColegioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DDColegioModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DDColegioModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Domain\Administrator.cs" />
     <Compile Include="Domain\Chronogram.cs" />
     <Compile Include="Domain\Event.cs" />
@@ -554,12 +602,18 @@
     <Compile Include="EditSchedule.aspx.designer.cs">
       <DependentUpon>EditSchedule.aspx</DependentUpon>
     </Compile>
+    <Compile Include="evento.cs">
+      <DependentUpon>DDColegioModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Events.aspx.cs">
       <DependentUpon>Events.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Events.aspx.designer.cs">
       <DependentUpon>Events.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="galeria.cs">
+      <DependentUpon>DDColegioModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Gallery.aspx.cs">
       <DependentUpon>Gallery.aspx</DependentUpon>
@@ -568,12 +622,18 @@
     <Compile Include="Gallery.aspx.designer.cs">
       <DependentUpon>Gallery.aspx</DependentUpon>
     </Compile>
+    <Compile Include="grupo.cs">
+      <DependentUpon>DDColegioModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="horario.cs">
+      <DependentUpon>DDColegioModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -588,6 +648,15 @@
     </Compile>
     <Compile Include="MainMenu.Master.designer.cs">
       <DependentUpon>MainMenu.Master</DependentUpon>
+    </Compile>
+    <Compile Include="materia.cs">
+      <DependentUpon>DDColegioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="nivel.cs">
+      <DependentUpon>DDColegioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="personal.cs">
+      <DependentUpon>DDColegioModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Data\ScheduleData.cs" />
@@ -620,6 +689,9 @@
     <Folder Include="Resources\img\menu\" />
     <Folder Include="Resources\img\parallax\" />
     <Folder Include="Resources\img\prettyPhoto\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

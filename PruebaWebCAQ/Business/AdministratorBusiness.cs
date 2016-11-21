@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using PruebaWebCAQ.Data;
-using PruebaWebCAQ.Domain;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -11,7 +10,7 @@ namespace PruebaWebCAQ.Business
         AdministratorData data= new AdministratorData();
 
         // servicio de listado de administradores(todos los que se encuentren en la bd) 
-        public List<Administrator> administratorListService()
+        public List<administrador> administratorListService()
         {
             return data.getAllAdministrators();
         }
@@ -25,25 +24,23 @@ namespace PruebaWebCAQ.Business
         public bool loginService(string username, string password)
         {
             bool parameter = false;
-            //string parameter = "";
             if (data.login(username, password))
                 parameter = true;
             else
                 parameter = false;
             return parameter;
-
         }
 
         //servicio para agregar usuarios administradores
-        public bool insertService(Administrator admin)
+        public bool insertService(administrador admin)
         {
             return data.addAdministrator(admin);
         }
 
         //servicio para modificar las credenciales de los admininstradores
-        public bool updateService(Administrator admin)
+        public bool updateService(administrador admin)
         {
-            return data.updateAdmininistrator(admin);
+            return data.updateAdministrator(admin);
         }
 
         //servicio que elimina un usuario administrador
