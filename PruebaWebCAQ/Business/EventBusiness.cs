@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using PruebaWebCAQ.Data;
-using PruebaWebCAQ.Domain;
+
 
 namespace PruebaWebCAQ.Business
 {
@@ -9,13 +9,13 @@ namespace PruebaWebCAQ.Business
         EventData data = new EventData();
 
         // Obtiene todos los eventos
-        public List<Event> getAllEventsService()
+        public List<evento> getAllEventsService()
         {
             return data.getAllEvents();
         }
 
         // Crea evento
-        public string createEventService(Event eve)
+        public string createEventService(evento eve)
         {
             string success = "";
             if (data.addEvent(eve))
@@ -26,7 +26,7 @@ namespace PruebaWebCAQ.Business
         }
 
         // Actualiza un Evento
-        public string updateEventService(Event eve)
+        public string updateEventService(evento eve)
         {
             string success = "";
             if (data.updateEvent(eve))

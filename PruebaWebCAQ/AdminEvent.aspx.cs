@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
 using PruebaWebCAQ.Business;
-using PruebaWebCAQ.Domain;
 using AjaxControlToolkit;
 
 namespace PruebaWebCAQ
@@ -12,7 +11,7 @@ namespace PruebaWebCAQ
     {
         EventBusiness EBusiness = new EventBusiness();
         CronogramBusiness CBusiness = new CronogramBusiness();
-        private List<Event> list_event;
+        private List<evento> list_event;
         private int i = 0;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -45,10 +44,17 @@ namespace PruebaWebCAQ
                 }
                 else
                 {
-                    Chronogram ch = new Chronogram(DateTime.Now.ToShortDateString(), DateTime.Today.ToShortDateString());
+                    cronograma ch = new cronograma();
+                    ch.horaInicio = DateTime.Now.ToShortDateString();
+                    ch.horaFin=DateTime.Today.ToShortDateString();
                     CBusiness.addChronogramService(ch);
-                    int id = CBusiness.getAllChronogramsService().ElementAt(0).IdChronogram;
-                    Event ev = new Event(nameEvent, descEvent, dateEvent, typeEvent, id);
+                    int id = CBusiness.getAllChronogramsService().ElementAt(0).idCronograma;
+                    evento ev = new evento();
+                    ev.nombreEvento = nameEvent;
+                    ev.descripcion = descEvent;
+                    ev.fecha = dateEvent;
+                    ev.tipoEvento = typeEvent;
+                    ev.cronograma_idCronograma=id;
                     EBusiness.createEventService(ev);
                     Response.Redirect("AdminEvent.aspx");
                 }
@@ -81,15 +87,15 @@ namespace PruebaWebCAQ
             if(e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 Label id = (Label)e.Item.FindControl("eventIdAd");
-                id.Text = Convert.ToString(list_event.ElementAt(i).EventId);
+                id.Text = Convert.ToString(list_event.ElementAt(i).idEvento);
                 Label name = (Label)e.Item.FindControl("eventNameAd");
-                name.Text = list_event.ElementAt(i).EventName;
+                name.Text = list_event.ElementAt(i).nombreEvento;
                 Label date = (Label)e.Item.FindControl("eventDateAd");
-                date.Text = list_event.ElementAt(i).Date;
+                date.Text = list_event.ElementAt(i).fecha;
                 Label type = (Label)e.Item.FindControl("eventTypeAd");
-                type.Text = list_event.ElementAt(i).EventType;
+                type.Text = list_event.ElementAt(i).tipoEvento;
                 Label description = (Label)e.Item.FindControl("eventDescAd");
-                description.Text = list_event.ElementAt(i).Description;
+                description.Text = list_event.ElementAt(i).descripcion;
                 i++;                
             }    
         }
@@ -136,7 +142,12 @@ namespace PruebaWebCAQ
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            Event ev = new Event(Convert.ToInt32(eventID.Text), nameToEdit.Value, descriptionToEdit.Value, dateToEdit.Value, typeToEdit2.Value);
+            evento ev = new evento();
+            ev.idEvento = Convert.ToInt32(eventID.Text);
+            ev.nombreEvento = nameToEdit.Value;
+            ev.descripcion = descriptionToEdit.Value;
+            ev.fecha = dateToEdit.Value;
+            ev.tipoEvento=typeToEdit2.Value;
             EBusiness.updateEventService(ev);
             Response.Redirect("AdminEvent.aspx");
         }

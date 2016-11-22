@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using PruebaWebCAQ.Business;
-using PruebaWebCAQ.Domain;
 
 
 namespace PruebaWebCAQ
@@ -12,7 +11,7 @@ namespace PruebaWebCAQ
     public partial class Gallery : System.Web.UI.Page
     {
         GaleryBusiness galery = new GaleryBusiness();
-        private List<Galery> list;
+        private List<galeria> list;
         private int i = 0;
 
       
@@ -23,33 +22,21 @@ namespace PruebaWebCAQ
             galleryRepeater.DataBind();
         }
 
-        private string saveImage(System.Drawing.Image image)
-        {
-            string savePath = Server.MapPath(@"images\" + list.ElementAt(i).Name + ".jpg");
-            System.Drawing.Graphics graphics = System.Drawing.Graphics.FromImage(image);
-            image.Save(savePath);
-            return "images/" + list.ElementAt(i).Name + ".jpg";
-        }
-
         protected void galleryRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {  
-            System.Drawing.Image photo;
-            string path;
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 Image galleryImage = (Image)e.Item.FindControl("galleryImage");
-                photo = System.Drawing.Image.FromStream(list.ElementAt(i).Photo);
-                path = saveImage(photo);
-                galleryImage.ImageUrl = path;
+                galleryImage.ImageUrl = list.ElementAt(i).foto;
                 Label tittle = (Label)e.Item.FindControl("galleryTittle");
-                tittle.Text = list.ElementAt(i).Name;
+                tittle.Text = list.ElementAt(i).nombre;
                 Label description = (Label)e.Item.FindControl("galleryDescription");
-                description.Text = list.ElementAt(i).Description;
+                description.Text = list.ElementAt(i).descripcion;
                 Label date = (Label)e.Item.FindControl("galleryDate");
-                date.Text = list.ElementAt(i).Date;
+                date.Text = list.ElementAt(i).fecha;
                 HtmlGenericControl div = (HtmlGenericControl)e.Item.FindControl("bigImageDiv");
-                div.Attributes.Add("data-image", path);
-                div.Attributes.Add("data-title", list.ElementAt(i).Name);
+                div.Attributes.Add("data-image", list.ElementAt(i).foto);
+                div.Attributes.Add("data-title", list.ElementAt(i).nombre);
                 i++;
             }
         }        

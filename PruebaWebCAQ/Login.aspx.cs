@@ -26,7 +26,7 @@ namespace PruebaWebCAQ
                 else
                 {
                     Session["USER_ID"] = txt_user.Text;
-                    Session["idForUse"] = admBusiness.selectId(txt_user.Text, txt_password.Text);
+                    Session["idForUse"] = admBusiness.selectId(txt_user.Text, admBusiness.encryption(txt_password.Text));
                     Session["User_Pass"] = txt_password.Text;
                     Response.Redirect("Administration.aspx");
                 }             

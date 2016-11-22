@@ -11,7 +11,7 @@ namespace PruebaWebCAQ
     public partial class Configuration : System.Web.UI.Page
     {
         AdministratorBusiness admBusiness = new AdministratorBusiness();
-        private List<Administrator> adminList;
+        private List<administrador> adminList;
         private int i = 0;
         private int id = 0;
         private string user;
@@ -42,7 +42,9 @@ namespace PruebaWebCAQ
 
                 if(pass.ToString() == passRep.ToString())
                 {
-                    Administrator adm = new Administrator(admin, admBusiness.encryption(pass));
+                    administrador adm = new administrador();
+                    adm.usuario = admin;
+                    adm.password = admBusiness.encryption(pass);
                     if (admBusiness.insertService(adm))
                     {
                         i = 0;
@@ -79,9 +81,9 @@ namespace PruebaWebCAQ
             if(e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 Label id = (Label)e.Item.FindControl("asAdminId");
-                id.Text = Convert.ToString(adminList.ElementAt(i).IdAdmin);
+                id.Text = Convert.ToString(adminList.ElementAt(i).idAdmin);
                 Label nameAdmin = (Label)e.Item.FindControl("asAdminName");
-                nameAdmin.Text = adminList.ElementAt(i).Username;
+                nameAdmin.Text = adminList.ElementAt(i).usuario;
                 i++;
             }
         }
@@ -104,7 +106,10 @@ namespace PruebaWebCAQ
             if (txt_ActPass.Text.Equals(pass))
                 if (txt_NewPass.Text.Equals(txt_RepPass.Text))
                 {
-                    Administrator admin = new Administrator(id, user, admBusiness.encryption(txt_NewPass.Text));
+                    administrador admin = new administrador();
+                    admin.idAdmin = id;
+                    admin.usuario = user;
+                    admin.password =admBusiness.encryption(txt_NewPass.Text);
                     if (admBusiness.updateService(admin))
                     {
                         i = 0;
@@ -135,7 +140,10 @@ namespace PruebaWebCAQ
 
         protected void SaveUsername_Click(object sender, EventArgs e)
         {
-            Administrator admin = new Administrator(id,newUserName.Text, admBusiness.encryption(pass));
+            administrador admin = new administrador();
+            admin.idAdmin = id;
+            admin.usuario = newUserName.Text;
+            admin.password=admBusiness.encryption(pass);
             if (admBusiness.updateService(admin))
             {
                 Session["USER_ID"] = newUserName.Text;

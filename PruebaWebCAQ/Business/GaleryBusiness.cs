@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using PruebaWebCAQ.Data;
-using PruebaWebCAQ.Domain;
 
 namespace PruebaWebCAQ.Business
 {
@@ -9,16 +8,16 @@ namespace PruebaWebCAQ.Business
         GaleryData data = new GaleryData();
 
         // servicio de listado de fotos.
-        public List<Galery> galeryService()
+        public List<galeria> galeryService()
         {
             return data.getAllGalery();
         }
 
         //servicio de almacenamiento de fotografias para la galeria
-        public string insertImageToGaleryService(Galery galery)
+        public string insertImageToGaleryService(galeria gallery)
         {
             string success = "";
-            if (data.insertIntoGallery(galery))
+            if (data.insertIntoGallery(gallery))
                 success = "La imagen se ha agregadoa  la galeria exitosamente.";
             else
                 success = "La imagen no ha sido agregada. Revise su conexión a la red o contecte a su proveedor de servicios";
@@ -26,10 +25,10 @@ namespace PruebaWebCAQ.Business
         }
 
         //servicio de update de imagenes
-        public string updateImageService(Galery galery)
+        public string updateImageService(galeria gallery)
         {
             string success = "";
-            if (data.updateImages(galery))
+            if (data.updateImages(gallery))
                 success = "La imagen se ha actualizado con éxito";
             else
                 success = "La imagen no ha sido actualizada. Revise su conexión a la red o contecte a su proveedor de servicios";

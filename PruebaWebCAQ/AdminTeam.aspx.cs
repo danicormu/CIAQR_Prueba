@@ -15,7 +15,7 @@ namespace PruebaWebCAQ
         PersonalBusiness PBusiness = new PersonalBusiness();
         private List<Personal> list_Personal;
         private int i = 0;
-        private int j = 0;        
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {

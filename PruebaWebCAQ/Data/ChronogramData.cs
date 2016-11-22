@@ -1,117 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using PruebaWebCAQ.Domain;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace PruebaWebCAQ.Data
 {
-    class ChronogramData:DBConnection
+    class ChronogramData
     {
+        DBcolegioEntities DBContext = new DBcolegioEntities();
         // lista los cronogramas en existencia
-        public List<Chronogram> getAllChronogram()
+        public List<cronograma> getAllChronogram()
         {
-            List<Chronogram> list = new List<Chronogram>();
-            try
-            {
-                connectDB();
-                SqlCommand query = new SqlCommand("select * from cronograma;", conn);
-                conn.Open();
-                SqlDataReader reader = query.ExecuteReader();
-                while (reader.Read())
-                {
-                    Chronogram chronogram = new Chronogram(reader.GetInt32(0), reader.GetString(1), reader.GetString(2));
-                    list.Add(chronogram);
-                }
-                reader.Close();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                disconnectDB();
-                conn.Close();
-            }
-            return list;
+            return DBContext.cronograma.ToList();
         }
 
         //agrega cronograma
-        public bool addChronogram(Chronogram chronogram)
+        public bool addChronogram(cronograma chronogram)
         {
-            bool flag = false;
-            try
-            {
-                connectDB();
-                SqlCommand query = new SqlCommand("insert into cronograma values(@begin,@end);", conn);
-                query.Parameters.AddWithValue("@begin", chronogram.BeginTime);
-                query.Parameters.AddWithValue("@end", chronogram.EndTime);
-                conn.Open();
-                query.ExecuteNonQuery();
-                flag = true;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                disconnectDB();
-                conn.Close();
-            }
-            return flag;
+            DBContext.cronograma.Add(chronogram);
+            if (DBContext.SaveChanges() == 1)
+                return true;
+            else
+                return false;
         }
 
         // update de cronograma
-        public bool updateChronogram(Chronogram chronogram)
+        public bool updateChronogram(cronograma chronogram)
         {
-            bool flag = false;
-            try
-            {
-                connectDB();
-                SqlCommand query = new SqlCommand("update cronograma set horaInicio=@begin, horaFin= @end where idCronograma = @id;", conn);
-                query.Parameters.AddWithValue("@begin", chronogram.BeginTime);
-                query.Parameters.AddWithValue("@end", chronogram.EndTime);
-                query.Parameters.AddWithValue("@id", chronogram.IdChronogram);
-                conn.Open();
-                query.ExecuteNonQuery();
-                flag = true;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                disconnectDB();
-                conn.Close();
-            }
-            return flag;
+            cronograma chron = DBContext.cronograma.Where(c => c.idCronograma == chronogram.idCronograma).FirstOrDefault();
+            chron.evento = chronogram.evento;
+            chron.horaInicio = chronogram.horaInicio;
+            chron.horaFin = chronogram.horaFin;
+            if (DBContext.SaveChanges() == 1)
+                return true;
+            else
+                return false;
         }
 
         // borrar un cronograma
         public bool deleteChronogram(int id)
         {
-            bool flag = false;
-            try
-            {
-                connectDB();
-                SqlCommand query = new SqlCommand("delete from cronograma where idCronograma = @id;", conn);
-                query.Parameters.AddWithValue("@id", id);
-                conn.Open();
-                query.ExecuteNonQuery();
-                flag = true;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                disconnectDB();
-                conn.Close();
-            }
-            return flag;
+            cronograma chron = DBContext.cronograma.Where(c => c.idCronograma == id).FirstOrDefault();
+            DBContext.cronograma.Remove(chron);
+            if (DBContext.SaveChanges() == 1)
+                return true;
+            else
+                return false;
         }
     }
 }

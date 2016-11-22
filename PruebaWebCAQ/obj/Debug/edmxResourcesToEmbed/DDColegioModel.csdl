@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBcolegioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="administrador">
+    <Key>
+      <PropertyRef Name="idAdmin" />
+    </Key>
+    <Property Name="idAdmin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cronograma">
+    <Key>
+      <PropertyRef Name="idCronograma" />
+    </Key>
+    <Property Name="idCronograma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="horaInicio" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="horaFin" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="evento" Relationship="Self.FK__evento__cronogra__1FCDBCEB" FromRole="cronograma" ToRole="evento" />
+  </EntityType>
+  <EntityType Name="evento">
+    <Key>
+      <PropertyRef Name="idEvento" />
+    </Key>
+    <Property Name="idEvento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreEvento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fecha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tipoEvento" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cronograma_idCronograma" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="cronograma" Relationship="Self.FK__evento__cronogra__1FCDBCEB" FromRole="evento" ToRole="cronograma" />
+  </EntityType>
+  <EntityType Name="galeria">
+    <Key>
+      <PropertyRef Name="idFoto" />
+    </Key>
+    <Property Name="idFoto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fecha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="grupo">
+    <Key>
+      <PropertyRef Name="idGrupo" />
+      <PropertyRef Name="nivel_idNivel" />
+    </Key>
+    <Property Name="idGrupo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nivel_idNivel" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="nivel" Relationship="Self.FK__grupo__nivel_idN__20C1E124" FromRole="grupo" ToRole="nivel" />
+    <NavigationProperty Name="horario" Relationship="Self.FK__horario__21B6055D" FromRole="grupo" ToRole="horario" />
+  </EntityType>
+  <EntityType Name="horario">
+    <Key>
+      <PropertyRef Name="dia" />
+      <PropertyRef Name="grupo_idGrupo" />
+      <PropertyRef Name="grupo_nivel_idNivel" />
+    </Key>
+    <Property Name="dia" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="horaInicio" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="horaFinal" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="grupo_idGrupo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="grupo_nivel_idNivel" Type="Int32" Nullable="false" />
+    <Property Name="idHorario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="grupo" Relationship="Self.FK__horario__21B6055D" FromRole="horario" ToRole="grupo" />
+    <NavigationProperty Name="materia" Relationship="Self.FK__materia__22AA2996" FromRole="horario" ToRole="materia" />
+  </EntityType>
+  <EntityType Name="materia">
+    <Key>
+      <PropertyRef Name="idMateria" />
+      <PropertyRef Name="horario_grupo_idGrupo" />
+      <PropertyRef Name="horario_grupo_nivel_idNivel" />
+    </Key>
+    <Property Name="idMateria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreMateria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="horario_dia" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="profesor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="horario_grupo_idGrupo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="horario_grupo_nivel_idNivel" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="horario" Relationship="Self.FK__materia__22AA2996" FromRole="materia" ToRole="horario" />
+  </EntityType>
+  <EntityType Name="nivel">
+    <Key>
+      <PropertyRef Name="idNivel" />
+    </Key>
+    <Property Name="idNivel" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="grupo" Relationship="Self.FK__grupo__nivel_idN__20C1E124" FromRole="nivel" ToRole="grupo" />
+  </EntityType>
+  <EntityType Name="personal">
+    <Key>
+      <PropertyRef Name="idPersona" />
+    </Key>
+    <Property Name="idPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__evento__cronogra__1FCDBCEB">
+    <End Role="cronograma" Type="Self.cronograma" Multiplicity="1" />
+    <End Role="evento" Type="Self.evento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cronograma">
+        <PropertyRef Name="idCronograma" />
+      </Principal>
+      <Dependent Role="evento">
+        <PropertyRef Name="cronograma_idCronograma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__grupo__nivel_idN__20C1E124">
+    <End Role="nivel" Type="Self.nivel" Multiplicity="1" />
+    <End Role="grupo" Type="Self.grupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nivel">
+        <PropertyRef Name="idNivel" />
+      </Principal>
+      <Dependent Role="grupo">
+        <PropertyRef Name="nivel_idNivel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__horario__21B6055D">
+    <End Role="grupo" Type="Self.grupo" Multiplicity="1" />
+    <End Role="horario" Type="Self.horario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupo">
+        <PropertyRef Name="idGrupo" />
+        <PropertyRef Name="nivel_idNivel" />
+      </Principal>
+      <Dependent Role="horario">
+        <PropertyRef Name="grupo_idGrupo" />
+        <PropertyRef Name="grupo_nivel_idNivel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__materia__22AA2996">
+    <End Role="horario" Type="Self.horario" Multiplicity="1" />
+    <End Role="materia" Type="Self.materia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="horario">
+        <PropertyRef Name="dia" />
+        <PropertyRef Name="grupo_idGrupo" />
+        <PropertyRef Name="grupo_nivel_idNivel" />
+      </Principal>
+      <Dependent Role="materia">
+        <PropertyRef Name="horario_dia" />
+        <PropertyRef Name="horario_grupo_idGrupo" />
+        <PropertyRef Name="horario_grupo_nivel_idNivel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBcolegioEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="administrador" EntityType="Self.administrador" />
+    <EntitySet Name="cronograma" EntityType="Self.cronograma" />
+    <EntitySet Name="evento" EntityType="Self.evento" />
+    <EntitySet Name="galeria" EntityType="Self.galeria" />
+    <EntitySet Name="grupo" EntityType="Self.grupo" />
+    <EntitySet Name="horario" EntityType="Self.horario" />
+    <EntitySet Name="materia" EntityType="Self.materia" />
+    <EntitySet Name="nivel" EntityType="Self.nivel" />
+    <EntitySet Name="personal" EntityType="Self.personal" />
+    <AssociationSet Name="FK__evento__cronogra__1FCDBCEB" Association="Self.FK__evento__cronogra__1FCDBCEB">
+      <End Role="cronograma" EntitySet="cronograma" />
+      <End Role="evento" EntitySet="evento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__grupo__nivel_idN__20C1E124" Association="Self.FK__grupo__nivel_idN__20C1E124">
+      <End Role="nivel" EntitySet="nivel" />
+      <End Role="grupo" EntitySet="grupo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__horario__21B6055D" Association="Self.FK__horario__21B6055D">
+      <End Role="grupo" EntitySet="grupo" />
+      <End Role="horario" EntitySet="horario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__materia__22AA2996" Association="Self.FK__materia__22AA2996">
+      <End Role="horario" EntitySet="horario" />
+      <End Role="materia" EntitySet="materia" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -4,8 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
 using PruebaWebCAQ.Business;
-using PruebaWebCAQ.Domain;
-using System.IO;
 using AjaxControlToolkit;
 
 namespace PruebaWebCAQ
@@ -13,15 +11,19 @@ namespace PruebaWebCAQ
     public partial class AdminGallery : System.Web.UI.Page
     {
         GaleryBusiness GBusiness = new GaleryBusiness();
-        private List<Galery> list_Gallery;
+        private List<galeria> list_Gallery;
         private int i = 0;
+        HttpPostedFile fileToSave;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["USER_ID"] == null)
             {
                 Response.Redirect("Login.aspx");
             }
-
+            if (Session["image"] == null)
+                imgShow.Src = "Resources/default_img/default.png";
+            else
+                fileToSave = (HttpPostedFile)Session["image"];
             //Al cargar la imagen rellena el repeater con datos en caso que los hubiera.
             list_Gallery = GBusiness.galeryService();
             makeGalleryRepeater.DataSource = list_Gallery;
@@ -31,8 +33,7 @@ namespace PruebaWebCAQ
         // Metodo que hace el posteo
         protected void publishImg_Click(object sender, EventArgs e)
         {
-            try
-            {
+            
                 if(txtImgTitle.Text != "" && txtImgDesc.Text != "")
                 {
                     if(Session["image"] == null)
@@ -42,43 +43,28 @@ namespace PruebaWebCAQ
                     }                        
                     else
                     {
-                        HttpPostedFile postFile = (HttpPostedFile)Session["image"];
-                            string file = Path.GetFileName(postFile.FileName);
-                            string fileExtension = Path.GetExtension(file);
-                            using (FileStream fs = new FileStream(Server.MapPath(@"images\" + postFile.FileName).ToString(), FileMode.Open, FileAccess.Read))
-                            if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".bmp" || fileExtension.ToLower() == ".gif" || fileExtension.ToLower() == ".png")
-                            { 
-                                BinaryReader binaryReader = new BinaryReader(fs);
-                                byte[] bytes = binaryReader.ReadBytes((int)fs.Length);
-                                Galery ga = new Galery(txtImgTitle.Text, txtImgDesc.Text, bytes, DateTime.Today.ToShortDateString());
-                                messsage.InnerText = GBusiness.insertImageToGaleryService(ga);
-                                i = 0;
-                                list_Gallery = GBusiness.galeryService();
-                                makeGalleryRepeater.DataSource = list_Gallery;
-                                makeGalleryRepeater.DataBind();
-                                file = null;
-                                imgShow.Src = "Resources/default_img/default.png";
-                                Session["image"] = null;
-                                clearSpaces();
-                                ModalPopupExtender1.Show();
-                                Response.Redirect("AdminGallery.aspx");
-                            }
-                        else
-                                lblWarning.Text = "Solo imágenes (.jpg, .bmp, .gif, .png)";          
+                        galeria ga = new galeria();
+                        ga.nombre = txtImgTitle.Text;
+                        ga.descripcion = txtImgDesc.Text;
+                        ga.foto = "images/"+fileToSave.FileName;
+                        ga.fecha=DateTime.Today.ToShortDateString();
+                        messsage.InnerText = GBusiness.insertImageToGaleryService(ga);
+                        i = 0;
+                        list_Gallery = GBusiness.galeryService();
+                        makeGalleryRepeater.DataSource = list_Gallery;
+                        makeGalleryRepeater.DataBind();
+                        imgShow.Src = "Resources/default_img/default.png";
+                        Session["image"] = null;
+                        clearSpaces();
+                        ModalPopupExtender1.Show();
+                        Response.Redirect("AdminGallery.aspx");          
                     }
                 }
                 else
                 {
                     messsage.InnerText = "Debe completar los campos";
                     ModalPopupExtender1.Show();
-                    //lblWarning.Text = "Debe completar los campos*";
                 }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex);
-                lblWarning.Text = "Error al publicar la imagen";
-            }
         }
         
         //Evento de cancelacion del post
@@ -96,62 +82,40 @@ namespace PruebaWebCAQ
         }        
         
         //Metodo que mapea para guardar las imagenes
-        private string savePostedImage(System.Drawing.Image image)
-        {
-            string savePath = Server.MapPath(@"images\" + list_Gallery.ElementAt(i).Name + ".jpg");
-            System.Drawing.Graphics graphics = System.Drawing.Graphics.FromImage(image);
-            image.Save(savePath);
-            return "images/" + list_Gallery.ElementAt(i).Name + ".jpg";
-        }
+        
 
 
         //Metodo para Muestra la imagen en un marco
         protected void uploadImgGallery_Click(object sender, EventArgs e)
         {
-            if(imgUploadGallery.HasFile == false)
+            if(!imgUploadGallery.HasFile)
             {
                 messsage.InnerText = "Debe seleccionar la imagen antes";
                 ModalPopupExtender1.Show();
             }
             else
             {
-                byte[] byteArray = null;
-                if (imgUploadGallery.PostedFile != null)
-                {
-                    HttpPostedFile file = imgUploadGallery.PostedFile;
-                    file.SaveAs(Server.MapPath(@"images\" + file.FileName));
-                    using (FileStream fs = new FileStream(Server.MapPath(@"images\" + file.FileName).ToString(), FileMode.Open, FileAccess.Read))
-                    {
-                        byteArray = new byte[fs.Length];
-                        int iBytesRead = fs.Read(byteArray, 0, (int)fs.Length);
-                        if (byteArray != null && byteArray.Length > 0)
-                        {
-                            string base64String = Convert.ToBase64String(byteArray, 0, byteArray.Length);
-                            imgShow.Src = "data:image/png;base64," + base64String;
-                            Session["image"] = imgUploadGallery.PostedFile;
-                        }
-                    }
-                }
+
+                HttpPostedFile file = imgUploadGallery.PostedFile;
+                file.SaveAs(Server.MapPath(@"images\" + file.FileName));
+                imgShow.Src = "images/" + file.FileName;
+                Session["image"] = imgUploadGallery.PostedFile;
             }                          
         }
 
         //Metodo que manipula los controles del repeater desplegando los datos que se encuentren en la DB
         protected void makeGalleryRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-            System.Drawing.Image photo;
-            string path;
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 Image imgPosted = (Image)e.Item.FindControl("imagePosted");
-                photo = System.Drawing.Image.FromStream(list_Gallery.ElementAt(i).Photo);
-                path = savePostedImage(photo);
-                imgPosted.ImageUrl = path;
+                imgPosted.ImageUrl = list_Gallery.ElementAt(i).foto;
                 Label idImage = (Label)e.Item.FindControl("asIdGallery");
-                idImage.Text = Convert.ToString(list_Gallery.ElementAt(i).Id);
+                idImage.Text = Convert.ToString(list_Gallery.ElementAt(i).idFoto);
                 Label title = (Label)e.Item.FindControl("asTitleGallery");
-                title.Text = list_Gallery.ElementAt(i).Name;
+                title.Text = list_Gallery.ElementAt(i).nombre;
                 Label description = (Label)e.Item.FindControl("asDescGallery");
-                description.Text = list_Gallery.ElementAt(i).Description;
+                description.Text = list_Gallery.ElementAt(i).descripcion;
                 i++;
             }
         }
@@ -186,7 +150,11 @@ namespace PruebaWebCAQ
         //Evento que actualiza las caracteristicas de la imagen recibiendo por parametro el objeto galeria con sus atributos
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-            Galery gal = new Galery(Convert.ToInt32(galID.Text), titleToEdit.Value, descToEdit.Value, DateTime.Today.ToShortDateString());
+            galeria gal = new galeria();
+            gal.idFoto = Convert.ToInt32(galID.Text);
+            gal.nombre = titleToEdit.Value;
+            gal.descripcion = descToEdit.Value;
+            gal.fecha=DateTime.Today.ToShortDateString();
             messsage.InnerText = GBusiness.updateImageService(gal);
             ModalPopupExtender1.Show();
             i = 0;

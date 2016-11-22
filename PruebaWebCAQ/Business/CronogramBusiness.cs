@@ -9,13 +9,13 @@ namespace PruebaWebCAQ.Business
         ChronogramData data = new ChronogramData();
 
         //servicio de listado de cronogramas
-        public List<Chronogram> getAllChronogramsService()
+        public List<cronograma> getAllChronogramsService()
         {
             return data.getAllChronogram();
         }
 
         //servicio de agregacion
-        public string addChronogramService(Chronogram chronogram)
+        public string addChronogramService(cronograma chronogram)
         {
             string success = "";
             if (data.addChronogram(chronogram))
@@ -26,7 +26,7 @@ namespace PruebaWebCAQ.Business
         }
 
         //servicio de actualizacion
-        public string updateChronogramService(Chronogram chronogram)
+        public string updateChronogramService(cronograma chronogram)
         {
             string success = "";
             if (data.addChronogram(chronogram))

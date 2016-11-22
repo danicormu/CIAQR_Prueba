@@ -16,7 +16,6 @@ namespace PruebaWebCAQ
         private List<string> endTimeList = new List<string>();
         private string groupName = "";
         private List<Signature> listToShow = new List<Signature>();
-        private int i = 0;
         private int j = 0;
         private int t = 0;
         private int w = 0;

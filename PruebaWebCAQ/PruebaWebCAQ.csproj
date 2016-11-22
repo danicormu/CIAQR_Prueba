@@ -587,10 +587,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DDColegioModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Domain\Administrator.cs" />
-    <Compile Include="Domain\Chronogram.cs" />
-    <Compile Include="Domain\Event.cs" />
-    <Compile Include="Domain\Galery.cs" />
     <Compile Include="Domain\Group.cs" />
     <Compile Include="Domain\Personal.cs" />
     <Compile Include="Domain\Schedule.cs" />
