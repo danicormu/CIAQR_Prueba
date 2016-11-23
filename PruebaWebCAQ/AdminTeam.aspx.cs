@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
 using PruebaWebCAQ.Business;
-using PruebaWebCAQ.Domain;
 using System.IO;
 using AjaxControlToolkit;
 
@@ -13,9 +12,10 @@ namespace PruebaWebCAQ
     public partial class AdminTeam : System.Web.UI.Page
     {
         PersonalBusiness PBusiness = new PersonalBusiness();
-        private List<Personal> list_Personal;
+        private List<personal> list_Personal;
         private int i = 0;
-        
+        HttpPostedFile fileToSave;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,8 +23,10 @@ namespace PruebaWebCAQ
             {
                 Response.Redirect("Login.aspx");
             }
-
-
+            if (Session["image"] == null)
+                imgProfile.Src = "Resources/default_img/default.png";
+            else
+                fileToSave = (HttpPostedFile)Session["image"];
             list_Personal = PBusiness.returnAllEmployesService();
             makePersonRepeater.DataSource = list_Personal;
             makePersonRepeater.DataBind();
@@ -47,30 +49,21 @@ namespace PruebaWebCAQ
                         ModalPopupExtender1.Show();
                     }                                     
                     else
-                    {
-                        HttpPostedFile postFile = (HttpPostedFile)Session["image"];
-                        string file = Path.GetFileName(postFile.FileName);
-                        string fileExtension = Path.GetExtension(file);
-                        using (FileStream fs = new FileStream(Server.MapPath(@"images\" + postFile.FileName).ToString(), FileMode.Open, FileAccess.Read))
-                            if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".bmp" || fileExtension.ToLower() == ".gif" || fileExtension.ToLower() == ".png")
-                            {
-                                BinaryReader binaryReader = new BinaryReader(fs);
-                                byte[] bytes = binaryReader.ReadBytes((int)fs.Length);
-                                Personal pe = new Personal(name, description, role, bytes);
-                                messsage.InnerText = PBusiness.addService(pe);
-                                i = 0;
-                                list_Personal = PBusiness.returnAllEmployesService();
-                                makePersonRepeater.DataSource = list_Personal;
-                                makePersonRepeater.DataBind();
-                                file = null;
-                                imgProfile.Src = "Resources/default_img/default.png";
-                                Session["image"] = null;
-                                clearSpaces();
-                                ModalPopupExtender1.Show();
-                            }
-                            else
-                                messsage.InnerText = "Solo imágenes (.jpg, .bmp, .gif, .png)";
-                                ModalPopupExtender1.Show();
+                    {              
+                        personal pe = new personal();
+                        pe.nombre = name;
+                        pe.descripcion = description;
+                        pe.rol = role;
+                        pe.foto= "images/"+fileToSave.FileName;
+                        messsage.InnerText = PBusiness.addService(pe);
+                        i = 0;
+                        list_Personal = PBusiness.returnAllEmployesService();
+                        makePersonRepeater.DataSource = list_Personal;
+                        makePersonRepeater.DataBind();
+                        imgProfile.Src = "Resources/default_img/default.png";
+                        Session["image"] = null;
+                        clearSpaces();
+                        ModalPopupExtender1.Show();
                     }
                 }
                 else
@@ -96,26 +89,18 @@ namespace PruebaWebCAQ
             selectRole.SelectedValue = "1";
         }
 
-        private string saveImage(System.Drawing.Image image)
-        {
-            string savePath = Server.MapPath(@"images\" + list_Personal.ElementAt(i).Name + ".jpg");
-            System.Drawing.Graphics graphics = System.Drawing.Graphics.FromImage(image);
-            image.Save(savePath);
-            return "images/" + list_Personal.ElementAt(i).Name + ".jpg";
-        } 
-
         protected void makePersonRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 Label id = (Label)e.Item.FindControl("asIdPerson");
-                id.Text = Convert.ToString(list_Personal.ElementAt(i).Id);
+                id.Text = Convert.ToString(list_Personal.ElementAt(i).idPersona);
                 Label name = (Label)e.Item.FindControl("asNamePerson");
-                name.Text = list_Personal.ElementAt(i).Name;
+                name.Text = list_Personal.ElementAt(i).nombre;
                 Label description = (Label)e.Item.FindControl("asDescPerson");
-                description.Text = list_Personal.ElementAt(i).Description;
+                description.Text = list_Personal.ElementAt(i).descripcion;
                 Label role = (Label)e.Item.FindControl("asRolePerson");
-                role.Text = list_Personal.ElementAt(i).Rol;
+                role.Text = list_Personal.ElementAt(i).rol;
                 i++;
             }
         }
@@ -159,30 +144,10 @@ namespace PruebaWebCAQ
             }
             else
             {
-                byte[] byteArray = null;
-                if (imgUpload.PostedFile != null)
-                {
-                    // Get Client site full Image path need to be convert into HttpPostedFile
-                    HttpPostedFile file = imgUpload.PostedFile;
-                    file.SaveAs(Server.MapPath(@"images\" + file.FileName));
-                    //Use FileStream to convert the image into byte.
-                    using (FileStream fs = new FileStream(Server.MapPath(@"images\" + file.FileName).ToString(), FileMode.Open, FileAccess.Read))
-                    {
-                        byteArray = new byte[fs.Length];
-                        int iBytesRead = fs.Read(byteArray, 0, (int)fs.Length);
-                        if (byteArray != null && byteArray.Length > 0)
-                        {
-                            // Convert the byte into image
-                            string base64String = Convert.ToBase64String(byteArray, 0, byteArray.Length);
-                            imgProfile.Src = "data:image/png;base64," + base64String;
-                            Session["image"] = imgUpload.PostedFile;
-                        }
-                    }
-                }
-                else
-                {
-                    lblWarning.Text = "Debe seleccionar una imagen antes de mostrarla*";
-                }
+                HttpPostedFile file = imgUpload.PostedFile;
+                file.SaveAs(Server.MapPath(@"images\" + file.FileName));
+                imgProfile.Src = "images/" + file.FileName;
+                Session["image"] = imgUpload.PostedFile;
             }            
         }
 
@@ -193,7 +158,11 @@ namespace PruebaWebCAQ
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            Personal person = new Personal(Convert.ToInt32(personID.Text),nameToEdit.Value,descToEdit.Value,rolToEdit2.Value);
+            personal person = new personal();
+            person.idPersona = Convert.ToInt32(personID.Text);
+            person.nombre = nameToEdit.Value;
+            person.descripcion = descToEdit.Value;
+            person.rol=rolToEdit2.Value;
             messsage.InnerText= PBusiness.updateService(person);
             ModalPopupExtender1.Show();
             personID.Text = "";

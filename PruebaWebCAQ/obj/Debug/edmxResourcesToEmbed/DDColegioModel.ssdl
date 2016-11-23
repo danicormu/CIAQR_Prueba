@@ -85,7 +85,7 @@
     <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
     <Property Name="rol" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="foto" Type="varbinary(max)" Nullable="false" />
+    <Property Name="foto" Type="varchar" MaxLength="255" />
   </EntityType>
   <Association Name="FK__evento__cronogra__1FCDBCEB">
     <End Role="cronograma" Type="Self.cronograma" Multiplicity="1" />

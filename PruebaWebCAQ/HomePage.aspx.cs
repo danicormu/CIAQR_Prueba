@@ -11,8 +11,8 @@ namespace PruebaWebCAQ
     public partial class PruebaDeMenu : System.Web.UI.Page
     {
         PersonalBusiness personal = new PersonalBusiness();
-        private List<Personal> list;
-        private List<Personal> profList;
+        private List<personal> list;
+        private List<personal> profList;
         SendMailService service = new SendMailService();
         private int i =0;
         private int j=0;
@@ -32,39 +32,19 @@ namespace PruebaWebCAQ
 
         protected void personalRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-            System.Drawing.Image photo;
-            string path;
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 Image personalImage = (Image)e.Item.FindControl("personalImage");
-                photo = System.Drawing.Image.FromStream(list.ElementAt(i).Photo);
-                path= saveImage(photo);
-                personalImage.ImageUrl = path;
+                personalImage.ImageUrl = list.ElementAt(i).foto;
                 HtmlGenericControl name = (HtmlGenericControl)e.Item.FindControl("personalName");
-                name.InnerText = list.ElementAt(i).Name;
+                name.InnerText = list.ElementAt(i).nombre;
                 Label rol = (Label)e.Item.FindControl("personalRol");
-                rol.Text = list.ElementAt(i).Rol;
+                rol.Text = list.ElementAt(i).rol;
                 Label description = (Label)e.Item.FindControl("personalDescription");
-                description.Text = list.ElementAt(i).Description;
+                description.Text = list.ElementAt(i).descripcion;
                 i++;
             }
-        }
-
-        private string saveImage(System.Drawing.Image image)
-        {
-            string savePath = Server.MapPath(@"images\" + list.ElementAt(i).Name + ".jpg");
-            System.Drawing.Graphics graphics = System.Drawing.Graphics.FromImage(image);
-            image.Save(savePath);
-            return "images/" + list.ElementAt(i).Name + ".jpg";
-        }
-        private string saveProfImage(System.Drawing.Image image)
-        {
-            string savePath = Server.MapPath(@"images\" + profList.ElementAt(j).Name + ".jpg");
-            System.Drawing.Graphics graphics = System.Drawing.Graphics.FromImage(image);
-            image.Save(savePath);
-            return "images/" + profList.ElementAt(j).Name + ".jpg";
-        }
-        
+        }        
 
         protected void senMail_Click(object sender, EventArgs e)
         {
@@ -87,20 +67,16 @@ namespace PruebaWebCAQ
 
         protected void teacherRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-            System.Drawing.Image photo;
-            string path;
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 Image personalImage = (Image)e.Item.FindControl("professorImage");
-                photo = System.Drawing.Image.FromStream(profList.ElementAt(j).Photo);
-                path = saveProfImage(photo);
-                personalImage.ImageUrl = path;
+                personalImage.ImageUrl = profList.ElementAt(j).foto;
                 HtmlGenericControl name = (HtmlGenericControl)e.Item.FindControl("profName");
-                name.InnerText = profList.ElementAt(j).Name;
+                name.InnerText = profList.ElementAt(j).nombre;
                 HtmlGenericControl rol = (HtmlGenericControl)e.Item.FindControl("profRol");
-                rol.InnerText = profList.ElementAt(j).Rol;
+                rol.InnerText = profList.ElementAt(j).rol;
                 Label description = (Label)e.Item.FindControl("profDescription");
-                description.Text = profList.ElementAt(j).Description;
+                description.Text = profList.ElementAt(j).descripcion;
                 j++;
             }       
         }

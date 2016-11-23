@@ -1,176 +1,62 @@
-﻿using System;
+﻿using System.Linq;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using PruebaWebCAQ.Domain;
+
 
 namespace PruebaWebCAQ.Data
 {
-    class PersonalData:DBConnection
+    class PersonalData
     {
+        DBcolegioEntities DbContext = new DBcolegioEntities();
         // lista de personal
-        public List<Personal> getAllPersonal()
+        public List<personal> getAllPersonal()
         {
-            List<Personal> list = new List<Personal>();
-            try
-            {
-                connectDB();
-                SqlCommand query = new SqlCommand("select * from personal", conn);
-                conn.Open();
-                SqlDataReader reader = query.ExecuteReader();
-                while (reader.Read())
-                {
-                    Personal person = new Personal(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetStream(4));
-                    list.Add(person);
-                }
-                reader.Close();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                disconnectDB();
-                conn.Close();
-            }
-            return list;
+            return DbContext.personal.ToList();
         }
 
-        public List<Personal> getProfessors()
+        public List<personal> getProfessors()
         {
-            List<Personal> list = new List<Personal>();
-            try
-            {
-                connectDB();
-                SqlCommand query = new SqlCommand("select * from personal where rol = 'profesor' or rol ='profesora';", conn);
-                conn.Open();
-                SqlDataReader reader = query.ExecuteReader();
-                while (reader.Read())
-                {
-                    Personal person = new Personal(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetStream(4));
-                    list.Add(person);
-                }
-                reader.Close();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                disconnectDB();
-                conn.Close();
-            }
-            return list;
+            return DbContext.personal.Where(p => p.rol == "Profesor" || p.rol == "Profesora").ToList();
         }
 
-        public List<Personal> getAdministrative()
+        public List<personal> getAdministrative()
         {
-            List<Personal> list = new List<Personal>();
-            try
-            {
-                connectDB();
-                SqlCommand query = new SqlCommand("select * from personal where rol = 'Miembro de Junta';", conn);
-                conn.Open();
-                SqlDataReader reader = query.ExecuteReader();
-                while (reader.Read())
-                {
-                    Personal person = new Personal(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetStream(4));
-                    list.Add(person);
-                }
-                reader.Close();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                disconnectDB();
-                conn.Close();
-            }
-            return list;
+            return DbContext.personal.Where(p => p.rol == "Miembro de Junta").ToList();
         }
 
         //agrega un nuevo miembro al personal
-        public bool insertPerson(Personal person)
+        public bool insertPerson(personal person)
         {
-            bool flag = false;
-            try
-            {
-                connectDB();
-                SqlCommand query = new SqlCommand("insert into personal values(@name,@description,@rol,@photo)", conn);
-                query.Parameters.AddWithValue("@name", person.Name);
-                query.Parameters.AddWithValue("@description", person.Description);
-                query.Parameters.AddWithValue("@rol", person.Rol);
-                query.Parameters.AddWithValue("@photo", person.PhotoToInsert);
-                conn.Open();
-                query.ExecuteNonQuery();
-                flag = true;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                disconnectDB();
-                conn.Close();
-            }
-            return flag;
+            DbContext.personal.Add(person);
+            if (DbContext.SaveChanges() == 1)
+                return true;
+            else
+                return false;
         }
 
         //hace un update del miembro del personal.
-        public bool updatePersonal(Personal person)
+        public bool updatePersonal(personal person)
         {
-            bool flag = false;
-            try
-            {
-                connectDB();
-                SqlCommand query = new SqlCommand("update personal set nombre = @name, descripcion = @description, rol = @rol where idPersona = @id;", conn);
-                query.Parameters.AddWithValue("@name", person.Name);
-                query.Parameters.AddWithValue("@description", person.Description);
-                query.Parameters.AddWithValue("@rol", person.Rol);
-                query.Parameters.AddWithValue("@id", person.Id);
-                conn.Open();
-                query.ExecuteNonQuery();
-                flag = true;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                disconnectDB();
-                conn.Close();
-            }
-            return flag;
+            personal personal = DbContext.personal.Where(p => p.idPersona == person.idPersona).FirstOrDefault();
+            personal.descripcion = person.descripcion;
+            personal.foto = person.foto;
+            personal.nombre = person.nombre;
+            personal.rol = person.rol;
+            if (DbContext.SaveChanges() == 1)
+                return true;
+            else
+                return false;
         }
 
         //borra un miembro del personal
         public bool deletePerson(int id)
         {
-            bool flag = false;
-            try
-            {
-                connectDB();
-                SqlCommand query = new SqlCommand("delete from personal where idPersona = @id;", conn);
-                query.Parameters.AddWithValue("@id", id);
-                conn.Open();
-                query.ExecuteNonQuery();
-                flag = true;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                disconnectDB();
-                conn.Close();
-            }
-            return flag;
+            personal personal = DbContext.personal.Where(p => p.idPersona == id).FirstOrDefault();
+            DbContext.personal.Remove(personal);
+            if (DbContext.SaveChanges() == 1)
+                return true;
+            else
+                return false;
+
         }
     }
 }

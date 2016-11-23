@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using PruebaWebCAQ.Data;
-using PruebaWebCAQ.Domain;
 
 namespace PruebaWebCAQ.Business
 {
@@ -9,22 +8,22 @@ namespace PruebaWebCAQ.Business
         PersonalData data = new PersonalData();
 
         //servicio de listado de personal
-        public List<Personal> returnAllEmployesService()
+        public List<personal> returnAllEmployesService()
         {
             return data.getAllPersonal();
         }
 
-        public List<Personal> returnAllProfessors()
+        public List<personal> returnAllProfessors()
         {
             return data.getProfessors();
         }
 
-        public List<Personal> returnAllAdministrative()
+        public List<personal> returnAllAdministrative()
         {
             return data.getAdministrative();
         }
         //servicio de agregado de personal
-        public string addService(Personal person)
+        public string addService(personal person)
         {
             string success = "";
             if (data.insertPerson(person))
@@ -35,11 +34,11 @@ namespace PruebaWebCAQ.Business
         }
 
         // servicio de actualizacion de datos
-        public string updateService(Personal person)
+        public string updateService(personal person)
         {
             string success = "";
             if (data.updatePersonal(person))
-                success = "Se han actualizado los datos de "+ person.Name;
+                success = "Se han actualizado los datos de "+ person.nombre;
             else
                 success = "No ha sido actualizado. Revise su conexión a la red o contacte a su proveedor de servicios";
             return success;

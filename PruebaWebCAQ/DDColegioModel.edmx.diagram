@@ -13,11 +13,11 @@
         <EntityTypeShape EntityType="DBcolegioModel.horario" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="DBcolegioModel.materia" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="DBcolegioModel.nivel" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBcolegioModel.personal" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
         <AssociationConnector Association="DBcolegioModel.FK__evento__cronogra__1FCDBCEB" ManuallyRouted="false" />
         <AssociationConnector Association="DBcolegioModel.FK__grupo__nivel_idN__20C1E124" ManuallyRouted="false" />
         <AssociationConnector Association="DBcolegioModel.FK__horario__21B6055D" ManuallyRouted="false" />
         <AssociationConnector Association="DBcolegioModel.FK__materia__22AA2996" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBcolegioModel.personal" Width="1.5" PointX="5.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

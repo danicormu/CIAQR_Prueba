@@ -588,7 +588,6 @@
       <DependentUpon>DDColegioModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Domain\Group.cs" />
-    <Compile Include="Domain\Personal.cs" />
     <Compile Include="Domain\Schedule.cs" />
     <Compile Include="Domain\signature.cs" />
     <Compile Include="EditSchedule.aspx.cs">

@@ -90,7 +90,7 @@
           <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
           <Property Name="rol" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="foto" Type="varchar(max)" Nullable="false" />
+          <Property Name="foto" Type="varchar" MaxLength="255" />
         </EntityType>
         <Association Name="FK__evento__cronogra__1FCDBCEB">
           <End Role="cronograma" Type="Self.cronograma" Multiplicity="1" />
@@ -262,16 +262,6 @@
           <Property Name="idNivel" Type="Int32" Nullable="false" />
           <NavigationProperty Name="grupo" Relationship="Self.FK__grupo__nivel_idN__20C1E124" FromRole="nivel" ToRole="grupo" />
         </EntityType>
-        <EntityType Name="personal">
-          <Key>
-            <PropertyRef Name="idPersona" />
-          </Key>
-          <Property Name="idPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-        </EntityType>
         <Association Name="FK__evento__cronogra__1FCDBCEB">
           <End Role="cronograma" Type="Self.cronograma" Multiplicity="1" />
           <End Role="evento" Type="Self.evento" Multiplicity="*" />
@@ -335,7 +325,6 @@
           <EntitySet Name="horario" EntityType="Self.horario" />
           <EntitySet Name="materia" EntityType="Self.materia" />
           <EntitySet Name="nivel" EntityType="Self.nivel" />
-          <EntitySet Name="personal" EntityType="Self.personal" />
           <AssociationSet Name="FK__evento__cronogra__1FCDBCEB" Association="Self.FK__evento__cronogra__1FCDBCEB">
             <End Role="cronograma" EntitySet="cronograma" />
             <End Role="evento" EntitySet="evento" />
@@ -352,7 +341,18 @@
             <End Role="horario" EntitySet="horario" />
             <End Role="materia" EntitySet="materia" />
           </AssociationSet>
+          <EntitySet Name="personal" EntityType="DBcolegioModel.personal" />
         </EntityContainer>
+        <EntityType Name="personal">
+          <Key>
+            <PropertyRef Name="idPersona" />
+          </Key>
+          <Property Name="idPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="rol" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="foto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -442,11 +442,11 @@
           <EntitySetMapping Name="personal">
             <EntityTypeMapping TypeName="DBcolegioModel.personal">
               <MappingFragment StoreEntitySet="personal">
-                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="rol" ColumnName="rol" />
                 <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
