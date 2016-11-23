@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using PruebaWebCAQ.Data;
-using PruebaWebCAQ.Domain;
 
 namespace PruebaWebCAQ.Business
 {
     class ScheduleBusiness
     {
         ScheduleData data = new ScheduleData();
-        public List<Schedule> getScheduleService()
+        public List<horario> getScheduleService()
         {
             return data.getAllSchedule();
         }
@@ -17,7 +16,7 @@ namespace PruebaWebCAQ.Business
             return data.getScheduleByDayAndGroup(day, group);
         }
 
-        public string createScheduleService(Schedule schedule)
+        public string createScheduleService(horario schedule)
         {
             string success = "";
             if (data.addSchedule(schedule))
@@ -27,7 +26,7 @@ namespace PruebaWebCAQ.Business
             return success; 
         }
 
-        public string updateScheduleService(Schedule schedule)
+        public string updateScheduleService(horario schedule)
         {
             string success = "";
             if(data.updateSchedule(schedule))

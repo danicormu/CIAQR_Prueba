@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using PruebaWebCAQ.Data;
-using PruebaWebCAQ.Domain;
 
 namespace PruebaWebCAQ.Business
 {
@@ -8,21 +7,21 @@ namespace PruebaWebCAQ.Business
     {
         SignatureData data = new SignatureData();
 
-        public List<Signature> getAllSignatureService()
+        public List<materia> getAllSignatureService()
         {
             return data.getSignatures();
         }
 
-        public List<Signature> getSignatureByGrupoIDService(string name, string day)
+        public List<materia> getSignatureByGrupoIDService(string name, string day)
         {
             return data.getSignaturesByGroupId(name, day);
         }
 
-        public Signature getsignatureByIdService(int id)
+        public materia getsignatureByIdService(int id)
         {
             return data.getSignatureById(id);
         } 
-        public string createSignatureService(Signature signature)
+        public string createSignatureService(materia signature)
         {
             string success = "";
             if (data.addSignature(signature))
@@ -32,7 +31,7 @@ namespace PruebaWebCAQ.Business
             return success;
         }
 
-        public string updateSignatureService(Signature signature)
+        public string updateSignatureService(materia signature)
         {
             string success = "";
             if(data.updateSignature(signature))

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace PruebaWebCAQ.Data
@@ -17,7 +16,7 @@ namespace PruebaWebCAQ.Data
         // lista todos los grupos de un nivel
         public List<grupo> getGroupsByLevel(int level)
         {
-            return DBContext.grupo.Where(g => g.nivel.Equals(level)).ToList();
+            return DBContext.grupo.Where(g => g.nivel_idNivel == level).ToList();
             
         }
 

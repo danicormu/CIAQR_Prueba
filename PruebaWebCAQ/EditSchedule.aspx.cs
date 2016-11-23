@@ -1,6 +1,5 @@
 ﻿using AjaxControlToolkit;
 using PruebaWebCAQ.Business;
-using PruebaWebCAQ.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +13,7 @@ namespace PruebaWebCAQ
         private string group;
         private int lvl = 0;
         private int i = 0;
-        private List<Signature> signatureList = new List<Signature>();
+        private List<materia> signatureList = new List<materia>();
         private SignatureBusiness signature = new SignatureBusiness();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,12 +42,12 @@ namespace PruebaWebCAQ
                 Label start = (Label)e.Item.FindControl("signatureStartTime");
                 Label end = (Label)e.Item.FindControl("signatureEndTime");
                 LinkButton edit = (LinkButton)e.Item.FindControl("editBtn");
-                id.Text = signatureList.ElementAt(i).SignatureId.ToString();
-                name.Text = signatureList.ElementAt(i).Name;
-                day.Text = signatureList.ElementAt(i).Day;
-                prof.Text = signatureList.ElementAt(i).Professor;
-                start.Text = signatureList.ElementAt(i).StartTime;
-                end.Text = signatureList.ElementAt(i).EndTime;
+                id.Text = signatureList.ElementAt(i).idMateria.ToString();
+                name.Text = signatureList.ElementAt(i).nombreMateria;
+                day.Text = signatureList.ElementAt(i).horario_dia;
+                prof.Text = signatureList.ElementAt(i).profesor;
+                start.Text = signatureList.ElementAt(i).horario.horaInicio;
+                end.Text = signatureList.ElementAt(i).horario.horaFinal;
                 edit.Text = "Editar";
                 i++;
             }     
@@ -82,7 +81,15 @@ namespace PruebaWebCAQ
 
         protected void updateBtn_Click(object sender, EventArgs e)
         {
-            Signature sig = new Signature(Convert.ToInt32(idToUpdate.Text),updateName.Text,updateDay.Text,updateProf.Text,group,lvl,updateStart.Text,updateEnd.Text);
+            materia sig = new materia();
+            sig.idMateria = Convert.ToInt32(idToUpdate.Text);
+            sig.nombreMateria = updateName.Text;
+            sig.horario_dia = updateDay.Text;
+            sig.profesor = updateProf.Text;
+            sig.horario_grupo_idGrupo = group;
+            sig.horario_grupo_nivel_idNivel = lvl;
+            sig.horario.horaInicio = updateStart.Text;
+            sig.horario.horaFinal=updateEnd.Text;
             message.InnerText = signature.updateSignatureService(sig);
             i=0;
             signatureList = signature.getSignatureByGrupoIDService(group, day);

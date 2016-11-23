@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
-using PruebaWebCAQ.Domain;
 using PruebaWebCAQ.Business;
 using AjaxControlToolkit;
 
@@ -12,7 +11,7 @@ namespace PruebaWebCAQ
     {
         Groupbusiness groupBusiness = new Groupbusiness();
 
-        private List<Group> list_group;
+        private List<grupo> list_group;
         private int i = 0;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -35,7 +34,9 @@ namespace PruebaWebCAQ
                 string level = selectLevel.SelectedItem.Text;
                 string group = txtGroupName.Text;
                 int idLevel = Convert.ToInt32(level.ToString());
-                Group gr = new Group(group, idLevel);
+                grupo gr = new grupo();
+                gr.idGrupo = group;
+                gr.nivel_idNivel=idLevel;
                 mesgP.InnerText = groupBusiness.addGroupservice(gr);
                 ModalPopupExtenderForMessage.Show();
             }
@@ -59,9 +60,9 @@ namespace PruebaWebCAQ
             if(e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 Label level = (Label)e.Item.FindControl("lblGroupLevel");
-                level.Text = list_group.ElementAt(i).LevelId.ToString();
+                level.Text = list_group.ElementAt(i).nivel_idNivel.ToString();
                 Label group = (Label)e.Item.FindControl("lblGroupName");
-                group.Text = list_group.ElementAt(i).GroupName;
+                group.Text = list_group.ElementAt(i).idGrupo;
                 i++;
             }
         }
@@ -109,7 +110,8 @@ namespace PruebaWebCAQ
         //Evento que me actualiza lo se edita
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            Group gr = new Group(groupToEdit.Value);
+            grupo gr = new grupo();
+            gr.idGrupo=groupToEdit.Value;
             mesgP.InnerText= groupBusiness.updateGroupService(gr, lblGroup.Text);
             ModalPopupExtenderForMessage.Show();
             i = 0;

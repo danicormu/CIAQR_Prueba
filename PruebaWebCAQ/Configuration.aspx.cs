@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
 using PruebaWebCAQ.Business;
-using PruebaWebCAQ.Domain;
 using AjaxControlToolkit;
 
 namespace PruebaWebCAQ

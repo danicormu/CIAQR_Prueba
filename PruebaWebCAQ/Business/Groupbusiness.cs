@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using PruebaWebCAQ.Data;
-using PruebaWebCAQ.Domain;
 
 namespace PruebaWebCAQ.Business
 {
@@ -9,19 +8,19 @@ namespace PruebaWebCAQ.Business
         GroupData data = new GroupData();
 
         // servicio de listado
-        public List<Group> allGroupsService()
+        public List<grupo> allGroupsService()
         {
             return data.getAllGroups();
         }
 
         //servicio de listado de un solo nivel
-        public List<Group> getGroupsByLevelService(int level)
+        public List<grupo> getGroupsByLevelService(int level)
         {
             return data.getGroupsByLevel(level);
         }
 
         //servicio de agregado de grupos
-        public string addGroupservice(Group group)
+        public string addGroupservice(grupo group)
         {
             string success = "";
             if(data.addGroup(group))
@@ -32,7 +31,7 @@ namespace PruebaWebCAQ.Business
         }
 
         //servicio de actualizaciones
-        public string updateGroupService(Group group, string idGroup)
+        public string updateGroupService(grupo group, string idGroup)
         {
             string success = "";
             if (data.updateGroupName(group, idGroup))

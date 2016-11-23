@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using PruebaWebCAQ.Data;
-using PruebaWebCAQ.Domain;
 
 namespace PruebaWebCAQ.Business
 {

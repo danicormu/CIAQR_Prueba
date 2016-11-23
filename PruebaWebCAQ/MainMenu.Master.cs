@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
 using PruebaWebCAQ.Business;
-using PruebaWebCAQ.Domain;
 
 namespace PruebaWebCAQ
 {
     public partial class MainMenu : System.Web.UI.MasterPage
     {
         Groupbusiness group = new Groupbusiness();
-        private List<Group> list;
+        private List<grupo> list;
         public string groupName;
         private int i = 0;
         private int j = 0;
@@ -32,7 +31,7 @@ namespace PruebaWebCAQ
             list = group.getGroupsByLevelService(7);
             List<string> sublist = new List<string>();
             foreach (var element in list)
-                sublist.Add(element.GroupName);
+                sublist.Add(element.idGrupo);
             seventhRepeater.DataSource = sublist;
             seventhRepeater.DataBind();
         }
@@ -42,7 +41,7 @@ namespace PruebaWebCAQ
             list = group.getGroupsByLevelService(8);
             List<string> sublist = new List<string>();
             foreach (var element in list)
-                sublist.Add(element.GroupName);
+                sublist.Add(element.idGrupo);
             eightRepeater.DataSource = sublist;
             eightRepeater.DataBind();
         }
@@ -52,7 +51,7 @@ namespace PruebaWebCAQ
             list = group.getGroupsByLevelService(9);
             List<string> sublist = new List<string>();
             foreach (var element in list)
-                sublist.Add(element.GroupName);
+                sublist.Add(element.idGrupo);
             ninthRepeater.DataSource = sublist;
             ninthRepeater.DataBind();
         }
@@ -62,7 +61,7 @@ namespace PruebaWebCAQ
             list = group.getGroupsByLevelService(10);
             List<string> sublist = new List<string>();
             foreach (var element in list)
-                sublist.Add(element.GroupName);
+                sublist.Add(element.idGrupo);
             tenthRepeater.DataSource = sublist;
             tenthRepeater.DataBind();
         }
@@ -72,7 +71,7 @@ namespace PruebaWebCAQ
             list = group.getGroupsByLevelService(11);
             List<string> sublist = new List<string>();
             foreach (var element in list)
-                sublist.Add(element.GroupName);
+                sublist.Add(element.idGrupo);
             eleventhRepeater.DataSource = sublist;
             eleventhRepeater.DataBind();
         }
@@ -92,7 +91,7 @@ namespace PruebaWebCAQ
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 LinkButton button = (LinkButton)e.Item.FindControl("groupLabel");
-                button.Text = list.ElementAt(i).GroupName;
+                button.Text = list.ElementAt(i).idGrupo;
                 i++;
             }
         }
@@ -112,7 +111,7 @@ namespace PruebaWebCAQ
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 LinkButton button = (LinkButton)e.Item.FindControl("groupLabel");
-                button.Text = list.ElementAt(j).GroupName;
+                button.Text = list.ElementAt(j).idGrupo;
                 j++;
             }
         }
@@ -132,7 +131,7 @@ namespace PruebaWebCAQ
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 LinkButton button = (LinkButton)e.Item.FindControl("groupLabel");
-                button.Text = list.ElementAt(c).GroupName;
+                button.Text = list.ElementAt(c).idGrupo;
                 c++;
             }
         }
@@ -152,7 +151,7 @@ namespace PruebaWebCAQ
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 LinkButton button = (LinkButton)e.Item.FindControl("groupLabel");
-                button.Text = list.ElementAt(a).GroupName;
+                button.Text = list.ElementAt(a).idGrupo;
                 a++;
             }
         }
@@ -162,7 +161,7 @@ namespace PruebaWebCAQ
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 LinkButton button = (LinkButton)e.Item.FindControl("groupLabel");
-                button.Text = list.ElementAt(b).GroupName;
+                button.Text = list.ElementAt(b).idGrupo;
                 b++;
             }
         }

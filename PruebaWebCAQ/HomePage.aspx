@@ -174,7 +174,7 @@
                 </div>
             </div>
         </div>
-        <asp:Panel ID="Panel1" Style="display: none" CssClass="modalPopup" align="center" runat="server">
+        <asp:Panel ID="Panel1" Style="display: none" CssClass="modalPopup"  runat="server">
             <p runat="server" id="message"></p>
             <hr />
             <input id="btnCancel" type="button" value="Aceptar" />

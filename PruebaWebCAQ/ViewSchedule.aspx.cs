@@ -1,6 +1,5 @@
 ﻿using AjaxControlToolkit;
 using PruebaWebCAQ.Business;
-using PruebaWebCAQ.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +10,11 @@ namespace PruebaWebCAQ
     public partial class ViewSchedule : System.Web.UI.Page
     {
         private SignatureBusiness signature= new SignatureBusiness();
-        private List<Signature> signatureList;
+        private List<materia> signatureList;
         private List<string> startTimeList = new List<string>();
         private List<string> endTimeList = new List<string>();
         private string groupName = "";
-        private List<Signature> listToShow = new List<Signature>();
+        private List<materia> listToShow = new List<materia>();
         private int j = 0;
         private int t = 0;
         private int w = 0;
@@ -96,11 +95,11 @@ namespace PruebaWebCAQ
             
             HiddenField button = (HiddenField)e.Item.FindControl("hiddenId");
             int id = Convert.ToInt32(button.Value);
-            Signature sig = signature.getsignatureByIdService(id);
-            signatureText.Text = sig.Name;
-            prof.Text = sig.Professor;
-            start.Text = sig.StartTime;
-            end.Text = sig.EndTime;  
+            materia sig = signature.getsignatureByIdService(id);
+            signatureText.Text = sig.nombreMateria;
+            prof.Text = sig.profesor;
+            start.Text = sig.horario.horaInicio;
+            end.Text = sig.horario.horaFinal;  
             ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender1");
             popup.Show();
         }
@@ -109,11 +108,11 @@ namespace PruebaWebCAQ
         {
             HiddenField button = (HiddenField)e.Item.FindControl("hiddenId");
             int id = Convert.ToInt32(button.Value);
-            Signature sig = signature.getsignatureByIdService(id);
-            signatureText.Text = sig.Name;
-            prof.Text = sig.Professor;
-            start.Text = sig.StartTime;
-            end.Text = sig.EndTime;
+            materia sig = signature.getsignatureByIdService(id);
+            signatureText.Text = sig.nombreMateria;
+            prof.Text = sig.profesor;
+            start.Text = sig.horario.horaInicio;
+            end.Text = sig.horario.horaFinal;
             ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender1");
             popup.Show();
         }
@@ -122,11 +121,11 @@ namespace PruebaWebCAQ
         {
             HiddenField button = (HiddenField)e.Item.FindControl("hiddenId");
             int id = Convert.ToInt32(button.Value);
-            Signature sig = signature.getsignatureByIdService(id);
-            signatureText.Text = sig.Name;
-            prof.Text = sig.Professor;
-            start.Text = sig.StartTime;
-            end.Text = sig.EndTime;
+            materia sig = signature.getsignatureByIdService(id);
+            signatureText.Text = sig.nombreMateria;
+            prof.Text = sig.profesor;
+            start.Text = sig.horario.horaInicio;
+            end.Text = sig.horario.horaFinal;
             ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender1");
             popup.Show();
         }
@@ -135,11 +134,11 @@ namespace PruebaWebCAQ
         {
             HiddenField button = (HiddenField)e.Item.FindControl("hiddenId");
             int id = Convert.ToInt32(button.Value);
-            Signature sig = signature.getsignatureByIdService(id);
-            signatureText.Text = sig.Name;
-            prof.Text = sig.Professor;
-            start.Text = sig.StartTime;
-            end.Text = sig.EndTime;
+            materia sig = signature.getsignatureByIdService(id);
+            signatureText.Text = sig.nombreMateria;
+            prof.Text = sig.profesor;
+            start.Text = sig.horario.horaInicio;
+            end.Text = sig.horario.horaFinal;
             ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender1");
             popup.Show();
         }
@@ -148,11 +147,11 @@ namespace PruebaWebCAQ
         {
             HiddenField button = (HiddenField)e.Item.FindControl("hiddenId");
             int id = Convert.ToInt32(button.Value);
-            Signature sig = signature.getsignatureByIdService(id);
-            signatureText.Text = sig.Name;
-            prof.Text = sig.Professor;
-            start.Text = sig.StartTime;
-            end.Text = sig.EndTime;
+            materia sig = signature.getsignatureByIdService(id);
+            signatureText.Text = sig.nombreMateria;
+            prof.Text = sig.profesor;
+            start.Text = sig.horario.horaInicio;
+            end.Text = sig.horario.horaFinal;
             ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender1");
             popup.Show();
         }
@@ -171,45 +170,45 @@ namespace PruebaWebCAQ
         protected void mondayList_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
             LinkButton sign=  (LinkButton)e.Item.FindControl("Monday");
-            sign.Text = signatureList.ElementAt(j).Name;
+            sign.Text = signatureList.ElementAt(j).nombreMateria;
             HiddenField id = (HiddenField)e.Item.FindControl("hiddenId");
-            id.Value = signatureList.ElementAt(j).SignatureId.ToString();
+            id.Value = signatureList.ElementAt(j).idMateria.ToString();
             j++;
         }
 
         protected void tuesdayList_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
             LinkButton sign = (LinkButton)e.Item.FindControl("tuesday");
-            sign.Text = signatureList.ElementAt(t).Name;
+            sign.Text = signatureList.ElementAt(t).nombreMateria;
             HiddenField id = (HiddenField)e.Item.FindControl("hiddenId");
-            id.Value = signatureList.ElementAt(t).SignatureId.ToString();
+            id.Value = signatureList.ElementAt(t).idMateria.ToString();
             t++;
         }
 
         protected void wendsdayList_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
             LinkButton sign = (LinkButton)e.Item.FindControl("wendsday");
-            sign.Text = signatureList.ElementAt(w).Name;
+            sign.Text = signatureList.ElementAt(w).nombreMateria;
             HiddenField id = (HiddenField)e.Item.FindControl("hiddenId");
-            id.Value = signatureList.ElementAt(w).SignatureId.ToString();
+            id.Value = signatureList.ElementAt(w).idMateria.ToString();
             w++;
         }
 
         protected void thursdarList_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
             LinkButton sign = (LinkButton)e.Item.FindControl("thursday");
-            sign.Text = signatureList.ElementAt(th).Name;
+            sign.Text = signatureList.ElementAt(th).nombreMateria;
             HiddenField id = (HiddenField)e.Item.FindControl("hiddenId");
-            id.Value = signatureList.ElementAt(th).SignatureId.ToString();
+            id.Value = signatureList.ElementAt(th).idMateria.ToString();
             th++;
         }
 
         protected void fridayList_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
             LinkButton sign = (LinkButton)e.Item.FindControl("friday");
-            sign.Text = signatureList.ElementAt(f).Name;
+            sign.Text = signatureList.ElementAt(f).nombreMateria;
             HiddenField id = (HiddenField)e.Item.FindControl("hiddenId");
-            id.Value = signatureList.ElementAt(f).SignatureId.ToString();
+            id.Value = signatureList.ElementAt(f).idMateria.ToString();
             f++;
         }
     }

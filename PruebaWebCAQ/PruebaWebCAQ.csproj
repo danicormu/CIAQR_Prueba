@@ -567,7 +567,6 @@
     </Compile>
     <Compile Include="Data\AdministratorData.cs" />
     <Compile Include="Data\ChronogramData.cs" />
-    <Compile Include="Data\DBConnection.cs" />
     <Compile Include="Data\EventData.cs" />
     <Compile Include="Data\GaleryData.cs" />
     <Compile Include="Data\GroupData.cs" />
@@ -587,9 +586,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DDColegioModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Domain\Group.cs" />
-    <Compile Include="Domain\Schedule.cs" />
-    <Compile Include="Domain\signature.cs" />
     <Compile Include="EditSchedule.aspx.cs">
       <DependentUpon>EditSchedule.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
