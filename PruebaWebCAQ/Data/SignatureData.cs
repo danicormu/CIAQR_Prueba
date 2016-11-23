@@ -1,180 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Data.SqlClient;
-using PruebaWebCAQ.Domain;
 
 namespace PruebaWebCAQ.Data
 {
-    class SignatureData:DBConnection
+    class SignatureData
     {
-        public List<Signature> getSignatures()
+        DBcolegioEntities DBContext = new DBcolegioEntities();
+
+        public List<materia> getSignatures()
         {
-            List<Signature> list = new List<Signature>();
-            try
-            {
-                connectDB();
-                SqlCommand query = new SqlCommand("select * from materia", conn);
-                conn.Open();
-                SqlDataReader reader = query.ExecuteReader();
-                while (reader.Read())
-                {
-                    Signature signature = new Signature(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(5),reader.GetString(6),reader.GetString(7));
-                    list.Add(signature);
-                }
-                reader.Close();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                disconnectDB();
-                conn.Close();
-            }
-            return list;
+            return DBContext.materia.ToList();
         }
 
-        public List<Signature> getSignaturesByGroupId(string groupName, string day)
+        public List<materia> getSignaturesByGroupId(string groupName, string day)
         {
-            List<Signature> list = new List<Signature>();
-            try
-            {
-                connectDB();
-                SqlCommand query = new SqlCommand("select * from materia where horario_grupo_idGrupo = @id and horario_dia = @day;", conn);
-                query.Parameters.AddWithValue("@id", groupName);
-                query.Parameters.AddWithValue("@day", day);
-                conn.Open();
-                SqlDataReader reader = query.ExecuteReader();
-                while (reader.Read())
-                {
-                    Signature signature = new Signature(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(5), reader.GetString(6), reader.GetString(7));
-                    list.Add(signature);
-                }
-                reader.Close();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                disconnectDB();
-                conn.Close();
-            }
-            return list;
+            return DBContext.materia.Where(m => m.horario_grupo_idGrupo == groupName && m.horario_dia == day).ToList();          
         }
 
-        public Signature getSignatureById(int id)
+        public materia getSignatureById(int id)
         {
-            Signature signature = null;
-            try
-            {
-                connectDB();
-                SqlCommand query = new SqlCommand("select * from materia where idMateria = @id;", conn);
-                query.Parameters.AddWithValue("@id", id);
-                conn.Open();
-                SqlDataReader reader = query.ExecuteReader();
-                reader.Read();
-                signature = new Signature(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(5), reader.GetString(6), reader.GetString(7));
-                reader.Close();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                disconnectDB();
-                conn.Close();
-            }
-            return signature;
+            return DBContext.materia.Where(m => m.idMateria == id).FirstOrDefault();            
         }
 
-        public bool addSignature(Signature signature)
+        public bool addSignature(materia signature)
         {
-            bool flag = false;
-            try
-            {
-                connectDB();
-                SqlCommand query = new SqlCommand("insert into materia values(@name,@day,@professor,@groupID,@levelID,@start,@end);", conn);
-                query.Parameters.AddWithValue("@name", signature.Name);
-                query.Parameters.AddWithValue("@day", signature.Day);
-                query.Parameters.AddWithValue("@professor", signature.Professor);
-                query.Parameters.AddWithValue("groupID", signature.GrupoId);
-                query.Parameters.AddWithValue("@levelID", signature.LevelId);
-                query.Parameters.AddWithValue("@start", signature.StartTime);
-                query.Parameters.AddWithValue("@end", signature.EndTime);
-                conn.Open();
-                query.ExecuteNonQuery();
-                flag = true;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                disconnectDB();
-                conn.Close();
-            }
-            return flag;
+            DBContext.materia.Add(signature);
+            if (DBContext.SaveChanges() == 1)
+                return true;
+            else
+                return false;
         }
 
-        public bool updateSignature(Signature signature)
+        public bool updateSignature(materia signature)
         {
-            bool flag = false;
-            try
-            {
-                connectDB();
-                SqlCommand query = new SqlCommand("update materia set nombreMateria=@name,horario_dia=@day,profesor = @professor,horario_grupo_idGrupo=@groupID,horario_grupo_nivel_idNivel=@levelID, horaInicio=@start, horaFin=@end where idMateria = @id;", conn);
-                query.Parameters.AddWithValue("@name", signature.Name);
-                query.Parameters.AddWithValue("@day", signature.Day);
-                query.Parameters.AddWithValue("@professor", signature.Professor);
-                query.Parameters.AddWithValue("groupID", signature.GrupoId);
-                query.Parameters.AddWithValue("@levelID", signature.LevelId);
-                query.Parameters.AddWithValue("@Id", signature.SignatureId);
-                query.Parameters.AddWithValue("@start", signature.StartTime);
-                query.Parameters.AddWithValue("@end", signature.EndTime);
-                conn.Open();
-                query.ExecuteNonQuery();
-                flag = true;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                disconnectDB();
-                conn.Close();
-            }
-            return flag;
+            materia sig = DBContext.materia.Where(m => m.idMateria == signature.idMateria).FirstOrDefault();
+            sig.nombreMateria = signature.nombreMateria;
+            sig.profesor = signature.profesor;
+            sig.horario = signature.horario;
+            sig.horario_dia = signature.horario_dia;
+            sig.horario_grupo_idGrupo = signature.horario_grupo_idGrupo;
+            sig.horario_grupo_nivel_idNivel = signature.horario_grupo_nivel_idNivel;
+            if (DBContext.SaveChanges() == 1)
+                return true;
+            else
+                return false;
         }
 
         public bool deleteSignature(string day, string group)
         {
-            bool flag = false;
-            try
-            {
-                connectDB();
-                SqlCommand query = new SqlCommand("delete from materia where horario_dia = @day and horario_grupo_idGrupo=@group", conn);
-                query.Parameters.AddWithValue("@day", day);
-                query.Parameters.AddWithValue("group", group);
-                conn.Open();
-                query.ExecuteNonQuery();
-                flag = true;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                disconnectDB();
-                conn.Close();
-            }
-            return flag;
+            materia sig = DBContext.materia.Where(m => m.horario_dia == day && m.horario_grupo_idGrupo == group).FirstOrDefault();
+            DBContext.materia.Remove(sig);
+            if (DBContext.SaveChanges() == 1)
+                return true;
+            else
+                return false;
         }
     }
 }
