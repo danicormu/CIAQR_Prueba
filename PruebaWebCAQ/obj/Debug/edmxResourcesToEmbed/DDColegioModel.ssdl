@@ -70,6 +70,8 @@
     <Property Name="profesor" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="horario_grupo_idGrupo" Type="varchar" MaxLength="45" Nullable="false" />
     <Property Name="horario_grupo_nivel_idNivel" Type="int" Nullable="false" />
+    <Property Name="horaInicio" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="horaFinal" Type="varchar" MaxLength="255" Nullable="false" />
   </EntityType>
   <EntityType Name="nivel">
     <Key>

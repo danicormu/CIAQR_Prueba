@@ -65,6 +65,8 @@
     <EntitySetMapping Name="materia">
       <EntityTypeMapping TypeName="DBcolegioModel.materia">
         <MappingFragment StoreEntitySet="materia">
+          <ScalarProperty Name="horaFinal" ColumnName="horaFinal" />
+          <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
           <ScalarProperty Name="idMateria" ColumnName="idMateria" />
           <ScalarProperty Name="nombreMateria" ColumnName="nombreMateria" />
           <ScalarProperty Name="horario_dia" ColumnName="horario_dia" />

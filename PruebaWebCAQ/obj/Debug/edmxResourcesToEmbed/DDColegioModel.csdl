@@ -77,6 +77,8 @@
     <Property Name="horario_grupo_idGrupo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="horario_grupo_nivel_idNivel" Type="Int32" Nullable="false" />
     <NavigationProperty Name="horario" Relationship="Self.FK__materia__22AA2996" FromRole="materia" ToRole="horario" />
+    <Property Name="horaInicio" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="horaFinal" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="nivel">
     <Key>

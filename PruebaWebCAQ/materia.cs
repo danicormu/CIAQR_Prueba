@@ -20,6 +20,8 @@ namespace PruebaWebCAQ
         public string profesor { get; set; }
         public string horario_grupo_idGrupo { get; set; }
         public int horario_grupo_nivel_idNivel { get; set; }
+        public string horaInicio { get; set; }
+        public string horaFinal { get; set; }
     
         public virtual horario horario { get; set; }
     }

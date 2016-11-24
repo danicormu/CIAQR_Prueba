@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace PruebaWebCAQ.Data
@@ -14,7 +15,7 @@ namespace PruebaWebCAQ.Data
 
         public bool getScheduleByDayAndGroup(string day, string group)
         {
-            DBContext.horario.Where(h => h.dia == day && h.grupo.Equals(group)).FirstOrDefault();
+            DBContext.horario.Where(h => h.dia == day && h.grupo_idGrupo == group).FirstOrDefault();
             if (DBContext.SaveChanges() == 1)
                 return true;
             else
@@ -22,11 +23,20 @@ namespace PruebaWebCAQ.Data
         }
         public bool addSchedule(horario schedule)
         {
-            DBContext.horario.Add(schedule);
-            if (DBContext.SaveChanges() == 1)
-                return true;
-            else
-                return false;
+            bool flag = false;
+            try
+            {
+                DBContext.horario.Add(schedule);
+                if (DBContext.SaveChanges() == 1)
+                    flag= true;
+                else
+                    flag=  false;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return flag;
         }
 
         public bool updateSchedule(horario schedule)
