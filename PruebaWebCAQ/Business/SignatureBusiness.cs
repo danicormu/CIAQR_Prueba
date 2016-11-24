@@ -41,10 +41,10 @@ namespace PruebaWebCAQ.Business
             return success;
         }
 
-        public bool deleteSignatureService(string day,string group)
+        public bool deleteSignatureService(string day,string group, int id)
         {
             bool success = false;
-            if (data.deleteSignature(day, group))
+            if (data.deleteSignature(day, group, id))
                 success = true;
             return success;
         }

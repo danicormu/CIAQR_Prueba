@@ -55,7 +55,7 @@ namespace PruebaWebCAQ.Data
         }
 
         public bool deleteSchedule(int id)
-        {
+        { 
             horario sch = DBContext.horario.Where(h => h.idHorario == id).FirstOrDefault();
             DBContext.horario.Remove(sch);
             if (DBContext.SaveChanges() == 1)

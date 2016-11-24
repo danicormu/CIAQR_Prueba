@@ -13,6 +13,11 @@ namespace PruebaWebCAQ.Data
             return DBContext.materia.ToList();
         }
 
+        public List<materia> getSignatureByScheduleID(int id)
+        {
+            return DBContext.materia.Where(m => m.horario.idHorario == id).ToList();
+        }
+
         public List<materia> getSignaturesByGroupId(string groupName, string day)
         {
             return DBContext.materia.Where(m => m.horario_grupo_idGrupo == groupName && m.horario_dia == day).ToList();          
@@ -56,14 +61,16 @@ namespace PruebaWebCAQ.Data
                 return false;
         }
 
-        public bool deleteSignature(string day, string group)
+        public bool deleteSignature(string day, string group, int id)
         {
-            materia sig = DBContext.materia.Where(m => m.horario_dia == day && m.horario_grupo_idGrupo == group).FirstOrDefault();
-            DBContext.materia.Remove(sig);
-            if (DBContext.SaveChanges() == 1)
-                return true;
-            else
-                return false;
+            List<materia> list = DBContext.materia.Where(m => m.horario_dia == day && m.horario_grupo_idGrupo == group).ToList();
+            foreach (var element in list)
+            {
+                materia sig = DBContext.materia.Where(m => m.horario_dia == day && m.horario_grupo_idGrupo == group).FirstOrDefault();
+                DBContext.materia.Remove(sig);
+                DBContext.SaveChanges();
+            }
+            return true;
         }
     }
 }

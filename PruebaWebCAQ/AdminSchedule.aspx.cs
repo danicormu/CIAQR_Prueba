@@ -287,9 +287,10 @@ namespace PruebaWebCAQ
             {
                 Label day = (Label)e.Item.FindControl("scheduleDay");
                 Label group = (Label)e.Item.FindControl("scheduleGroup");
-                if (signatureBusiness.deleteSignatureService(day.Text, group.Text))
+                Label id = (Label)e.Item.FindControl("idSchedule");
+                if (signatureBusiness.deleteSignatureService(day.Text, group.Text, Convert.ToInt32(id.Text)))
                 {
-                    Label id = (Label)e.Item.FindControl("idSchedule");
+                    
                     message.InnerText = scheduleBusiness.deleteScheduleService(Convert.ToInt32(id.Text)) + " para el grupo " + group.Text + " y el día " + day.Text + ".";
                 }
                 else
