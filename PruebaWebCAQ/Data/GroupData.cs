@@ -5,7 +5,7 @@ namespace PruebaWebCAQ.Data
 {
     class GroupData
     {
-        DBcolegioEntities DBContext = new DBcolegioEntities();
+        DB_A13EB9_DBcolegioEntities DBContext = new DB_A13EB9_DBcolegioEntities();
 
         // lista todos los grupos en existencia
         public List<grupo> getAllGroups()

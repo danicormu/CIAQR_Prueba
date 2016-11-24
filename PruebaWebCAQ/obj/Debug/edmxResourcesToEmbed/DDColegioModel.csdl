@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DBcolegioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="DB_A13EB9_DBcolegioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="administrador">
     <Key>
       <PropertyRef Name="idAdmin" />
@@ -76,9 +76,9 @@
     <Property Name="profesor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="horario_grupo_idGrupo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="horario_grupo_nivel_idNivel" Type="Int32" Nullable="false" />
+    <Property Name="horaInicio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="horaFinal" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="horario" Relationship="Self.FK__materia__22AA2996" FromRole="materia" ToRole="horario" />
-    <Property Name="horaInicio" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="horaFinal" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="nivel">
     <Key>
@@ -86,6 +86,16 @@
     </Key>
     <Property Name="idNivel" Type="Int32" Nullable="false" />
     <NavigationProperty Name="grupo" Relationship="Self.FK__grupo__nivel_idN__20C1E124" FromRole="nivel" ToRole="grupo" />
+  </EntityType>
+  <EntityType Name="personal">
+    <Key>
+      <PropertyRef Name="idPersona" />
+    </Key>
+    <Property Name="idPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="foto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK__evento__cronogra__1FCDBCEB">
     <End Role="cronograma" Type="Self.cronograma" Multiplicity="1" />
@@ -141,7 +151,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="DBcolegioEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="DB_A13EB9_DBcolegioEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="administrador" EntityType="Self.administrador" />
     <EntitySet Name="cronograma" EntityType="Self.cronograma" />
     <EntitySet Name="evento" EntityType="Self.evento" />
@@ -150,6 +160,7 @@
     <EntitySet Name="horario" EntityType="Self.horario" />
     <EntitySet Name="materia" EntityType="Self.materia" />
     <EntitySet Name="nivel" EntityType="Self.nivel" />
+    <EntitySet Name="personal" EntityType="Self.personal" />
     <AssociationSet Name="FK__evento__cronogra__1FCDBCEB" Association="Self.FK__evento__cronogra__1FCDBCEB">
       <End Role="cronograma" EntitySet="cronograma" />
       <End Role="evento" EntitySet="evento" />
@@ -166,16 +177,5 @@
       <End Role="horario" EntitySet="horario" />
       <End Role="materia" EntitySet="materia" />
     </AssociationSet>
-    <EntitySet Name="personal" EntityType="DBcolegioModel.personal" />
   </EntityContainer>
-  <EntityType Name="personal">
-    <Key>
-      <PropertyRef Name="idPersona" />
-    </Key>
-    <Property Name="idPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="rol" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="foto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-  </EntityType>
 </Schema>

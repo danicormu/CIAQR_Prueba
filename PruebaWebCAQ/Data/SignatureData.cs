@@ -6,7 +6,7 @@ namespace PruebaWebCAQ.Data
 {
     class SignatureData
     {
-        DBcolegioEntities DBContext = new DBcolegioEntities();
+        DB_A13EB9_DBcolegioEntities DBContext = new DB_A13EB9_DBcolegioEntities();
 
         public List<materia> getSignatures()
         {

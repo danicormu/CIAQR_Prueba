@@ -5,7 +5,7 @@ namespace PruebaWebCAQ.Data
 {
     class ChronogramData
     {
-        DBcolegioEntities DBContext = new DBcolegioEntities();
+        DB_A13EB9_DBcolegioEntities DBContext = new DB_A13EB9_DBcolegioEntities();
         // lista los cronogramas en existencia
         public List<cronograma> getAllChronogram()
         {

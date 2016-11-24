@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DBcolegioModelStoreContainer" CdmEntityContainer="DBcolegioEntities">
+  <EntityContainerMapping StorageEntityContainer="DB_A13EB9_DBcolegioModelStoreContainer" CdmEntityContainer="DB_A13EB9_DBcolegioEntities">
     <EntitySetMapping Name="administrador">
-      <EntityTypeMapping TypeName="DBcolegioModel.administrador">
+      <EntityTypeMapping TypeName="DB_A13EB9_DBcolegioModel.administrador">
         <MappingFragment StoreEntitySet="administrador">
           <ScalarProperty Name="idAdmin" ColumnName="idAdmin" />
           <ScalarProperty Name="usuario" ColumnName="usuario" />
@@ -11,7 +11,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="cronograma">
-      <EntityTypeMapping TypeName="DBcolegioModel.cronograma">
+      <EntityTypeMapping TypeName="DB_A13EB9_DBcolegioModel.cronograma">
         <MappingFragment StoreEntitySet="cronograma">
           <ScalarProperty Name="idCronograma" ColumnName="idCronograma" />
           <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
@@ -20,7 +20,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="evento">
-      <EntityTypeMapping TypeName="DBcolegioModel.evento">
+      <EntityTypeMapping TypeName="DB_A13EB9_DBcolegioModel.evento">
         <MappingFragment StoreEntitySet="evento">
           <ScalarProperty Name="idEvento" ColumnName="idEvento" />
           <ScalarProperty Name="nombreEvento" ColumnName="nombreEvento" />
@@ -32,7 +32,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="galeria">
-      <EntityTypeMapping TypeName="DBcolegioModel.galeria">
+      <EntityTypeMapping TypeName="DB_A13EB9_DBcolegioModel.galeria">
         <MappingFragment StoreEntitySet="galeria">
           <ScalarProperty Name="idFoto" ColumnName="idFoto" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -43,7 +43,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="grupo">
-      <EntityTypeMapping TypeName="DBcolegioModel.grupo">
+      <EntityTypeMapping TypeName="DB_A13EB9_DBcolegioModel.grupo">
         <MappingFragment StoreEntitySet="grupo">
           <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
           <ScalarProperty Name="nivel_idNivel" ColumnName="nivel_idNivel" />
@@ -51,7 +51,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="horario">
-      <EntityTypeMapping TypeName="DBcolegioModel.horario">
+      <EntityTypeMapping TypeName="DB_A13EB9_DBcolegioModel.horario">
         <MappingFragment StoreEntitySet="horario">
           <ScalarProperty Name="dia" ColumnName="dia" />
           <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
@@ -63,34 +63,34 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="materia">
-      <EntityTypeMapping TypeName="DBcolegioModel.materia">
+      <EntityTypeMapping TypeName="DB_A13EB9_DBcolegioModel.materia">
         <MappingFragment StoreEntitySet="materia">
-          <ScalarProperty Name="horaFinal" ColumnName="horaFinal" />
-          <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
           <ScalarProperty Name="idMateria" ColumnName="idMateria" />
           <ScalarProperty Name="nombreMateria" ColumnName="nombreMateria" />
           <ScalarProperty Name="horario_dia" ColumnName="horario_dia" />
           <ScalarProperty Name="profesor" ColumnName="profesor" />
           <ScalarProperty Name="horario_grupo_idGrupo" ColumnName="horario_grupo_idGrupo" />
           <ScalarProperty Name="horario_grupo_nivel_idNivel" ColumnName="horario_grupo_nivel_idNivel" />
+          <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
+          <ScalarProperty Name="horaFinal" ColumnName="horaFinal" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="nivel">
-      <EntityTypeMapping TypeName="DBcolegioModel.nivel">
+      <EntityTypeMapping TypeName="DB_A13EB9_DBcolegioModel.nivel">
         <MappingFragment StoreEntitySet="nivel">
           <ScalarProperty Name="idNivel" ColumnName="idNivel" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="personal">
-      <EntityTypeMapping TypeName="DBcolegioModel.personal">
+      <EntityTypeMapping TypeName="DB_A13EB9_DBcolegioModel.personal">
         <MappingFragment StoreEntitySet="personal">
-          <ScalarProperty Name="foto" ColumnName="foto" />
-          <ScalarProperty Name="rol" ColumnName="rol" />
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="rol" ColumnName="rol" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

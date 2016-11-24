@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DBcolegioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DB_A13EB9_DBcolegioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="administrador">
           <Key>
             <PropertyRef Name="idAdmin" />
@@ -106,6 +106,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__evento__cronogra__2C3393D0">
+          <End Role="cronograma" Type="Self.cronograma" Multiplicity="1" />
+          <End Role="evento" Type="Self.evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cronograma">
+              <PropertyRef Name="idCronograma" />
+            </Principal>
+            <Dependent Role="evento">
+              <PropertyRef Name="cronograma_idCronograma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__grupo__nivel_idN__20C1E124">
           <End Role="nivel" Type="Self.nivel" Multiplicity="1" />
           <End Role="grupo" Type="Self.grupo" Multiplicity="*" />
@@ -118,7 +130,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__grupo__nivel_idN__2D27B809">
+          <End Role="nivel" Type="Self.nivel" Multiplicity="1" />
+          <End Role="grupo" Type="Self.grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nivel">
+              <PropertyRef Name="idNivel" />
+            </Principal>
+            <Dependent Role="grupo">
+              <PropertyRef Name="nivel_idNivel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__horario__21B6055D">
+          <End Role="grupo" Type="Self.grupo" Multiplicity="1" />
+          <End Role="horario" Type="Self.horario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="grupo">
+              <PropertyRef Name="idGrupo" />
+              <PropertyRef Name="nivel_idNivel" />
+            </Principal>
+            <Dependent Role="horario">
+              <PropertyRef Name="grupo_idGrupo" />
+              <PropertyRef Name="grupo_nivel_idNivel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__horario__2E1BDC42">
           <End Role="grupo" Type="Self.grupo" Multiplicity="1" />
           <End Role="horario" Type="Self.horario" Multiplicity="*" />
           <ReferentialConstraint>
@@ -148,7 +186,23 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBcolegioModelStoreContainer">
+        <Association Name="FK__materia__2F10007B">
+          <End Role="horario" Type="Self.horario" Multiplicity="1" />
+          <End Role="materia" Type="Self.materia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="horario">
+              <PropertyRef Name="dia" />
+              <PropertyRef Name="grupo_idGrupo" />
+              <PropertyRef Name="grupo_nivel_idNivel" />
+            </Principal>
+            <Dependent Role="materia">
+              <PropertyRef Name="horario_dia" />
+              <PropertyRef Name="horario_grupo_idGrupo" />
+              <PropertyRef Name="horario_grupo_nivel_idNivel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_A13EB9_DBcolegioModelStoreContainer">
           <EntitySet Name="administrador" EntityType="Self.administrador" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="cronograma" EntityType="Self.cronograma" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="evento" EntityType="Self.evento" Schema="dbo" store:Type="Tables" />
@@ -162,7 +216,15 @@
             <End Role="cronograma" EntitySet="cronograma" />
             <End Role="evento" EntitySet="evento" />
           </AssociationSet>
+          <AssociationSet Name="FK__evento__cronogra__2C3393D0" Association="Self.FK__evento__cronogra__2C3393D0">
+            <End Role="cronograma" EntitySet="cronograma" />
+            <End Role="evento" EntitySet="evento" />
+          </AssociationSet>
           <AssociationSet Name="FK__grupo__nivel_idN__20C1E124" Association="Self.FK__grupo__nivel_idN__20C1E124">
+            <End Role="nivel" EntitySet="nivel" />
+            <End Role="grupo" EntitySet="grupo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__grupo__nivel_idN__2D27B809" Association="Self.FK__grupo__nivel_idN__2D27B809">
             <End Role="nivel" EntitySet="nivel" />
             <End Role="grupo" EntitySet="grupo" />
           </AssociationSet>
@@ -170,15 +232,24 @@
             <End Role="grupo" EntitySet="grupo" />
             <End Role="horario" EntitySet="horario" />
           </AssociationSet>
+          <AssociationSet Name="FK__horario__2E1BDC42" Association="Self.FK__horario__2E1BDC42">
+            <End Role="grupo" EntitySet="grupo" />
+            <End Role="horario" EntitySet="horario" />
+          </AssociationSet>
           <AssociationSet Name="FK__materia__22AA2996" Association="Self.FK__materia__22AA2996">
             <End Role="horario" EntitySet="horario" />
             <End Role="materia" EntitySet="materia" />
           </AssociationSet>
+          <AssociationSet Name="FK__materia__2F10007B" Association="Self.FK__materia__2F10007B">
+            <End Role="horario" EntitySet="horario" />
+            <End Role="materia" EntitySet="materia" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DBcolegioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DB_A13EB9_DBcolegioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="administrador">
           <Key>
             <PropertyRef Name="idAdmin" />
@@ -255,9 +326,9 @@
           <Property Name="profesor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="horario_grupo_idGrupo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="horario_grupo_nivel_idNivel" Type="Int32" Nullable="false" />
+          <Property Name="horaInicio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="horaFinal" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="horario" Relationship="Self.FK__materia__22AA2996" FromRole="materia" ToRole="horario" />
-          <Property Name="horaInicio" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="horaFinal" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="nivel">
           <Key>
@@ -265,6 +336,16 @@
           </Key>
           <Property Name="idNivel" Type="Int32" Nullable="false" />
           <NavigationProperty Name="grupo" Relationship="Self.FK__grupo__nivel_idN__20C1E124" FromRole="nivel" ToRole="grupo" />
+        </EntityType>
+        <EntityType Name="personal">
+          <Key>
+            <PropertyRef Name="idPersona" />
+          </Key>
+          <Property Name="idPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="foto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK__evento__cronogra__1FCDBCEB">
           <End Role="cronograma" Type="Self.cronograma" Multiplicity="1" />
@@ -320,7 +401,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBcolegioEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DB_A13EB9_DBcolegioEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="administrador" EntityType="Self.administrador" />
           <EntitySet Name="cronograma" EntityType="Self.cronograma" />
           <EntitySet Name="evento" EntityType="Self.evento" />
@@ -329,6 +410,7 @@
           <EntitySet Name="horario" EntityType="Self.horario" />
           <EntitySet Name="materia" EntityType="Self.materia" />
           <EntitySet Name="nivel" EntityType="Self.nivel" />
+          <EntitySet Name="personal" EntityType="Self.personal" />
           <AssociationSet Name="FK__evento__cronogra__1FCDBCEB" Association="Self.FK__evento__cronogra__1FCDBCEB">
             <End Role="cronograma" EntitySet="cronograma" />
             <End Role="evento" EntitySet="evento" />
@@ -345,26 +427,15 @@
             <End Role="horario" EntitySet="horario" />
             <End Role="materia" EntitySet="materia" />
           </AssociationSet>
-          <EntitySet Name="personal" EntityType="DBcolegioModel.personal" />
         </EntityContainer>
-        <EntityType Name="personal">
-          <Key>
-            <PropertyRef Name="idPersona" />
-          </Key>
-          <Property Name="idPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="rol" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="foto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DBcolegioModelStoreContainer" CdmEntityContainer="DBcolegioEntities">
+        <EntityContainerMapping StorageEntityContainer="DB_A13EB9_DBcolegioModelStoreContainer" CdmEntityContainer="DB_A13EB9_DBcolegioEntities">
           <EntitySetMapping Name="administrador">
-            <EntityTypeMapping TypeName="DBcolegioModel.administrador">
+            <EntityTypeMapping TypeName="DB_A13EB9_DBcolegioModel.administrador">
               <MappingFragment StoreEntitySet="administrador">
                 <ScalarProperty Name="idAdmin" ColumnName="idAdmin" />
                 <ScalarProperty Name="usuario" ColumnName="usuario" />
@@ -373,7 +444,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="cronograma">
-            <EntityTypeMapping TypeName="DBcolegioModel.cronograma">
+            <EntityTypeMapping TypeName="DB_A13EB9_DBcolegioModel.cronograma">
               <MappingFragment StoreEntitySet="cronograma">
                 <ScalarProperty Name="idCronograma" ColumnName="idCronograma" />
                 <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
@@ -382,7 +453,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="evento">
-            <EntityTypeMapping TypeName="DBcolegioModel.evento">
+            <EntityTypeMapping TypeName="DB_A13EB9_DBcolegioModel.evento">
               <MappingFragment StoreEntitySet="evento">
                 <ScalarProperty Name="idEvento" ColumnName="idEvento" />
                 <ScalarProperty Name="nombreEvento" ColumnName="nombreEvento" />
@@ -394,7 +465,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="galeria">
-            <EntityTypeMapping TypeName="DBcolegioModel.galeria">
+            <EntityTypeMapping TypeName="DB_A13EB9_DBcolegioModel.galeria">
               <MappingFragment StoreEntitySet="galeria">
                 <ScalarProperty Name="idFoto" ColumnName="idFoto" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -405,7 +476,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="grupo">
-            <EntityTypeMapping TypeName="DBcolegioModel.grupo">
+            <EntityTypeMapping TypeName="DB_A13EB9_DBcolegioModel.grupo">
               <MappingFragment StoreEntitySet="grupo">
                 <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
                 <ScalarProperty Name="nivel_idNivel" ColumnName="nivel_idNivel" />
@@ -413,7 +484,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="horario">
-            <EntityTypeMapping TypeName="DBcolegioModel.horario">
+            <EntityTypeMapping TypeName="DB_A13EB9_DBcolegioModel.horario">
               <MappingFragment StoreEntitySet="horario">
                 <ScalarProperty Name="dia" ColumnName="dia" />
                 <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
@@ -425,34 +496,34 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="materia">
-            <EntityTypeMapping TypeName="DBcolegioModel.materia">
+            <EntityTypeMapping TypeName="DB_A13EB9_DBcolegioModel.materia">
               <MappingFragment StoreEntitySet="materia">
-                <ScalarProperty Name="horaFinal" ColumnName="horaFinal" />
-                <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
                 <ScalarProperty Name="idMateria" ColumnName="idMateria" />
                 <ScalarProperty Name="nombreMateria" ColumnName="nombreMateria" />
                 <ScalarProperty Name="horario_dia" ColumnName="horario_dia" />
                 <ScalarProperty Name="profesor" ColumnName="profesor" />
                 <ScalarProperty Name="horario_grupo_idGrupo" ColumnName="horario_grupo_idGrupo" />
                 <ScalarProperty Name="horario_grupo_nivel_idNivel" ColumnName="horario_grupo_nivel_idNivel" />
+                <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
+                <ScalarProperty Name="horaFinal" ColumnName="horaFinal" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="nivel">
-            <EntityTypeMapping TypeName="DBcolegioModel.nivel">
+            <EntityTypeMapping TypeName="DB_A13EB9_DBcolegioModel.nivel">
               <MappingFragment StoreEntitySet="nivel">
                 <ScalarProperty Name="idNivel" ColumnName="idNivel" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="personal">
-            <EntityTypeMapping TypeName="DBcolegioModel.personal">
+            <EntityTypeMapping TypeName="DB_A13EB9_DBcolegioModel.personal">
               <MappingFragment StoreEntitySet="personal">
-                <ScalarProperty Name="foto" ColumnName="foto" />
-                <ScalarProperty Name="rol" ColumnName="rol" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

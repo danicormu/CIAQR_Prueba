@@ -7,7 +7,7 @@ namespace PruebaWebCAQ.Data
 {
     class EventData
     {
-        DBcolegioEntities DbContext = new DBcolegioEntities();
+        DB_A13EB9_DBcolegioEntities DbContext = new DB_A13EB9_DBcolegioEntities();
         // Metodo que muestra todos los eventos
         public List<evento> getAllEvents()
         {

@@ -7,7 +7,7 @@ namespace PruebaWebCAQ.Data
     class AdministratorData
     {
 
-        DBcolegioEntities DbContext = new DBcolegioEntities();
+        DB_A13EB9_DBcolegioEntities DbContext = new DB_A13EB9_DBcolegioEntities();
 
         //lista a todos los administradores
         public List<administrador> getAllAdministrators()

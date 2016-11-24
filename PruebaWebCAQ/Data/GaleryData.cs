@@ -5,7 +5,7 @@ namespace PruebaWebCAQ.Data
 {
     class GaleryData
     {
-        DBcolegioEntities dbContext = new DBcolegioEntities();
+        DB_A13EB9_DBcolegioEntities dbContext = new DB_A13EB9_DBcolegioEntities();
         //lista todas las imagenes de la galeria.
         public List<galeria> getAllGalery()
         {

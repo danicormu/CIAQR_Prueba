@@ -6,7 +6,7 @@ namespace PruebaWebCAQ.Data
 {
     class PersonalData
     {
-        DBcolegioEntities DbContext = new DBcolegioEntities();
+        DB_A13EB9_DBcolegioEntities DbContext = new DB_A13EB9_DBcolegioEntities();
         // lista de personal
         public List<personal> getAllPersonal()
         {

@@ -13,10 +13,10 @@ namespace PruebaWebCAQ
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DBcolegioEntities : DbContext
+    public partial class DB_A13EB9_DBcolegioEntities : DbContext
     {
-        public DBcolegioEntities()
-            : base("name=DBcolegioEntities")
+        public DB_A13EB9_DBcolegioEntities()
+            : base("name=DB_A13EB9_DBcolegioEntities")
         {
         }
     
