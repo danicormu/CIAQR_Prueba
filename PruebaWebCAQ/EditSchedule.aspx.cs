@@ -46,8 +46,8 @@ namespace PruebaWebCAQ
                 name.Text = signatureList.ElementAt(i).nombreMateria;
                 day.Text = signatureList.ElementAt(i).horario_dia;
                 prof.Text = signatureList.ElementAt(i).profesor;
-                start.Text = signatureList.ElementAt(i).horario.horaInicio;
-                end.Text = signatureList.ElementAt(i).horario.horaFinal;
+                start.Text = signatureList.ElementAt(i).horaInicio;
+                end.Text = signatureList.ElementAt(i).horaFinal;
                 edit.Text = "Editar";
                 i++;
             }     

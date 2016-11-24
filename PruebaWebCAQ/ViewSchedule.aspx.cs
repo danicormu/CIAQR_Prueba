@@ -98,8 +98,8 @@ namespace PruebaWebCAQ
             materia sig = signature.getsignatureByIdService(id);
             signatureText.Text = sig.nombreMateria;
             prof.Text = sig.profesor;
-            start.Text = sig.horario.horaInicio;
-            end.Text = sig.horario.horaFinal;  
+            start.Text = sig.horaInicio;
+            end.Text = sig.horaFinal;  
             ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender1");
             popup.Show();
         }
@@ -111,8 +111,8 @@ namespace PruebaWebCAQ
             materia sig = signature.getsignatureByIdService(id);
             signatureText.Text = sig.nombreMateria;
             prof.Text = sig.profesor;
-            start.Text = sig.horario.horaInicio;
-            end.Text = sig.horario.horaFinal;
+            start.Text = sig.horaInicio;
+            end.Text = sig.horaFinal;
             ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender1");
             popup.Show();
         }
@@ -124,8 +124,8 @@ namespace PruebaWebCAQ
             materia sig = signature.getsignatureByIdService(id);
             signatureText.Text = sig.nombreMateria;
             prof.Text = sig.profesor;
-            start.Text = sig.horario.horaInicio;
-            end.Text = sig.horario.horaFinal;
+            start.Text = sig.horaInicio;
+            end.Text = sig.horaFinal;
             ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender1");
             popup.Show();
         }
@@ -137,8 +137,8 @@ namespace PruebaWebCAQ
             materia sig = signature.getsignatureByIdService(id);
             signatureText.Text = sig.nombreMateria;
             prof.Text = sig.profesor;
-            start.Text = sig.horario.horaInicio;
-            end.Text = sig.horario.horaFinal;
+            start.Text = sig.horaInicio;
+            end.Text = sig.horaFinal;
             ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender1");
             popup.Show();
         }
@@ -150,8 +150,8 @@ namespace PruebaWebCAQ
             materia sig = signature.getsignatureByIdService(id);
             signatureText.Text = sig.nombreMateria;
             prof.Text = sig.profesor;
-            start.Text = sig.horario.horaInicio;
-            end.Text = sig.horario.horaFinal;
+            start.Text = sig.horaInicio;
+            end.Text = sig.horaFinal;
             ModalPopupExtender popup = (ModalPopupExtender)e.Item.FindControl("ModalPopupExtender1");
             popup.Show();
         }
