@@ -332,7 +332,7 @@
                 <div class="container contactFooter">
                     <div class="col-sm-12">
                         <div class="logo">
-                            <a href="#">
+                            <a>
                                 <img src="Resources/img/logo/logo-footer.png" alt=""/>
                                 <span class="logo_text">Colegio Ing. Alejandro Quesada R.</span>
                             </a>

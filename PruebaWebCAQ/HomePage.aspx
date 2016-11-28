@@ -11,29 +11,29 @@
             <div class="row">
                 <div class="sc_content user_header">
                     <div class="col-md-3 col-sm-6">
-                        <a href="#">
+                        <a href="HomePage.aspx#Proffesors">
                             <span class="sc_icon">
                                 <img src="Resources/img/ico/team.png" />
                             </span>
                         </a>
                         <div class="sc_section">
-                            <a href="HomePage.aspx#KnowUS">Profesores bien capacitados</a>
+                            <a href="HomePage.aspx#Proffesors">Profesores bien capacitados</a>
                         </div>
                         <div class="sc_section">La calidad primero</div>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                        <a href="#">
+                        <a>
                             <span class="sc_icon">
                                 <img src="Resources/img/ico/schedule.png" />
                             </span>
                         </a>
                         <div class="sc_section">
-                            <a href="ViewSchedule.aspx">Horarios</a>
+                            <a>Horarios</a>
                         </div>
                         <div class="sc_section">Busca tu horario</div>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                        <a href="#">
+                        <a href="ViewChronogram.aspx">
                             <span class="sc_icon">
                                 <img src="Resources/img/ico/chronogram.png" />
                             </span>
@@ -44,7 +44,7 @@
                         <div class="sc_section">Mira los eventos</div>
                     </div>
                     <div class="col-md-3 col-sm-6">
-                        <a href="#">
+                        <a  href="Events.aspx">
                             <span class="sc_icon">
                                 <img src="Resources/img/ico/news.png" />
                             </span>
@@ -197,7 +197,7 @@
             <div class="row content">
                 <div class="col-sm-12 col-md-8 col-lg-9 col-md-push-4 col-lg-push-ser">
                     <div class="sc_section sc_alignright col-sm-6 margin_bottom_small">
-                        <a href="#" class="sc_banner">
+                        <a class="sc_banner">
                             <img src="Resources/img/comedor.jpg" class="sc_banner_image" alt="" />
                             <span class="sc_banner_title">Comedor Estudiantil</span>
                             <span class="sc_banner_content">Alimentando a la comunidad</span>
@@ -225,7 +225,7 @@
             <div class="row content">
                 <div class="col-sm-12 col-md-8 col-lg-9 col-md-push-4 col-lg-push-ser">
                     <div class="sc_section sc_alignright col-sm-6 margin_bottom_small">
-                        <a href="#" class="sc_banner">
+                        <a class="sc_banner">
                             <img src="Resources/img/becas.jpg" class="sc_banner_image" alt="" />
                             <span class="sc_banner_title">Programa de Becas</span>
                             <span class="sc_banner_content">Becamos a los estudiantes de escazos recursos</span>
@@ -249,7 +249,7 @@
             <div class="row content">
                 <div class="col-sm-12 col-md-8 col-lg-9 col-md-push-4 col-lg-push-ser">
                     <div class="sc_section sc_alignright col-sm-6 margin_bottom_small">
-                        <a href="#" class="sc_banner">
+                        <a class="sc_banner">
                             <img src="Resources/img/Biblioteca.jpg" class="sc_banner_image" alt="" />
                             <span class="sc_banner_title">Biblioteca Estudiantil</span>
                             <span class="sc_banner_content">Libros para alimentar la cultura</span>
@@ -426,7 +426,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12">
+                <div id="Proffesors" class="col-sm-12">
                     <h2 class="sc_title sc_title_regular text-center margin_bottom_mini">Conoce a Nuestros Educadores</h2>
                     <div class="sc_team">
 
