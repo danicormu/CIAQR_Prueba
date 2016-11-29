@@ -30,7 +30,7 @@ namespace PruebaWebCAQ.Data
             gal.descripcion = gallery.descripcion;
             gal.fecha = gallery.fecha;
             gal.nombre = gallery.nombre;
-            gal.foto = gallery.foto;
+            //gal.foto = gallery.foto;
             if (dbContext.SaveChanges() == 1)
                 return true;
             else

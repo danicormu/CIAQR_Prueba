@@ -112,6 +112,7 @@ namespace PruebaWebCAQ
         {
             grupo gr = new grupo();
             gr.idGrupo=groupToEdit.Value;
+            gr.nivel_idNivel = 7;
             mesgP.InnerText= groupBusiness.updateGroupService(gr, lblGroup.Text);
             ModalPopupExtenderForMessage.Show();
             i = 0;

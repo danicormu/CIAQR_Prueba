@@ -88,8 +88,8 @@ namespace PruebaWebCAQ
             sig.profesor = updateProf.Text;
             sig.horario_grupo_idGrupo = group;
             sig.horario_grupo_nivel_idNivel = lvl;
-            sig.horario.horaInicio = updateStart.Text;
-            sig.horario.horaFinal=updateEnd.Text;
+            sig.horaInicio = updateStart.Text;
+            sig.horaFinal=updateEnd.Text;
             message.InnerText = signature.updateSignatureService(sig);
             i=0;
             signatureList = signature.getSignatureByGrupoIDService(group, day);

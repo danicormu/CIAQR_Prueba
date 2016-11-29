@@ -35,9 +35,7 @@ namespace PruebaWebCAQ.Data
         public bool updateGroupName(grupo group, string idGroup)
         {
             grupo grp = DBContext.grupo.Where(g => g.idGrupo.Equals(idGroup)).FirstOrDefault();
-            grp.horario = group.horario;
-            grp.nivel = group.nivel;
-            grp.nivel_idNivel = group.nivel_idNivel;
+            grp.idGrupo = group.idGrupo;
             if (DBContext.SaveChanges() == 1)
                 return true;
             else
