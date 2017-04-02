@@ -168,6 +168,7 @@ namespace PruebaWebCAQ
 
         protected void processbtn_Click(object sender, EventArgs e) {}
 
+        //metodo q elimina del
         protected void btnDeleteImage_Click(object sender, EventArgs e)
         {
             GBusiness.deleteImageService(Convert.ToInt32(lblIdToDelete.Text));

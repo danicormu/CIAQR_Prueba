@@ -19,6 +19,7 @@
                                         <article class="sc_post_format_gallery postDefault hrShadow post margin_bottom_small">
                                             <div class="sc_section col-sm-6 post_thumb thumb">
                                                 <div class="dimensPicture">
+                                                    <!-- Image to show before you post-->
                                                     <img id="imgShow" src="Resources/default_img/default.png" runat="server" alt="" class="img-thumbnail" />
                                                 </div>
                                             </div>
@@ -31,6 +32,7 @@
                                             </div>
                                             <br />
                                             <div class="sc_button sc_button_style_dark sc_button_size_big squareButton dark big">
+                                                <!-- File for upload-->
                                                 <asp:FileUpload ID="imgUploadGallery" runat="server" CssClass="sc_button" />
                                             </div>                                            
                                             <br />
@@ -48,21 +50,25 @@
                                                     <asp:Button runat="server" ID="cancelImg" Text="Cancelar" OnClick="cancelImg_Click" />
                                                 </div>
                                                 <asp:Button runat="server" ID="processbtn" OnClick="processbtn_Click" Style="visibility: hidden;" />
+                                                <!-- Modal Popup Extender-->
                                                 <asp:ModalPopupExtender ID="ModalPopupExtender1" runat="server"
                                                     TargetControlID="processbtn"
                                                     CancelControlID="btnCancel"
                                                     PopupControlID="Panel1"
                                                     Drag="true"
                                                     BackgroundCssClass="modalBackground">
-                                                </asp:ModalPopupExtender>                                                
+                                                </asp:ModalPopupExtender>  
+                                                <!-- Fin Modal Popup Extender-->                                              
                                                 <br />                                                                                     
                                             </div>
                                         </article>
+                                        <!-- Panel -->
                                         <asp:Panel ID="Panel1" Style="display: none" CssClass="modalPopup1" align="center" runat="server">
                                             <p runat="server" id="messsage"></p>
                                             <hr />
                                             <input id="btnCancel" type="button" value="Aceptar" />
                                         </asp:Panel>
+                                        <!-- Fin del Panel -->
                                     </div>
                                 </div>
                                 <article class="hrShadow post">
@@ -75,6 +81,7 @@
                                                         <div class="ih-item colored circle effect2 left_to_right">
                                                             <a href="#" class="taphover">
                                                                 <div class="img">
+                                                                    <!-- Image -->
                                                                     <asp:Image ID="imagePosted" runat="server" />
                                                                 </div>
                                                                 <div class="info" runat="server">
@@ -124,7 +131,7 @@
         </div>
         <asp:Panel ID="Panel2" Style="display: none" CssClass="modalPopup" align="center" runat="server">
             <a>Id de la Imagen: </a>
-            <asp:Label runat="server" ID="galID"></asp:Label>
+            <asp:Label runat="server" ID AccessKey="galID"></asp:Label>
             <br />
             <asp:Label runat="server" ID="titleLabel"></asp:Label>
             <input runat="server" id="titleToEdit" />
@@ -138,6 +145,7 @@
         <asp:Panel ID="Panel3" Style="display: none" CssClass="modalPopupMsg" align="center" runat="server">
             <a>Id de la Imagen: </a>
             <asp:Label runat="server" ID="lblIdToDelete"></asp:Label>
+            <br />
             <br />
             <asp:Label runat="server" ID="lblMsg" Text="Desea eliminar la imagen?"></asp:Label>            
             <br />            
